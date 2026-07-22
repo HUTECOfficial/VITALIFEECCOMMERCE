@@ -1,10 +1,30 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import Link from "next/link";
 import { ChevronDown, ShoppingCart, ArrowRight } from "lucide-react";
-import type { Brand } from "@/data/brands";
+import type { Brand, BrandCategory } from "@/data/brands";
+import type { Product } from "@/types";
+import { formatPrice } from "@/lib/utils";
+import { ShoppingCartButton } from "@/components/ui/ShoppingCartButton";
+
+const brandToProductCategory: Record<BrandCategory, Product["category"] | "all"> = {
+  "Guantes": "guantes",
+  "Agujas y Jeringas": "jeringas",
+  "Vías IV": "jeringas",
+  "Material de Curación": "curacion",
+  "Apósitos y Cintas": "vendas",
+  "Antisépticos": "curacion",
+  "Sondas y Catéteres": "jeringas",
+  "Ventilación": "equipo",
+  "Diagnóstico": "equipo",
+  "Rehabilitación": "equipo",
+  "Equipo Quirúrgico": "equipo",
+  "Soluciones IV": "medicamentos",
+  "Misceláneos": "all",
+};
 
 interface Props {
   brand: Brand;
@@ -13,6 +33,20 @@ interface Props {
 
 export default function BrandDetailClient({ brand, total }: Props) {
   const [openFamily, setOpenFamily] = useState<string | null>(brand.families[0]?.name ?? null);
+  const [allProducts, setAllProducts] = useState<Product[]>([]);
+
+  useEffect(() => {
+    fetch("/api/products")
+      .then((res) => res.json())
+      .then((data: Product[]) => setAllProducts(data || []))
+      .catch(() => setAllProducts([]));
+  }, []);
+
+  const brandProducts = useMemo(() => {
+    const productCat = brandToProductCategory[brand.category] ?? "all";
+    if (productCat === "all") return allProducts;
+    return allProducts.filter((p) => p.category === productCat);
+  }, [allProducts, brand.category]);
 
   return (
     <div className="min-h-screen relative overflow-hidden">
@@ -90,7 +124,7 @@ export default function BrandDetailClient({ brand, total }: Props) {
                   <span className="text-sm text-[#1a3a6b]/60 font-medium">líneas</span>
                 </div>
                 <Link
-                  href="/insumos#catalogo-productos"
+                  href={`/insumos?q=${encodeURIComponent(brand.name)}`}
                   className="glass-card px-5 py-2 flex items-center gap-2 bg-[#1a3a6b]/10 border border-[#1a3a6b]/30 text-[#1a3a6b] font-bold text-sm hover:bg-[#1a3a6b]/20 transition-colors"
                 >
                   <ShoppingCart className="w-4 h-4" /> Ver en catálogo
@@ -168,7 +202,7 @@ export default function BrandDetailClient({ brand, total }: Props) {
                               <span className="text-sm text-[#1a3a6b]/85 font-medium truncate">{item}</span>
                             </div>
                             <Link
-                              href="/insumos#catalogo-productos"
+                              href={`/insumos?q=${encodeURIComponent(item)}`}
                               className="flex-shrink-0 opacity-100 sm:opacity-0 sm:group-hover:opacity-100 transition-all text-xs font-bold text-[#1a3a6b] bg-[#1a3a6b]/10 hover:bg-[#1a3a6b]/20 px-3 py-1.5 rounded-lg"
                             >
                               Ver en catálogo
@@ -180,7 +214,7 @@ export default function BrandDetailClient({ brand, total }: Props) {
                       {/* Family CTA */}
                       <div className="p-4 pt-0">
                         <Link
-                          href="/insumos#catalogo-productos"
+                          href={`/insumos?q=${encodeURIComponent(family.name)}`}
                           className="flex items-center justify-center gap-2 w-full py-3 rounded-xl bg-[#1a3a6b]/10 border border-[#1a3a6b]/25 text-[#1a3a6b] font-bold text-sm hover:bg-[#1a3a6b]/20 transition-colors"
                         >
                           Ver productos en el catálogo
@@ -193,6 +227,55 @@ export default function BrandDetailClient({ brand, total }: Props) {
             );
           })}
         </div>
+
+        {/* ── ACTUAL PRODUCTS GRID ── */}
+        {brandProducts.length > 0 && (
+          <section className="relative z-10 pb-20">
+            <div className="max-w-6xl mx-auto px-4 sm:px-6">
+              <div className="flex items-center justify-between mb-6">
+                <div>
+                  <p className="text-[#2eb8d4] font-bold text-xs uppercase tracking-[0.2em] mb-1">Productos disponibles</p>
+                  <h2 className="text-2xl font-black text-[#1a3a6b]">Compra directa de {brand.name}</h2>
+                </div>
+                <span className="text-sm font-bold text-[#1a3a6b]/50">{brandProducts.length} productos</span>
+              </div>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+                {brandProducts.map((product, i) => (
+                  <motion.div
+                    key={product.id}
+                    initial={{ opacity: 0, y: 14 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: i * 0.04 }}
+                    className="rounded-2xl border border-[#1a3a6b]/10 bg-white p-4 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all"
+                  >
+                    <Link href={`/productos/${product.slug}`} className="block relative h-40 rounded-xl overflow-hidden bg-[#eef7fd] mb-4">
+                      <Image src={product.image} alt={product.name} fill className="object-cover" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+                    </Link>
+                    <p className="text-[11px] uppercase tracking-wide font-bold text-[#2eb8d4] mb-1">{product.category}</p>
+                    <Link href={`/productos/${product.slug}`}>
+                      <h3 className="font-black text-[#1a3a6b] text-base leading-tight mb-1 line-clamp-2 hover:text-[#2eb8d4] transition-colors">{product.name}</h3>
+                    </Link>
+                    <p className="text-xs text-[#1a3a6b]/60 line-clamp-2 min-h-9 mb-3">{product.description}</p>
+                    <div className="flex items-center justify-between mb-3">
+                      <span className="text-[#1a3a6b] font-black text-lg">{product.quoteOnly ? "Cotizar" : formatPrice(product.price)}</span>
+                      <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100">{product.inStock ? "Disponible" : "Agotado"}</span>
+                    </div>
+                    <div className="flex gap-2">
+                      <ShoppingCartButton product={product} />
+                      <Link
+                        href={`/productos/${product.slug}`}
+                        className="inline-flex items-center justify-center text-xs font-bold text-[#1a3a6b] border border-[#1a3a6b]/20 rounded-xl px-3 py-2 hover:bg-[#e8f4fd] transition-colors shrink-0"
+                      >
+                        Ver detalle
+                      </Link>
+                    </div>
+                  </motion.div>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {/* Final CTA */}
         <div className="max-w-5xl mx-auto px-4 sm:px-6 mt-10">
@@ -210,7 +293,7 @@ export default function BrandDetailClient({ brand, total }: Props) {
             </p>
             <div className="flex flex-col sm:flex-row gap-3 justify-center">
               <Link
-                href="/insumos#catalogo-productos"
+                href={`/insumos?q=${encodeURIComponent(brand.name)}`}
                 className="inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-2xl bg-[#1a3a6b] text-white font-bold shadow-xl shadow-[#1a3a6b]/30 hover:bg-[#2eb8d4] hover:scale-[1.02] transition-all"
               >
                 <ShoppingCart className="w-5 h-5" /> Ver catálogo

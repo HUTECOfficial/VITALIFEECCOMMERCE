@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useMemo, useRef, useEffect } from "react";
+import { useState, useMemo, useRef, useEffect, Suspense } from "react";
+import { useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -91,13 +92,43 @@ const catCfg: Record<BrandCategory, CatConfig> = {
 const FEATURED: BrandCategory = "Guantes";
 const REST = brandCategories.filter((c) => c !== FEATURED);
 
+const brandToProductCategory: Record<BrandCategory, Product["category"] | "all"> = {
+  "Guantes": "guantes",
+  "Agujas y Jeringas": "jeringas",
+  "Vías IV": "jeringas",
+  "Material de Curación": "curacion",
+  "Apósitos y Cintas": "vendas",
+  "Antisépticos": "curacion",
+  "Sondas y Catéteres": "jeringas",
+  "Ventilación": "equipo",
+  "Diagnóstico": "equipo",
+  "Rehabilitación": "equipo",
+  "Equipo Quirúrgico": "equipo",
+  "Soluciones IV": "medicamentos",
+  "Misceláneos": "all",
+};
+
 /* ─────────────────────────────────────────────────────── */
 export default function InsumosPage() {
+  return (
+    <Suspense fallback={<div className="min-h-screen bg-white" />}>
+      <InsumosContent />
+    </Suspense>
+  );
+}
+
+function InsumosContent() {
   const [search, setSearch] = useState("");
   const [activeCategory, setActiveCategory] = useState<BrandCategory | null>(null);
   const [allProducts, setAllProducts] = useState<Product[]>([]);
   const brandsRef = useRef<HTMLDivElement>(null);
   const cartCount = useClientCartCount();
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const q = searchParams.get("q");
+    if (q) setSearch(q);
+  }, [searchParams]);
 
   useEffect(() => {
     fetch("/api/products")
@@ -106,7 +137,14 @@ export default function InsumosPage() {
       .catch(() => setAllProducts([]));
   }, []);
 
-  const quickProducts = useMemo(() => allProducts.filter((p) => p.inStock).slice(0, 6), [allProducts]);
+  const quickProducts = useMemo(() => allProducts.filter((p) => p.inStock).slice(0, 12), [allProducts]);
+
+  const categoryProducts = useMemo(() => {
+    if (!activeCategory) return [];
+    const productCat = brandToProductCategory[activeCategory];
+    if (productCat === "all") return allProducts;
+    return allProducts.filter((p) => p.category === productCat);
+  }, [activeCategory, allProducts]);
 
   const filteredBrands = useMemo(() => {
     let result = brands;
@@ -323,15 +361,22 @@ export default function InsumosPage() {
             </div>
           </section>
 
-          {/* ══ BRAND RESULTS (category selection) ═════════════════ */}
+          {/* ══ PRODUCT + BRAND RESULTS (category selection) ═════════════════ */}
       <div ref={brandsRef} />
       <AnimatePresence>
         {!search.trim() && activeCategory && (
-          <BrandResultsSection
-            filteredBrands={filteredBrands}
-            title={activeCategory}
-            onClear={() => { setActiveCategory(null); setSearch(""); }}
-          />
+          <>
+            <ProductResultsSection
+              filteredProducts={categoryProducts}
+              onClear={() => { setActiveCategory(null); setSearch(""); }}
+              title={activeCategory}
+            />
+            <BrandResultsSection
+              filteredBrands={filteredBrands}
+              title={`Marcas de ${activeCategory}`}
+              onClear={() => { setActiveCategory(null); setSearch(""); }}
+            />
+          </>
         )}
       </AnimatePresence>
       </>)}
@@ -432,6 +477,7 @@ function CompactCard({ cat, config, active, onClick, delay }: CardProps) {
 interface ProductResultsSectionProps {
   filteredProducts: Product[];
   onClear?: () => void;
+  title?: string;
 }
 
 interface BrandResultsSectionProps {
@@ -440,7 +486,8 @@ interface BrandResultsSectionProps {
   onClear?: () => void;
 }
 
-function ProductResultsSection({ filteredProducts, onClear }: ProductResultsSectionProps) {
+function ProductResultsSection({ filteredProducts, onClear, title }: ProductResultsSectionProps) {
+  const heading = title || "Productos encontrados";
   return (
     <motion.section
       initial={{ opacity: 0, y: 24 }}
@@ -452,7 +499,7 @@ function ProductResultsSection({ filteredProducts, onClear }: ProductResultsSect
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center justify-between mb-8">
           <div>
-            <h2 className="text-2xl font-black text-[#1a3a6b]">Productos encontrados</h2>
+            <h2 className="text-2xl font-black text-[#1a3a6b]">{heading}</h2>
             <p className="text-[#1a3a6b]/55 text-sm mt-1">
               {filteredProducts.length} producto{filteredProducts.length !== 1 ? "s" : ""} encontrado{filteredProducts.length !== 1 ? "s" : ""}
             </p>
