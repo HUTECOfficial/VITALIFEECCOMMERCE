@@ -41,8 +41,8 @@ function slugify(value) {
 }
 
 function getCategory(name) {
-  if (/GUANTE|NITRILO|LATEX/.test(name)) return 'guantes';
-  if (/JERINGA|AGUJA|CATETER|CANULA|IV|INFUSION|VENOCLISIS/.test(name)) return 'jeringas';
+  if (/GUANTE|NITRILO/.test(name)) return 'guantes';
+  if (/JERINGA|AGUJA|CATETER|CANULA|IV|INFUSION|VENOCLISIS|SONDA|FOLEY/.test(name)) return 'jeringas';
   if (/GASA|VENDA|APOSITO|CINTA|ESPARADRAPO|CURACION|COMPRESA/.test(name)) return 'vendas';
   if (/OXIMETRO|ESTETOSCOPIO|TENSIOMETRO|FERULA|COLLARIN|CABESTRILLO|MASCARILLA|ZAPATO|ELECTROCAUTERIO/.test(name)) return 'equipo';
   if (/GEL|JABON|ANTISEPT|CLORHEX|ALCOHOL|LUBRICANTE/.test(name)) return 'curacion';
@@ -60,6 +60,24 @@ function normalize(text) {
 
 function getImage(name, category) {
   const normName = normalize(name);
+  if (category === 'guantes') {
+    const gloveImages = {
+      'guante-para-cirugia_protec.png': ['protexis', 'cirujano-protec'],
+      'guante-esteril_ambiderm.png': ['ambiderm-elite', 'esteril-ambiderm'],
+      'guante-no-esteril-plus_ambiderm.png': ['guante-plus'],
+      'guante-no-esteril-negro_ambiderm.png': ['nitrilo-negro'],
+      'guante-no-esteril-kidgloves_ambiderm.png': ['kidgloves', 'guante-confort', 'guantes-latex'],
+      'guante-vinil_ambiderm.png': ['vinil'],
+      'guante-para-cirujia_ambiderm.png': ['cirujia'],
+      'guante-de-nitrilo_ambiderm.png': ['nitrilo', 'colorfull', 'uniseal'],
+    };
+    for (const [imageName, terms] of Object.entries(gloveImages)) {
+      if (terms.some((term) => normName.includes(term))) {
+        const image = imageMap.find(({ newName }) => newName === imageName);
+        if (image) return image.publicUrl;
+      }
+    }
+  }
   let best = null;
   let bestScore = 0;
   for (const { newName, publicUrl } of imageMap) {

@@ -48,8 +48,8 @@ function slugify(value: string) {
 }
 
 function getCategory(name: string): Product["category"] {
-  if (/GUANTE|NITRILO|LATEX/.test(name)) return "guantes";
-  if (/JERINGA|AGUJA|CATETER|CANULA|IV|INFUSION|VENOCLISIS/.test(name)) return "jeringas";
+  if (/GUANTE|NITRILO/.test(name)) return "guantes";
+  if (/JERINGA|AGUJA|CATETER|CANULA|IV|INFUSION|VENOCLISIS|SONDA|FOLEY/.test(name)) return "jeringas";
   if (/GASA|VENDA|APOSITO|CINTA|ESPARADRAPO|CURACION|COMPRESA/.test(name)) return "vendas";
   if (/OXIMETRO|ESTETOSCOPIO|TENSIOMETRO|FERULA|COLLARIN|CABESTRILLO|MASCARILLA|ZAPATO|ELECTROCAUTERIO/.test(name)) return "equipo";
   if (/GEL|JABON|ANTISEPT|CLORHEX|ALCOHOL|LUBRICANTE/.test(name)) return "curacion";
