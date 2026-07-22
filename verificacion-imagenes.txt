@@ -1,0 +1,1222 @@
+VERIFICACIÓN DE IMÁGENES LIGADAS
+=================================
+Total productos: 462
+
+[OK] 656010 CANULA DE GUEDEL #5 100MM ROJO
+     Imagen: canula-de-guedel_respifix.png  (base: canula-de-guedel, marca: respifix)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/canula-de-guedel_respifix.png
+
+[OK] ABATELENGUAS DE MADERA 20BOL C/25PZ AMB
+     Imagen: abatelenguas_ambiderm.png  (base: abatelenguas, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/abatelenguas_ambiderm.png
+
+[SIN IMAGEN] ACICLOVIR 400MG C/35 TAB
+[SIN IMAGEN] AGUA DESTILADA 20 LT MAPLA
+[SIN IMAGEN] AGUA INY 10ML C/100 AMP PLASTICO
+[OK] AGUA OXIGENADA 110ML
+     Imagen: agua-oxigenada_fermeva.png  (base: agua-oxigenada, marca: fermeva)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/agua-oxigenada_fermeva.png
+
+[OK] AGUA OXIGENADA 250ML AC
+     Imagen: agua-oxigenada_fermeva.png  (base: agua-oxigenada, marca: fermeva)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/agua-oxigenada_fermeva.png
+
+[OK] AGUA OXIGENADA 500 ML AC
+     Imagen: agua-oxigenada_fermeva.png  (base: agua-oxigenada, marca: fermeva)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/agua-oxigenada_fermeva.png
+
+[OK] AGUA P/IRRIGA ESTERIL 1000ML 1FCO PLAS
+     Imagen: agua-esteril_pisa.png  (base: agua-esteril, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/agua-esteril_pisa.png
+
+[OK] AGUA P/IRRIGA ESTERIL 3000ML
+     Imagen: agua-esteril_pisa.png  (base: agua-esteril, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/agua-esteril_pisa.png
+
+[OK] AGUA P/IRRIGA ESTERIL 500ML 1FCO PLAS
+     Imagen: agua-esteril_pisa.png  (base: agua-esteril, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/agua-esteril_pisa.png
+
+[SIN IMAGEN] AGUJA DESECH. 21 X 32 (VERDE) C/100
+[OK] AGUJA HIP 16X38 MORADA C/100 DL
+     Imagen: aguja-hipodermica_bd.png  (base: aguja-hipodermica, marca: bd)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/aguja-hipodermica_bd.png
+
+[SIN IMAGEN] AGUJA NIPRO 18X32 C/100 ROSA
+[OK] ALCOHOL ° 20 LTS NIETO
+     Imagen: alcohol_las-canitas.png  (base: alcohol, marca: las-canitas)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/alcohol_las-canitas.png
+
+[OK] ALCOHOL 96° 1000ML NH
+     Imagen: alcohol_las-canitas.png  (base: alcohol, marca: las-canitas)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/alcohol_las-canitas.png
+
+[OK] ALCOHOL 96° 250ML NH
+     Imagen: alcohol_las-canitas.png  (base: alcohol, marca: las-canitas)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/alcohol_las-canitas.png
+
+[OK] ALCOHOL 96° 5 LTS NIETO
+     Imagen: alcohol_las-canitas.png  (base: alcohol, marca: las-canitas)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/alcohol_las-canitas.png
+
+[OK] ALCOHOL 96° 500ML NH
+     Imagen: alcohol_las-canitas.png  (base: alcohol, marca: las-canitas)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/alcohol_las-canitas.png
+
+[OK] ALCOHOL DESNATURALIZADO 1LT 70% PROTEC
+     Imagen: alcohol_las-canitas.png  (base: alcohol, marca: las-canitas)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/alcohol_las-canitas.png
+
+[OK] ALCOHOL DESNATURALIZADO 70% 1000ML AZ
+     Imagen: alcohol_las-canitas.png  (base: alcohol, marca: las-canitas)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/alcohol_las-canitas.png
+
+[OK] ALCOHOL DESNATURALIZADO 70% 250ML AZ
+     Imagen: alcohol_las-canitas.png  (base: alcohol, marca: las-canitas)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/alcohol_las-canitas.png
+
+[OK] ALCOHOL DESNATURALIZADO 70% 500ML AZ
+     Imagen: alcohol_las-canitas.png  (base: alcohol, marca: las-canitas)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/alcohol_las-canitas.png
+
+[OK] ALCOHOL PROTEC 500ML 70%
+     Imagen: alcohol_las-canitas.png  (base: alcohol, marca: las-canitas)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/alcohol_las-canitas.png
+
+[OK] ALGODON PLISADO 300GR PROTEC
+     Imagen: algodon_quirmex.png  (base: algodon, marca: quirmex)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/algodon_quirmex.png
+
+[OK] ALGODON PLISADO 50G
+     Imagen: algodon_quirmex.png  (base: algodon, marca: quirmex)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/algodon_quirmex.png
+
+[OK] ALGODON PLISADO QUIRMEX 50 G
+     Imagen: algodon_quirmex.png  (base: algodon, marca: quirmex)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/algodon_quirmex.png
+
+[SIN IMAGEN] AMBROXOL 20 TABS 30MG
+[SIN IMAGEN] AMCEF CEFTRIAXONA 1G I.M. AMSA
+[SIN IMAGEN] AMCEF CEFTRIAXONA 1G I.V. AMSA
+[SIN IMAGEN] AMIKACINA 100/2ML C/1 AMP
+[SIN IMAGEN] AMIKACINA 100MG C/2 AMP AMSA
+[SIN IMAGEN] AMIXTERIA ATROPINA INY 1MG
+[SIN IMAGEN] AMOXICILINA CAP 500MG C/12, AMSA
+[OK] ANTIBENZIL JABON QX 3.8LTS
+     Imagen: antibenzil_altamirano.png  (base: antibenzil, marca: altamirano)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/antibenzil_altamirano.png
+
+[OK] APLICADOR DE MADERA C/ALGODÓN C/100 AMB
+     Imagen: algodon_quirmex.png  (base: algodon, marca: quirmex)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/algodon_quirmex.png
+
+[OK] APLICADOR ESTERIL 15CM C/3 C/100 PROTEC
+     Imagen: aplicadores_protec.png  (base: aplicadores, marca: protec)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/aplicadores_protec.png
+
+[OK] APOSITO ADHESIVO CIRCULAR C/100
+     Imagen: circuito-en-y_hudson-rci.png  (base: circuito-en-y, marca: hudson-rci)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/circuito-en-y_hudson-rci.png
+
+[SIN IMAGEN] APOSITO ADHESIVO PROTEC 100 PZA
+[OK] Apósitos Estériles 10x10cm
+     Imagen: estericide1_esteripharma.png  (base: estericide1, marca: esteripharma)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/estericide1_esteripharma.png
+
+[SIN IMAGEN] ARTICULOS: VARIOS CHECAR COMENTARIO
+[SIN IMAGEN] AURICAM MELOXICAM 7.5MG 20 TAB
+[SIN IMAGEN] AVAPENA 20 MG 5X2 ML AMP
+[SIN IMAGEN] BATA P/ PACIENTE S/ MANGA C/10
+[SIN IMAGEN] BATA PARA PACIENTE TELA CHICA
+[SIN IMAGEN] BATA QUIRURGICA ESTERIL GRANDE
+[OK] Baumanómetro aneroide pediátrico CheckATek B5-9S y diseño infantil con estetoscopio
+     Imagen: estericide1_esteripharma.png  (base: estericide1, marca: esteripharma)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/estericide1_esteripharma.png
+
+[OK] BD PLASTICK JERINGA PLAS S/AGU 20ML C/50
+     Imagen: jeringa_ambiderm.png  (base: jeringa, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/jeringa_ambiderm.png
+
+[SIN IMAGEN] BICARBONATO DE SODIO 80GR
+[SIN IMAGEN] BICARNAT 7.5% C/50ML 1FAMP SI
+[SIN IMAGEN] BICARNAT BICARBONATO SOD 7.5% 10 ML AMP
+[SIN IMAGEN] BIOMESINA HIOSCINA 10 TAB 10 MG
+[SIN IMAGEN] BOLENTAX ENOXA SOD 20MG/0.2ML
+[SIN IMAGEN] BOLENTAX ENOXA SOD 40MG/.04ML
+[SIN IMAGEN] BOLSA KENGUARD C/V C/G 3512
+[OK] BOLSA P/COLOSTOMIA ADULTO C/10 ACTIVELIF
+     Imagen: bolsa-colostomia_sensimedical.png  (base: bolsa-colostomia, marca: sensimedical)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/bolsa-colostomia_sensimedical.png
+
+[OK] BOLSA P/ESTERILIZAR 7 1/2X13" SUNSET
+     Imagen: estericide1_esteripharma.png  (base: estericide1, marca: esteripharma)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/estericide1_esteripharma.png
+
+[OK] BOLSA PARA ENEMA 1500 (5825)
+     Imagen: bolsa-para-enema_dip-mac.png  (base: bolsa-para-enema, marca: dip-mac)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/bolsa-para-enema_dip-mac.png
+
+[OK] BOLSA RECOLECTORA DE ORINA PARA PIERNA
+     Imagen: bolsa-recolectora_coviden.png  (base: bolsa-recolectora, marca: coviden)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/bolsa-recolectora_coviden.png
+
+[SIN IMAGEN] BOLSA RESID BIO AMARILLA 50X60 C/25
+[SIN IMAGEN] BOLSA RESID BIO ROJA 50X60 C/25
+[SIN IMAGEN] BOLSA RESID BIO ROJA 50X60 C/25
+[OK] BOQUILLAS P/ALCOHOLIMETRO C/100 REPUESTO
+     Imagen: alcohol_las-canitas.png  (base: alcohol, marca: las-canitas)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/alcohol_las-canitas.png
+
+[SIN IMAGEN] BOTA SIN PLANTILLA
+[SIN IMAGEN] BOTA SIN PLANTILLA DESCH C/25 PROTEC
+[SIN IMAGEN] BOTIQUIN JALOMA PRIM AUX 35105_x000D_
+
+[SIN IMAGEN] BRESALTEC AEROSOL 200 DOSIS
+[SIN IMAGEN] BROMURO IPRATR/SALBUT 0.5/2.5MG 10AMP
+[OK] CABESTRILLO
+     Imagen: cabestrillo_edigar.png  (base: cabestrillo, marca: edigar)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/cabestrillo_edigar.png
+
+[OK] CABESTRILLO INFANTIL
+     Imagen: cabestrillo_edigar.png  (base: cabestrillo, marca: edigar)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/cabestrillo_edigar.png
+
+[OK] CAMPANA P/CIRCUNCISION 11MM K-171-1
+     Imagen: campana-para-circuncicion_esteribell.png  (base: campana-para-circuncicion, marca: esteribell)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/campana-para-circuncicion_esteribell.png
+
+[OK] CAMPANA P/CIRCUNCISION 12MM K-171-2
+     Imagen: campana-para-circuncicion_esteribell.png  (base: campana-para-circuncicion, marca: esteribell)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/campana-para-circuncicion_esteribell.png
+
+[SIN IMAGEN] CAMPO QUIRURGICO C/ADHES ESTERIL 40X60CM C/5
+[SIN IMAGEN] CAMPO QUIRURGICO ESTERIL 70X70
+[SIN IMAGEN] CANULA CPAP #0 HUDSON
+[SIN IMAGEN] CANULA CPAP #1 HUDSON
+[SIN IMAGEN] CANULA CPAP #2 HUDSON
+[SIN IMAGEN] CANULA DE ALIMENTACION K33 5FR
+[OK] CANULA GUEDEL N. 3 AMARILLO 90 MM
+     Imagen: canula-de-guedel_respifix.png  (base: canula-de-guedel, marca: respifix)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/canula-de-guedel_respifix.png
+
+[OK] CANULA GUEDEL No 3 AMARILLO 90MM INTERSURGICAL
+     Imagen: canula-de-guedel_respifix.png  (base: canula-de-guedel, marca: respifix)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/canula-de-guedel_respifix.png
+
+[OK] CANULA YANKAWER C/CTR SUCC 1.83
+     Imagen: canula-de-yankauer_covidien.png  (base: canula-de-yankauer, marca: covidien)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/canula-de-yankauer_covidien.png
+
+[SIN IMAGEN] CAPIN BH HIOSCINA 20MG  C/3 AMP
+[SIN IMAGEN] CATETER 7FR3LU 20CM 15703-M PZA.ARROW
+[SIN IMAGEN] CATETER INSYTE 20G ROSA C/50
+[SIN IMAGEN] CATETER INSYTE 24G AMARILLO C/50
+[SIN IMAGEN] CATETER P/SUCCION K-61 10FR
+[SIN IMAGEN] CATETER P/SUCCION K-62 18FR
+[SIN IMAGEN] CATETER P/SUCCION K-62-C 18FR C/VALV
+[OK] CATETER PARA OXIGENO PEDIATRICA 729-2
+     Imagen: cateter-para-suministro-de-oxigeno_dip-mac.png  (base: cateter-para-suministro-de-oxigeno, marca: dip-mac)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/cateter-para-suministro-de-oxigeno_dip-mac.png
+
+[SIN IMAGEN] CATETER SURFLASH 22G*1 AZUL
+[OK] CEFTRIAXONA I.M 1GR SOL INY
+     Imagen: solucion-cs_pisa.png  (base: solucion-cs, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/solucion-cs_pisa.png
+
+[SIN IMAGEN] CEPILLO P/USO QUIRURGICO C/JABON C/30
+[OK] CEPILLO P/USO QUIRURGICO GLUC/CLORH C/30
+     Imagen: glucometro_accu-chek.png  (base: glucometro, marca: accu-chek)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/glucometro_accu-chek.png
+
+[OK] CHLORAPREP CON TINTE Y APLICADOR 26 M
+     Imagen: aplicadores_protec.png  (base: aplicadores, marca: protec)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/aplicadores_protec.png
+
+[SIN IMAGEN] CINTA KINESIOLOGICA 5CMX5MTS
+[SIN IMAGEN] CINTA KINESIOLOGICA PRECORTADA C/16 TIRAS
+[SIN IMAGEN] CINTA TESTIGO PARA VAPOR PROTEC
+[OK] CIRCUITO BAIN DE 60 PULGADAS (1.50M)
+     Imagen: circuito-bain_hudson-rci.png  (base: circuito-bain, marca: hudson-rci)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/circuito-bain_hudson-rci.png
+
+[SIN IMAGEN] CLINDAMICINA 1 AMP 600MG/4ML
+[SIN IMAGEN] CLINDAMICINA 16 CAPS 300 MG
+[SIN IMAGEN] CLINDAMICINA 600MG/4ML C/5 AMP
+[SIN IMAGEN] CLONIXINATO DE LISINA 100MG C/5 AMP AMSA
+[SIN IMAGEN] CLORAFENICOL UNGUENTO OFTALMICO 1% 5G
+[SIN IMAGEN] CLORHEXI-CLEAN 0.12% C/60ML
+[SIN IMAGEN] CLORHEXI-RUB 0.5% 500ML
+[SIN IMAGEN] CLORHEXI-RUB 0.5% C/60ML
+[OK] COLLARIN BLANDO
+     Imagen: collarin-blanco_edigar.png  (base: collarin-blanco, marca: edigar)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/collarin-blanco_edigar.png
+
+[OK] COMBESTERAL C/6AMP Y 3JGA
+     Imagen: combinacion-pi_pisa.png  (base: combinacion-pi, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/combinacion-pi_pisa.png
+
+[OK] COMBINACION PI 500ML 1FCO FLX
+     Imagen: combinacion-pi_pisa.png  (base: combinacion-pi, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/combinacion-pi_pisa.png
+
+[OK] COMBINACION RUBIN CALCAGNO 500ML FLX
+     Imagen: combinacion-pi_pisa.png  (base: combinacion-pi, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/combinacion-pi_pisa.png
+
+[OK] COMODO DE PLASTICO ADULTO EDIGAR
+     Imagen: rinon-adulto_edigar.png  (base: rinon-adulto, marca: edigar)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/rinon-adulto_edigar.png
+
+[OK] COMPRESA  LAPAROTOMIA GALIA 45*70
+     Imagen: compresa_le-roy.png  (base: compresa, marca: le-roy)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/compresa_le-roy.png
+
+[OK] COMPRESA ESTERIL 45X70CM C/5 GALIA
+     Imagen: compresa_le-roy.png  (base: compresa, marca: le-roy)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/compresa_le-roy.png
+
+[OK] COMPRESA NO ESTERIL C/6 GALIA
+     Imagen: compresa_le-roy.png  (base: compresa, marca: le-roy)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/compresa_le-roy.png
+
+[OK] CONECTOR TEGO P/HEMODIALISIS S/AGUJA
+     Imagen: conector-en-y_dip-mac.png  (base: conector-en-y, marca: dip-mac)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/conector-en-y_dip-mac.png
+
+[SIN IMAGEN] CORIVER PARACETAMOL 10 TABS 750MG
+[SIN IMAGEN] CORREA PARA CLAVICULA MEDIANA
+[OK] CUBREBOCA PLISADO C/50 NACIONAL
+     Imagen: cubrebocas_le-roy.png  (base: cubrebocas, marca: le-roy)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/cubrebocas_le-roy.png
+
+[OK] CUBREBOCAS AMBIDERM AZUL C/50
+     Imagen: cubrebocas_le-roy.png  (base: cubrebocas, marca: le-roy)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/cubrebocas_le-roy.png
+
+[OK] CUBREBOCAS AMBIDERM COLORFULL C/50
+     Imagen: bolsa-colostomia_sensimedical.png  (base: bolsa-colostomia, marca: sensimedical)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/bolsa-colostomia_sensimedical.png
+
+[OK] CUBREBOCAS AMBIDERM INFANTIL C/50
+     Imagen: cubrebocas_le-roy.png  (base: cubrebocas, marca: le-roy)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/cubrebocas_le-roy.png
+
+[OK] CUBREBOCAS AMBIDERM NEGRO C/50
+     Imagen: cubrebocas_le-roy.png  (base: cubrebocas, marca: le-roy)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/cubrebocas_le-roy.png
+
+[OK] CUBREBOCAS KN95-E
+     Imagen: cubrebocas_le-roy.png  (base: cubrebocas, marca: le-roy)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/cubrebocas_le-roy.png
+
+[OK] CUBREZAPATO S/ANTI AMB C/100
+     Imagen: antibenzil_altamirano.png  (base: antibenzil, marca: altamirano)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/antibenzil_altamirano.png
+
+[SIN IMAGEN] CURITAS TELA ELASTICA C/20
+[OK] CURITAS TRANSPIEL-ANT C/100
+     Imagen: antibenzil_altamirano.png  (base: antibenzil, marca: altamirano)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/antibenzil_altamirano.png
+
+[SIN IMAGEN] CUTIMED SORBACT GEL 7.5CM X 7.5CM BSN
+[SIN IMAGEN] DANKIAL-B (BUDESONIDA) 0.250 MG/2ML C/5 AMPOLLETAS
+[SIN IMAGEN] DERMO-QRIT AL 12% 500ML
+[SIN IMAGEN] DERMOCLEEN BENZAL CONCENTRADO 4L
+[SIN IMAGEN] DERMOCLEEN JABON 4L
+[SIN IMAGEN] DERMODINE ESPUMA 118 ML
+[SIN IMAGEN] DERMODINE ESPUMA YODO 3.5L
+[OK] DERMODINE SOLUCION 3.5L
+     Imagen: solucion-cs_pisa.png  (base: solucion-cs, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/solucion-cs_pisa.png
+
+[OK] DEXAMETASONA SOL INY 8MG/2ML
+     Imagen: solucion-cs_pisa.png  (base: solucion-cs, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/solucion-cs_pisa.png
+
+[SIN IMAGEN] DICLEOPHEN DICLOXACILINA CAP 500MG C/12
+[SIN IMAGEN] DICLOFENACO 2 FA 75MG/3ML
+[SIN IMAGEN] DICLOFENACO 20 TAB 100 MG
+[SIN IMAGEN] DIFENHIDRAMINA 10MG/1ML FRASCO AMP 10ML
+[SIN IMAGEN] DIFENIDOL 40MG/2ML 2 AMP
+[SIN IMAGEN] DOBUTAMINA 250MG/20ML C/1 AMP
+[OK] DRENAJE TIPO BLAKE 15FR 100ML
+     Imagen: equipo-completo-de-drenaje_drenovac.png  (base: equipo-completo-de-drenaje, marca: drenovac)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/equipo-completo-de-drenaje_drenovac.png
+
+[OK] DUODERM CGF 20X20 187662
+     Imagen: duoderm-cgf_duoderm.png  (base: duoderm-cgf, marca: duoderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/duoderm-cgf_duoderm.png
+
+[OK] ELECTRODO ECG ADULTO C/50 AMBIDERM
+     Imagen: electrodo_ambiderm.png  (base: electrodo, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/electrodo_ambiderm.png
+
+[OK] ENEMA DE FOSFATO 133ML 6130
+     Imagen: bolsa-para-enema_dip-mac.png  (base: bolsa-para-enema, marca: dip-mac)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/bolsa-para-enema_dip-mac.png
+
+[OK] EQUIPO DE CIRUGIA MAYOR ESTERIL AMB
+     Imagen: equipo-de-cirujia-esteril_ambiderm.png  (base: equipo-de-cirujia-esteril, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/equipo-de-cirujia-esteril_ambiderm.png
+
+[SIN IMAGEN] EQUIPO P/BOMBA DE INFUSION TERUMO
+[OK] EQUIPO PARA CIRUGIA MAYOR ESTERIL B6MED
+     Imagen: equipo-de-cirujia-esteril_ambiderm.png  (base: equipo-de-cirujia-esteril, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/equipo-de-cirujia-esteril_ambiderm.png
+
+[OK] ESPONJA DE GASA 10X10 C/10
+     Imagen: esponja-de-gasa_le-roy.png  (base: esponja-de-gasa, marca: le-roy)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/esponja-de-gasa_le-roy.png
+
+[OK] ESPONJA DE GASA NO ESTERIL 7.5X5 C/200
+     Imagen: esponja-de-gasa_le-roy.png  (base: esponja-de-gasa, marca: le-roy)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/esponja-de-gasa_le-roy.png
+
+[OK] ESPONJA GASA 7.5X5CM C/200 GALIA
+     Imagen: esponja-de-gasa_le-roy.png  (base: esponja-de-gasa, marca: le-roy)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/esponja-de-gasa_le-roy.png
+
+[OK] ESPONJA GASA 7.5X5CM EST C/5
+     Imagen: estericide1_esteripharma.png  (base: estericide1, marca: esteripharma)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/estericide1_esteripharma.png
+
+[OK] ESPONJA GASA ESTERIL 7.5X5 T20X12 C/5
+     Imagen: esponja-de-gasa_le-roy.png  (base: esponja-de-gasa, marca: le-roy)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/esponja-de-gasa_le-roy.png
+
+[OK] ESPONJA GASA N/EST 10X10 C/200 PROTEC
+     Imagen: estericide1_esteripharma.png  (base: estericide1, marca: esteripharma)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/estericide1_esteripharma.png
+
+[OK] ESPONJA GASA N/EST HR 10X10 C/200 PRO
+     Imagen: estericide1_esteripharma.png  (base: estericide1, marca: esteripharma)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/estericide1_esteripharma.png
+
+[OK] Estetoscopio Clínico
+     Imagen: estericide1_esteripharma.png  (base: estericide1, marca: esteripharma)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/estericide1_esteripharma.png
+
+[OK] EXSEPT SOL ANTISEPTICA 50% C/500ML
+     Imagen: antibenzil_altamirano.png  (base: antibenzil, marca: altamirano)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/antibenzil_altamirano.png
+
+[OK] FALOT CEFALOTINA 1G INY
+     Imagen: falot_pisa.png  (base: falot, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/falot_pisa.png
+
+[SIN IMAGEN] FENATEN FENITOINA SODICA 250MG/5ML C/1
+[SIN IMAGEN] FERULA PARA DEDO TIPO RANA
+[SIN IMAGEN] FERULA PARA DEDO TIPO RANA GDE
+[SIN IMAGEN] FERULA TIPO SOMBRILLA
+[OK] FIJADOR P/ SONDA FOLEY
+     Imagen: sonda-foley_covidien.png  (base: sonda-foley, marca: covidien)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/sonda-foley_covidien.png
+
+[SIN IMAGEN] FLEBONADROL HIDROCORTISONA 500MG C/1AMP
+[OK] FLEBOTEK BOMEDI LIBRE DE AGUJA
+     Imagen: flebotek_pisa.png  (base: flebotek, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/flebotek_pisa.png
+
+[OK] FLEBOTEK LIBRE DE PVC
+     Imagen: flebotek_pisa.png  (base: flebotek, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/flebotek_pisa.png
+
+[OK] FLEBOTEK MICROGOTERO EQ VENOCLISIS
+     Imagen: equipo-para-venoclisis_sensimedical.png  (base: equipo-para-venoclisis, marca: sensimedical)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/equipo-para-venoclisis_sensimedical.png
+
+[OK] FLEBOTEK PARA BOMBA
+     Imagen: flebotek_pisa.png  (base: flebotek, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/flebotek_pisa.png
+
+[OK] FLEBOTEK QUIRURGICO CON CLAVE
+     Imagen: flebotek_pisa.png  (base: flebotek, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/flebotek_pisa.png
+
+[OK] FLEBOTEK QUIRURGICO NB EQ. VENOCLISIS
+     Imagen: equipo-para-venoclisis_sensimedical.png  (base: equipo-para-venoclisis, marca: sensimedical)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/equipo-para-venoclisis_sensimedical.png
+
+[OK] FLEBOTEK S/AGUJA NORMOGOTERO
+     Imagen: flebotek_pisa.png  (base: flebotek, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/flebotek_pisa.png
+
+[SIN IMAGEN] FLUOXETINA 20MG 14 CAPS
+[SIN IMAGEN] FUROSEMIDA 20MG C/5
+[SIN IMAGEN] Gasa de Tela 2.5cm
+[OK] GASA ESTERIL 10X10 C/100  IDEAL
+     Imagen: gasa-no-esteril_protec.png  (base: gasa-no-esteril, marca: protec)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/gasa-no-esteril_protec.png
+
+[OK] GASA ESTERIL 10X10 C/100 KURAMEX
+     Imagen: gasa-no-esteril_protec.png  (base: gasa-no-esteril, marca: protec)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/gasa-no-esteril_protec.png
+
+[OK] GASA ESTERIL 7.5X5 C/100 QUIRMEX
+     Imagen: gasa-no-esteril_quirmex.png  (base: gasa-no-esteril, marca: quirmex)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/gasa-no-esteril_quirmex.png
+
+[OK] GASA GALIA ESTERIL 10X10 C/100
+     Imagen: gasa-no-esteril_protec.png  (base: gasa-no-esteril, marca: protec)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/gasa-no-esteril_protec.png
+
+[OK] Gasas Estériles 7.5x7.5cm
+     Imagen: estericide1_esteripharma.png  (base: estericide1, marca: esteripharma)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/estericide1_esteripharma.png
+
+[SIN IMAGEN] Gel Antibacterial
+[SIN IMAGEN] GEL ANTIBACTERIAL 1L PROTEC
+[SIN IMAGEN] GEL ULTRASONIC 3.8 LT
+[SIN IMAGEN] GELPRIM NIFEDIPINO CAP 10MG C/20
+[SIN IMAGEN] GEMFIBROZILO 14 TABS 600MG
+[OK] GIRATEK LLAVE 3 VIAS S/EXT
+     Imagen: llave-de-3-vias_pisa.png  (base: llave-de-3-vias, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/llave-de-3-vias_pisa.png
+
+[OK] GLUCOMETRO ACCUCHECK ACTIVE
+     Imagen: glucometro_accu-chek.png  (base: glucometro, marca: accu-chek)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/glucometro_accu-chek.png
+
+[OK] GLUCONATO DE CALCIO 10% AMP 10ML
+     Imagen: glucometro_accu-chek.png  (base: glucometro, marca: accu-chek)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/glucometro_accu-chek.png
+
+[OK] GLUCONATO DE CLORHEXIDINA 1% SPRAY 500ML
+     Imagen: glucometro_accu-chek.png  (base: glucometro, marca: accu-chek)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/glucometro_accu-chek.png
+
+[SIN IMAGEN] GORRO P/CIRUJANO AZUL C/100
+[OK] GORRO P/CIRUJANO DESECHABLE C/100 PROTEC
+     Imagen: guante-para-cirugia_protec.png  (base: guante-para-cirugia, marca: protec)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/guante-para-cirugia_protec.png
+
+[SIN IMAGEN] GORRO PLISADO AZUL C/100 AMB
+[OK] GORRO PLISADO BLANCO C/100 AMBIDERM
+     Imagen: microporeblanco_3m.png  (base: microporeblanco, marca: 3m)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/microporeblanco_3m.png
+
+[SIN IMAGEN] GOTERO C/PIPETA VID C/10
+[OK] GUANTE AMBIDERM ELITE TALLA 6
+     Imagen: guante-esteril_ambiderm.png  (base: guante-esteril, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/guante-esteril_ambiderm.png
+
+[OK] GUANTE AMBIDERM ELITE TALLA 6 1/2
+     Imagen: guante-esteril_ambiderm.png  (base: guante-esteril, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/guante-esteril_ambiderm.png
+
+[OK] GUANTE AMBIDERM ELITE TALLA 7
+     Imagen: guante-esteril_ambiderm.png  (base: guante-esteril, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/guante-esteril_ambiderm.png
+
+[OK] GUANTE AMBIDERM ELITE TALLA 7 1/2
+     Imagen: guante-esteril_ambiderm.png  (base: guante-esteril, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/guante-esteril_ambiderm.png
+
+[OK] GUANTE AMBIDERM ELITE TALLA 8
+     Imagen: guante-esteril_ambiderm.png  (base: guante-esteril, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/guante-esteril_ambiderm.png
+
+[OK] GUANTE COLORFULL MED C/100 PZ
+     Imagen: bolsa-colostomia_sensimedical.png  (base: bolsa-colostomia, marca: sensimedical)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/bolsa-colostomia_sensimedical.png
+
+[SIN IMAGEN] GUANTE CONFORT CHICO C/100
+[SIN IMAGEN] GUANTE CONFORT MEDIANO C/100
+[OK] GUANTE EST P/CIRUJANO #6.0 C/50 PROTEC
+     Imagen: estericide1_esteripharma.png  (base: estericide1, marca: esteripharma)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/estericide1_esteripharma.png
+
+[OK] GUANTE EST P/CIRUJANO #6.5 C/50 PROTEC
+     Imagen: estericide1_esteripharma.png  (base: estericide1, marca: esteripharma)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/estericide1_esteripharma.png
+
+[OK] GUANTE EST P/CIRUJANO #7.0 C/50 PROTEC
+     Imagen: estericide1_esteripharma.png  (base: estericide1, marca: esteripharma)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/estericide1_esteripharma.png
+
+[OK] GUANTE EST P/CIRUJANO #7.5 C/50 PROTEC
+     Imagen: estericide1_esteripharma.png  (base: estericide1, marca: esteripharma)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/estericide1_esteripharma.png
+
+[OK] GUANTE ESTERIL CHICO C/100 AMBIDERM
+     Imagen: guante-esteril_ambiderm.png  (base: guante-esteril, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/guante-esteril_ambiderm.png
+
+[OK] GUANTE ESTERIL GRANDE C/100 AMBIDERM
+     Imagen: guante-esteril_ambiderm.png  (base: guante-esteril, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/guante-esteril_ambiderm.png
+
+[OK] GUANTE NITRILO AZUL COBALTO CHICO C/100
+     Imagen: guante-de-nitrilon_ambiderm.png  (base: guante-de-nitrilon, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/guante-de-nitrilon_ambiderm.png
+
+[OK] GUANTE NITRILO AZUL ROYAL CHICO C/100
+     Imagen: guante-de-nitrilon_ambiderm.png  (base: guante-de-nitrilon, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/guante-de-nitrilon_ambiderm.png
+
+[OK] GUANTE NITRILO AZUL ROYAL GRANDE C/100
+     Imagen: guante-de-nitrilon_ambiderm.png  (base: guante-de-nitrilon, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/guante-de-nitrilon_ambiderm.png
+
+[OK] GUANTE NITRILO AZUL ROYAL MEDIANO C/100
+     Imagen: guante-de-nitrilon_ambiderm.png  (base: guante-de-nitrilon, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/guante-de-nitrilon_ambiderm.png
+
+[OK] GUANTE NITRILO BLANCO CHICO C/100
+     Imagen: guante-de-nitrilon_ambiderm.png  (base: guante-de-nitrilon, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/guante-de-nitrilon_ambiderm.png
+
+[OK] GUANTE NITRILO NEGRO CHICO C/100
+     Imagen: guante-de-nitrilon_ambiderm.png  (base: guante-de-nitrilon, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/guante-de-nitrilon_ambiderm.png
+
+[OK] GUANTE NITRILO NEGRO GRANDE C/100
+     Imagen: guante-de-nitrilon_ambiderm.png  (base: guante-de-nitrilon, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/guante-de-nitrilon_ambiderm.png
+
+[OK] GUANTE NITRILO NEGRO MEDIANO C/100
+     Imagen: guante-de-nitrilon_ambiderm.png  (base: guante-de-nitrilon, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/guante-de-nitrilon_ambiderm.png
+
+[OK] GUANTE NITRILO ROSA MEDIANO C/100
+     Imagen: guante-de-nitrilon_ambiderm.png  (base: guante-de-nitrilon, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/guante-de-nitrilon_ambiderm.png
+
+[OK] GUANTE NITRILO VIOLETA MEDIANO C/100
+     Imagen: guante-de-nitrilon_ambiderm.png  (base: guante-de-nitrilon, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/guante-de-nitrilon_ambiderm.png
+
+[OK] GUANTE PLUS NO/EST CHICO C/100
+     Imagen: estericide1_esteripharma.png  (base: estericide1, marca: esteripharma)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/estericide1_esteripharma.png
+
+[OK] GUANTE PLUS NO/EST GRANDE C/100
+     Imagen: estericide1_esteripharma.png  (base: estericide1, marca: esteripharma)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/estericide1_esteripharma.png
+
+[OK] GUANTE PLUS NO/EST MEDIANO C/100
+     Imagen: estericide1_esteripharma.png  (base: estericide1, marca: esteripharma)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/estericide1_esteripharma.png
+
+[OK] GUANTE PROTEXIS LATEX #6.0 C/50
+     Imagen: guante-para-cirugia_protec.png  (base: guante-para-cirugia, marca: protec)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/guante-para-cirugia_protec.png
+
+[OK] GUANTE PROTEXIS LATEX #6.5 C/50
+     Imagen: guante-para-cirugia_protec.png  (base: guante-para-cirugia, marca: protec)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/guante-para-cirugia_protec.png
+
+[OK] GUANTE PROTEXIS LATEX #7.0 C/50
+     Imagen: guante-para-cirugia_protec.png  (base: guante-para-cirugia, marca: protec)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/guante-para-cirugia_protec.png
+
+[OK] GUANTE PROTEXIS LATEX #7.5 C/50
+     Imagen: guante-para-cirugia_protec.png  (base: guante-para-cirugia, marca: protec)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/guante-para-cirugia_protec.png
+
+[OK] GUANTE PROTEXIS LATEX #8.0 C/50
+     Imagen: guante-para-cirugia_protec.png  (base: guante-para-cirugia, marca: protec)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/guante-para-cirugia_protec.png
+
+[OK] GUANTE UNISEAL DE NITRILO CHICO PARA EXPLORACION
+     Imagen: guante-de-nitrilon_ambiderm.png  (base: guante-de-nitrilon, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/guante-de-nitrilon_ambiderm.png
+
+[OK] GUANTE UNISEAL DE NITRILO GRANDE PARA EXPLORACION
+     Imagen: guante-de-nitrilon_ambiderm.png  (base: guante-de-nitrilon, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/guante-de-nitrilon_ambiderm.png
+
+[OK] GUANTE UNISEAL DE NITRILO MEDIANO PARA EXPLORACION
+     Imagen: guante-de-nitrilon_ambiderm.png  (base: guante-de-nitrilon, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/guante-de-nitrilon_ambiderm.png
+
+[SIN IMAGEN] Guantes de Látex 50pcs
+[OK] Guantes de Nitrilo 100pcs
+     Imagen: guante-de-nitrilon_ambiderm.png  (base: guante-de-nitrilon, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/guante-de-nitrilon_ambiderm.png
+
+[SIN IMAGEN] GUATA QUIRURGICA 10CMX5M C/24 PROTEC
+[SIN IMAGEN] GUATA QUIRURGICA 15CMX5M C/24 PROTEC
+[SIN IMAGEN] GUATA QUIRURGICA 20CMX5M C/24 PROTEC
+[SIN IMAGEN] GUATA QUIRURGICA 5CMX5M C/24 PROTEC
+[SIN IMAGEN] GUATA QUIRURGICA 7CMX5CM C/24 PROTEC
+[SIN IMAGEN] GYPSONA S 10CM X 2.74M
+[SIN IMAGEN] GYPSONA S 15CM X 2.74M
+[SIN IMAGEN] GYPSONA S 5CM X 2.74M
+[SIN IMAGEN] HIERRO DEXTRAN  100MG/2ML INY
+[SIN IMAGEN] HIOSCINA 20MG/1ML C/3 AMP
+[OK] HOJA P/BISTURI ACERO CARB No.10 C/100
+     Imagen: hoja-para-bisturi_ambiderm.png  (base: hoja-para-bisturi, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/hoja-para-bisturi_ambiderm.png
+
+[OK] HOJA P/BISTURI ACERO CARB No.22 C/100
+     Imagen: hoja-para-bisturi_ambiderm.png  (base: hoja-para-bisturi, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/hoja-para-bisturi_ambiderm.png
+
+[OK] HOJA P/BISTURI ACERO INOX No.12 C/100
+     Imagen: hoja-para-bisturi_ambiderm.png  (base: hoja-para-bisturi, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/hoja-para-bisturi_ambiderm.png
+
+[OK] HOJA P/BISTURI ACERO INOX No.15 C/100
+     Imagen: hoja-para-bisturi_ambiderm.png  (base: hoja-para-bisturi, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/hoja-para-bisturi_ambiderm.png
+
+[OK] HOJA P/BISTURI ACERO INOX No.20 C/100
+     Imagen: hoja-para-bisturi_ambiderm.png  (base: hoja-para-bisturi, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/hoja-para-bisturi_ambiderm.png
+
+[OK] HOJA P/BISTURI ACERO INOX No.21 C/100
+     Imagen: hoja-para-bisturi_ambiderm.png  (base: hoja-para-bisturi, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/hoja-para-bisturi_ambiderm.png
+
+[SIN IMAGEN] HT-BLOC ONDANSETRON INY 8MG/4 ML 3 AMP
+[SIN IMAGEN] IBUPROFENO 10 TAB 600 MG
+[SIN IMAGEN] IMATION 1G D/10ML C/1FAMP SI
+[SIN IMAGEN] INMOVILIZADOR DE HOMBRO UNIVERSAL
+[OK] JALEA LUBRICANTE (LUBRICAINA) 135GRS
+     Imagen: lubri-6_altamirano.png  (base: lubri-6, marca: altamirano)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/lubri-6_altamirano.png
+
+[SIN IMAGEN] JELONET 10X10CM GASA PARAFINADA
+[OK] JERINGA 10ML 21X32 C/100 AMBIDERM
+     Imagen: jeringa_ambiderm.png  (base: jeringa, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/jeringa_ambiderm.png
+
+[OK] JERINGA 10ML 21X32 C/100 NIPRO
+     Imagen: jeringa_ambiderm.png  (base: jeringa, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/jeringa_ambiderm.png
+
+[OK] JERINGA 10ML 22X32 BD NEGRA
+     Imagen: jeringa_ambiderm.png  (base: jeringa, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/jeringa_ambiderm.png
+
+[OK] JERINGA 10ML S/A BD C/100
+     Imagen: jeringa_ambiderm.png  (base: jeringa, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/jeringa_ambiderm.png
+
+[OK] JERINGA 1ML 27X13 C/100 AMBIDERM
+     Imagen: jeringa_ambiderm.png  (base: jeringa, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/jeringa_ambiderm.png
+
+[OK] JERINGA 1ML 27X13 C/100 BD
+     Imagen: jeringa_ambiderm.png  (base: jeringa, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/jeringa_ambiderm.png
+
+[OK] JERINGA 3ML 21X32 C/100 AMBIDERM
+     Imagen: jeringa_ambiderm.png  (base: jeringa, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/jeringa_ambiderm.png
+
+[OK] JERINGA 3ML 21X32 C/100 BD
+     Imagen: jeringa_ambiderm.png  (base: jeringa, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/jeringa_ambiderm.png
+
+[OK] JERINGA 3ML 22X32 C/100 AMBIDERM
+     Imagen: jeringa_ambiderm.png  (base: jeringa, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/jeringa_ambiderm.png
+
+[OK] JERINGA 3ML 22X32 NEGRA NIPRO C /100
+     Imagen: jeringa_ambiderm.png  (base: jeringa, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/jeringa_ambiderm.png
+
+[OK] JERINGA 3ML 23X25 C/100 AMBIDERM
+     Imagen: jeringa_ambiderm.png  (base: jeringa, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/jeringa_ambiderm.png
+
+[OK] JERINGA 50ML S/A BD
+     Imagen: jeringa_ambiderm.png  (base: jeringa, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/jeringa_ambiderm.png
+
+[OK] JERINGA 5ML 21X32 C/100 AMBIDERM
+     Imagen: jeringa_ambiderm.png  (base: jeringa, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/jeringa_ambiderm.png
+
+[OK] JERINGA 5ML 21X32 C/100 NIPRO
+     Imagen: jeringa_ambiderm.png  (base: jeringa, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/jeringa_ambiderm.png
+
+[OK] JERINGA 5ML 22X32 C/100 AMBIDERM
+     Imagen: jeringa_ambiderm.png  (base: jeringa, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/jeringa_ambiderm.png
+
+[OK] JERINGA ASEPTO 100ML DESCH 7520 AMA
+     Imagen: jeringa_ambiderm.png  (base: jeringa, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/jeringa_ambiderm.png
+
+[OK] JERINGA PLASTIPAK 10ML 21X40 990409
+     Imagen: jeringa_ambiderm.png  (base: jeringa, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/jeringa_ambiderm.png
+
+[OK] JERINGA ULTRA FINE 0.3ML 31GX6MM C/10
+     Imagen: jeringa_ambiderm.png  (base: jeringa, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/jeringa_ambiderm.png
+
+[OK] Jeringas 5ml x 10pcs
+     Imagen: jeringa_ambiderm.png  (base: jeringa, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/jeringa_ambiderm.png
+
+[SIN IMAGEN] K-29-I SONDA NASAL/OXIGENO PZA INFANTIL
+[SIN IMAGEN] K-50 BISULFITO DE MENADIONA 50MG/5ML
+[OK] K-60 CAT. P/SUCCION FLEMAS 14FR
+     Imagen: cateter-periferico_punzocat.png  (base: cateter-periferico, marca: punzocat)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/cateter-periferico_punzocat.png
+
+[SIN IMAGEN] KELEFUSIN CLORURO/POTASIO 1.49G/5ML PZA
+[SIN IMAGEN] KETOROLACO AMP 30MG/1ML C/3
+[SIN IMAGEN] KETOROLACO SUBLINGUAL 30MG 6 TAB AMSA
+[OK] Kit de baumanometro con estetoscopio ADULTO_x000D_
+
+     Imagen: estericide1_esteripharma.png  (base: estericide1, marca: esteripharma)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/estericide1_esteripharma.png
+
+[SIN IMAGEN] KIT POP WASH BOLSA C/1
+[OK] LANCETAS ACCU-CHEK SAFE-T-PRO-UNO C/200
+     Imagen: lanceta_accu-chek.png  (base: lanceta, marca: accu-chek)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/lanceta_accu-chek.png
+
+[OK] LANCETAS ESTANDAR 28G C/100 HERGOM
+     Imagen: lanceta_accu-chek.png  (base: lanceta, marca: accu-chek)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/lanceta_accu-chek.png
+
+[OK] LAPIZ P/ELECTROCAUTERIO DESECHABLE
+     Imagen: lapiz-para-electrocauterio_surgeryfix.png  (base: lapiz-para-electrocauterio, marca: surgeryfix)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/lapiz-para-electrocauterio_surgeryfix.png
+
+[SIN IMAGEN] LEFEBRE 0.4MG/1ML C/1ML 10AMP SI
+[OK] LEUKOPLAST TELA ADHESIVA 1" C/12
+     Imagen: leukoplast_bsn-medical.png  (base: leukoplast, marca: bsn-medical)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/leukoplast_bsn-medical.png
+
+[OK] LEUKOPLAST TELA ADHESIVA 1/2" C/24
+     Imagen: leukoplast_bsn-medical.png  (base: leukoplast, marca: bsn-medical)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/leukoplast_bsn-medical.png
+
+[OK] LEUKOPLAST TELA ADHESIVA 2" C/6
+     Imagen: leukoplast_bsn-medical.png  (base: leukoplast, marca: bsn-medical)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/leukoplast_bsn-medical.png
+
+[SIN IMAGEN] LEVOFLOXACINO 500MG TAB C/7
+[SIN IMAGEN] LORATADINA 10MG 20 TABS
+[OK] LOSARTAN 30 COMPR 50MG
+     Imagen: compresa_le-roy.png  (base: compresa, marca: le-roy)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/compresa_le-roy.png
+
+[SIN IMAGEN] LOSARTAN TAB 50 MG C/30 ULTRA
+[OK] LUBRI-6 135 GR TUBO
+     Imagen: lubri-6_altamirano.png  (base: lubri-6, marca: altamirano)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/lubri-6_altamirano.png
+
+[SIN IMAGEN] MAGNEFUSIN SULFATO MAGNESIO 10% C/10ML
+[SIN IMAGEN] MALLA PROLENE MESH 15X15CM PMH1
+[SIN IMAGEN] MALLA TUBULAR 1X2 M. LEROY 13702
+[SIN IMAGEN] MALLA TUBULAR 2X2 M. LEROY 13702
+[SIN IMAGEN] MALLA TUBULAR 4X2 M. LEROY 13704
+[SIN IMAGEN] MALLA TUBULAR 5X2 M. LEROY 13705
+[SIN IMAGEN] MALLA TUBULAR 6X2 M. LEROY 13703
+[SIN IMAGEN] MANGO DE BISTURI #4 HP ALEMANA
+[SIN IMAGEN] MARIPOSA 21G TERUMO
+[SIN IMAGEN] MARIPOSA AZUL 23 BD
+[SIN IMAGEN] MARIPOSA TERUMO 25G NARANJA
+[OK] MASCARILLA LARINGEA #1
+     Imagen: mascarilla-laringea-de-pvc_respifix.png  (base: mascarilla-laringea-de-pvc, marca: respifix)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/mascarilla-laringea-de-pvc_respifix.png
+
+[OK] MASCARILLA P/OXIGENO ADULTO 1041 HUDSON
+     Imagen: mascarilla-de-oxigeno_hudson-rci.png  (base: mascarilla-de-oxigeno, marca: hudson-rci)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/mascarilla-de-oxigeno_hudson-rci.png
+
+[OK] MASCARILLA P/OXIGENO PEDIATRICA HUDSON
+     Imagen: mascarilla-de-oxigeno_hudson-rci.png  (base: mascarilla-de-oxigeno, marca: hudson-rci)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/mascarilla-de-oxigeno_hudson-rci.png
+
+[OK] MASCARILLA P/OXIGENO S/RESERV ADULTO
+     Imagen: mascarilla-de-oxigeno_hudson-rci.png  (base: mascarilla-de-oxigeno, marca: hudson-rci)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/mascarilla-de-oxigeno_hudson-rci.png
+
+[OK] MASCARILLA RCP POCKET MASK - BLANCO
+     Imagen: microporeblanco_3m.png  (base: microporeblanco, marca: 3m)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/microporeblanco_3m.png
+
+[SIN IMAGEN] MASCARILLA YUWELL YF01 MEDIANA
+[SIN IMAGEN] MAVIDOL KETOROLACO SUBLINGUAL C/4 TAB
+[SIN IMAGEN] MEDIAS ANTIEMBOLICAS MUSLO GRANDE
+[SIN IMAGEN] METAMIZOL SODICO 10 TAB 500 MG
+[OK] METAMIZOL SODICO 1G/2ML C/3AMP PISA
+     Imagen: pisacania_pisa.png  (base: pisacania, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/pisacania_pisa.png
+
+[SIN IMAGEN] METFORMINA TAB 850MG C/30
+[SIN IMAGEN] METOCLOPRAMIDA 10MG 20 TAB
+[SIN IMAGEN] METOCLOPRAMIDA AMP 10MG/2ML C/6, AMSA
+[OK] MICROPORE BLANCO 3" C/4
+     Imagen: microporeblanco_3m.png  (base: microporeblanco, marca: 3m)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/microporeblanco_3m.png
+
+[OK] MICROPORE PIEL 1" C/12
+     Imagen: microporeblanco_3m.png  (base: microporeblanco, marca: 3m)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/microporeblanco_3m.png
+
+[OK] MICROPORE PIEL 1/2" C/24
+     Imagen: microporeblanco_3m.png  (base: microporeblanco, marca: 3m)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/microporeblanco_3m.png
+
+[SIN IMAGEN] MONOCRYL 1 36 MM CT-1 Y341H DOCENA
+[SIN IMAGEN] MOREBON D3 5000UI 30 TABS
+[SIN IMAGEN] MURREOLAK ACETILCISTEINA 600MG 10TABS EFERVECENTE
+[OK] NAVONTEC ONDANSETRON SOL INY C/3
+     Imagen: solucion-cs_pisa.png  (base: solucion-cs, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/solucion-cs_pisa.png
+
+[OK] NIFEDIPINO LP 30 COMPR 30MG
+     Imagen: compresa_le-roy.png  (base: compresa, marca: le-roy)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/compresa_le-roy.png
+
+[SIN IMAGEN] NODESCRON BROM VECURONIO 4MG AMP
+[SIN IMAGEN] NYLON 2-0 2642N C/12 ATRAMAT
+[SIN IMAGEN] NYLON 3-0 PE2443-N ATRAMAT
+[SIN IMAGEN] NYLON 5-0 19MM C/12 1945
+[SIN IMAGEN] OMEPRAZOL 14 CAPS 20 MG
+[OK] ONE DROP D3 VITAMINA 3ML
+     Imagen: conector-en-y_dip-mac.png  (base: conector-en-y, marca: dip-mac)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/conector-en-y_dip-mac.png
+
+[OK] ONE TOUCH GLUCOMETRO MEDIDOR SELEC PLUS SIMPLE
+     Imagen: conector-en-y_dip-mac.png  (base: conector-en-y, marca: dip-mac)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/conector-en-y_dip-mac.png
+
+[SIN IMAGEN] ORINAL DE PLASTICO 1L MASCULINO
+[SIN IMAGEN] OSMOROL MANITOL 20 FLEX 250ML
+[SIN IMAGEN] OTROZOL METRONIDAZOL 500MG/100ML INY
+[SIN IMAGEN] Oxímetro de Pulso Digital
+[SIN IMAGEN] Oxímetro Inhala Care Pulso Dedo Pantalla Led FS10E
+[SIN IMAGEN] OXITAL-C  ACIDO ASCORBICO 10 TABS EFERV
+[SIN IMAGEN] PAÑAL DIAPRO PREDOBLADO ADULTO C/10
+[SIN IMAGEN] PARACETAMOL 500MG C/10 TABS SALUCOM
+[SIN IMAGEN] PARACETAMOL 750MLG 10 TAB
+[SIN IMAGEN] PASTILLERO
+[SIN IMAGEN] PENTOXIFILIN LP 400MG 30 TAB
+[SIN IMAGEN] PERA HULE AZUL #6
+[SIN IMAGEN] PERFALGAN PARACETAMOL 1G INY
+[OK] PERISAFE I CAL 17GX31/2 405067
+     Imagen: perifix_braun.png  (base: perifix, marca: braun)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/perifix_braun.png
+
+[SIN IMAGEN] PGC25 (MONOCRYL) 1 36MM C/12
+[SIN IMAGEN] PINADRINA 1MG/ML PZ AMP
+[OK] PINZA UMBILICAL AMSINO
+     Imagen: pinza-umbilical_dip-mac.png  (base: pinza-umbilical, marca: dip-mac)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/pinza-umbilical_dip-mac.png
+
+[SIN IMAGEN] PIRINOVAG METAMIZOL SODICO 500MG TAB
+[OK] PISACAINA C/EPINEFRINA 2% AMP 50ML FCO
+     Imagen: pisacania_pisa.png  (base: pisacania, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/pisacania_pisa.png
+
+[OK] PLACA P/ELECTRO ADULTO COVIDIEN E7507
+     Imagen: electrodo_covidien.png  (base: electrodo, marca: covidien)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/electrodo_covidien.png
+
+[OK] PLACA P/ELECTROCAUTERIO C/CABLE OBS
+     Imagen: placa-con-cable_conmed.png  (base: placa-con-cable, marca: conmed)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/placa-con-cable_conmed.png
+
+[SIN IMAGEN] PORTA AGUJA MAYO 18CM HP
+[SIN IMAGEN] PUNTA NASAL ADULTO 180CM
+[SIN IMAGEN] PUNZOCAT 14G NARANJA VIZCARRA
+[SIN IMAGEN] PUNZOCAT 16G GRIS VIZCARRA
+[SIN IMAGEN] PUNZOCAT 17G ROJO VIZCARRA
+[SIN IMAGEN] PUNZOCAT 19G AZUL VIZCARRA
+[OK] PUNZOCAT 21G BLANCO VIZCARRA
+     Imagen: microporeblanco_3m.png  (base: microporeblanco, marca: 3m)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/microporeblanco_3m.png
+
+[SIN IMAGEN] PUNZOCAT 23G MORADO VIZCARRA
+[SIN IMAGEN] PUNZOCAT 24G AMARILLO VIZCARRA
+[SIN IMAGEN] QUETIAPINA 100MG 60 TABS
+[OK] RASTRILLO BORDE ROMO DOS FILOS PZ 9031
+     Imagen: rastrillo_ambiderm.png  (base: rastrillo, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/rastrillo_ambiderm.png
+
+[SIN IMAGEN] RDP ACIDO ASCORBICO 500MG 10 CAPS
+[OK] RECOLECTOR DE 2.7 LTS
+     Imagen: bolsa-recolectora_coviden.png  (base: bolsa-recolectora, marca: coviden)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/bolsa-recolectora_coviden.png
+
+[OK] RECOLECTOR DE RPBI 1.8 LTS
+     Imagen: bolsa-recolectora_coviden.png  (base: bolsa-recolectora, marca: coviden)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/bolsa-recolectora_coviden.png
+
+[OK] RECOLECTOR PUNZOCORTANTE 1 LT
+     Imagen: bolsa-recolectora_coviden.png  (base: bolsa-recolectora, marca: coviden)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/bolsa-recolectora_coviden.png
+
+[OK] RECOLECTOR PUNZOCORTANTE 1.8 LT
+     Imagen: bolsa-recolectora_coviden.png  (base: bolsa-recolectora, marca: coviden)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/bolsa-recolectora_coviden.png
+
+[OK] RECOLECTOR PUNZOCORTANTE 13 L
+     Imagen: bolsa-recolectora_coviden.png  (base: bolsa-recolectora, marca: coviden)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/bolsa-recolectora_coviden.png
+
+[OK] RECOLECTOR PUNZOCORTANTE 4.75LT KENDALL
+     Imagen: bolsa-recolectora_coviden.png  (base: bolsa-recolectora, marca: coviden)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/bolsa-recolectora_coviden.png
+
+[OK] RECOLECTOR PUZOCORTANTE 8.5L
+     Imagen: bolsa-recolectora_coviden.png  (base: bolsa-recolectora, marca: coviden)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/bolsa-recolectora_coviden.png
+
+[SIN IMAGEN] RIÑON DE PLASTICO
+[OK] ROLLO DE PAPEL PARA ELECTRO
+     Imagen: electrodo_ambiderm.png  (base: electrodo, marca: ambiderm)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/electrodo_ambiderm.png
+
+[OK] ROLLO P/MESA PRE-CORTADO 53X38 PLAST. 7023
+     Imagen: compresa_le-roy.png  (base: compresa, marca: le-roy)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/compresa_le-roy.png
+
+[SIN IMAGEN] ROPICONEST ROPIVACAINA 7.5MG 20ML 5AMP
+[SIN IMAGEN] SABANA PARA EXPLORACION 1.0X1.80 C/10
+[SIN IMAGEN] SEDA 1 S/A ATSS0738 C/12
+[SIN IMAGEN] SET ESPICAT BASICO 16G
+[OK] SISTEMA DE SUCCION CERRADO NEONATAL 5FR
+     Imagen: sistema-de-succion-cerrado_aspi-trach.png  (base: sistema-de-succion-cerrado, marca: aspi-trach)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/sistema-de-succion-cerrado_aspi-trach.png
+
+[OK] SISTEMA DE SUCCION CERRADO NEONATAL 6FR
+     Imagen: sistema-de-succion-cerrado_aspi-trach.png  (base: sistema-de-succion-cerrado, marca: aspi-trach)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/sistema-de-succion-cerrado_aspi-trach.png
+
+[OK] SISTEMA DE SUCCION CERRADO NEONATAL 8FR
+     Imagen: sistema-de-succion-cerrado_aspi-trach.png  (base: sistema-de-succion-cerrado, marca: aspi-trach)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/sistema-de-succion-cerrado_aspi-trach.png
+
+[OK] SOL FP-20 FOSFATO DE POT AMP 10ML SI
+     Imagen: solucion-cs_pisa.png  (base: solucion-cs, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/solucion-cs_pisa.png
+
+[OK] SOL HESTAR PENTALMIDON 6G/100ML
+     Imagen: solucion-cs_pisa.png  (base: solucion-cs, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/solucion-cs_pisa.png
+
+[OK] SOLUCION CS 0.9% P/IRRIG 3000ML BOLSA SI
+     Imagen: irrigatek_pisa.png  (base: irrigatek, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/irrigatek_pisa.png
+
+[OK] SOLUCION CS INY 0.9% 1000ML
+     Imagen: solucion-cs_pisa.png  (base: solucion-cs, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/solucion-cs_pisa.png
+
+[OK] SOLUCION CS INY 0.9% 100ML
+     Imagen: solucion-cs_pisa.png  (base: solucion-cs, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/solucion-cs_pisa.png
+
+[OK] SOLUCION CS INY 0.9% 250ML
+     Imagen: solucion-cs_pisa.png  (base: solucion-cs, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/solucion-cs_pisa.png
+
+[OK] SOLUCION CS INY 0.9% 500ML
+     Imagen: solucion-cs_pisa.png  (base: solucion-cs, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/solucion-cs_pisa.png
+
+[OK] SOLUCION CS INY 17.7% 10ML AMP VIDR 285
+     Imagen: solucion-cs_pisa.png  (base: solucion-cs, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/solucion-cs_pisa.png
+
+[OK] SOLUCION DX-10 C/1000ML FLX SI
+     Imagen: solucion-cs_pisa.png  (base: solucion-cs, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/solucion-cs_pisa.png
+
+[OK] SOLUCION DX-10 INY 500ML
+     Imagen: solucion-cs_pisa.png  (base: solucion-cs, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/solucion-cs_pisa.png
+
+[OK] SOLUCION DX-5  1000ML 1FCO FLX SI
+     Imagen: solucion-cs_pisa.png  (base: solucion-cs, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/solucion-cs_pisa.png
+
+[OK] SOLUCION DX-5  500 ML 1FCO FLX SI
+     Imagen: solucion-cs_pisa.png  (base: solucion-cs, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/solucion-cs_pisa.png
+
+[OK] SOLUCION DX-CS 500ML 1FCO FLX SI
+     Imagen: solucion-cs_pisa.png  (base: solucion-cs, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/solucion-cs_pisa.png
+
+[OK] SOLUCION HT INY 1000ML 089
+     Imagen: solucion-cs_pisa.png  (base: solucion-cs, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/solucion-cs_pisa.png
+
+[OK] SOLUCION HT INY 250ML 087
+     Imagen: solucion-cs_pisa.png  (base: solucion-cs, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/solucion-cs_pisa.png
+
+[OK] SOLUCION HT INY 500ML 088
+     Imagen: solucion-cs_pisa.png  (base: solucion-cs, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/solucion-cs_pisa.png
+
+[OK] Solución Inyectable
+     Imagen: solucion-cs_pisa.png  (base: solucion-cs, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/solucion-cs_pisa.png
+
+[OK] SOLUCION KRIT NF SOLUCION AL 12% 4 LTS
+     Imagen: solucion-cs_pisa.png  (base: solucion-cs, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/solucion-cs_pisa.png
+
+[OK] SOLVIN 120 ML YODOPOVIDONA SOLUCION
+     Imagen: solucion-cs_pisa.png  (base: solucion-cs, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/solucion-cs_pisa.png
+
+[SIN IMAGEN] SONDA BARD SILASTIC 22FR 2V G-5
+[OK] SONDA ENDOT. C/G ALMAACERO 8.0MM 32FR
+     Imagen: tubo-endotraqueal-con-globo-y-alma-de-acero_respifix.png  (base: tubo-endotraqueal-con-globo-y-alma-de-acero, marca: respifix)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/tubo-endotraqueal-con-globo-y-alma-de-acero_respifix.png
+
+[OK] SONDA FOLEY 100% SILICON 20FR 2VIAS G-5
+     Imagen: sonda-foley-de-silicon_covidien.png  (base: sonda-foley-de-silicon, marca: covidien)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/sonda-foley-de-silicon_covidien.png
+
+[OK] SONDA FOLEY 10FR 2V G-5
+     Imagen: sonda-foley_covidien.png  (base: sonda-foley, marca: covidien)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/sonda-foley_covidien.png
+
+[OK] SONDA FOLEY 20FR 2V G-5
+     Imagen: sonda-foley_covidien.png  (base: sonda-foley, marca: covidien)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/sonda-foley_covidien.png
+
+[OK] SONDA FOLEY 24FR 3V G-30
+     Imagen: sonda-foley_covidien.png  (base: sonda-foley, marca: covidien)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/sonda-foley_covidien.png
+
+[OK] SONDA FOLEY 24FR G-5 2V COVIDIEN
+     Imagen: sonda-foley_covidien.png  (base: sonda-foley, marca: covidien)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/sonda-foley_covidien.png
+
+[OK] SONDA FOLEY 8FR 2V DE LATEX
+     Imagen: sonda-foley_covidien.png  (base: sonda-foley, marca: covidien)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/sonda-foley_covidien.png
+
+[SIN IMAGEN] SONDA NASAL P/OXIGENO K29
+[OK] SONDA NASOG LEVIN 12FR RADIOPACA
+     Imagen: sonda-de-levin_dip-mac.png  (base: sonda-de-levin, marca: dip-mac)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/sonda-de-levin_dip-mac.png
+
+[OK] SONDA P/ALIMENT 8FR 38.5 CM. EST. K31
+     Imagen: estericide1_esteripharma.png  (base: estericide1, marca: esteripharma)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/estericide1_esteripharma.png
+
+[OK] SONDA P/ALIMENTACION K-30 8FR AMA
+     Imagen: sonda-de-alimentacion_dip-mac.png  (base: sonda-de-alimentacion, marca: dip-mac)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/sonda-de-alimentacion_dip-mac.png
+
+[SIN IMAGEN] SUPRADOL KETOROLACO 30MG 4 TABS
+[SIN IMAGEN] SUPRADOL KETOROLACO 30MG C/2 TAB
+[SIN IMAGEN] TAFLAVIX 40 TABS 100/60MG
+[SIN IMAGEN] TAPON GIRATEK P/SITIO DE INY
+[SIN IMAGEN] TAXISENSI CEFOTAXIMA 1GR
+[SIN IMAGEN] TEGADERM 6X7CM C/50 1624
+[SIN IMAGEN] TEGADERM APOSITO 10X12 C/50 1626
+[SIN IMAGEN] TEGADERM IV 3.8X4.5CM 1680
+[SIN IMAGEN] Tensiómetro Manual
+[OK] TERMOMETRO DIGITAL
+     Imagen: termometro-digital_sensimedical.png  (base: termometro-digital, marca: sensimedical)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/termometro-digital_sensimedical.png
+
+[OK] TERMOMETRO VICK DIG COMFORT FLEX
+     Imagen: termometro-digital_sensimedical.png  (base: termometro-digital, marca: sensimedical)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/termometro-digital_sensimedical.png
+
+[SIN IMAGEN] TIJERA UMBILICAL DE BOTON 11CM
+[OK] TIRAS ACCU-CHEK INSTANT C/50
+     Imagen: tiras-reactivas_accu-chek.png  (base: tiras-reactivas, marca: accu-chek)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/tiras-reactivas_accu-chek.png
+
+[OK] TIRAS ACCU-CHEK PERFORMA C/50
+     Imagen: tiras-reactivas_accu-chek.png  (base: tiras-reactivas, marca: accu-chek)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/tiras-reactivas_accu-chek.png
+
+[SIN IMAGEN] TIRAS CONTOUR PLUS C/50
+[OK] TIRAS REACTIVAS GL44 C/50 BEURER
+     Imagen: tiras-reactivas_accu-chek.png  (base: tiras-reactivas, marca: accu-chek)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/tiras-reactivas_accu-chek.png
+
+[OK] TOALLAS ALCOHOLADAS PROTEC C/100
+     Imagen: alcohol_las-canitas.png  (base: alcohol, marca: las-canitas)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/alcohol_las-canitas.png
+
+[OK] TORUNDA ALGODON 500G PROTEC
+     Imagen: algodon_quirmex.png  (base: algodon, marca: quirmex)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/algodon_quirmex.png
+
+[SIN IMAGEN] TRALIKEN KETOPROFENO IM C/6 AMP
+[OK] TRALIKEN KETOPROFENO IV SOL INY C/3 FCO
+     Imagen: solucion-cs_pisa.png  (base: solucion-cs, marca: pisa)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/solucion-cs_pisa.png
+
+[SIN IMAGEN] TRANSPORE 1" C/12
+[SIN IMAGEN] TRANSPORE 3" C/4
+[SIN IMAGEN] TRIBEDOCE TAB 100MG C/30
+[SIN IMAGEN] TUBO DE SUCCION 6MMX3M MEDLINE
+[OK] TUBO ENDOTRAQUEAL 2.5 S/G
+     Imagen: tubo-endotraqueal_hudson-rci.png  (base: tubo-endotraqueal, marca: hudson-rci)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/tubo-endotraqueal_hudson-rci.png
+
+[OK] TUBO ENDOTRAQUEAL 5.5 S/G
+     Imagen: tubo-endotraqueal_hudson-rci.png  (base: tubo-endotraqueal, marca: hudson-rci)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/tubo-endotraqueal_hudson-rci.png
+
+[SIN IMAGEN] TUBO P/LIGADURA 2005 C/15 MTS HOLY
+[OK] TUBO PENROSE ESTERIL HOLY 1'
+     Imagen: tubo-penrose_es-calidad.png  (base: tubo-penrose, marca: es-calidad)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/tubo-penrose_es-calidad.png
+
+[SIN IMAGEN] UNIFORME QUIRURGICO
+[OK] VASO RECOLECTOR PREMIUM ESTERIL
+     Imagen: bolsa-recolectora_coviden.png  (base: bolsa-recolectora, marca: coviden)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/bolsa-recolectora_coviden.png
+
+[OK] VENDA COBAN 4" COLOR PIEL
+     Imagen: venda-coban_bsn-medical.png  (base: venda-coban, marca: bsn-medical)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/venda-coban_bsn-medical.png
+
+[OK] VENDA ELASTICA GALIA 10CM C/12
+     Imagen: venda-elastica_ideal.png  (base: venda-elastica, marca: ideal)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/venda-elastica_ideal.png
+
+[OK] VENDA ELASTICA IDEAL 7.5CMX5M 10789
+     Imagen: venda-elastica_ideal.png  (base: venda-elastica, marca: ideal)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/venda-elastica_ideal.png
+
+[OK] VENDA ELASTOMEDIC 15CMX5M LEROY
+     Imagen: venda-elastomedic_le-roy.png  (base: venda-elastomedic, marca: le-roy)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/venda-elastomedic_le-roy.png
+
+[OK] VENDA ELASTOMEDIC 7.5CMX5M LEROY
+     Imagen: venda-elastomedic_le-roy.png  (base: venda-elastomedic, marca: le-roy)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/venda-elastomedic_le-roy.png
+
+[OK] VENDA PROTEC 10CM C/12
+     Imagen: venda-huata_protec.png  (base: venda-huata, marca: protec)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/venda-huata_protec.png
+
+[OK] VENDA PROTEC 30CM C/12
+     Imagen: venda-huata_protec.png  (base: venda-huata, marca: protec)
+     URL: https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/venda-huata_protec.png
+
+[SIN IMAGEN] VENDALASTIC 10CM C/12
+[SIN IMAGEN] VENDALASTIC 15CM C/12
+[SIN IMAGEN] VENDALASTIC 20CM C/12
+[SIN IMAGEN] VENDALASTIC 30CM C/12
+[SIN IMAGEN] VENDALASTIC 5CM C/12
+[SIN IMAGEN] VENDALASTIC 7CMS C/12
+[SIN IMAGEN] Vendas de Gasa 10cm x 5m
+[SIN IMAGEN] VENGESIC GRAG C/20
+[SIN IMAGEN] VICRYL 2-0  C/12 G3792-67
+[SIN IMAGEN] VICRYL 4-0 RB-1 J304H
+[SIN IMAGEN] VILADOL BUTILHIO/PARACET 20TAB 10/500MG
+[SIN IMAGEN] VISERTRAL CETIRIZINA 10 TABS 10MG
+[SIN IMAGEN] VO-REMI 5 AMP 50/25MG/1 ML
+[SIN IMAGEN] ZAPATO POST QUIRURGICO M
+
+Resumen:
+- Con imagen: 250
+- Sin imagen: 212
