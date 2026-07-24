@@ -8,9 +8,7 @@ export function getStripe(): Stripe {
     if (!secretKey) {
       throw new Error("STRIPE_SECRET_KEY no está configurada en las variables de entorno");
     }
-    stripeInstance = new Stripe(secretKey, {
-      apiVersion: "2025-06-18.basil" as Stripe.LatestApiVersion,
-    });
+    stripeInstance = new Stripe(secretKey);
   }
   return stripeInstance;
 }
