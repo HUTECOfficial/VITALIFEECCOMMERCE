@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { motion, AnimatePresence } from "framer-motion";
-import { CheckCircle2, ShoppingBag, ArrowLeft } from "lucide-react";
+import { CheckCircle2, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { useClientCart } from "@/store/cartStore";
 import { formatPrice } from "@/lib/utils";
@@ -24,8 +24,7 @@ const schema = z.object({
 type FormData = z.infer<typeof schema>;
 
 export default function CheckoutPage() {
-  const [success, setSuccess] = useState(false);
-  const [orderId, setOrderId] = useState<string | null>(null);
+  const [redirecting, setRedirecting] = useState(false);
   const { items, total, itemCount, clearCart, isReady } = useClientCart();
   const count = itemCount();
   const subtotal = total();
@@ -39,76 +38,46 @@ export default function CheckoutPage() {
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
   const onSubmit = async (data: FormData) => {
-    const res = await fetch('/api/orders', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        firstName: data.firstName,
-        lastName: data.lastName,
-        address: data.address,
-        colonia: data.colonia,
-        city: data.city,
-        cp: data.cp,
-        phone: data.phone,
-        subtotal,
-        iva,
-        total: totalFinal,
-        items: items.map((item) => ({
-          productId: item.id,
-          name: item.name,
-          price: item.price,
-          quantity: item.quantity,
-          size: item.size,
-        })),
-      }),
-    });
+    setRedirecting(true);
+    try {
+      const res = await fetch('/api/stripe/checkout', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName: data.firstName,
+          lastName: data.lastName,
+          address: data.address,
+          colonia: data.colonia,
+          city: data.city,
+          cp: data.cp,
+          phone: data.phone,
+          subtotal,
+          iva,
+          total: totalFinal,
+          items: items.map((item) => ({
+            productId: item.id,
+            name: item.name,
+            price: item.price,
+            quantity: item.quantity,
+            size: item.size,
+          })),
+        }),
+      });
 
-    const result = await res.json();
-    if (!res.ok || !result.success) {
-      alert(result.error || 'No se pudo guardar el pedido. Intenta de nuevo.');
-      return;
+      const result = await res.json();
+      if (!res.ok || !result.url) {
+        alert(result.error || 'No se pudo iniciar el pago. Intenta de nuevo.');
+        setRedirecting(false);
+        return;
+      }
+
+      clearCart();
+      window.location.href = result.url;
+    } catch {
+      alert('Error de conexión. Intenta de nuevo.');
+      setRedirecting(false);
     }
-
-    setOrderId(result.orderId);
-    clearCart();
-    setSuccess(true);
   };
-
-  if (success) {
-    return (
-      <div className="min-h-screen pt-24 hero-gradient flex items-center justify-center">
-        <div className="text-center max-w-md mx-auto px-4">
-          <motion.div
-            initial={{ scale: 0 }}
-            animate={{ scale: 1 }}
-            transition={{ type: "spring", stiffness: 200, damping: 15 }}
-            className="w-24 h-24 rounded-full bg-green-50 border-4 border-green-200 flex items-center justify-center mx-auto mb-6"
-          >
-            <CheckCircle2 className="w-12 h-12 text-green-500" />
-          </motion.div>
-          <h2 className="text-2xl font-bold text-[#1a3a6b] mb-3">
-            ¡Pedido confirmado!
-          </h2>
-          <p className="text-gray-500 mb-2">
-            Tu pedido fue registrado exitosamente. Nos comunicaremos contigo en breve
-            para coordinar la entrega.
-          </p>
-          {orderId && (
-            <p className="text-[#1a3a6b] font-bold mb-8">
-              Pedido: {orderId}
-            </p>
-          )}
-          <Link
-            href="/insumos"
-            className="inline-flex items-center gap-2 bg-[#1a3a6b] text-white px-6 py-3 rounded-full font-medium hover:bg-[#2eb8d4] transition-all"
-          >
-            <ShoppingBag className="w-4 h-4" />
-            Seguir comprando
-          </Link>
-        </div>
-      </div>
-    );
-  }
 
   if (!isReady) {
     return (
@@ -298,22 +267,21 @@ export default function CheckoutPage() {
                     </div>
                   </div>
 
-                  <div className="pt-2 p-4 bg-amber-50 border border-amber-200 rounded-xl text-sm text-amber-700">
-                    <strong>Nota:</strong> Este es un flujo de demostración. No se procesarán
-                    pagos reales. Nos contactaremos contigo para coordinar la entrega.
+                  <div className="pt-2 p-4 bg-[#e8f4fd] border border-[#2eb8d4]/20 rounded-xl text-sm text-[#1a3a6b]/70">
+                    <strong>Pago seguro:</strong> Serás redirigido a Stripe para completar tu pago de forma segura.
                   </div>
 
                   <button
                     type="submit"
-                    disabled={isSubmitting}
+                    disabled={isSubmitting || redirecting}
                     className="w-full inline-flex items-center justify-center gap-2 bg-[#1a3a6b] text-white py-4 rounded-full font-semibold text-base hover:bg-[#2eb8d4] transition-all hover:scale-105 disabled:opacity-60 shadow-lg"
                   >
-                    {isSubmitting ? (
+                    {isSubmitting || redirecting ? (
                       <span className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
                     ) : (
                       <CheckCircle2 className="w-5 h-5" />
                     )}
-                    {isSubmitting ? "Procesando..." : "Confirmar pedido"}
+                    {isSubmitting || redirecting ? "Redirigiendo a Stripe..." : "Pagar con Stripe"}
                   </button>
                 </form>
               </div>
