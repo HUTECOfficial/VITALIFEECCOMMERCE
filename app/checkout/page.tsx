@@ -27,9 +27,9 @@ export default function CheckoutPage() {
   const [redirecting, setRedirecting] = useState(false);
   const { items, total, itemCount, clearCart, isReady } = useClientCart();
   const count = itemCount();
-  const subtotal = total();
-  const iva = subtotal * 0.16;
-  const totalFinal = subtotal + iva;
+  const subtotal = Math.round(total() * 100) / 100;
+  const iva = Math.round(subtotal * 0.16 * 100) / 100;
+  const totalFinal = Math.round((subtotal + iva) * 100) / 100;
 
   const {
     register,

@@ -24,11 +24,19 @@ interface CheckoutPayload {
   items: CheckoutItem[];
 }
 
+function round2(value: number): number {
+  return Math.round(value * 100) / 100;
+}
+
 export async function POST(request: NextRequest) {
   try {
     const body: CheckoutPayload = await request.json();
 
     const supabase = createServerClient();
+
+    const subtotal = round2(body.subtotal);
+    const iva = round2(body.iva);
+    const total = round2(body.total);
 
     const { data: order, error: orderError } = await supabase
       .from("orders")
@@ -40,15 +48,16 @@ export async function POST(request: NextRequest) {
         city: body.city,
         cp: body.cp,
         phone: body.phone,
-        subtotal: body.subtotal,
-        iva: body.iva,
-        total: body.total,
+        subtotal,
+        iva,
+        total,
         status: "pending",
       })
       .select("id")
       .single();
 
     if (orderError || !order) {
+      console.error("Error creando orden:", orderError);
       return NextResponse.json(
         { error: "No se pudo crear el pedido" },
         { status: 500 }
@@ -59,7 +68,7 @@ export async function POST(request: NextRequest) {
       order_id: order.id,
       product_id: item.productId || null,
       name: item.name,
-      price: item.price,
+      price: round2(item.price),
       quantity: item.quantity,
       size: item.size || null,
     }));
@@ -69,13 +78,14 @@ export async function POST(request: NextRequest) {
       .insert(orderItems);
 
     if (itemsError) {
+      console.error("Error guardando items:", itemsError);
       return NextResponse.json(
         { error: "No se pudieron guardar los productos del pedido" },
         { status: 500 }
       );
     }
 
-    const origin = request.headers.get("origin") || "http://localhost:3000";
+    const origin = request.nextUrl.origin;
 
     const session = await stripe.checkout.sessions.create({
       mode: "payment",
