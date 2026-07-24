@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { stripe } from "@/lib/stripe";
+import { getStripe } from "@/lib/stripe";
 import { createServerClient } from "@/lib/supabase/server";
 
 interface CheckoutItem {
@@ -30,6 +30,20 @@ function round2(value: number): number {
 
 export async function POST(request: NextRequest) {
   try {
+    if (!process.env.STRIPE_SECRET_KEY) {
+      return NextResponse.json(
+        { error: "STRIPE_SECRET_KEY no está configurada en Vercel" },
+        { status: 500 }
+      );
+    }
+
+    if (!process.env.SUPABASE_SECRET_KEY) {
+      return NextResponse.json(
+        { error: "SUPABASE_SECRET_KEY no está configurada en Vercel" },
+        { status: 500 }
+      );
+    }
+
     const body: CheckoutPayload = await request.json();
 
     const supabase = createServerClient();
@@ -87,7 +101,7 @@ export async function POST(request: NextRequest) {
 
     const origin = request.nextUrl.origin;
 
-    const session = await stripe.checkout.sessions.create({
+    const session = await getStripe().checkout.sessions.create({
       mode: "payment",
       payment_method_types: ["card"],
       line_items: body.items.map((item) => ({
@@ -118,8 +132,12 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({ url: session.url, orderId: order.id });
   } catch (err) {
     console.error("Error creating checkout session:", err);
+    const message = err instanceof Error ? err.message : String(err);
     return NextResponse.json(
-      { error: "Error al crear la sesión de pago" },
+      {
+        error: "Error al crear la sesión de pago",
+        details: message,
+      },
       { status: 500 }
     );
   }

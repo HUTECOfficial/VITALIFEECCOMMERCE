@@ -66,7 +66,8 @@ export default function CheckoutPage() {
 
       const result = await res.json();
       if (!res.ok || !result.url) {
-        alert(result.error || 'No se pudo iniciar el pago. Intenta de nuevo.');
+        const msg = result.error || 'No se pudo iniciar el pago. Intenta de nuevo.';
+        alert(result.details ? `${msg}\n${result.details}` : msg);
         setRedirecting(false);
         return;
       }
