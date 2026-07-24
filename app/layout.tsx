@@ -11,12 +11,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://www.vitallifemx.store"),
   title: {
     default: "Vital Life Insumos Médicos | León, Guanajuato",
     template: "%s | Vital Life Insumos Médicos",
   },
   description:
-    "Somos un equipo profesional dedicado a ofrecer un servicio humano, digno y eficaz para el cuidado integral de la salud en León, Guanajuato.",
+    "Distribuidores autorizados de las mejores marcas médicas. +20 marcas y +500 referencias en almacén. Entrega el mismo día en León, Guanajuato.",
   keywords: [
     "insumos médicos",
     "León Guanajuato",
@@ -24,15 +25,17 @@ export const metadata: Metadata = {
     "fisioterapia",
     "material de curación",
   ],
-  icons: {
-    icon: "/vitalife-logo.png",
-    apple: "/vitalife-logo.png",
-  },
   openGraph: {
     title: "Vital Life Insumos Médicos",
-    description: "Servicios integrales de salud en León, Guanajuato",
+    description: "Distribuidores autorizados de marcas médicas en León, Guanajuato",
     locale: "es_MX",
     type: "website",
+    siteName: "Vital Life Insumos Médicos",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Vital Life Insumos Médicos",
+    description: "Distribuidores autorizados de marcas médicas en León, Guanajuato",
   },
 };
 
