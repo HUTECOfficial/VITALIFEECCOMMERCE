@@ -121,7 +121,7 @@ export default function EnfermeriaPage() {
                     Ver Servicios
                   </a>
                   <a
-                    href="https://wa.me/524771736105?text=Hola,%20necesito%20solicitar%20atención%20de%20enfermería%20o%20fisioterapia"
+                    href="https://wa.me/5214777031953?text=Hola,%20necesito%20solicitar%20atención%20de%20enfermería%20o%20fisioterapia"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-2 border-2 border-[#1a3a6b] text-[#1a3a6b] px-6 py-3 rounded-full font-medium hover:bg-[#1a3a6b] hover:text-white transition-all"
@@ -290,7 +290,7 @@ export default function EnfermeriaPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <a
-                href="https://wa.me/524771736105"
+                href="https://wa.me/5214777031953"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 bg-[#2eb8d4] text-white px-6 py-3 rounded-full font-medium hover:bg-white hover:text-[#1a3a6b] transition-all"
