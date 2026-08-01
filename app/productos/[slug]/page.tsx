@@ -8,6 +8,7 @@ import { categoryLabels } from "@/data/products";
 import { ShoppingCartButton } from "@/components/ui/ShoppingCartButton";
 import { StockIndicator } from "@/components/ui/StockIndicator";
 import { ProductImageZoom } from "@/components/ui/ProductImageZoom";
+import { productGalleryImages } from "@/data/productGallery";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -39,7 +40,11 @@ export default async function ProductPage({ params }: PageProps) {
         </Link>
 
         <div className="grid md:grid-cols-2 gap-8">
-          <ProductImageZoom src={product.image} alt={product.name} />
+          <ProductImageZoom
+            src={product.image}
+            images={productGalleryImages[product.slug]}
+            alt={product.name}
+          />
 
           <div className="flex flex-col justify-center">
             <span className="text-[#2eb8d4] font-bold text-xs uppercase tracking-[0.2em] mb-2">

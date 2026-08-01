@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import Link from "next/link";
 import { ShoppingCart, Check } from "lucide-react";
 import { useCartStore } from "@/store/cartStore";
 import { Product } from "@/types";
@@ -27,26 +26,12 @@ export function ShoppingCartButton({ product }: { product: Product }) {
   };
 
   const hasUnselectedVariant = Boolean((product.sizes?.length && !selectedSize) || (product.colors?.length && !selectedColor));
-  const quoteHref = `/contacto?producto=${encodeURIComponent(product.name)}${
-    selectedSize ? `&talla=${encodeURIComponent(selectedSize)}` : ""
-  }${
-    selectedColor ? `&color=${encodeURIComponent(selectedColor)}` : ""
-  }`;
-
   return (
     <div className="space-y-2">
       {product.colors?.length ? <OptionSelector label="Color" options={product.colors} selected={selectedColor} onSelect={setSelectedColor} /> : null}
       {product.sizes?.length ? <OptionSelector label="Talla / medida" options={product.sizes} selected={selectedSize} onSelect={setSelectedSize} /> : null}
-      {product.quoteOnly ? (
-        <Link
-          href={quoteHref}
-          className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-bold bg-[#1a3a6b] text-white hover:bg-[#2eb8d4] transition-colors shadow-md min-h-12"
-          aria-label={`Comprar ${product.name}`}
-        >
-          Comprar
-        </Link>
-      ) : (
       <motion.button
+        type="button"
         onClick={handleAdd}
         whileTap={{ scale: 0.98 }}
         disabled={hasUnselectedVariant}
@@ -56,7 +41,7 @@ export function ShoppingCartButton({ product }: { product: Product }) {
             ? "bg-gray-300 text-white cursor-not-allowed"
             : "bg-[#1a3a6b] text-white hover:bg-[#2eb8d4]"
         )}
-        aria-label={`Agregar ${product.name} al carrito`}
+        aria-label={`Comprar ${product.name}`}
       >
         <AnimatePresence mode="wait">
           {added ? (
@@ -77,12 +62,11 @@ export function ShoppingCartButton({ product }: { product: Product }) {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.8 }}
             >
-              <ShoppingCart className="w-4 h-4" /> Agregar al carrito
+              <ShoppingCart className="w-4 h-4" /> Comprar
             </motion.span>
           )}
         </AnimatePresence>
       </motion.button>
-      )}
     </div>
   );
 }

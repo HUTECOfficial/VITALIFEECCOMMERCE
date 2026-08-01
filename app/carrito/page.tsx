@@ -6,15 +6,15 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Trash2, Plus, Minus, ShoppingCart, ArrowRight } from "lucide-react";
 import { useClientCart } from "@/store/cartStore";
 import { formatPrice } from "@/lib/utils";
+import { STRIPE_MINIMUM_ORDER_MXN, calculateCheckoutTotals } from "@/lib/checkout";
 import FadeInWhenVisible from "@/components/animations/FadeInWhenVisible";
 
 export default function CarritoPage() {
   const { items, removeItem, updateQuantity, total, itemCount, clearCart, isReady } =
     useClientCart();
   const count = itemCount();
-  const subtotal = total();
-  const iva = subtotal * 0.16;
-  const totalFinal = subtotal + iva;
+  const { subtotal, iva, total: totalFinal } = calculateCheckoutTotals(total());
+  const meetsCheckoutMinimum = totalFinal >= STRIPE_MINIMUM_ORDER_MXN;
 
   if (!isReady) {
     return (
@@ -198,13 +198,24 @@ export default function CarritoPage() {
                     <span className="text-xl">{formatPrice(totalFinal)}</span>
                   </div>
                 </div>
-                <Link
-                  href="/checkout"
-                  className="w-full inline-flex items-center justify-center gap-2 bg-[#1a3a6b] text-white py-3 rounded-full font-medium hover:bg-[#2eb8d4] transition-all hover:scale-105 shadow-lg"
-                >
-                  Proceder al pago
-                  <ArrowRight className="w-4 h-4" />
-                </Link>
+                {meetsCheckoutMinimum ? (
+                  <Link
+                    href="/checkout"
+                    className="w-full inline-flex items-center justify-center gap-2 bg-[#1a3a6b] text-white py-3 rounded-full font-medium hover:bg-[#2eb8d4] transition-all hover:scale-105 shadow-lg"
+                  >
+                    Proceder al pago
+                    <ArrowRight className="w-4 h-4" />
+                  </Link>
+                ) : (
+                  <>
+                    <p className="mb-3 rounded-xl bg-amber-50 px-3 py-2 text-xs font-medium text-amber-900">
+                      Mínimo para pago con tarjeta: {formatPrice(STRIPE_MINIMUM_ORDER_MXN)}. Agrega {formatPrice(STRIPE_MINIMUM_ORDER_MXN - totalFinal)} más.
+                    </p>
+                    <span className="w-full inline-flex items-center justify-center gap-2 bg-gray-300 text-white py-3 rounded-full font-medium cursor-not-allowed">
+                      Agrega productos para continuar
+                    </span>
+                  </>
+                )}
                 <Link
                   href="/insumos"
                   className="mt-3 w-full inline-flex items-center justify-center gap-2 text-[#1a3a6b] text-sm hover:text-[#2eb8d4] transition-colors"
@@ -223,13 +234,19 @@ export default function CarritoPage() {
               <p className="text-[11px] uppercase tracking-wide font-bold text-[#1a3a6b]/55">Total</p>
               <p className="text-[#1a3a6b] font-black text-lg leading-none">{formatPrice(totalFinal)}</p>
             </div>
-            <Link
-              href="/checkout"
-              className="inline-flex items-center justify-center gap-2 bg-[#1a3a6b] text-white px-5 py-3 rounded-xl font-bold text-sm min-w-[170px]"
-            >
-              Proceder al pago
-              <ArrowRight className="w-4 h-4" />
-            </Link>
+            {meetsCheckoutMinimum ? (
+              <Link
+                href="/checkout"
+                className="inline-flex items-center justify-center gap-2 bg-[#1a3a6b] text-white px-5 py-3 rounded-xl font-bold text-sm min-w-[170px]"
+              >
+                Proceder al pago
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            ) : (
+              <span className="inline-flex items-center justify-center bg-gray-300 text-white px-5 py-3 rounded-xl font-bold text-sm min-w-[170px]">
+                Mínimo {formatPrice(STRIPE_MINIMUM_ORDER_MXN)}
+              </span>
+            )}
           </div>
         </div>
       </div>

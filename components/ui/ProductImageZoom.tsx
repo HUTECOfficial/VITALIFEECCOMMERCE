@@ -6,12 +6,16 @@ import { ZoomIn } from "lucide-react";
 
 interface ProductImageZoomProps {
   src: string;
+  images?: string[];
   alt: string;
 }
 
-export function ProductImageZoom({ src, alt }: ProductImageZoomProps) {
+export function ProductImageZoom({ src, images = [], alt }: ProductImageZoomProps) {
   const [isZoomed, setIsZoomed] = useState(false);
   const [transformOrigin, setTransformOrigin] = useState("50% 50%");
+  const [activeImageIndex, setActiveImageIndex] = useState(0);
+  const gallery = [src, ...images.filter((image) => image !== src)];
+  const activeImage = gallery[activeImageIndex] ?? src;
 
   function updateZoomOrigin(event: React.PointerEvent<HTMLButtonElement>) {
     if (event.pointerType !== "mouse") return;
@@ -25,6 +29,7 @@ export function ProductImageZoom({ src, alt }: ProductImageZoomProps) {
   }
 
   return (
+    <div className="space-y-3">
     <button
       type="button"
       onPointerMove={updateZoomOrigin}
@@ -40,12 +45,12 @@ export function ProductImageZoom({ src, alt }: ProductImageZoomProps) {
           setIsZoomed((zoomed) => !zoomed);
         }
       }}
-      aria-label={`Ampliar imagen de ${alt}`}
+      aria-label={`Ampliar imagen ${activeImageIndex + 1} de ${alt}`}
       aria-pressed={isZoomed}
       className="group relative h-80 w-full overflow-hidden rounded-3xl bg-white text-left shadow-lg outline-none focus-visible:ring-4 focus-visible:ring-[#2eb8d4]/50 md:h-96"
     >
       <Image
-        src={src}
+        src={activeImage}
         alt={alt}
         fill
         className={`object-contain p-4 ${isZoomed ? "scale-[1.85]" : "scale-100"} transition-transform duration-200 ease-out`}
@@ -59,5 +64,30 @@ export function ProductImageZoom({ src, alt }: ProductImageZoomProps) {
       </span>
       <span className="sr-only">En computadora, mueve el cursor para acercar la imagen. En móvil, toca para ampliar.</span>
     </button>
+    {gallery.length > 1 && (
+      <div className="flex items-center justify-center gap-3" aria-label="Galería de imágenes del producto">
+        {gallery.map((image, index) => (
+          <button
+            key={image}
+            type="button"
+            onClick={() => {
+              setActiveImageIndex(index);
+              setIsZoomed(false);
+              setTransformOrigin("50% 50%");
+            }}
+            className={`relative h-16 w-16 overflow-hidden rounded-xl border-2 bg-white transition-all ${
+              activeImageIndex === index
+                ? "border-[#2eb8d4] ring-2 ring-[#2eb8d4]/20"
+                : "border-[#1a3a6b]/10 hover:border-[#2eb8d4]/60"
+            }`}
+            aria-label={`Ver foto ${index + 1} de ${alt}`}
+            aria-pressed={activeImageIndex === index}
+          >
+            <Image src={image} alt="" fill className="object-contain p-1" sizes="64px" />
+          </button>
+        ))}
+      </div>
+    )}
+    </div>
   );
 }

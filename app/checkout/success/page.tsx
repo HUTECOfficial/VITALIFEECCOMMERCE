@@ -4,11 +4,17 @@ import { useSearchParams } from "next/navigation";
 import Link from "next/link";
 import { motion } from "framer-motion";
 import { CheckCircle2, ShoppingBag } from "lucide-react";
-import { Suspense } from "react";
+import { Suspense, useEffect } from "react";
+import { useCartStore } from "@/store/cartStore";
 
 function SuccessContent() {
   const searchParams = useSearchParams();
   const orderId = searchParams.get("order");
+  const clearCart = useCartStore((state) => state.clearCart);
+
+  useEffect(() => {
+    if (orderId) clearCart();
+  }, [clearCart, orderId]);
 
   return (
     <div className="min-h-screen pt-24 hero-gradient flex items-center justify-center">

@@ -4,11 +4,11 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
-import { motion, AnimatePresence } from "framer-motion";
 import { CheckCircle2, ArrowLeft } from "lucide-react";
 import Link from "next/link";
 import { useClientCart } from "@/store/cartStore";
 import { formatPrice } from "@/lib/utils";
+import { STRIPE_MINIMUM_ORDER_MXN, calculateCheckoutTotals } from "@/lib/checkout";
 import FadeInWhenVisible from "@/components/animations/FadeInWhenVisible";
 
 const schema = z.object({
@@ -25,11 +25,11 @@ type FormData = z.infer<typeof schema>;
 
 export default function CheckoutPage() {
   const [redirecting, setRedirecting] = useState(false);
-  const { items, total, itemCount, clearCart, isReady } = useClientCart();
+  const [checkoutError, setCheckoutError] = useState("");
+  const { items, total, itemCount, isReady } = useClientCart();
   const count = itemCount();
-  const subtotal = Math.round(total() * 100) / 100;
-  const iva = Math.round(subtotal * 0.16 * 100) / 100;
-  const totalFinal = Math.round((subtotal + iva) * 100) / 100;
+  const { subtotal, iva, total: totalFinal } = calculateCheckoutTotals(total());
+  const meetsCheckoutMinimum = totalFinal >= STRIPE_MINIMUM_ORDER_MXN;
 
   const {
     register,
@@ -38,6 +38,12 @@ export default function CheckoutPage() {
   } = useForm<FormData>({ resolver: zodResolver(schema) });
 
   const onSubmit = async (data: FormData) => {
+    if (!meetsCheckoutMinimum) {
+      setCheckoutError(`Agrega ${formatPrice(STRIPE_MINIMUM_ORDER_MXN - totalFinal)} más para alcanzar el mínimo de compra de ${formatPrice(STRIPE_MINIMUM_ORDER_MXN)}.`);
+      return;
+    }
+
+    setCheckoutError("");
     setRedirecting(true);
     try {
       const res = await fetch('/api/stripe/checkout', {
@@ -51,9 +57,6 @@ export default function CheckoutPage() {
           city: data.city,
           cp: data.cp,
           phone: data.phone,
-          subtotal,
-          iva,
-          total: totalFinal,
           items: items.map((item) => ({
             productId: item.id,
             name: item.name,
@@ -67,13 +70,12 @@ export default function CheckoutPage() {
       const result = await res.json();
       if (!res.ok || !result.url) {
         const msg = result.error || 'No se pudo iniciar el pago. Intenta de nuevo.';
-        alert(result.details ? `${msg}\n${result.details}` : msg);
+        setCheckoutError(result.details ? `${msg} ${result.details}` : msg);
         setRedirecting(false);
         return;
       }
 
-      clearCart();
-      window.location.href = result.url;
+      window.location.assign(result.url);
     } catch {
       alert('Error de conexión. Intenta de nuevo.');
       setRedirecting(false);
@@ -272,9 +274,20 @@ export default function CheckoutPage() {
                     <strong>Pago seguro:</strong> Serás redirigido a Stripe para completar tu pago de forma segura.
                   </div>
 
+                  {!meetsCheckoutMinimum && (
+                    <div role="alert" className="p-4 rounded-xl border border-amber-200 bg-amber-50 text-sm text-amber-900">
+                      El pago con tarjeta requiere un mínimo de {formatPrice(STRIPE_MINIMUM_ORDER_MXN)}. Agrega {formatPrice(STRIPE_MINIMUM_ORDER_MXN - totalFinal)} más al carrito.
+                    </div>
+                  )}
+                  {checkoutError && (
+                    <div role="alert" className="p-4 rounded-xl border border-red-200 bg-red-50 text-sm text-red-700">
+                      {checkoutError}
+                    </div>
+                  )}
+
                   <button
                     type="submit"
-                    disabled={isSubmitting || redirecting}
+                    disabled={isSubmitting || redirecting || !meetsCheckoutMinimum}
                     className="w-full inline-flex items-center justify-center gap-2 bg-[#1a3a6b] text-white py-4 rounded-full font-semibold text-base hover:bg-[#2eb8d4] transition-all hover:scale-105 disabled:opacity-60 shadow-lg"
                   >
                     {isSubmitting || redirecting ? (
@@ -282,7 +295,7 @@ export default function CheckoutPage() {
                     ) : (
                       <CheckCircle2 className="w-5 h-5" />
                     )}
-                    {isSubmitting || redirecting ? "Redirigiendo a Stripe..." : "Pagar con Stripe"}
+                    {isSubmitting || redirecting ? "Redirigiendo a Stripe..." : meetsCheckoutMinimum ? "Pagar con Stripe" : "Agrega productos para continuar"}
                   </button>
                 </form>
               </div>
