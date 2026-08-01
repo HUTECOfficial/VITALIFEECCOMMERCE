@@ -235,7 +235,7 @@ export default function BrandDetailClient({ brand, total }: Props) {
                     transition={{ delay: i * 0.04 }}
                     className="rounded-2xl border border-[#1a3a6b]/10 bg-white p-4 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all"
                   >
-                    <Link href={`/productos/${product.slug}`} className="block relative h-40 rounded-xl overflow-hidden bg-[#eef7fd] mb-4">
+                    <Link href={`/productos/${product.slug}`} className="block relative h-40 rounded-xl overflow-hidden bg-white mb-4">
                       <Image src={product.image} alt={product.name} fill className="object-contain p-3" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
                     </Link>
                     <p className="text-[11px] uppercase tracking-wide font-bold text-[#2eb8d4] mb-1">{categoryLabels[product.category]}</p>

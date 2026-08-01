@@ -152,7 +152,7 @@ export default function Navbar() {
               href="/contacto"
               className="hidden lg:flex items-center gap-1.5 bg-gradient-to-r from-[#2eb8d4] to-[#1a3a6b] text-white px-4 py-2.5 rounded-full text-xs font-black uppercase tracking-wide hover:shadow-lg hover:shadow-[#2eb8d4]/30 transition-all hover:-translate-y-0.5"
             >
-              <Sparkles className="w-3.5 h-3.5 text-[#e8f4fd]" /> Cotizar Ahora
+              <Sparkles className="w-3.5 h-3.5 text-[#e8f4fd]" /> Comprar ahora
             </Link>
 
             <Link
@@ -213,7 +213,7 @@ export default function Navbar() {
               ))}
               <div className="pt-4">
                 <Link onClick={() => setMobileOpen(false)} href="/contacto" className="w-full flex items-center justify-center gap-2 bg-[#2eb8d4] text-white py-3.5 rounded-2xl font-black uppercase text-sm shadow-lg shadow-[#2eb8d4]/30">
-                  Cotizar / Llamar
+                  Comprar / Llamar
                 </Link>
               </div>
             </motion.div>

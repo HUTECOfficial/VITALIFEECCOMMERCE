@@ -84,7 +84,7 @@ function HeroSection() {
                 href="/contacto"
                 className="bg-gradient-to-r from-[#ff4757] to-[#e84118] text-white px-6 sm:px-8 py-4 rounded-2xl font-black hover:shadow-2xl hover:shadow-[#ff4757]/40 hover:-translate-y-1 transition-all duration-300 uppercase text-sm tracking-wide flex items-center justify-center gap-2 min-h-12"
               >
-                Cotizar Rápido <ChevronRight className="w-5 h-5" />
+                Comprar ahora <ChevronRight className="w-5 h-5" />
               </Link>
               <Link
                 href="/insumos"
@@ -187,7 +187,8 @@ function PromocionesSection() {
       oldPrice: 245,
       newPrice: 189,
       badge: "-23%",
-      icon: ShieldCheck,
+      slug: "guantes-nitrilo-100pcs",
+      image: "https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/guante-de-nitrilo_ambiderm.png",
       color: "from-[#ff4757] to-[#e84118]",
     },
     {
@@ -196,7 +197,8 @@ function PromocionesSection() {
       oldPrice: 120,
       newPrice: 85,
       badge: "-29%",
-      icon: HeartPulse,
+      slug: "gel-antibacterial",
+      image: "https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/catalog/gel-antibacterial.webp",
       color: "from-[#2eb8d4] to-[#1a8fa8]",
     },
     {
@@ -205,7 +207,8 @@ function PromocionesSection() {
       oldPrice: 89,
       newPrice: 65,
       badge: "-27%",
-      icon: Activity,
+      slug: "jeringas-5ml-10pcs",
+      image: "https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/jeringas_sensimedical.png",
       color: "from-[#1a3a6b] to-[#2251a3]",
     },
   ];
@@ -251,9 +254,19 @@ function PromocionesSection() {
                 <div className="absolute -top-10 -right-10 w-40 h-40 rounded-full bg-gradient-to-br from-[#2eb8d4]/5 to-transparent group-hover:scale-110 transition-transform duration-500" />
 
                 <div className="relative z-10">
-                  <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br ${promo.color} flex items-center justify-center mb-6 shadow-lg`}>
-                    <promo.icon className="w-8 h-8 text-white" />
-                  </div>
+                  <Link
+                    href={`/productos/${promo.slug}`}
+                    className="relative mb-6 block h-40 overflow-hidden rounded-2xl bg-white"
+                    aria-label={`Ver ${promo.title}`}
+                  >
+                    <Image
+                      src={promo.image}
+                      alt={promo.title}
+                      fill
+                      className="object-contain p-3 transition-transform duration-300 group-hover:scale-105"
+                      sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    />
+                  </Link>
 
                   <div className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">INSUMOS MÉDICOS</div>
                   <h3 className="font-black text-[#1a3a6b] text-xl mb-1 group-hover:text-[#2eb8d4] transition-colors">{promo.title}</h3>
@@ -265,7 +278,7 @@ function PromocionesSection() {
                   </div>
 
                   <Link
-                    href="/insumos"
+                    href={`/productos/${promo.slug}`}
                     className="flex items-center justify-center gap-2 w-full py-3.5 bg-gradient-to-r from-[#1a3a6b] to-[#2251a3] text-white rounded-2xl text-sm font-black hover:shadow-xl hover:shadow-[#1a3a6b]/20 hover:-translate-y-0.5 transition-all duration-300"
                   >
                     <ShoppingBag className="w-4 h-4" /> Comprar ahora

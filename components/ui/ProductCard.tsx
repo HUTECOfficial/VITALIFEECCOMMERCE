@@ -37,7 +37,7 @@ export default function ProductCard({ product }: ProductCardProps) {
       transition={{ duration: 0.2 }}
     >
       <Link href={`/productos/${product.slug}`} className="block">
-        <div className="relative h-44 overflow-hidden bg-[#e8f4fd]">
+        <div className="relative h-44 overflow-hidden bg-white">
           <Image
             src={product.image}
             alt={product.name}
@@ -123,7 +123,7 @@ export default function ProductCard({ product }: ProductCardProps) {
               href={`/contacto?producto=${encodeURIComponent(product.name)}${selectedSize ? `&talla=${encodeURIComponent(selectedSize)}` : ""}${selectedColor ? `&color=${encodeURIComponent(selectedColor)}` : ""}`}
               className="text-xs font-medium px-3 py-2 rounded-full bg-[#1a3a6b] text-white hover:bg-[#2eb8d4] transition-colors"
             >
-              Cotizar
+              Comprar
             </Link>
           ) : (
           <AnimatePresence mode="wait">

@@ -41,9 +41,9 @@ export function ShoppingCartButton({ product }: { product: Product }) {
         <Link
           href={quoteHref}
           className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-bold bg-[#1a3a6b] text-white hover:bg-[#2eb8d4] transition-colors shadow-md min-h-12"
-          aria-label={`Solicitar cotización para ${product.name}`}
+          aria-label={`Comprar ${product.name}`}
         >
-          Solicitar cotización
+          Comprar
         </Link>
       ) : (
       <motion.button

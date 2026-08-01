@@ -106,7 +106,7 @@ export default function CarritoPage() {
                   exit={{ opacity: 0, x: 20, height: 0 }}
                   className="white-card p-4 sm:p-5 flex gap-4"
                 >
-                  <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden bg-[#e8f4fd] shrink-0">
+                  <div className="relative w-20 h-20 sm:w-24 sm:h-24 rounded-xl overflow-hidden bg-white shrink-0">
                     <Image
                       src={item.image}
                       alt={item.name}
