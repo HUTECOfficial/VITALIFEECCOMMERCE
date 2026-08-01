@@ -10,6 +10,7 @@ import { useCartStore } from "@/store/cartStore";
 import { formatPrice } from "@/lib/utils";
 import { categoryLabels } from "@/data/products";
 import { cn } from "@/lib/utils";
+import { StockIndicator } from "@/components/ui/StockIndicator";
 
 interface ProductCardProps {
   product: Product;
@@ -19,11 +20,12 @@ export default function ProductCard({ product }: ProductCardProps) {
   const addItem = useCartStore((s) => s.addItem);
   const [added, setAdded] = useState(false);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
+  const [selectedColor, setSelectedColor] = useState<string | null>(null);
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
-    if (product.sizes && !selectedSize) return;
-    addItem(product, selectedSize || undefined);
+    if ((product.sizes?.length && !selectedSize) || (product.colors?.length && !selectedColor)) return;
+    addItem(product, selectedSize || undefined, selectedColor || undefined);
     setAdded(true);
     setTimeout(() => setAdded(false), 1500);
   };
@@ -40,7 +42,7 @@ export default function ProductCard({ product }: ProductCardProps) {
             src={product.image}
             alt={product.name}
             fill
-            className="object-cover transition-transform duration-300 group-hover:scale-110"
+            className="object-contain p-3 transition-transform duration-300"
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
           {/* Overlay */}
@@ -75,8 +77,23 @@ export default function ProductCard({ product }: ProductCardProps) {
         <p className="text-gray-500 text-xs leading-relaxed mb-3 line-clamp-2">
           {product.description}
         </p>
-        {product.sizes && (
-          <div className="flex gap-1.5 mb-3">
+        <div className="mb-3">
+          <StockIndicator quantity={product.stockQuantity} inStock={product.inStock} compact />
+        </div>
+        {product.colors?.length && (
+          <div className="mb-3">
+            <p className="mb-1 text-[10px] font-black uppercase tracking-wide text-[#1a3a6b]/60">Color</p>
+            <div className="flex flex-wrap gap-1.5">
+              {product.colors.map((color) => (
+                <button key={color} onClick={(e) => { e.preventDefault(); setSelectedColor(color); }} className={cn("text-[10px] font-bold px-2 py-1 rounded-lg border transition-all", selectedColor === color ? "bg-[#1a3a6b] text-white border-[#1a3a6b]" : "bg-white text-[#1a3a6b] border-gray-200 hover:border-[#1a3a6b]")}>{color}</button>
+              ))}
+            </div>
+          </div>
+        )}
+        {product.sizes?.length && (
+          <div className="mb-3">
+            <p className="mb-1 text-[10px] font-black uppercase tracking-wide text-[#1a3a6b]/60">Talla / medida</p>
+            <div className="flex flex-wrap gap-1.5">
             {product.sizes.map((size) => (
               <button
                 key={size}
@@ -94,6 +111,7 @@ export default function ProductCard({ product }: ProductCardProps) {
                 {size}
               </button>
             ))}
+            </div>
           </div>
         )}
         <div className="flex items-center justify-between">
@@ -102,7 +120,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           </span>
           {product.quoteOnly ? (
             <Link
-              href={`/contacto?producto=${encodeURIComponent(product.name)}${selectedSize ? `&variante=${encodeURIComponent(selectedSize)}` : ""}`}
+              href={`/contacto?producto=${encodeURIComponent(product.name)}${selectedSize ? `&talla=${encodeURIComponent(selectedSize)}` : ""}${selectedColor ? `&color=${encodeURIComponent(selectedColor)}` : ""}`}
               className="text-xs font-medium px-3 py-2 rounded-full bg-[#1a3a6b] text-white hover:bg-[#2eb8d4] transition-colors"
             >
               Cotizar
@@ -123,10 +141,10 @@ export default function ProductCard({ product }: ProductCardProps) {
               <motion.button
                 key="btn"
                 onClick={handleAddToCart}
-                disabled={product.sizes ? !selectedSize : false}
+                disabled={Boolean((product.sizes?.length && !selectedSize) || (product.colors?.length && !selectedColor))}
                 className={cn(
                   "flex items-center gap-1.5 text-xs font-medium px-3 py-2 rounded-full transition-colors",
-                  product.sizes && !selectedSize
+                  (product.sizes?.length && !selectedSize) || (product.colors?.length && !selectedColor)
                     ? "bg-gray-300 text-white cursor-not-allowed"
                     : "bg-[#1a3a6b] text-white hover:bg-[#2eb8d4]"
                 )}

@@ -111,7 +111,7 @@ export default function CarritoPage() {
                       src={item.image}
                       alt={item.name}
                       fill
-                      className="object-cover"
+                      className="object-contain p-1"
                       sizes="96px"
                     />
                   </div>
@@ -126,7 +126,12 @@ export default function CarritoPage() {
                         </Link>
                         {item.size && (
                           <p className="text-[10px] bg-[#1a3a6b] text-white px-1.5 py-0.5 rounded inline-block mt-0.5">
-                            {item.size}
+                            Talla: {item.size}
+                          </p>
+                        )}
+                        {item.color && (
+                          <p className="ml-1 text-[10px] bg-[#2eb8d4] text-white px-1.5 py-0.5 rounded inline-block mt-0.5">
+                            Color: {item.color}
                           </p>
                         )}
                         <p className="text-[#2eb8d4] font-bold text-sm mt-0.5">

@@ -5,26 +5,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import { ChevronDown, ShoppingCart, ArrowRight } from "lucide-react";
-import type { Brand, BrandCategory } from "@/data/brands";
+import type { Brand } from "@/data/brands";
 import type { Product } from "@/types";
 import { formatPrice } from "@/lib/utils";
+import { categoryLabels } from "@/data/products";
 import { ShoppingCartButton } from "@/components/ui/ShoppingCartButton";
-
-const brandToProductCategory: Record<BrandCategory, Product["category"] | "all"> = {
-  "Guantes": "guantes",
-  "Agujas y Jeringas": "jeringas",
-  "Vías IV": "jeringas",
-  "Material de Curación": "curacion",
-  "Apósitos y Cintas": "vendas",
-  "Antisépticos": "curacion",
-  "Sondas y Catéteres": "jeringas",
-  "Ventilación": "equipo",
-  "Diagnóstico": "equipo",
-  "Rehabilitación": "equipo",
-  "Equipo Quirúrgico": "equipo",
-  "Soluciones IV": "medicamentos",
-  "Misceláneos": "all",
-};
+import { StockIndicator } from "@/components/ui/StockIndicator";
+import { brandCategoryToProductCategories } from "@/data/catalogCategories";
 
 interface Props {
   brand: Brand;
@@ -36,16 +23,15 @@ export default function BrandDetailClient({ brand, total }: Props) {
   const [allProducts, setAllProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    fetch("/api/products")
+    fetch("/api/products", { cache: "no-store" })
       .then((res) => res.json())
       .then((data: Product[]) => setAllProducts(data || []))
       .catch(() => setAllProducts([]));
   }, []);
 
   const brandProducts = useMemo(() => {
-    const productCat = brandToProductCategory[brand.category] ?? "all";
-    if (productCat === "all") return allProducts;
-    return allProducts.filter((p) => p.category === productCat);
+    const productCategories = brandCategoryToProductCategories[brand.category];
+    return allProducts.filter((product) => productCategories.includes(product.category));
   }, [allProducts, brand.category]);
 
   return (
@@ -250,16 +236,16 @@ export default function BrandDetailClient({ brand, total }: Props) {
                     className="rounded-2xl border border-[#1a3a6b]/10 bg-white p-4 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all"
                   >
                     <Link href={`/productos/${product.slug}`} className="block relative h-40 rounded-xl overflow-hidden bg-[#eef7fd] mb-4">
-                      <Image src={product.image} alt={product.name} fill className="object-cover" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+                      <Image src={product.image} alt={product.name} fill className="object-contain p-3" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
                     </Link>
-                    <p className="text-[11px] uppercase tracking-wide font-bold text-[#2eb8d4] mb-1">{product.category}</p>
+                    <p className="text-[11px] uppercase tracking-wide font-bold text-[#2eb8d4] mb-1">{categoryLabels[product.category]}</p>
                     <Link href={`/productos/${product.slug}`}>
                       <h3 className="font-black text-[#1a3a6b] text-base leading-tight mb-1 line-clamp-2 hover:text-[#2eb8d4] transition-colors">{product.name}</h3>
                     </Link>
                     <p className="text-xs text-[#1a3a6b]/60 line-clamp-2 min-h-9 mb-3">{product.description}</p>
                     <div className="flex items-center justify-between mb-3">
                       <span className="text-[#1a3a6b] font-black text-lg">{product.quoteOnly ? "Cotizar" : formatPrice(product.price)}</span>
-                      <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100">{product.inStock ? "Disponible" : "Agotado"}</span>
+                      <StockIndicator quantity={product.stockQuantity} inStock={product.inStock} compact />
                     </div>
                     <div className="flex gap-2">
                       <ShoppingCartButton product={product} />

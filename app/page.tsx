@@ -119,34 +119,17 @@ function HeroSection() {
             initial={{ opacity: 0, scale: 0.92, y: -20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="hidden lg:flex justify-end items-start relative lg:-mt-40 lg:mr-8"
+            className="hidden lg:flex justify-end items-start relative lg:-mt-60 lg:mr-72"
           >
             <div className="relative w-[200px] h-[200px] xl:w-[240px] xl:h-[240px] flex items-center justify-center">
-              {/* Backglow behind logo container */}
-              <div className="absolute inset-0 bg-gradient-to-tr from-[#2eb8d4]/15 via-transparent to-[#2eb8d4]/10 rounded-full blur-[40px]" />
-              
-              {/* Compact Glassmorphism Container */}
-              <motion.div
-                whileHover={{ scale: 1.02, rotate: 1, y: -2 }}
-                transition={{ type: "spring", stiffness: 220, damping: 20 }}
-                className="relative w-[150px] h-[150px] xl:w-[180px] xl:h-[180px] rounded-[1.5rem] bg-white/25 backdrop-blur-[20px] border border-white/60 shadow-[0_20px_35px_-10px_rgba(26,58,107,0.15),inset_0_1px_2px_rgba(255,255,255,0.7)] flex items-center justify-center overflow-hidden group/glass"
-              >
-                {/* Internal dynamic ambient color spots inside the glass container */}
-                <div className="absolute -top-6 -left-6 w-16 h-16 rounded-full bg-[#2eb8d4]/15 blur-2xl group-hover/glass:scale-110 transition-transform duration-700" />
-                <div className="absolute -bottom-6 -right-6 w-16 h-16 rounded-full bg-[#1a3a6b]/15 blur-2xl group-hover/glass:scale-110 transition-transform duration-700" />
-
-                {/* Diagonal soft shine effect overlay */}
-                <div className="absolute inset-0 bg-gradient-to-tr from-transparent via-white/5 to-white/10 pointer-events-none" />
-
-                <Image
-                  src="/vitalife-logo.png"
-                  alt="Vital Life"
-                  fill
-                  className="object-cover relative z-10 scale-[2.0] drop-shadow-[0_5px_12px_rgba(26,58,107,0.12)] transition-transform duration-500 group-hover/glass:scale-[2.05]"
-                  sizes="180px"
-                  priority
-                />
-              </motion.div>
+              <Image
+                src="/vitalife-logo.png"
+                alt="Vital Life"
+                fill
+                className="object-cover scale-[2]"
+                sizes="(max-width: 1280px) 200px, 240px"
+                priority
+              />
             </div>
           </motion.div>
         </div>

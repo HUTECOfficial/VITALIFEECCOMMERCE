@@ -7,7 +7,7 @@ import { CartItem, Product } from "@/types";
 
 interface CartStore {
   items: CartItem[];
-  addItem: (product: Product, size?: string) => void;
+  addItem: (product: Product, size?: string, color?: string) => void;
   removeItem: (cartId: string) => void;
   updateQuantity: (cartId: string, quantity: number) => void;
   clearCart: () => void;
@@ -20,12 +20,12 @@ export const useCartStore = create<CartStore>()(
     (set, get) => ({
       items: [],
 
-      addItem: (product: Product, size?: string) => {
-        const cartId = `${product.id}#${size || ""}`;
+      addItem: (product: Product, size?: string, color?: string) => {
+        const cartId = `${product.id}#${size || ""}#${color || ""}`;
         set((state) => {
           const items = state.items.map((item) => ({
             ...item,
-            cartId: item.cartId || `${item.id}#${item.size || ""}`,
+            cartId: `${item.id}#${item.size || ""}#${item.color || ""}`,
           }));
           const existing = items.find((item) => item.cartId === cartId);
           if (existing) {
@@ -37,7 +37,7 @@ export const useCartStore = create<CartStore>()(
               ),
             };
           }
-          return { items: [...items, { ...product, quantity: 1, size, cartId }] };
+          return { items: [...items, { ...product, quantity: 1, size, color, cartId }] };
         });
       },
 
@@ -46,7 +46,7 @@ export const useCartStore = create<CartStore>()(
           items: state.items
             .map((item) => ({
               ...item,
-              cartId: item.cartId || `${item.id}#${item.size || ""}`,
+              cartId: `${item.id}#${item.size || ""}#${item.color || ""}`,
             }))
             .filter((item) => item.cartId !== cartId),
         }));
@@ -61,7 +61,7 @@ export const useCartStore = create<CartStore>()(
           items: state.items.map((item) => {
             const itemWithId = {
               ...item,
-              cartId: item.cartId || `${item.id}#${item.size || ""}`,
+              cartId: `${item.id}#${item.size || ""}#${item.color || ""}`,
             };
             return itemWithId.cartId === cartId ? { ...itemWithId, quantity } : itemWithId;
           }),

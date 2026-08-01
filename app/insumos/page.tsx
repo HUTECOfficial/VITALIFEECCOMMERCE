@@ -8,105 +8,97 @@ import Link from "next/link";
 import type { LucideIcon } from "lucide-react";
 import {
   Hand, Wind, Droplets, Bandage, TestTube, Stethoscope,
-  Dumbbell, Package2, Scissors, Layers, Syringe, FlaskConical,
-  Shield, Award, Truck, UserCheck, ShoppingCart, ArrowRight,
+  Dumbbell, Package2, Scissors, Syringe, Pill, Trash2,
+  Shield, ShieldCheck, Award, Truck, UserCheck, ShoppingCart, ArrowRight,
 } from "lucide-react";
-import { brands, brandCategories, getBrandsByCategory, getTotalProducts } from "@/data/brands";
-import type { Brand, BrandCategory } from "@/data/brands";
+import { brands, getBrandsByCategory, getTotalProducts } from "@/data/brands";
+import { categoryLabels, products as localProducts } from "@/data/products";
+import { brandCategoryToProductCategories, catalogCategoryOrder } from "@/data/catalogCategories";
+import type { Brand } from "@/data/brands";
 import type { Product } from "@/types";
 import { formatPrice } from "@/lib/utils";
 import { useClientCartCount } from "@/store/cartStore";
 import { ShoppingCartButton } from "@/components/ui/ShoppingCartButton";
+import { StockIndicator } from "@/components/ui/StockIndicator";
 
 /* ── Category visual config ───────────────────────────── */
 interface CatConfig { icon: LucideIcon; iconColor: string; iconBg: string; desc: string; img: string }
 
-const catCfg: Record<BrandCategory, CatConfig> = {
-  "Guantes": {
+const catCfg: Record<Product["category"], CatConfig> = {
+  guantes: {
     icon: Hand, iconColor: "text-[#1a3a6b]", iconBg: "bg-[#dbeeff]",
     desc: "Guantes estériles y no estériles de la más alta calidad.",
     img: "/guantes.png",
   },
-  "Ventilación": {
+  respiratorio: {
     icon: Wind, iconColor: "text-[#0e7490]", iconBg: "bg-[#cffafe]",
     desc: "Soluciones completas para soporte respiratorio.",
     img: "/ventilacion.png",
   },
-  "Vías IV": {
+  "terapia-iv": {
     icon: Droplets, iconColor: "text-[#1a3a6b]", iconBg: "bg-[#dbeeff]",
     desc: "Catéteres, cánulas y accesorios para terapia intravenosa.",
     img: "/vias-iv.png",
   },
-  "Material de Curación": {
+  curacion: {
     icon: Bandage, iconColor: "text-[#2eb8d4]", iconBg: "bg-[#e0f7fa]",
     desc: "Todo lo necesario para el cuidado y curación de heridas.",
     img: "/material-curacion.png",
   },
-  "Sondas y Catéteres": {
+  "sondas-cateteres": {
     icon: TestTube, iconColor: "text-[#1a3a6b]", iconBg: "bg-[#dbeeff]",
     desc: "Sondas y catéteres para diversas aplicaciones médicas.",
     img: "/sondas-cateteres.png",
   },
-  "Diagnóstico": {
+  diagnostico: {
     icon: Stethoscope, iconColor: "text-[#0e7490]", iconBg: "bg-[#cffafe]",
     desc: "Equipos y accesorios para diagnóstico confiable y preciso.",
     img: "/diagnostico.png",
   },
-  "Rehabilitación": {
+  rehabilitacion: {
     icon: Dumbbell, iconColor: "text-[#2eb8d4]", iconBg: "bg-[#e0f7fa]",
     desc: "Productos para apoyo en procesos de rehabilitación.",
     img: "/rehabilitacion.png",
   },
-  "Misceláneos": {
+  "atencion-paciente": {
     icon: Package2, iconColor: "text-[#1a3a6b]", iconBg: "bg-[#dbeeff]",
-    desc: "Insumos y accesorios generales para uso médico.",
+    desc: "Artículos para higiene, comodidad y atención diaria del paciente.",
     img: "/miscelaneos.png",
   },
-  "Equipo Quirúrgico": {
+  quirurgico: {
     icon: Scissors, iconColor: "text-[#0e7490]", iconBg: "bg-[#cffafe]",
     desc: "Instrumental y equipos para procedimientos quirúrgicos.",
     img: "/equipo-quirurgico.png",
   },
-  "Apósitos y Cintas": {
-    icon: Layers, iconColor: "text-[#2eb8d4]", iconBg: "bg-[#e0f7fa]",
-    desc: "Apósitos avanzados y cintas quirúrgicas de alta fijación.",
-    img: "/material-curacion.png",
-  },
-  "Agujas y Jeringas": {
+  jeringas: {
     icon: Syringe, iconColor: "text-[#1a3a6b]", iconBg: "bg-[#dbeeff]",
     desc: "Agujas, jeringas y sistemas de punción estériles.",
     img: "/vias-iv.png",
   },
-  "Soluciones IV": {
-    icon: FlaskConical, iconColor: "text-[#0e7490]", iconBg: "bg-[#cffafe]",
-    desc: "Soluciones parenterales y electrolíticas para uso hospitalario.",
-    img: "/vias-iv.png",
-  },
-  "Antisépticos": {
+  antisepticos: {
     icon: Shield, iconColor: "text-[#2eb8d4]", iconBg: "bg-[#e0f7fa]",
     desc: "Soluciones antisépticas y desinfectantes certificados.",
     img: "/material-curacion.png",
   },
+  medicamentos: {
+    icon: Pill, iconColor: "text-[#1a3a6b]", iconBg: "bg-[#dbeeff]",
+    desc: "Medicamentos y fármacos para uso profesional bajo indicación médica.",
+    img: "/diagnostico.png",
+  },
+  "proteccion-desechables": {
+    icon: ShieldCheck, iconColor: "text-[#0e7490]", iconBg: "bg-[#cffafe]",
+    desc: "Cubrebocas, batas, campos y otros insumos de protección.",
+    img: "/miscelaneos.png",
+  },
+  residuos: {
+    icon: Trash2, iconColor: "text-[#2eb8d4]", iconBg: "bg-[#e0f7fa]",
+    desc: "Contenedores, bolsas RPBI y material para manejo seguro de residuos.",
+    img: "/miscelaneos.png",
+  },
 };
 
-const FEATURED: BrandCategory = "Guantes";
-const REST = brandCategories.filter((c) => c !== FEATURED);
-
-const brandToProductCategory: Record<BrandCategory, Product["category"] | "all"> = {
-  "Guantes": "guantes",
-  "Agujas y Jeringas": "jeringas",
-  "Vías IV": "jeringas",
-  "Material de Curación": "curacion",
-  "Apósitos y Cintas": "vendas",
-  "Antisépticos": "curacion",
-  "Sondas y Catéteres": "jeringas",
-  "Ventilación": "equipo",
-  "Diagnóstico": "equipo",
-  "Rehabilitación": "equipo",
-  "Equipo Quirúrgico": "equipo",
-  "Soluciones IV": "medicamentos",
-  "Misceláneos": "all",
-};
+const FEATURED: Product["category"] = "guantes";
+const REST = catalogCategoryOrder.filter((category) => category !== FEATURED);
 
 /* ─────────────────────────────────────────────────────── */
 export default function InsumosPage() {
@@ -119,8 +111,10 @@ export default function InsumosPage() {
 
 function InsumosContent() {
   const [search, setSearch] = useState("");
-  const [activeCategory, setActiveCategory] = useState<BrandCategory | null>(null);
-  const [allProducts, setAllProducts] = useState<Product[]>([]);
+  const [activeCategory, setActiveCategory] = useState<Product["category"] | null>(null);
+  // Keep a complete local catalog ready for the first search. The Supabase
+  // catalog replaces it in the background once it has been downloaded.
+  const [allProducts, setAllProducts] = useState<Product[]>(localProducts);
   const brandsRef = useRef<HTMLDivElement>(null);
   const cartCount = useClientCartCount();
   const searchParams = useSearchParams();
@@ -131,24 +125,28 @@ function InsumosContent() {
   }, [searchParams]);
 
   useEffect(() => {
-    fetch("/api/products")
-      .then((res) => res.json())
-      .then((data: Product[]) => setAllProducts(data || []))
-      .catch(() => setAllProducts([]));
+    fetch("/api/products", { cache: "no-store" })
+      .then((res) => {
+        if (!res.ok) throw new Error("No se pudo cargar el catálogo");
+        return res.json();
+      })
+      .then((data: Product[]) => {
+        if (data?.length) setAllProducts(data);
+      })
+      // The local catalog remains searchable if the refresh fails.
+      .catch(() => undefined);
   }, []);
 
   const quickProducts = useMemo(() => allProducts.filter((p) => p.inStock).slice(0, 12), [allProducts]);
 
   const categoryProducts = useMemo(() => {
     if (!activeCategory) return [];
-    const productCat = brandToProductCategory[activeCategory];
-    if (productCat === "all") return allProducts;
-    return allProducts.filter((p) => p.category === productCat);
+    return allProducts.filter((product) => product.category === activeCategory);
   }, [activeCategory, allProducts]);
 
   const filteredBrands = useMemo(() => {
     let result = brands;
-    if (activeCategory) result = result.filter((b) => b.category === activeCategory);
+    if (activeCategory) result = result.filter((brand) => brandCategoryToProductCategories[brand.category].includes(activeCategory));
     if (search.trim()) {
       const q = search.toLowerCase();
       result = result.filter(
@@ -173,11 +171,12 @@ function InsumosContent() {
       (p) =>
         p.name.toLowerCase().includes(q) ||
         p.description.toLowerCase().includes(q) ||
-        p.category.toLowerCase().includes(q)
+        p.category.toLowerCase().includes(q) ||
+        categoryLabels[p.category].toLowerCase().includes(q)
     );
   }, [search, allProducts]);
 
-  function handleCategoryClick(cat: BrandCategory) {
+  function handleCategoryClick(cat: Product["category"]) {
     setActiveCategory((prev) => (prev === cat ? null : cat));
     setTimeout(
       () => brandsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }),
@@ -282,16 +281,16 @@ function InsumosContent() {
                     className="rounded-2xl border border-[#1a3a6b]/10 bg-white p-4 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all"
                   >
                     <Link href={`/productos/${product.slug}`} className="block relative h-40 rounded-xl overflow-hidden bg-[#eef7fd] mb-4">
-                      <Image src={product.image} alt={product.name} fill className="object-cover" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+                      <Image src={product.image} alt={product.name} fill className="object-contain p-3" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
                     </Link>
-                    <p className="text-[11px] uppercase tracking-wide font-bold text-[#2eb8d4] mb-1">{product.category}</p>
+                    <p className="text-[11px] uppercase tracking-wide font-bold text-[#2eb8d4] mb-1">{categoryLabels[product.category]}</p>
                     <Link href={`/productos/${product.slug}`}>
                       <h3 className="font-black text-[#1a3a6b] text-base leading-tight mb-1 line-clamp-2 hover:text-[#2eb8d4] transition-colors">{product.name}</h3>
                     </Link>
                     <p className="text-xs text-[#1a3a6b]/60 line-clamp-2 min-h-9 mb-3">{product.description}</p>
                     <div className="flex items-center justify-between mb-3">
                       <span className="text-[#1a3a6b] font-black text-lg">{product.quoteOnly ? "Cotizar" : formatPrice(product.price)}</span>
-                      <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100">{product.inStock ? "Disponible" : "Agotado"}</span>
+                      <StockIndicator quantity={product.stockQuantity} inStock={product.inStock} compact />
                     </div>
                     <ShoppingCartButton product={product} />
                   </motion.article>
@@ -369,11 +368,11 @@ function InsumosContent() {
             <ProductResultsSection
               filteredProducts={categoryProducts}
               onClear={() => { setActiveCategory(null); setSearch(""); }}
-              title={activeCategory}
+              title={categoryLabels[activeCategory]}
             />
             <BrandResultsSection
               filteredBrands={filteredBrands}
-              title={`Marcas de ${activeCategory}`}
+              title={`Marcas de ${categoryLabels[activeCategory]}`}
               onClear={() => { setActiveCategory(null); setSearch(""); }}
             />
           </>
@@ -411,7 +410,7 @@ function InsumosContent() {
 
 /* ── Sub-components ─────────────────────────────────────── */
 interface CardProps {
-  cat: BrandCategory;
+  cat: Product["category"];
   config: CatConfig;
   active: boolean;
   onClick: () => void;
@@ -429,14 +428,14 @@ function RegularCard({ cat, config, active, onClick, delay }: CardProps) {
       style={{ minHeight: 155 }}>
       {/* Product image — right side peek */}
       <div className="absolute right-0 top-0 bottom-0 w-32 pointer-events-none">
-        <Image src={config.img} alt={cat} fill className="object-cover" />
+        <Image src={config.img} alt={categoryLabels[cat]} fill className="object-cover" />
         <div className="absolute inset-0 bg-gradient-to-r from-white via-white/65 to-transparent" />
       </div>
       <div className="relative z-10 p-4">
         <div className={`w-10 h-10 rounded-xl ${config.iconBg} flex items-center justify-center mb-3`}>
           <Icon className={`w-5 h-5 ${config.iconColor}`} />
         </div>
-        <h3 className="font-black text-[#1a3a6b] text-base leading-tight mb-1">{cat}</h3>
+        <h3 className="font-black text-[#1a3a6b] text-base leading-tight mb-1">{categoryLabels[cat]}</h3>
         <p className="text-[#1a3a6b]/55 text-xs leading-relaxed mb-3 max-w-[62%]">{config.desc}</p>
         <span className="inline-flex items-center text-[#2eb8d4] text-xs font-bold gap-1 group-hover:gap-2 transition-all duration-200">
           Ver productos →
@@ -457,14 +456,14 @@ function CompactCard({ cat, config, active, onClick, delay }: CardProps) {
       }`}>
       {/* Small image peek */}
       <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none opacity-60">
-        <Image src={config.img} alt={cat} fill className="object-cover rounded-tl-xl" />
+        <Image src={config.img} alt={categoryLabels[cat]} fill className="object-cover rounded-tl-xl" />
         <div className="absolute inset-0 bg-gradient-to-br from-white/90 to-transparent" />
       </div>
       <div className="relative z-10 p-4">
         <div className={`w-9 h-9 rounded-xl ${config.iconBg} flex items-center justify-center mb-2`}>
           <Icon className={`w-4 h-4 ${config.iconColor}`} />
         </div>
-        <h3 className="font-black text-[#1a3a6b] text-sm leading-tight">{cat}</h3>
+        <h3 className="font-black text-[#1a3a6b] text-sm leading-tight">{categoryLabels[cat]}</h3>
         <span className="block text-[#2eb8d4] text-[10px] font-bold mt-2 group-hover:translate-x-0.5 transition-transform">
           Ver →
         </span>
@@ -530,16 +529,16 @@ function ProductResultsSection({ filteredProducts, onClear, title }: ProductResu
                 className="rounded-2xl border border-[#1a3a6b]/10 bg-white p-4 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all"
               >
                 <Link href={`/productos/${product.slug}`} className="block relative h-40 rounded-xl overflow-hidden bg-[#eef7fd] mb-4">
-                  <Image src={product.image} alt={product.name} fill className="object-cover" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+                  <Image src={product.image} alt={product.name} fill className="object-contain p-3" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
                 </Link>
-                <p className="text-[11px] uppercase tracking-wide font-bold text-[#2eb8d4] mb-1">{product.category}</p>
+                <p className="text-[11px] uppercase tracking-wide font-bold text-[#2eb8d4] mb-1">{categoryLabels[product.category]}</p>
                 <Link href={`/productos/${product.slug}`}>
                   <h3 className="font-black text-[#1a3a6b] text-base leading-tight mb-1 line-clamp-2 hover:text-[#2eb8d4] transition-colors">{product.name}</h3>
                 </Link>
                 <p className="text-xs text-[#1a3a6b]/60 line-clamp-2 min-h-9 mb-3">{product.description}</p>
                 <div className="flex items-center justify-between mb-3">
                   <span className="text-[#1a3a6b] font-black text-lg">{product.quoteOnly ? "Cotizar" : formatPrice(product.price)}</span>
-                  <span className="text-[11px] font-bold px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-100">{product.inStock ? "Disponible" : "Agotado"}</span>
+                  <StockIndicator quantity={product.stockQuantity} inStock={product.inStock} compact />
                 </div>
                 <div className="flex gap-2">
                   <ShoppingCartButton product={product} />

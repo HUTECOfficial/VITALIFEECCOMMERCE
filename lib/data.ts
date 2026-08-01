@@ -1,6 +1,11 @@
 import { createServerClient } from "@/lib/supabase/server";
 import { products as localProducts } from "@/data/products";
 import { Product } from "@/types";
+import { readProductVariants } from "@/lib/product-variants";
+
+const localStockBySlug = new Map(
+  localProducts.map((product) => [product.slug, product.stockQuantity])
+);
 
 function mapRowToProduct(row: any): Product {
   return {
@@ -12,8 +17,9 @@ function mapRowToProduct(row: any): Product {
     description: row.description ?? "",
     image: row.image ?? "",
     inStock: row.in_stock ?? false,
+    stockQuantity: row.stock_quantity ?? localStockBySlug.get(row.slug),
     featured: row.featured ?? false,
-    sizes: row.sizes ?? undefined,
+    ...readProductVariants(row.sizes),
     quoteOnly: row.quote_only ?? false,
   };
 }

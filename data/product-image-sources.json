@@ -1,0 +1,1506 @@
+[
+  {
+    "slug": "agua-p-irriga-esteril-500ml-1fco-plas-pisa012",
+    "sourcePage": "https://sanorim.mx/products/agua-inyectable-pisa-500-ml",
+    "expectedTerms": ["pisa", "agua", "500"]
+  },
+  {
+    "slug": "agua-p-irriga-esteril-1000ml-1fco-plas-pisa013",
+    "sourcePage": "https://sanorim.mx/products/agua-inyectable-pisa-1000-ml",
+    "expectedTerms": ["pisa", "agua", "1000"]
+  },
+  {
+    "slug": "agua-p-irriga-esteril-3000ml-pisa124",
+    "sourcePage": "https://carcismedical.com/product/agua-esteril-para-irrigacion-bolsa-3000ml/",
+    "expectedTerms": ["pisa", "agua", "3000"]
+  },
+  {
+    "slug": "clorhexi-rub-0-5-500ml-pisa201",
+    "sourcePage": "https://farmacialapaz.com.mx/products/clorhexi-rub-0-5-clorhexidina-c-500-ml",
+    "expectedTerms": ["pisa", "clorhexi", "500"]
+  },
+  {
+    "slug": "gluconato-de-calcio-10-amp-10ml-pisa026",
+    "sourcePage": "https://carcismedical.com/product/gluconato-calcio-al-10-10ml-5-pzas/",
+    "expectedTerms": ["pisa", "gluconato", "10ml"]
+  },
+  {
+    "slug": "magnefusin-sulfato-magnesio-10-c-10ml-pisa040",
+    "sourcePage": "https://curitek.com/producto/magnefusin-sulfato-de-magnesio-10/",
+    "expectedTerms": ["pisa", "magnefusin", "10ml"],
+    "enabled": false
+  },
+  {
+    "slug": "agua-iny-10ml-c-100-amp-plastico-pisa196",
+    "sourcePage": "https://farmacialapaz.com.mx/products/agua-iny-10-ml-amp-caj-c-100-amp-c-10-ml-plastico",
+    "expectedTerms": ["pisa", "agua", "10", "100"]
+  },
+  {
+    "slug": "bicarnat-7-5-c-50ml-1famp-si-pisa071",
+    "sourcePage": "https://esenciasaludable.com.mx/soluciones/1217-bicarnat-solucion-inyectable-75-frasco-de-50ml.html",
+    "expectedTerms": ["bicarnat", "7.5", "50"]
+  },
+  {
+    "slug": "solucion-ht-iny-500ml-088-pisa015",
+    "sourcePage": "https://medipac.mx/products/solucion-hartmann",
+    "expectedTerms": ["pisa", "solucion", "500"],
+    "enabled": false
+  },
+  {
+    "slug": "bolentax-enoxa-sod-20mg-0-2ml-pisa111",
+    "sourcePage": "https://www.mcym.com.mx/shop/356-enoxaparina-sodica-sol-iny-20-mg-0-2-ml-c-2-jeringas-prellenadas-bolentax-lab-pisa-37274",
+    "expectedTerms": ["pisa", "bolentax", "20", "0.2"]
+  },
+  {
+    "slug": "clorhexi-rub-0-5-c-60ml-pisa202",
+    "sourcePage": "https://farmacialapaz.com.mx/products/clorhexi-rub-0-5-clorhexidina-c-60-ml",
+    "expectedTerms": ["pisa", "clorhexi", "60"]
+  },
+  {
+    "slug": "capin-bh-hioscina-20mg-c-3-amp-pisa034",
+    "sourcePage": "https://farmacialapaz.com.mx/products/capin-bh-20-mg-ml-butilhioscina-caj-c-3-fco-amp-c-1-ml",
+    "expectedTerms": ["pisa", "capin", "20"]
+  },
+  {
+    "slug": "exsept-sol-antiseptica-50-c-500ml-pisa166",
+    "sourcePage": "https://farmacialapaz.com.mx/products/exsept-50-antiseptico-c-500-ml",
+    "expectedTerms": ["pisa", "exsept", "50", "500"]
+  },
+  {
+    "slug": "amcef-ceftriaxona-1g-i-m-amsa-amsa006",
+    "sourcePage": "https://sanorim.mx/products/amcef-ceftriaxona-1-g-caja-con-1-ampolleta-con-diluyente-3-5-ml-intramuscular",
+    "expectedTerms": ["amsa", "amcef", "1", "3.5"],
+    "enabled": false
+  },
+  {
+    "slug": "amcef-ceftriaxona-1g-i-v-amsa-amsa40",
+    "sourcePage": "https://sufarmed.com/sufarmed/Ceftriaxona/1152-amcef-iv-amp-1gr-fco-10-ml.html",
+    "expectedTerms": ["amsa", "amcef", "1", "10"],
+    "enabled": false
+  },
+  {
+    "slug": "amikacina-100mg-c-2-amp-amsa-amsa438",
+    "sourcePage": "https://sanorim.mx/products/amikacina-100-mg-2-ml-solucion-inyectable-2-ampolletas-laboratorios-amsa",
+    "expectedTerms": ["amsa", "amikacina", "100", "2"]
+  },
+  {
+    "slug": "amoxicilina-cap-500mg-c-12-amsa-amsa420",
+    "sourcePage": "https://farmas.mx/products/amoxicilina-amsa-c-12-cap-500-mg",
+    "expectedTerms": ["amsa", "amoxicilina", "500", "12"],
+    "enabled": false
+  },
+  {
+    "slug": "clonixinato-de-lisina-100mg-c-5-amp-amsa-amsa411",
+    "sourcePage": "https://regiofarma.mx/products/clonixinato-lisina-amsa-100mg-amp",
+    "expectedTerms": ["amsa", "clonixinato", "100", "5"]
+  },
+  {
+    "slug": "tegaderm-6x7cm-c-50-1624-3m010",
+    "sourcePage": "https://sanorim.mx/products/tegaderm-aposito-transparente-6x7-cm",
+    "expectedTerms": ["3m", "tegaderm", "6", "7", "50"]
+  },
+  {
+    "slug": "gorro-plisado-blanco-c-100-ambiderm-amb038",
+    "sourcePage": "https://ctrscientific.com/products/20249-gorro-plisado-10gr-bolsa-c-100-piezas-ambiderm",
+    "expectedTerms": ["ambiderm", "gorro", "blanco", "100"],
+    "enabled": false
+  },
+  {
+    "slug": "gorro-plisado-azul-c-100-amb-amb315",
+    "sourcePage": "https://wecarepharma.mx/products/gorro-plisado-desechable-ambiderm-con-100",
+    "expectedTerms": ["ambiderm", "gorro", "azul", "100"],
+    "enabled": false
+  },
+  {
+    "slug": "hioscina-20mg-1ml-c-3-amp-amsa414",
+    "sourcePage": "https://sanorim.mx/products/hioscina-20-mg-1-ml-caja-con-3-ampolletas-inyectables",
+    "expectedTerms": ["amsa", "hioscina", "20", "1", "3"],
+    "enabled": false
+  },
+  {
+    "slug": "supradol-ketorolaco-30mg-4-tabs-liom002",
+    "sourcePage": "https://farmaciacalderon.com/products/supradol_sublingual_30mg_con_4_tabletas",
+    "expectedTerms": ["liomont", "supradol", "30", "4"],
+    "enabled": false
+  },
+  {
+    "slug": "supradol-ketorolaco-30mg-c-2-tab-liom003",
+    "sourcePage": "https://buscamed.com/buscar/8Fe1AyU-supradol-30mg-2-tabletas-1-caja",
+    "expectedTerms": ["liomont", "supradol", "30", "2"]
+  },
+  {
+    "slug": "aplicador-de-madera-c-algodon-c-100-amb-amb072",
+    "sourcePage": "https://sorp.mx/products/aplicador-de-madera-con-algodon",
+    "expectedTerms": ["ambiderm", "aplicador", "madera", "100"],
+    "enabled": false
+  },
+  {
+    "slug": "electrodo-ecg-adulto-c-50-ambiderm-amb022",
+    "sourcePage": "https://www.coinmed.mx/products/electrodo-redondo-monitoreo-ecg-t715-50pz-ambiderm",
+    "expectedTerms": ["ambiderm", "electrodo", "ecg", "50"],
+    "enabled": false
+  },
+  {
+    "slug": "jeringa-1ml-27x13-c-100-bd-bd009",
+    "sourcePage": "https://www.mcym.com.mx/shop/3045-jeringa-1-ml-27x13-c-a-c-100-pzas-gris-plastipak-ref-302485-bd-37682",
+    "expectedTerms": ["bd", "plastipak", "1", "27", "13", "100"]
+  },
+  {
+    "slug": "venda-coban-4-color-piel-3m008",
+    "sourcePage": "https://medifacil.com/products/3m-venda-cohesiva-de-4-coban-de-10-cm-x-4-5-m",
+    "expectedTerms": ["3m", "coban", "4", "10", "piel"]
+  },
+  {
+    "slug": "gasa-galia-esteril-10x10-c-100-galia001",
+    "sourcePage": "https://farmaciasbazar.com/productos/gasa-galia-10x10cm-esteril-154930/",
+    "expectedTerms": ["galia", "gasa", "esteril", "10", "100"],
+    "enabled": false
+  },
+  {
+    "slug": "gasa-galia-esteril-10x10-c-100-galia001",
+    "sourcePage": "https://www.walmart.com.mx/ip/material-de-curacion/gasas-simples-10x10-cm-caja-con-100-sobres-100-algodon-absorbente-libre-de-impurezas-galia-ayuda-de-curacion-galia-gas01/03750156560080",
+    "expectedTerms": ["galia", "gasa", "esteril", "10", "100"],
+    "enabled": false
+  },
+  {
+    "slug": "compresa-esteril-45x70cm-c-5-galia-pisa016",
+    "sourcePage": "https://meditoolsmx.mx/products/mlm-5126616588-compresa-quirurgica-45x70-galia-esteril-c5-piezas-blanco-blanco-jm",
+    "expectedTerms": ["galia", "compresa", "45", "70", "5"]
+  },
+  {
+    "slug": "jeringa-3ml-21x32-c-100-bd-bd065",
+    "sourcePage": "https://dvcmedical.mx/producto/jeringa-3-ml-21-g-x-32-mm-1-pieza/",
+    "expectedTerms": ["bd", "jeringa", "3", "21", "32"],
+    "enabled": false
+  },
+  {
+    "slug": "jeringa-50ml-s-a-bd-bd062",
+    "sourcePage": "https://www.biossmannmarketplace.com/products/jeringa-20ml-s-aguja-luer-lok-bd-copia",
+    "expectedTerms": ["bd", "jeringa", "50", "aguja"]
+  },
+  {
+    "slug": "tiras-accu-chek-performa-c-50-accu003",
+    "sourcePage": "https://www.farmatodo.com.mx/accu-chek-performa-tiras-reactivas-c-50-pz/p",
+    "expectedTerms": ["accu", "chek", "performa", "50"]
+  },
+  {
+    "slug": "tijera-umbilical-de-boton-11cm-her004",
+    "sourcePage": "https://hergom-medical.com/products/tijera-umbilical-marca-hergom-medical",
+    "expectedTerms": ["hergom", "tijera", "umbilical", "11"]
+  },
+  {
+    "slug": "navontec-ondansetron-sol-iny-c-3-nav001",
+    "sourcePage": "https://phemedica.com.mx/product/navontec-ondansetron-8-mg-4-ml-sol-iny-c-3-amp-jayor/",
+    "expectedTerms": ["navontec", "ondansetron", "8", "4", "3"]
+  },
+  {
+    "slug": "dermodine-espuma-yodo-3-5l-dega003",
+    "sourcePage": "https://articulo.mercadolibre.com.mx/MLM-874711730-dermodine-espuma-antiseptica-para-heridas-35-l-_JM",
+    "expectedTerms": ["dermodine", "espuma", "3.5"],
+    "enabled": false
+  },
+  {
+    "slug": "ropiconest-ropivacaina-7-5mg-20ml-5amp-pisa011",
+    "sourcePage": "https://grupoprivarez.com/productos/detalle_producto.php?sku=GP00579",
+    "expectedTerms": ["pisa", "ropiconest", "7.5", "20", "5"],
+    "enabled": false
+  },
+  {
+    "slug": "auricam-meloxicam-7-5mg-20-tab-aur001",
+    "sourcePage": "https://buscamed.com/buscar/F83BqTf-auricam-75mg-20-tabletas-1-caja",
+    "expectedTerms": ["auricam", "meloxicam", "7.5", "20"]
+  },
+  {
+    "slug": "gasa-esteril-10x10-c-100-ideal-ideal006",
+    "sourcePage": "https://medipac.mx/products/gasa-esteril",
+    "expectedTerms": ["ideal", "gasa", "esteril", "10", "100"],
+    "enabled": false
+  },
+  {
+    "slug": "ht-bloc-ondansetron-iny-8mg-4-ml-3-amp-zz1804",
+    "sourcePage": "https://sanorim.mx/products/ht-bloc-ondansetron-8-mg-4-ml-caja-con-3-ampulas",
+    "expectedTerms": ["ht", "bloc", "ondansetron", "8", "4", "3"],
+    "enabled": false
+  },
+  {
+    "slug": "ketorolaco-sublingual-30mg-6-tab-amsa-ket003",
+    "sourcePage": "https://www.soriana.com/gpp-ketorolaco-30mg-sublingual-con-6-tabletas/2558082.html",
+    "expectedTerms": ["amsa", "ketorolaco", "30", "6"],
+    "enabled": false
+  },
+  {
+    "slug": "dobutamina-250mg-20ml-c-1-amp-pisa210",
+    "sourcePage": "https://farmacialapaz.com.mx/products/dobutamina-250-mg-20-ml-caj-c-1-fco-amp-s-i",
+    "expectedTerms": ["pisa", "dobutamina", "250", "20"]
+  },
+  {
+    "slug": "fenaten-fenitoina-sodica-250mg-5ml-c-1-pisa103",
+    "sourcePage": "https://farmacialapaz.com.mx/products/fenaten-250-mg-5-ml-fenitoina-caj-c-1-fco-amp",
+    "expectedTerms": ["pisa", "fenaten", "250", "5"]
+  },
+  {
+    "slug": "otrozol-metronidazol-500mg-100ml-iny-pisa007",
+    "sourcePage": "https://farmacialapaz.com.mx/products/otrozol-500-mg-metronidazol-fco-c-100-ml",
+    "expectedTerms": ["pisa", "otrozol", "500", "100"]
+  },
+  {
+    "slug": "pisacaina-c-epinefrina-2-amp-50ml-fco-pisa093",
+    "sourcePage": "https://farmacialapaz.com.mx/products/pisacaina-2-c-epinefrina-lidocaina-epinefrina-fco-c-50-ml",
+    "expectedTerms": ["pisa", "pisacaina", "2", "50"]
+  },
+  {
+    "slug": "solucion-ht-iny-1000ml-089-pisa030",
+    "sourcePage": "https://farmacialapaz.com.mx/products/solucion-ht-1-000-ml-flexoval",
+    "expectedTerms": ["pisa", "solucion", "ht", "1000"]
+  },
+  {
+    "slug": "solucion-ht-iny-500ml-088-pisa015",
+    "sourcePage": "https://farmacialapaz.com.mx/products/solucion-ht-500-ml-fco-vidrio",
+    "expectedTerms": ["pisa", "solucion", "ht", "500"]
+  },
+  {
+    "slug": "solucion-ht-iny-250ml-087-pisa045",
+    "sourcePage": "https://farmacialapaz.com.mx/products/solucion-ht-250-ml-flexoval",
+    "expectedTerms": ["pisa", "solucion", "ht", "250"]
+  },
+  {
+    "slug": "osmorol-manitol-20-flex-250ml-pisa066",
+    "sourcePage": "https://farmacialapaz.com.mx/products/osmorol-20-g-100-ml-manitol-1-fco-plas-c-250-ml",
+    "expectedTerms": ["pisa", "osmorol", "20", "250"]
+  },
+  {
+    "slug": "clorhexi-clean-0-12-c-60ml-pisa058",
+    "sourcePage": "https://farmacialapaz.com.mx/products/clorhexi-clean-0-12-clorhexidina-env-c-60-ml",
+    "expectedTerms": ["pisa", "clorhexi", "0.12", "60"]
+  },
+  {
+    "slug": "bolentax-enoxa-sod-40mg-04ml-pisa108",
+    "sourcePage": "https://farmacialapaz.com.mx/products/bolentax-40-mg-enoxaparina-env-c-2-jer-c-0-4-ml",
+    "expectedTerms": ["pisa", "bolentax", "40", "0.4"]
+  },
+  {
+    "slug": "kelefusin-cloruro-potasio-1-49g-5ml-pza-pisa083",
+    "sourcePage": "https://farmacialapaz.com.mx/products/kelefusin-cloruro-de-potasio-caj-c-100-fco-amp-c-5-ml",
+    "expectedTerms": ["pisa", "kelefusin", "potasio", "5"]
+  },
+  {
+    "slug": "metamizol-sodico-1g-2ml-c-3amp-pisa-pisa225",
+    "sourcePage": "https://farmacialapaz.com.mx/products/metamizol-sodico-1g-2ml-caj-c-3-amp",
+    "expectedTerms": ["pisa", "metamizol", "1g", "2ml"]
+  },
+  {
+    "slug": "bicarnat-bicarbonato-sod-7-5-10-ml-amp-pisa056",
+    "sourcePage": "https://farmacialapaz.com.mx/products/bicar-nat-7-5-bicarbonato-de-sodio-caj-c-100-fco-amp-c-10-ml",
+    "expectedTerms": ["pisa", "bicarnat", "7.5", "10"]
+  },
+  {
+    "slug": "amikacina-100-2ml-c-1-amp-pisa215",
+    "sourcePage": "https://farmacialapaz.com.mx/products/amk-100-mg-si-2-ml-amikacina-caj-c-1-ampolleta",
+    "expectedTerms": ["pisa", "amikacina", "100", "2"],
+    "enabled": false
+  },
+  {
+    "slug": "ceftriaxona-i-m-1gr-sol-iny-pisa223",
+    "sourcePage": "https://farmacialapaz.com.mx/products/ceftriaxona-im-1-g-caj-c-1-fco-amp-d-3-5-ml-s-i",
+    "expectedTerms": ["pisa", "ceftriaxona", "1", "3.5"]
+  },
+  {
+    "slug": "conector-tego-p-hemodialisis-s-aguja-pisa074",
+    "sourcePage": "https://farmacialapaz.com.mx/products/conector-tego-para-hemodialisis-sin-aguja-1",
+    "expectedTerms": ["pisa", "tego", "hemodialisis", "aguja"]
+  },
+  {
+    "slug": "set-espicat-basico-16g-pisa193",
+    "sourcePage": "https://farmacialapaz.com.mx/products/set-espicat-basico-16-g",
+    "expectedTerms": ["pisa", "espicat", "16"]
+  },
+  {
+    "slug": "pinadrina-1mg-ml-pz-amp-pisa070",
+    "sourcePage": "https://wecarepharma.mx/products/pinadrina-1mg-ml-con-1-ampulas-epinefrina",
+    "expectedTerms": ["pisa", "pinadrina", "1mg", "1"],
+    "enabled": false
+  },
+  {
+    "slug": "lefebre-0-4mg-1ml-c-1ml-10amp-si-pisa168",
+    "sourcePage": "https://farmacialapaz.com.mx/products/lefebre-0-4mg-1-ml-naloxona-caj-c-10-amp-c-1-ml",
+    "expectedTerms": ["pisa", "lefebre", "0.4", "10"]
+  },
+  {
+    "slug": "combesteral-c-6amp-y-3jga-pisa212",
+    "sourcePage": "https://www.klyns.mx/combesteral-c-6-amps-y-3-jgas/p",
+    "sourceImage": "https://i5-mx.walmartimages.com/gr/images/product-images/img_large/00750112513954L.jpg",
+    "expectedTerms": ["pisa", "combesteral", "6", "3"]
+  },
+  {
+    "slug": "combinacion-rubin-calcagno-500ml-flx-pisa145",
+    "sourcePage": "https://www.cadistribucion.mx/shop/7501125100277-combinacion-rubin-calcagno-flexoval-solucion-500-ml-29097",
+    "expectedTerms": ["pisa", "rubin", "calcagno", "500"],
+    "enabled": false
+  },
+  {
+    "slug": "esponja-gasa-7-5x5cm-est-c-5-pisa043",
+    "sourcePage": "https://www.alsermedica.mx/producto/esponja-de-gasa-7-5-x-5-c-5pza-marca-pisa/",
+    "expectedTerms": ["pisa", "esponja", "gasa", "7.5", "5"],
+    "enabled": false
+  },
+  {
+    "slug": "imation-1g-d-10ml-c-1famp-si-pisa190",
+    "sourcePage": "https://vitau.mx/imation-iny-10g-a-sol-1-1-g10-ml-frasco-ampula-con-1-g-de-polvo-y-ampolle-30433",
+    "expectedTerms": ["pisa", "imation", "1", "10"],
+    "enabled": false
+  },
+  {
+    "slug": "giratek-llave-3-vias-s-ext-pisa006",
+    "sourcePage": "https://wecarepharma.mx/products/giratek-llave-3-vias-sin-extension",
+    "expectedTerms": ["pisa", "giratek", "3", "sin extension"],
+    "enabled": false
+  },
+  {
+    "slug": "tapon-giratek-p-sitio-de-iny-pisa105",
+    "sourcePage": "https://farmacialapaz.com.mx/products/tapon-giratek-p-sitio-de-inyeccion",
+    "expectedTerms": ["pisa", "tapon", "giratek", "inyeccion"]
+  },
+  {
+    "slug": "sol-hestar-pentalmidon-6g-100ml-pisa200",
+    "sourcePage": "https://curitek.com/producto/hestar-6-g-100-ml-inyectable-pentalmidon/",
+    "expectedTerms": ["pisa", "hestar", "6", "100"]
+  },
+  {
+    "slug": "flebotek-s-aguja-normogotero-pisa037",
+    "sourcePage": "https://insulab.mx/shop/4000489-flebotek-s-aguja-pisa-normogotero-pisa-1413",
+    "sourceImage": "https://insulab.mx/web/image/product.template/1413/image_1920?unique=18d416d",
+    "expectedTerms": ["pisa", "flebotek", "normogotero"],
+    "enabled": false
+  },
+  {
+    "slug": "flebotek-microgotero-eq-venoclisis-pisa078",
+    "sourcePage": "https://www.ifarma.com.mx/producto/flebotek-microgotero/",
+    "expectedTerms": ["pisa", "flebotek", "microgotero"],
+    "enabled": false
+  },
+  {
+    "slug": "solucion-cs-iny-0-9-500ml-pisa004",
+    "sourcePage": "https://farmaciagloria.mx/medicamentos-de-a-z/3515-solucion-cs-con-500-ml.html",
+    "expectedTerms": ["pisa", "solucion", "cs", "500"],
+    "enabled": false
+  },
+  {
+    "slug": "solucion-cs-iny-0-9-250ml-pisa002",
+    "sourcePage": "https://prixz.com/c/solucion-cs-con-250-ml/",
+    "expectedTerms": ["pisa", "solucion", "cs", "250"],
+    "enabled": false
+  },
+  {
+    "slug": "solucion-cs-iny-0-9-1000ml-pisa003",
+    "sourcePage": "https://www.floresca.com.mx/products/sol-cs-plasco-1000-ml",
+    "expectedTerms": ["pisa", "sol", "cs", "1000"],
+    "enabled": false
+  },
+  {
+    "slug": "solucion-dx-5-500-ml-1fco-flx-si-pisa053",
+    "sourcePage": "https://sanorim.mx/products/solucion-dx-5-pisa-glucosa-5-500-ml",
+    "expectedTerms": ["pisa", "dx-5", "glucosa", "500"]
+  },
+  {
+    "slug": "solucion-dx-cs-500ml-1fco-flx-si-pisa068",
+    "sourcePage": "https://farmacialapaz.com.mx/products/solucion-dx-cs-500-ml-flexoval",
+    "expectedTerms": ["pisa", "dx-cs", "500", "flexoval"]
+  },
+  {
+    "slug": "guante-ambiderm-elite-amb033",
+    "sourcePage": "https://shop.ambiderm.com.mx/products/elite",
+    "expectedTerms": ["ambiderm", "elite", "50", "natural"]
+  },
+  {
+    "slug": "guante-nitrilo-c-100-amb074",
+    "sourcePage": "https://shop.ambiderm.com.mx/products/nitrilo",
+    "expectedTerms": ["ambiderm", "nitrilo", "100"]
+  },
+  {
+    "slug": "guante-confort-c-100-amb021",
+    "sourcePage": "https://shop.ambiderm.com.mx/products/guante-confort",
+    "expectedTerms": ["ambiderm", "confort", "100"]
+  },
+  {
+    "slug": "guante-esteril-c-100-ambiderm-amb011",
+    "sourcePage": "https://shop.ambiderm.com.mx/products/esteril",
+    "expectedTerms": ["ambiderm", "esteril", "100"]
+  },
+  {
+    "slug": "guante-plus-no-est-c-100-amb003",
+    "sourcePage": "https://shop.ambiderm.com.mx/products/copia-de-guante-plus",
+    "expectedTerms": ["ambiderm", "plus", "100"]
+  },
+  {
+    "slug": "cubrebocas-ambiderm-c-50-amb007",
+    "sourcePage": "https://shop.ambiderm.com.mx/products/cubrebocas-azul",
+    "expectedTerms": ["ambiderm", "cubrebocas", "50", "azul"]
+  },
+  {
+    "slug": "gorro-plisado-blanco-c-100-ambiderm-amb038",
+    "sourcePage": "https://shop.ambiderm.com.mx/products/gorros",
+    "expectedTerms": ["ambiderm", "gorros", "100"],
+    "enabled": false
+  },
+  {
+    "slug": "gorro-plisado-azul-c-100-amb-amb315",
+    "sourcePage": "https://shop.ambiderm.com.mx/products/gorros",
+    "expectedTerms": ["ambiderm", "gorros", "100"],
+    "enabled": false
+  },
+  {
+    "slug": "campo-quirurgico-c-adhes-esteril-40x60cm-c-5-amb077",
+    "sourcePage": "https://shop.ambiderm.com.mx/products/campos-sms",
+    "expectedTerms": ["ambiderm", "adhesivo", "60", "40", "5"]
+  },
+  {
+    "slug": "equipo-de-cirugia-mayor-esteril-amb-amb139",
+    "sourcePage": "https://shop.ambiderm.com.mx/products/paquete-cirugia-mayor-esteril-sms",
+    "expectedTerms": ["ambiderm", "cirugia", "mayor", "esteril"],
+    "enabled": false
+  },
+  {
+    "slug": "jeringa-10ml-21x32-c-100-nipro-nip002",
+    "sourcePage": "https://www.mercadolibre.com.mx/caja-jeringa--nipro-10ml-con-aguja-21x32-c100-piezas/up/MLMU3106611471",
+    "expectedTerms": ["nipro", "10", "21", "32", "100"],
+    "enabled": false
+  },
+  {
+    "slug": "gasa-galia-esteril-10x10-c-100-galia001",
+    "sourcePage": "https://ddazul.com/217-desechables/368-gasas/5964-gasa-esteril-10x10-c-100-protec.html",
+    "expectedTerms": ["galia", "gasa", "10", "100"],
+    "enabled": false
+  },
+  {
+    "slug": "solucion-dx-10-c-1000ml-flx-si-pisa160",
+    "sourcePage": "https://farmacialapaz.com.mx/products/solucion-dx-10-solucion-glucosada-flexoval-c-1-000-ml",
+    "expectedTerms": ["pisa", "dx-10", "1000", "flexoval"],
+    "enabled": false
+  },
+  {
+    "slug": "solucion-dx-10-iny-500ml-pisa077",
+    "sourcePage": "https://farmacialapaz.com.mx/products/solucion-dx-10-solucion-glucosada-flexoval-c-500-ml",
+    "expectedTerms": ["pisa", "dx-10", "500", "flexoval"],
+    "enabled": false
+  },
+  {
+    "slug": "combinacion-pi-500ml-1fco-flx-pisa154",
+    "sourcePage": "https://farmacialapaz.com.mx/products/combinacion-pi-solucion-hartmann-glucosa-c-500-ml-flexoval",
+    "expectedTerms": ["pisa", "combinacion", "pi", "500", "flexoval"],
+    "enabled": false
+  },
+  {
+    "slug": "solucion-cs-0-9-p-irrig-3000ml-bolsa-si-pisa042",
+    "sourcePage": "https://wecarepharma.mx/products/solucion-cs-0-9-pisa-3000ml",
+    "expectedTerms": ["pisa", "solucion", "cs", "0.9", "3000"],
+    "enabled": false
+  },
+  {
+    "slug": "jeringa-10ml-21x32-c-100-nipro-nip002",
+    "sourcePage": "https://sistema.regalcom.com.mx/shop/060-550-0677-jd-10l2132-sb-jeringa-de-plastico-de-10-ml-con-aguja-21g32mm-caja-con-100-nipro-1392",
+    "expectedTerms": ["nipro", "10", "21", "32", "100"],
+    "enabled": false
+  },
+  {
+    "slug": "tegaderm-aposito-10x12-c-50-1626-3m021",
+    "sourcePage": "https://medimarket.mx/products/solventum-3m-aposito-transparente-tegaderm-film-de-10-cm-x-12-cm",
+    "expectedTerms": ["3m", "tegaderm", "1626", "10", "12", "50"]
+  },
+  {
+    "slug": "solucion-cs-0-9-p-irrig-3000ml-bolsa-si-pisa042",
+    "sourcePage": "https://grupoprivarez.com/productos/detalle_producto.php?sku=GP00607",
+    "expectedTerms": ["pisa", "solucion", "cs", "0.9", "3000"],
+    "enabled": false
+  },
+  {
+    "slug": "jeringa-10ml-21x32-c-100-nipro-nip002",
+    "sourcePage": "https://www.velaquin.com.mx/products/jeringa-de-plastico-con-pivote-luer-lock-10ml-modelo-jd-10l2132",
+    "expectedTerms": ["nipro", "10", "21", "32", "100"],
+    "enabled": false
+  },
+  {
+    "slug": "tegaderm-aposito-10x12-c-50-1626-3m021",
+    "sourcePage": "https://www.mdsc.com.mx/en/shop/apositos-transparente-microporoso-autoadherible-esteril-y-desechable-medidas-10-0-a-10-16-x-12-0-a-14-0-cm-envase-con-50-unidades-227529",
+    "expectedTerms": ["3m", "tegaderm", "1626", "10", "12", "50"],
+    "enabled": false
+  },
+  {
+    "slug": "tegaderm-iv-3-8x4-5cm-1680-3m036",
+    "sourcePage": "https://proveedoramedical.com/producto/aposito-3m-tegaderm-iv-advance-pediatrico-3-8-x-4-5-cm/",
+    "expectedTerms": ["3m", "tegaderm", "1680", "3.8", "4.5"]
+  },
+  {
+    "slug": "transpore-1-c-12-3m029",
+    "sourcePage": "https://pmhyl.com/Tienda/categorias/604-cinta-transpore-1-3m-caja-c12-piezas-pmhyl.html",
+    "expectedTerms": ["3m", "transpore", "1", "12"]
+  },
+  {
+    "slug": "leukoplast-tela-adhesiva-2-c-6-bsn010",
+    "sourcePage": "https://arsuaga.com.mx/producto/leukoplast-tela-adhesiva/",
+    "expectedTerms": ["leukoplast", "2", "5", "6"],
+    "enabled": false
+  },
+  {
+    "slug": "aciclovir-400mg-c-35-tab-aci002",
+    "sourcePage": "https://sanorim.mx/products/aciclovir-400-mg-caja-con-35-tabletas",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0748/7052/2148/files/Aciclovir_2.png?v=1763740050",
+    "expectedTerms": ["aciclovir", "400", "35"]
+  },
+  {
+    "slug": "ambroxol-20-tabs-30mg-ambr003",
+    "sourcePage": "https://sanorim.mx/products/ambroxol-30-mg-comprimidos-con-20-tabletas",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0748/7052/2148/files/Ambroxol_8d532e22-3363-41ca-b45c-669257c522bf.jpg?v=1743206423",
+    "expectedTerms": ["ambroxol", "30", "20"]
+  },
+  {
+    "slug": "bresaltec-aerosol-200-dosis-bios001",
+    "sourcePage": "https://sanorim.mx/products/bresaltec-salbutamol-aerosol-100-mcg-por-dosis-frasco-con-200-dosis",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0748/7052/2148/files/Bresaltec.png?v=1776178666",
+    "expectedTerms": ["bresaltec", "aerosol", "dosis", "200"]
+  },
+  {
+    "slug": "clindamicina-16-caps-300-mg-bea213",
+    "sourcePage": "https://sanorim.mx/products/clindamicina-300-mg-caja-con-16-capsulas",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0748/7052/2148/files/Clindamicina_0992b490-2dcc-4a7b-95c1-9195145051cd.png?v=1759443958",
+    "expectedTerms": ["clindamicina", "capsulas", "300", "16"]
+  },
+  {
+    "slug": "dexametasona-sol-iny-8mg-2ml-rex001",
+    "sourcePage": "https://sanorim.mx/products/dexametasona-laboratorios-amsa-8-mg-2-ml-inyectable-ampula",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0748/7052/2148/files/Dexametasona_e2a941bd-608f-4087-a434-7518ce7584f5.jpg?v=1776214742",
+    "expectedTerms": ["dexametasona", "inyectable", "8", "2"]
+  },
+  {
+    "slug": "difenidol-40mg-2ml-2-amp-dife001",
+    "sourcePage": "https://sanorim.mx/products/difenidol-40-mg-2-ml-caja-con-2-ampolletas-inyectables",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0748/7052/2148/files/difenidol_3450d8bc-a51b-4f8b-ba82-afeca6913f56.jpg?v=1775746055",
+    "expectedTerms": ["difenidol", "ampolletas", "40", "2"]
+  },
+  {
+    "slug": "flebonadrol-hidrocortisona-500mg-c-1amp-fleb006",
+    "sourcePage": "https://sanorim.mx/products/flebonadrol-hidrocortisona-500mg-4ml-solucion-inyectable-caja-1-ampolleta",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0748/7052/2148/files/498_beb8a672-70f3-42b9-8f21-5b2d43cc37ca.png?v=1769810812",
+    "expectedTerms": ["flebonadrol", "hidrocortisona", "500mg", "1amp"]
+  },
+  {
+    "slug": "furosemida-20mg-c-5-amsa408",
+    "sourcePage": "https://sanorim.mx/products/valaciclovir-500-mg-caja-con-10-comprimidos-copia",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0748/7052/2148/files/furosemida_fa8f2b32-9055-4477-a1f1-c49f164b4ee6.jpg?v=1775747838",
+    "expectedTerms": ["furosemida", "20mg", "5"]
+  },
+  {
+    "slug": "gemfibrozilo-14-tabs-600mg-gemf001",
+    "sourcePage": "https://sanorim.mx/products/raypid-gemfibrozilo-600-mg-caja-con-14-tabletas",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0748/7052/2148/files/Raypid.jpg?v=1780068331",
+    "expectedTerms": ["gemfibrozilo", "600", "14"]
+  },
+  {
+    "slug": "giratek-llave-3-vias-s-ext-pisa006",
+    "sourcePage": "https://sanorim.mx/products/llave-de-3-vias-sin-extension-giratek-pisa",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0748/7052/2148/files/llave3.jpg?v=1777594743",
+    "expectedTerms": ["giratek", "llave", "vias", "ext", "3"]
+  },
+  {
+    "slug": "lubri-6-135-gr-tubo-lub002",
+    "sourcePage": "https://sanorim.mx/products/lubri-g-jalea-lubricante-tubo-con-135-g",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0748/7052/2148/files/lubri_6.jpg?v=1739482038",
+    "expectedTerms": ["lubri", "tubo", "6", "135"]
+  },
+  {
+    "slug": "metamizol-sodico-10-tab-500-mg-met001",
+    "sourcePage": "https://sanorim.mx/products/avafontan-metamizol-sodico-500-mg-10-tabletas",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0748/7052/2148/files/dondecomprarmetamizolsodico_87380311-e15e-4e20-b4cc-136ebcbfe204.png?v=1768591710",
+    "expectedTerms": ["metamizol", "sodico", "500", "10"]
+  },
+  {
+    "slug": "metoclopramida-10mg-20-tab-met002",
+    "sourcePage": "https://sanorim.mx/products/conysmin-metoclopramida-10-mg-caja-con-20-tabletas",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0748/7052/2148/files/conysmin.jpg?v=1775775847",
+    "expectedTerms": ["metoclopramida", "10", "20"]
+  },
+  {
+    "slug": "nifedipino-lp-30-compr-30mg-nife002",
+    "sourcePage": "https://sanorim.mx/products/nifedipino-30-mg-liberacion-prolongada-caja-con-30-comprimidos",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0748/7052/2148/files/nifedipino_2.jpg?v=1743176807",
+    "expectedTerms": ["nifedipino", "comprimidos", "30"]
+  },
+  {
+    "slug": "omeprazol-14-caps-20-mg-omp001",
+    "sourcePage": "https://sanorim.mx/products/omeprazol-20-mg-caja-con-14-capsulas",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0748/7052/2148/files/OMEPRAZOL_3_5325f001-cd81-46fd-ad01-1b98e72ea915.jpg?v=1779322524",
+    "expectedTerms": ["omeprazol", "capsulas", "20", "14"]
+  },
+  {
+    "slug": "quetiapina-100mg-60-tabs-quet001",
+    "sourcePage": "https://sanorim.mx/products/quetiapina-100-mg-60-taletas-alrex-laboratorio-raam",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0748/7052/2148/files/Quetiapina_06cd366c-7ba7-43e5-839a-5d84ecdd3a5a.png?v=1751993939",
+    "expectedTerms": ["quetiapina", "100", "60"]
+  },
+  {
+    "slug": "tiras-accu-chek-instant-c-50-accu001",
+    "sourcePage": "https://sanorim.mx/products/accu-chek-instant-tiras-reactivas-caja-con-50-unidades",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0748/7052/2148/files/Tiras.jpg?v=1778685824",
+    "expectedTerms": ["tiras", "accu", "chek", "instant", "50"]
+  },
+  {
+    "slug": "traliken-ketoprofeno-iv-sol-iny-c-3-fco-kener001",
+    "sourcePage": "https://sanorim.mx/products/traliken-iv-ketoprofeno-100-mg-solucion-inyectable-caja-con-3-frasco-ampula",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0748/7052/2148/files/Traliken.png?v=1758208106",
+    "expectedTerms": ["traliken", "ketoprofeno", "3"]
+  },
+  {
+    "slug": "algodon-plisado-50g-gal002",
+    "sourcePage": "https://farmacialapaz.com.mx/products/algodon-plisado-50-gr-bolsa-c-1",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0669/1330/4678/files/759684076152_ac7b6361-0315-426a-8247-5bf8431a57f3.jpg?v=1774375123",
+    "expectedTerms": ["algodon", "plisado", "50g"]
+  },
+  {
+    "slug": "curitas-tela-elastica-c-20-cur005",
+    "sourcePage": "https://farmacialapaz.com.mx/products/curitas-tela-elastica-resistentes-al-movimiento-caj-c-20-piezas",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0669/1330/4678/files/7702003010736.jpg?v=1774374982",
+    "expectedTerms": ["curitas", "tela", "elastica", "20"]
+  },
+  {
+    "slug": "flebotek-bomedi-libre-de-aguja-pisa047",
+    "sourcePage": "https://farmacialapaz.com.mx/products/flebotek-bomedi-libre-de-aguja",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0669/1330/4678/files/7501125167270.jpg?v=1774365171",
+    "expectedTerms": ["flebotek", "bomedi", "libre", "aguja"]
+  },
+  {
+    "slug": "flebotek-libre-de-pvc-pisa686",
+    "sourcePage": "https://farmacialapaz.com.mx/products/flebotek-libre-de-pvc",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0669/1330/4678/files/7501125105203.jpg?v=1774365168",
+    "expectedTerms": ["flebotek", "libre", "pvc"]
+  },
+  {
+    "slug": "flebotek-microgotero-eq-venoclisis-pisa078",
+    "sourcePage": "https://farmacialapaz.com.mx/products/flebotek-microgotero",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0669/1330/4678/files/7501125125171.jpg?v=1774365168",
+    "expectedTerms": ["flebotek", "microgotero", "venoclisis"]
+  },
+  {
+    "slug": "flebotek-para-bomba-pisa207",
+    "sourcePage": "https://farmacialapaz.com.mx/products/flebotek-para-bomba",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0669/1330/4678/files/7501125102684.jpg?v=1774365167",
+    "expectedTerms": ["flebotek", "bomba"]
+  },
+  {
+    "slug": "hierro-dextran-100mg-2ml-iny-amsa423",
+    "sourcePage": "https://farmacialapaz.com.mx/products/hierro-dextran-100-mg-2-ml-fco-c-3-amp",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0669/1330/4678/files/7501125175428_37a31156-36f5-4f8d-9785-428407885591.jpg?v=1774374795",
+    "expectedTerms": ["hierro", "dextran", "100mg", "2ml"]
+  },
+  {
+    "slug": "kit-pop-wash-bolsa-c-1-pisa195",
+    "sourcePage": "https://farmacialapaz.com.mx/products/kit-pop-wash-bolsa-c-1",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0669/1330/4678/files/7501125183065.jpg?v=1774365141",
+    "expectedTerms": ["kit", "pop", "wash", "1"]
+  },
+  {
+    "slug": "pastillero-pas001",
+    "sourcePage": "https://farmacialapaz.com.mx/products/pastillero-semanal",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0669/1330/4678/files/7502256729498.jpg?v=1774374663",
+    "expectedTerms": ["pastillero"]
+  },
+  {
+    "slug": "amixteria-atropina-iny-1mg-ster001",
+    "sourcePage": "https://wecarepharma.mx/products/amixteria-atropina-ampula-1mg-con-50",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0722/1500/3361/files/amixteria-atropina-ampula-1mg-con-50_1ec6bd04-cfcb-4a0b-af8c-488ddcf40384.jpg?v=1750276950",
+    "expectedTerms": ["amixteria", "atropina", "1mg"]
+  },
+  {
+    "slug": "clindamicina-600mg-4ml-c-5-amp-amsa405",
+    "sourcePage": "https://wecarepharma.mx/products/clindamicina-600mg-4ml-con-5-amsa-ampulas",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0722/1500/3361/files/7501349021044_99b121b4-6d1b-405b-86ef-e26f12ebb018.jpg?v=1744668147",
+    "expectedTerms": ["clindamicina", "600mg", "4ml", "5"]
+  },
+  {
+    "slug": "falot-cefalotina-1g-iny-pisa067",
+    "sourcePage": "https://wecarepharma.mx/products/falot-frasco-1g-con-1-ampulas-cefalotina",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0722/1500/3361/files/7501125107030_8d10ed8e-9b78-486a-9f49-aea871a793f8.jpg?v=1744674666",
+    "expectedTerms": ["falot", "cefalotina", "1g"]
+  },
+  {
+    "slug": "flebotek-s-aguja-normogotero-pisa037",
+    "sourcePage": "https://wecarepharma.mx/products/equipo-para-venoclisis-sin-agija-normogotero-flebotek",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0722/1500/3361/files/Imagenes_de_planograma__ace8ad59-c2c6-4b1b-ad0d-8430f1f940d6__07501125125362.1.jpg?v=1744704556",
+    "expectedTerms": ["flebotek", "aguja", "normogotero"]
+  },
+  {
+    "slug": "hioscina-20mg-1ml-c-3-amp-amsa414",
+    "sourcePage": "https://wecarepharma.mx/products/hioscina-20mg-1ml-con-3-amsa-ampulas",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0722/1500/3361/files/7501349024045_879a3499-7058-4d60-ab2a-6baf0c247862.jpg?v=1744677386",
+    "expectedTerms": ["hioscina", "20mg", "1ml", "3"]
+  },
+  {
+    "slug": "ht-bloc-ondansetron-iny-8mg-4-ml-3-amp-zz1804",
+    "sourcePage": "https://wecarepharma.mx/products/ht-block-8mg-4ml-con-3-ampulas-ondansetron",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0722/1500/3361/files/7506335701207_0d70c74a-82c3-41d5-9d67-7411962450ea.jpg?v=1744677501",
+    "expectedTerms": ["bloc", "ondansetron", "8mg", "4", "3"]
+  },
+  {
+    "slug": "losartan-tab-50-mg-c-30-ultra-losa001",
+    "sourcePage": "https://wecarepharma.mx/products/losartan-50mg-con-30-ultra-tabletas",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0722/1500/3361/files/Imagenes_de_planograma__1b7d73ff-dca9-414a-8a1e-9ddd26089f75__07502216803657_A1L1.jpg?v=1744681972",
+    "expectedTerms": ["losartan", "ultra", "50", "30"]
+  },
+  {
+    "slug": "metoclopramida-amp-10mg-2ml-c-6-amsa-met003",
+    "sourcePage": "https://wecarepharma.mx/products/metoclopramida-10mg-2ml-con-6-amsa-ampulas",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0722/1500/3361/files/7501349024151_7f57950c-24b7-41a3-bc26-5375a6385ac4.jpg?v=1744683167",
+    "expectedTerms": ["metoclopramida", "10mg", "2ml", "amsa", "6"]
+  },
+  {
+    "slug": "one-drop-d3-vitamina-3ml-teria001",
+    "sourcePage": "https://wecarepharma.mx/products/one-drop-d3-gotas-3ml-vitamina-d3",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0722/1500/3361/files/7508304413289.jpg?v=1744685831",
+    "expectedTerms": ["one", "drop", "vitamina", "3ml", "3"]
+  },
+  {
+    "slug": "orinal-de-plastico-1l-masculino-edig001",
+    "sourcePage": "https://wecarepharma.mx/products/orinal-de-plastico-edigar-masculino-1l",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0722/1500/3361/files/7501463318006.jpg?v=1744708266",
+    "expectedTerms": ["orinal", "plastico", "1l", "masculino"]
+  },
+  {
+    "slug": "oximetro-pulso-digital",
+    "sourcePage": "https://wecarepharma.mx/products/oximetro-de-pulso-digital-choicemed-md300c2-con-1",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0722/1500/3361/files/WeCare-Pharma-Producto_2436c946-bf4a-427d-ac24-f15fcd6ce8e1.jpg?v=1781736773",
+    "expectedTerms": ["oximetro", "pulso", "digital"]
+  },
+  {
+    "slug": "perfalgan-paracetamol-1g-iny-aspen001",
+    "sourcePage": "https://wecarepharma.mx/products/perfalgan-frasco-1g-con-4-ampulas-paracetamol",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0722/1500/3361/files/planogram__1__0801b06f-c546-408f-a036-ce22cccc1361.jpg?v=1744686694",
+    "expectedTerms": ["perfalgan", "paracetamol", "1g"]
+  },
+  {
+    "slug": "rdp-acido-ascorbico-500mg-10-caps-rdp001",
+    "sourcePage": "https://wecarepharma.mx/products/rdp-500mg-con-10-capsulas-acido-ascorbico",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0722/1500/3361/files/planogram__1__d4c0401a-2572-4f3d-9bef-78157a8c90e3.jpg?v=1744688372",
+    "expectedTerms": ["rdp", "acido", "ascorbico", "500mg", "caps", "10"]
+  },
+  {
+    "slug": "recolector-punzocortante-1-lt-ixion004",
+    "sourcePage": "https://wecarepharma.mx/products/recolector-punzocortantes-1l",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0722/1500/3361/files/792604000479.jpg?v=1744712734",
+    "expectedTerms": ["recolector", "punzocortante", "1"]
+  },
+  {
+    "slug": "solucion-cs-iny-0-9-1000ml-pisa003",
+    "sourcePage": "https://wecarepharma.mx/products/solucion-cs-0-9-pisa-1000ml",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0722/1500/3361/files/planogram__1__3c81778d-f164-4ceb-8ca6-bd77f7a6bc42.jpg?v=1744710278",
+    "expectedTerms": ["1000ml", "0.9"]
+  },
+  {
+    "slug": "solucion-cs-iny-0-9-250ml-pisa002",
+    "sourcePage": "https://wecarepharma.mx/products/solucion-cs-0-9-pisa-250ml",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0722/1500/3361/files/7501125100116.jpg?v=1744710284",
+    "expectedTerms": ["250ml", "0.9"]
+  },
+  {
+    "slug": "solucion-cs-iny-0-9-500ml-pisa004",
+    "sourcePage": "https://wecarepharma.mx/products/solucion-cs-0-9-pisa-500ml",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0722/1500/3361/files/planogram__1__475df79f-1ae2-4137-a3cf-4aeea767a0cf.jpg?v=1744710287",
+    "expectedTerms": ["500ml", "0.9"]
+  },
+  {
+    "slug": "supradol-ketorolaco-30mg-4-tabs-liom002",
+    "sourcePage": "https://wecarepharma.mx/products/supradol-sl-30mg-con-4-tabletas-ketorolaco",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0722/1500/3361/files/planogram__1__204704be-89fa-45b0-83ac-88b6b9f00024.jpg?v=1744691434",
+    "expectedTerms": ["supradol", "ketorolaco", "30mg", "4"]
+  },
+  {
+    "slug": "taflavix-40-tabs-100-60mg-tafl001",
+    "sourcePage": "https://wecarepharma.mx/products/taflavix-100mg-60mg-con-40-tabletas-valeriana-passiflora",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0722/1500/3361/files/Imagenes_de_planograma__10f2697b-7145-422a-bc6c-1c89f57cd05c__00714908105957.1.jpg?v=1744691919",
+    "expectedTerms": ["taflavix", "60mg", "40", "100"]
+  },
+  {
+    "slug": "tiras-contour-plus-c-50-cont002",
+    "sourcePage": "https://wecarepharma.mx/products/contour-plus-tiras-reactivas-con-50",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0722/1500/3361/files/planogram__1__b52c0207-b6b2-4373-bb4c-1454fe613afb.jpg?v=1744702724",
+    "expectedTerms": ["tiras", "contour", "plus", "50"]
+  },
+  {
+    "slug": "tribedoce-tab-100mg-c-30-trib002",
+    "sourcePage": "https://wecarepharma.mx/products/tribedoce-100mg-5mg-50mcg-con-30-tabletas-tiamina-piridoxina-cianocobalamina",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0722/1500/3361/files/planogram__1__864ad6a7-ce88-4ea7-a71f-238ff2087267.jpg?v=1744693369",
+    "expectedTerms": ["tribedoce", "100mg", "30"]
+  },
+  {
+    "slug": "cabestrillo-orto007",
+    "sourcePage": "https://wecarepharma.mx/products/cabestrillo-actimove-grande",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0722/1500/3361/files/Imagenes_de_planograma__589812d4-cf7a-40a2-8fac-bcbac6ecf9de__04042809017236.1.jpg?v=1744701271",
+    "expectedTerms": ["cabestrillo"]
+  },
+  {
+    "slug": "fluoxetina-20mg-14-caps-amsa023",
+    "sourcePage": "https://wecarepharma.mx/products/fluoxetina-20mg-con-14-psicofarma-capsulas",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0722/1500/3361/files/7501384504892_bf2c0a22-b51d-4024-91af-65d8f4f7131c.jpg?v=1744675493",
+    "expectedTerms": ["fluoxetina", "20mg", "caps", "14"]
+  },
+  {
+    "slug": "gel-antibacterial",
+    "sourcePage": "https://wecarepharma.mx/products/gel-antibacterial-escudo-70ml",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0722/1500/3361/files/planogram__1__ad565803-e41b-46bd-904d-6d5f8e1767e0.jpg?v=1744705175",
+    "expectedTerms": ["gel", "antibacterial"]
+  },
+  {
+    "slug": "levofloxacino-500mg-tab-c-7-amsa0020",
+    "sourcePage": "https://wecarepharma.mx/products/elequine-500mg-con-7-tabletas-levofloxacino",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0722/1500/3361/files/planogram__1__fcaace1d-f3fc-478a-a381-0ab63da14591.jpg?v=1744672391",
+    "expectedTerms": ["levofloxacino", "500mg", "7"]
+  },
+  {
+    "slug": "metformina-tab-850mg-c-30-amsa430",
+    "sourcePage": "https://wecarepharma.mx/products/glunovag-850mg-con-30-tabletas-metformina",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0722/1500/3361/files/product_image__1__1f253378-43b8-448c-94b2-a39ca1377b06.jpg?v=1744676851",
+    "expectedTerms": ["metformina", "850mg", "30"]
+  },
+  {
+    "slug": "pentoxifilin-lp-400mg-30-tab-amsa418",
+    "sourcePage": "https://wecarepharma.mx/products/pentoxifilina-400mg-con-30-psicofarma-tabletas",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0722/1500/3361/files/7501384504946_03f43d05-2e9f-4dc6-8b2b-b187d5c8b82a.jpg?v=1744686558",
+    "expectedTerms": ["pentoxifilin", "400mg", "30"]
+  },
+  {
+    "slug": "termometro-digital-segu001",
+    "sourcePage": "https://wecarepharma.mx/products/termometro-digital-neutek",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0722/1500/3361/files/planogram__3__65e6704c-e962-427f-a7d2-ed1113707cb4.jpg?v=1744711010",
+    "expectedTerms": ["termometro", "digital"]
+  },
+  {
+    "slug": "bromuro-ipratr-salbut-0-5-2-5mg-10amp-amsa429",
+    "sourcePage": "https://www.fahorro.com/bromuro-ipratropio-salbutamol-0-5-mg-2-5-mg-2-5-ml-10-ampolletas-marca-del-ahorro.html",
+    "sourceImage": "https://production-media.fahorro.com/media/catalog/product/7/5/7502223700178_3_1.jpg",
+    "expectedTerms": ["bromuro", "ipratr", "salbut", "0.5", "2.5mg", "10amp"]
+  },
+  {
+    "slug": "diclofenaco-2-fa-75mg-3ml-amsa0014",
+    "sourcePage": "https://www.fahorro.com/diclofenaco-75-mg-2x3-ml-ampolleta-marca-del-ahorro.html",
+    "sourceImage": "https://production-media.fahorro.com/media/catalog/product/7/5/7502223708877.jpg",
+    "expectedTerms": ["diclofenaco", "2", "75mg", "3ml"]
+  },
+  {
+    "slug": "loratadina-10mg-20-tabs-pisa216",
+    "sourcePage": "https://www.fahorro.com/loratadina-10-mg-con-20-tabletas-marca-del-ahorro.html",
+    "sourceImage": "https://production-media.fahorro.com/media/catalog/product/7/5/7502223705722.png",
+    "expectedTerms": ["loratadina", "10mg", "20", "tabletas"]
+  },
+  {
+    "slug": "paracetamol-750mlg-10-tab-par001",
+    "sourcePage": "https://www.fahorro.com/paracetamol-750-mg-oral-10-tabletas-marca-del-ahorro.html",
+    "sourceImage": "https://production-media.fahorro.com/media/catalog/product/7/5/7502223706712.jpg",
+    "expectedTerms": ["paracetamol", "750", "10", "tabletas"]
+  },
+  {
+    "slug": "vengesic-grag-c-20-vang001",
+    "sourcePage": "https://www.fahorro.com/vengesic-oral-20-grag.html",
+    "sourceImage": "https://production-media.fahorro.com/media/catalog/product/7/8/780083140731_1.jpg",
+    "expectedTerms": ["vengesic", "grag", "20"]
+  },
+  {
+    "slug": "diclofenaco-20-tab-100-mg-dic001",
+    "sourcePage": "https://farmalisto.com.mx/inicio/162904-diclofenaco-100-mg-caja-con-20-tabletas-de-diclofenaco-7502216802919.html",
+    "sourceImage": "https://farmalisto.com.mx/119636-large_default/diclofenaco-100-mg-caja-con-20-tabletas-de-diclofenaco.jpg",
+    "expectedTerms": ["diclofenaco", "100", "20", "tabletas"]
+  },
+  {
+    "slug": "ibuprofeno-10-tab-600-mg-bead010",
+    "sourcePage": "https://farmalisto.com.mx/inicio/162720-afleno-de-600-mg-caja-con-10-tabletas-ibuprofeno-7502208894540.html",
+    "sourceImage": "https://farmalisto.com.mx/118731-large_default/afleno-de-600-mg-caja-con-10-tabletas-ibuprofeno.jpg",
+    "expectedTerms": ["ibuprofeno", "600", "10", "tabletas"]
+  },
+  {
+    "slug": "losartan-30-compr-50mg-beadva003",
+    "sourcePage": "https://farmalisto.com.mx/especializados/6691-comprar-losartan-50-mg-caja-con-30-comprimidos-precio-7501493867536.html",
+    "sourceImage": "https://farmalisto.com.mx/40421-large_default/comprar-losartan-50-mg-caja-con-30-comprimidos-precio.jpg",
+    "expectedTerms": ["losartan", "50", "30", "comprimidos"]
+  },
+  {
+    "slug": "agua-oxigenada-110ml-ox002",
+    "sourcePage": "https://www.degasa.com/product/agua-oxigenada/",
+    "sourceImage": "https://www.degasa.com/wp-content/uploads/2024/05/AguaOxigenada.jpg",
+    "expectedTerms": ["agua", "oxigenada", "protec"]
+  },
+  {
+    "slug": "agua-oxigenada-250ml-ac-ac002",
+    "sourcePage": "https://www.degasa.com/product/agua-oxigenada/",
+    "sourceImage": "https://www.degasa.com/wp-content/uploads/2024/05/AguaOxigenada.jpg",
+    "expectedTerms": ["agua", "oxigenada", "protec"]
+  },
+  {
+    "slug": "agua-oxigenada-500-ml-ac-az008",
+    "sourcePage": "https://www.degasa.com/product/agua-oxigenada/",
+    "sourceImage": "https://www.degasa.com/wp-content/uploads/2024/05/AguaOxigenada.jpg",
+    "expectedTerms": ["agua", "oxigenada", "protec"]
+  },
+  {
+    "slug": "aguja-desech-21-x-32-verde-c-100-bd025",
+    "sourcePage": "https://dstamaria.com/products/aguja-hipodermica-desechable-21g-x-32mm",
+    "sourceImage": "https://dstamaria.com/cdn/shop/products/BD-verde.jpg",
+    "expectedTerms": ["bd", "21g", "32", "100"],
+    "minimumDimension": 500
+  },
+  {
+    "slug": "aguja-hip-16x38-morada-c-100-dl-dlp006",
+    "sourcePage": "https://www.coinmed.mx/en/products/copia-de-aguja-hipodermica-16g-18g-20g-21g-22g-23g-25g-caja-dl",
+    "sourceImage": "https://www.coinmed.mx/cdn/shop/files/aguja-hipodermica-16g-dl_1200x1200.jpg",
+    "expectedTerms": ["dl", "16", "38", "100"]
+  },
+  {
+    "slug": "aguja-nipro-18x32-c-100-rosa-nip014",
+    "sourcePage": "https://laflordelyz.com/products/aguja-hipodermica-rosa-18g-x-1-1-2-nipro-caja-c-100",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0712/3474/8579/files/AGUJA_ROSA_29061695-a720-47c7-a8c0-63c2471125f4.png",
+    "expectedTerms": ["nipro", "rosa", "18g", "32mm", "100"]
+  },
+  {
+    "slug": "perisafe-i-cal-17gx31-2-405067-bd032",
+    "sourcePage": "https://view.publitas.com/bd-2/catalogo-kits-para-anestesia-regional/page/6",
+    "expectedTerms": ["perisafe", "17", "405067"],
+    "enabled": false
+  },
+  {
+    "slug": "agua-destilada-20-lt-mapla-mapla001",
+    "sourcePage": "https://viresa.com.mx/agua-desionizada-en-bidon-20-lts-var--j7733--20",
+    "sourceImage": "https://viresa.com.mx/product/image/large/VAR-J7733-20_agua%20desionizada.png",
+    "expectedTerms": ["agua", "desionizada", "20", "mapla"]
+  },
+  {
+    "slug": "alcohol-96-250ml-nh-az004",
+    "sourcePage": "https://sumeba.com.mx/producto/alcohol-96-nieto-hnos-250ml-c-36-piezas/",
+    "sourceImage": "https://sumeba.com.mx/wp-content/uploads/2024/10/Alcohol250ml.jpg",
+    "expectedTerms": ["alcohol", "96", "nieto", "250"]
+  },
+  {
+    "slug": "alcohol-96-500ml-nh-az006",
+    "sourcePage": "https://sumeba.com.mx/producto/alcohol-96-nieto-hnos-500ml-c-24-piezas/",
+    "sourceImage": "https://sumeba.com.mx/wp-content/uploads/2024/10/Alcohol500ml.jpg",
+    "expectedTerms": ["alcohol", "96", "nieto", "500"]
+  },
+  {
+    "slug": "alcohol-96-1000ml-nh-az001",
+    "sourcePage": "https://superlavioleta.com/products/alcohol-nieto-hermanos-1lt",
+    "sourceImage": "https://superlavioleta.com/cdn/shop/products/ALCOHOL_NIETO_HERMANOS_1LT_1200x1200.png?v=1750363649",
+    "expectedTerms": ["alcohol", "nieto", "1", "lt"]
+  },
+  {
+    "slug": "alcohol-desnaturalizado-70-250ml-az-az005",
+    "sourcePage": "https://www.farmatodo.com.mx/alcohol-protec-desnaturalizado-botella-c-250-ml/p",
+    "sourceImage": "https://gruporfp.vtexassets.com/arquivos/ids/7012389/7501048333103_01.jpg?v=639183739998730000",
+    "expectedTerms": ["alcohol", "protec", "250"]
+  },
+  {
+    "slug": "alcohol-desnaturalizado-70-500ml-az-az003",
+    "sourcePage": "https://www.farmatodo.com.mx/alcohol-protec-desnaturalizado-botella-c-500-ml/p",
+    "sourceImage": "https://gruporfp.vtexassets.com/arquivos/ids/6998482/7501048333202_01.jpg?v=639183595683930000",
+    "expectedTerms": ["alcohol", "protec", "500"]
+  },
+  {
+    "slug": "alcohol-protec-500ml-70-dega057",
+    "sourcePage": "https://www.farmatodo.com.mx/alcohol-protec-desnaturalizado-botella-c-500-ml/p",
+    "sourceImage": "https://gruporfp.vtexassets.com/arquivos/ids/6998482/7501048333202_01.jpg?v=639183595683930000",
+    "expectedTerms": ["alcohol", "protec", "500"]
+  },
+  {
+    "slug": "alcohol-desnaturalizado-1lt-70-protec-dega085",
+    "sourcePage": "https://www.innofar.mx/product-page/alcohol-etilico-desnaturalizado-70-1000ml-protec",
+    "sourceImage": "https://static.wixstatic.com/media/c42966_4cbc4bee6eb244449eb749b33a0db7bb~mv2.png",
+    "expectedTerms": ["alcohol", "protec", "70", "1000"]
+  },
+  {
+    "slug": "alcohol-desnaturalizado-70-1000ml-az-az002",
+    "sourcePage": "https://www.innofar.mx/product-page/alcohol-etilico-desnaturalizado-70-1000ml-protec",
+    "sourceImage": "https://static.wixstatic.com/media/c42966_4cbc4bee6eb244449eb749b33a0db7bb~mv2.png",
+    "expectedTerms": ["alcohol", "protec", "70", "1000"]
+  },
+  {
+    "slug": "alcohol-96-5-lts-nieto-nieto001",
+    "sourcePage": "https://timinsumosmedicos.com/producto/alcohol-del-96-4-5-lto-hermanos/",
+    "sourceImage": "https://timinsumosmedicos.com/wp-content/uploads/2024/07/7503001572048.jpg",
+    "expectedTerms": ["alcohol", "96", "nieto", "5lt"]
+  },
+  {
+    "slug": "alcohol-20-lts-nieto-az009",
+    "sourcePage": "https://timinsumosmedicos.com/producto/alcohol-del-96-nieto-hermanos-20lt/",
+    "sourceImage": "https://timinsumosmedicos.com/wp-content/uploads/2024/07/ALCO-96.jpg",
+    "expectedTerms": ["alcohol", "96", "nieto", "20lt"],
+    "minimumDimension": 485
+  },
+  {
+    "slug": "jeringa-1ml-27x13-c-100-ambiderm-amb053",
+    "sourcePage": "https://shop.ambiderm.com.mx/products/jeringa-luer-slip",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0278/4772/1043/files/1ml_-_27G_-_13mm.png?v=1779133949",
+    "expectedTerms": ["ambiderm", "1 ml", "27g", "13 mm"],
+    "minimumDimension": 500
+  },
+  {
+    "slug": "jeringa-3ml-21x32-c-100-ambiderm-amb043",
+    "sourcePage": "https://shop.ambiderm.com.mx/products/jeringa-luer-lock",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0278/4772/1043/files/3ml_-_21G_-_32mm.png?v=1779131755",
+    "expectedTerms": ["ambiderm", "3 ml", "21g", "32 mm"],
+    "minimumDimension": 500
+  },
+  {
+    "slug": "jeringa-3ml-22x32-c-100-ambiderm-amb055",
+    "sourcePage": "https://shop.ambiderm.com.mx/products/jeringa-luer-lock",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0278/4772/1043/files/3ml_-_22G_-_32mm.png?v=1779131758",
+    "expectedTerms": ["ambiderm", "3 ml", "22g", "32 mm"],
+    "minimumDimension": 500
+  },
+  {
+    "slug": "jeringa-3ml-23x25-c-100-ambiderm-amb054",
+    "sourcePage": "https://shop.ambiderm.com.mx/products/jeringa-luer-lock",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0278/4772/1043/files/3ml_-_23G_-_32mm.png?v=1779131761",
+    "expectedTerms": ["ambiderm", "3 ml", "23g", "25 mm"],
+    "minimumDimension": 500
+  },
+  {
+    "slug": "jeringa-5ml-21x32-c-100-ambiderm-amb044",
+    "sourcePage": "https://shop.ambiderm.com.mx/products/jeringa-luer-lock",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0278/4772/1043/files/5ml_-_21G_-_38mm.png?v=1779131772",
+    "expectedTerms": ["ambiderm", "5 ml", "21g", "32 mm"],
+    "minimumDimension": 500
+  },
+  {
+    "slug": "jeringa-5ml-22x32-c-100-ambiderm-amb070",
+    "sourcePage": "https://shop.ambiderm.com.mx/products/jeringa-luer-lock",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0278/4772/1043/files/5ml_-_22G_-_32mm_dbb7fbd0-e25a-4de0-a281-6456ca0ffe01.png?v=1779131787",
+    "expectedTerms": ["ambiderm", "5 ml", "22g", "32 mm"],
+    "minimumDimension": 500
+  },
+  {
+    "slug": "jeringa-10ml-21x32-c-100-ambiderm-amb042",
+    "sourcePage": "https://shop.ambiderm.com.mx/products/jeringa-luer-lock",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0278/4772/1043/files/10ml_-_21G_-_32mm.png?v=1779131809",
+    "expectedTerms": ["ambiderm", "10 ml", "21g", "32 mm"],
+    "minimumDimension": 500
+  },
+  {
+    "slug": "toallas-alcoholadas-protec-c-100-dega049",
+    "sourcePage": "https://www.degasa.com/product/toalla-con-alcohol/",
+    "sourceImage": "https://www.degasa.com/wp-content/uploads/2024/05/ToallaConAlcohol.jpg",
+    "expectedTerms": ["toalla", "alcohol", "protec", "100"]
+  },
+  {
+    "slug": "algodon-plisado-300gr-protec-dega011",
+    "sourcePage": "https://www.degasa.com/product/algodon-plisado/",
+    "sourceImage": "https://www.degasa.com/wp-content/uploads/2024/05/AlgodonPlisado.jpg",
+    "expectedTerms": ["algodón", "plisado", "protec", "300"]
+  },
+  {
+    "slug": "torunda-algodon-500g-protec-dega001",
+    "sourcePage": "https://www.degasa.com/product/torunda-de-algodon-protec/",
+    "sourceImage": "https://www.degasa.com/wp-content/uploads/2024/05/TorundaAlgodonProtec.jpg",
+    "expectedTerms": ["torunda", "algodón", "protec", "500"]
+  },
+  {
+    "slug": "aplicador-esteril-15cm-c-3-c-100-protec-dega024",
+    "sourcePage": "https://www.degasa.com/product/aplicadores-de-algodon-protec/",
+    "sourceImage": "https://www.degasa.com/wp-content/uploads/2024/05/AplicadoresAlgodonProtec.jpg",
+    "expectedTerms": ["aplicador", "algodón", "protec", "15 cm"]
+  },
+  {
+    "slug": "bota-sin-plantilla-desch-c-25-protec-dega021",
+    "sourcePage": "https://www.degasa.com/product/botas-para-cirujano/",
+    "sourceImage": "https://www.degasa.com/wp-content/uploads/2024/05/BotasparaCirujano.jpg",
+    "expectedTerms": ["bota", "protec", "25"]
+  },
+  {
+    "slug": "gorro-p-cirujano-desechable-c-100-protec-dega006",
+    "sourcePage": "https://www.degasa.com/product/gorros-protec/",
+    "sourceImage": "https://www.degasa.com/wp-content/uploads/2024/05/GorrosProtec.jpg",
+    "expectedTerms": ["gorro", "protec", "100"]
+  },
+  {
+    "slug": "cinta-testigo-para-vapor-protec-dega047",
+    "sourcePage": "https://www.degasa.com/product/cinta-testigo/",
+    "sourceImage": "https://www.degasa.com/wp-content/uploads/2024/05/CintaTestigo.jpg",
+    "expectedTerms": ["cinta", "testigo", "vapor", "protec"]
+  },
+  {
+    "slug": "dermodine-espuma-yodo-3-5l-dega003",
+    "sourcePage": "https://www.degasa.com/product/dermodine-espuma-2/",
+    "sourceImage": "https://www.degasa.com/wp-content/uploads/2024/05/DermodineEspuma_Familia.jpg",
+    "expectedTerms": ["dermodine", "espuma"]
+  },
+  {
+    "slug": "dermodine-solucion-3-5l-dega042",
+    "sourcePage": "https://www.degasa.com/product/dermodine-solucion-2/",
+    "sourceImage": "https://www.degasa.com/wp-content/uploads/2024/05/DermodineSolucion_Familia.jpg",
+    "expectedTerms": ["dermodine", "solución"]
+  },
+  {
+    "slug": "dermocleen-benzal-concentrado-4l-dega002",
+    "sourcePage": "https://www.degasa.com/product/dermocleen-concentrado/",
+    "sourceImage": "https://www.degasa.com/wp-content/uploads/2024/05/DermocleenConcentrado.jpg",
+    "expectedTerms": ["dermocleen", "concentrado", "4 l"]
+  },
+  {
+    "slug": "dermocleen-jabon-4l-dega043",
+    "sourcePage": "https://www.degasa.com/product/dermocleen-jabon-pre-quirurgico/",
+    "sourceImage": "https://www.degasa.com/wp-content/uploads/2024/05/DermocleenJabonPre-Quirurgico.jpg",
+    "expectedTerms": ["dermocleen", "jabón"]
+  },
+  {
+    "slug": "canula-guedel-no-3-amarillo-90mm-intersurgical-can001",
+    "sourcePage": "https://mx.intersurgical.com/productos/manejo-de-via-aerea/canulas-guedel",
+    "sourceImage": "https://mx.intersurgical.com/content/images/dynamic/121279/-735356090/1113-090__One-piece_Guedel_airway__size_3__ISO_9_0__yellow_web.jpg",
+    "expectedTerms": ["guedel"],
+    "minimumDimension": 600
+  },
+  {
+    "slug": "amcef-ceftriaxona-1g-i-m-amsa-amsa006",
+    "sourcePage": "https://www.farmalisto.com.mx/antibioticos/35304-comprar-amcef-solucion-inyectable-1-g-caja-con-frasco-ampula-de-35-ml-precio.html",
+    "expectedTerms": ["amcef", "1 g", "3.5 ml"]
+  },
+  {
+    "slug": "amcef-ceftriaxona-1g-i-v-amsa-amsa40",
+    "sourcePage": "https://www.farmalisto.com.mx/medicamentos-con-receta-medica/161526-amcef-solucion-1-g-frasco-ampula-10-ml-ceftriaxona-laboratorio-amsa.html",
+    "expectedTerms": ["amcef", "1 g", "10 ml", "ceftriaxona", "amsa"]
+  },
+  {
+    "slug": "amoxicilina-cap-500mg-c-12-amsa-amsa420",
+    "sourcePage": "https://www.farmalisto.com.mx/antibioticos/35275-comprar-amoxicilina-500-mg-caja-con-12-capsulas-precio.html",
+    "expectedTerms": ["amoxicilina", "500 mg", "12 cápsulas"]
+  },
+  {
+    "slug": "ketorolaco-sublingual-30mg-6-tab-amsa-ket003",
+    "sourcePage": "https://www.farmalisto.com.mx/analgesicos/35310-comprar-ketorolaco-sub-30mg-tab6-ams-lgen-precio-7501349023369.html",
+    "expectedTerms": ["ketorolaco", "30 mg", "6 tabletas"]
+  },
+  {
+    "slug": "avapena-20-mg-5x2-ml-amp-san002",
+    "sourcePage": "https://farmalisto.com.mx/antihistaminicos-con-receta/7561-avapena-20-mg-caja-con-5-ampolletas-de-2-ml-7502216930599.html",
+    "expectedTerms": ["avapena", "20 mg", "5 ampolletas", "2 ml"]
+  },
+  {
+    "slug": "mavidol-ketorolaco-sublingual-c-4-tab-mav002",
+    "sourcePage": "https://farmalisto.com.mx/analgesicos/11102-comprar-mavidol-sl-30-mg-caja-con-4-tabletas-precio.html",
+    "expectedTerms": ["mavidol", "30 mg", "4 tabletas"]
+  },
+  {
+    "slug": "ketorolaco-amp-30mg-1ml-c-3-amsa",
+    "sourcePage": "https://www.farmatodo.com.mx/ketorolaco-solucion-inyectable-30-mg-1-ml-caja-c-3-ampolletas-v1/p",
+    "sourceImage": "https://gruporfp.vteximg.com.br/arquivos/ids/7007620/7501349024267_01.jpg?v=639183689079070000",
+    "expectedTerms": ["ketorolaco", "30 mg", "1 ml", "3 ampolletas", "amsa"]
+  },
+  {
+    "slug": "morebon-d3-5000ui-30-tabs-moreb001",
+    "sourcePage": "https://www.farmatodo.com.mx/morebon-5000-ui-caja-c-30-tabletas/p",
+    "sourceImage": "https://gruporfp.vteximg.com.br/arquivos/ids/7010834/7501249600936_01.jpg?v=639183724117700000",
+    "expectedTerms": ["morebon", "5000 ui", "30 tabletas"]
+  },
+  {
+    "slug": "oxital-c-acido-ascorbico-10-tabs-eferv-ox001",
+    "sourcePage": "https://www.farmatodo.com.mx/oxital-c-acido-ascorbico-1-gr-c-10-tableta-efervescentes/p",
+    "sourceImage": "https://gruporfp.vteximg.com.br/arquivos/ids/7007017/7501258206723_01.jpg?v=639183682817000000",
+    "expectedTerms": ["oxital-c", "1 gr", "10 tableta", "efervescentes"]
+  },
+  {
+    "slug": "clindamicina-1-amp-600mg-4ml-amsa435",
+    "sourcePage": "https://salurafarmacias.com.mx/producto/clindamicina-de-amsa-600mg-4ml-c-1-amp/",
+    "sourceImage": "https://salurafarmacias.com.mx/wp-content/uploads/2026/05/CLINDAMICINA-DE-AMSA-600MG-4ML-C-1-AMP.png",
+    "expectedTerms": ["clindamicina", "amsa", "600 mg", "4 ml", "1 amp"]
+  },
+  {
+    "slug": "gelprim-nifedipino-cap-10mg-c-20-gel001",
+    "sourcePage": "https://salurafarmacias.com.mx/producto/nifedipino-gelprim-10mg-c-20-capsulas/",
+    "sourceImage": "https://salurafarmacias.com.mx/wp-content/uploads/2026/05/NIFEDIPINO-GELPRIM-10MG-C-20-CAPSULAS.png",
+    "expectedTerms": ["nifedipino", "gelprim", "10 mg", "20 cápsulas"]
+  },
+  {
+    "slug": "biomesina-hioscina-10-tab-10-mg-biome001",
+    "sourcePage": "https://prixz.com/c/biomesina-10-tabletas-10-mg/",
+    "sourceImage": "https://res.cloudinary.com/prixz/image/upload/items/7501573900535.webp",
+    "expectedTerms": ["biomesina", "10 mg", "10 tabletas"]
+  },
+  {
+    "slug": "guata-quirurgica-5cmx5m-c-24-protec-dega058",
+    "sourcePage": "https://www.degasa.com/product/guata-quirurgicaprotec/",
+    "sourceImage": "https://www.degasa.com/wp-content/uploads/2024/05/GuataQuirurgicaProtec.jpg",
+    "expectedTerms": ["guata", "protec"]
+  },
+  {
+    "slug": "guata-quirurgica-7cmx5cm-c-24-protec-dega078",
+    "sourcePage": "https://www.degasa.com/product/guata-quirurgicaprotec/",
+    "sourceImage": "https://www.degasa.com/wp-content/uploads/2024/05/GuataQuirurgicaProtec.jpg",
+    "expectedTerms": ["guata", "protec"]
+  },
+  {
+    "slug": "guata-quirurgica-10cmx5m-c-24-protec-dega010",
+    "sourcePage": "https://www.degasa.com/product/guata-quirurgicaprotec/",
+    "sourceImage": "https://www.degasa.com/wp-content/uploads/2024/05/GuataQuirurgicaProtec.jpg",
+    "expectedTerms": ["guata", "protec"]
+  },
+  {
+    "slug": "guata-quirurgica-15cmx5m-c-24-protec-dega013",
+    "sourcePage": "https://www.degasa.com/product/guata-quirurgicaprotec/",
+    "sourceImage": "https://www.degasa.com/wp-content/uploads/2024/05/GuataQuirurgicaProtec.jpg",
+    "expectedTerms": ["guata", "protec"]
+  },
+  {
+    "slug": "guata-quirurgica-20cmx5m-c-24-protec-dega066",
+    "sourcePage": "https://www.degasa.com/product/guata-quirurgicaprotec/",
+    "sourceImage": "https://www.degasa.com/wp-content/uploads/2024/05/GuataQuirurgicaProtec.jpg",
+    "expectedTerms": ["guata", "protec"]
+  },
+  {
+    "slug": "venda-protec-10cm-c-12-dega028",
+    "sourcePage": "https://www.degasa.com/product/venda-elastica-protec/",
+    "sourceImage": "https://www.degasa.com/wp-content/uploads/2024/05/VendaElasticaProtec.jpg",
+    "expectedTerms": ["venda", "elástica", "protec"]
+  },
+  {
+    "slug": "venda-protec-30cm-c-12-dega040",
+    "sourcePage": "https://www.degasa.com/product/venda-elastica-protec/",
+    "sourceImage": "https://www.degasa.com/wp-content/uploads/2024/05/VendaElasticaProtec.jpg",
+    "expectedTerms": ["venda", "elástica", "protec"]
+  },
+  {
+    "slug": "guante-est-p-cirujano-c-50-protec-dega007",
+    "sourcePage": "https://www.degasa.com/product/guantes-para-cirugia-de-latex-natural/",
+    "sourceImage": "https://www.degasa.com/wp-content/uploads/2024/05/GuantesCirugiaLatexNatural.jpg",
+    "expectedTerms": ["guante", "cirugía", "látex", "protec", "50"]
+  },
+  {
+    "slug": "esponja-gasa-n-est-10x10-c-200-protec-dega014",
+    "sourcePage": "https://www.degasa.com/product/gasa-seca-cortada-no-esteril/",
+    "sourceImage": "https://www.degasa.com/wp-content/uploads/2024/05/GasaSecaCortadaNoEsteril.jpg",
+    "expectedTerms": ["gasa", "no estéril", "protec", "10", "200"]
+  },
+  {
+    "slug": "curitas-transpiel-ant-c-100-cur001",
+    "sourcePage": "https://prixz.com/c/curitas-transpiel-antisep-caja-100/",
+    "sourceImage": "https://res.cloudinary.com/prixz/image/upload/items/7702003476594.webp",
+    "expectedTerms": ["curitas", "transpiel", "100"]
+  },
+  {
+    "slug": "gorro-plisado-azul-c-100-amb-amb315",
+    "sourcePage": "https://shop.ambiderm.com.mx/products/gorros",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0278/4772/1043/files/gorroplisado.png?v=1738589153",
+    "expectedTerms": ["gorro", "plisado", "azul", "100"],
+    "minimumDimension": 500
+  },
+  {
+    "slug": "gorro-plisado-blanco-c-100-ambiderm-amb038",
+    "sourcePage": "https://shop.ambiderm.com.mx/products/gorros",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0278/4772/1043/files/gorroplisadoblanco.png?v=1738589163",
+    "expectedTerms": ["gorro", "plisado", "blanco", "100"],
+    "minimumDimension": 500
+  },
+  {
+    "slug": "cubrezapato-s-anti-amb-c-100-amb018",
+    "sourcePage": "https://shop.ambiderm.com.mx/products/cubre-zapato",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0278/4772/1043/files/cubrezapato.png?v=1738587717",
+    "expectedTerms": ["cubrezapato", "sin antiderrapante", "100"],
+    "minimumDimension": 500
+  },
+  {
+    "slug": "equipo-de-cirugia-mayor-esteril-amb-amb139",
+    "sourcePage": "https://shop.ambiderm.com.mx/products/paquete-cirugia-mayor-esteril-sms",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0278/4772/1043/files/paqueteparacirugiamayor.png?v=1730913746",
+    "expectedTerms": ["cirugía", "mayor", "estéril", "sms"],
+    "minimumDimension": 500
+  },
+  {
+    "slug": "vendalastic-5cm-c-12-dega038",
+    "sourcePage": "https://www.degasa.com/product/venda-elastica-vendalastic/",
+    "sourceImage": "https://www.degasa.com/wp-content/uploads/2024/05/VendaElasticaVendalastic.jpg",
+    "expectedTerms": ["venda", "elástica", "vendalastic"]
+  },
+  {
+    "slug": "vendalastic-7cms-c-12-dega017",
+    "sourcePage": "https://www.degasa.com/product/venda-elastica-vendalastic/",
+    "sourceImage": "https://www.degasa.com/wp-content/uploads/2024/05/VendaElasticaVendalastic.jpg",
+    "expectedTerms": ["venda", "elástica", "vendalastic"]
+  },
+  {
+    "slug": "vendalastic-10cm-c-12-dega018",
+    "sourcePage": "https://www.degasa.com/product/venda-elastica-vendalastic/",
+    "sourceImage": "https://www.degasa.com/wp-content/uploads/2024/05/VendaElasticaVendalastic.jpg",
+    "expectedTerms": ["venda", "elástica", "vendalastic"]
+  },
+  {
+    "slug": "vendalastic-15cm-c-12-dega044",
+    "sourcePage": "https://www.degasa.com/product/venda-elastica-vendalastic/",
+    "sourceImage": "https://www.degasa.com/wp-content/uploads/2024/05/VendaElasticaVendalastic.jpg",
+    "expectedTerms": ["venda", "elástica", "vendalastic"]
+  },
+  {
+    "slug": "vendalastic-20cm-c-12-dega037",
+    "sourcePage": "https://www.degasa.com/product/venda-elastica-vendalastic/",
+    "sourceImage": "https://www.degasa.com/wp-content/uploads/2024/05/VendaElasticaVendalastic.jpg",
+    "expectedTerms": ["venda", "elástica", "vendalastic"]
+  },
+  {
+    "slug": "vendalastic-30cm-c-12-dega026",
+    "sourcePage": "https://www.degasa.com/product/venda-elastica-vendalastic/",
+    "sourceImage": "https://www.degasa.com/wp-content/uploads/2024/05/VendaElasticaVendalastic.jpg",
+    "expectedTerms": ["venda", "elástica", "vendalastic"]
+  },
+  {
+    "slug": "esponja-gasa-esteril-7-5x5-t20x12-c-5-dega081",
+    "sourcePage": "https://www.degasa.com/product/gasa-seca-cortada-esteril/",
+    "sourceImage": "https://www.degasa.com/wp-content/uploads/2024/05/GasaSecaCortadaEsteril.jpg",
+    "expectedTerms": ["gasa", "estéril", "7.5", "5"]
+  },
+  {
+    "slug": "esponja-gasa-n-est-hr-10x10-c-200-pro-dega025",
+    "sourcePage": "https://www.degasa.com/product/gasa-seca-cortada-no-esteril/",
+    "sourceImage": "https://www.degasa.com/wp-content/uploads/2024/05/GasaSecaCortadaNoEsteril.jpg",
+    "expectedTerms": ["gasa", "no estéril", "protec", "10", "200"]
+  },
+  {
+    "slug": "punzocat-14g-naranja-vizcarra-vizca006",
+    "sourcePage": "https://sumeba.com.mx/producto/cateter-punzocat-vizcarra-c-50-piezas/",
+    "sourceImage": "https://sumeba.com.mx/wp-content/uploads/2023/11/CATETER-PUNZOCAT-VIZCARRA.jpg",
+    "expectedTerms": ["punzocat", "vizcarra", "14g"]
+  },
+  {
+    "slug": "punzocat-16g-gris-vizcarra-vizca005",
+    "sourcePage": "https://sumeba.com.mx/producto/cateter-punzocat-vizcarra-c-50-piezas/",
+    "sourceImage": "https://sumeba.com.mx/wp-content/uploads/2023/11/CATETER-PUNZOCAT-VIZCARRA.jpg",
+    "expectedTerms": ["punzocat", "vizcarra", "16g"]
+  },
+  {
+    "slug": "punzocat-17g-rojo-vizcarra-vizca004",
+    "sourcePage": "https://sumeba.com.mx/producto/cateter-punzocat-vizcarra-c-50-piezas/",
+    "sourceImage": "https://sumeba.com.mx/wp-content/uploads/2023/11/CATETER-PUNZOCAT-VIZCARRA.jpg",
+    "expectedTerms": ["punzocat", "vizcarra", "17g"]
+  },
+  {
+    "slug": "punzocat-19g-azul-vizcarra-vizca009",
+    "sourcePage": "https://sumeba.com.mx/producto/cateter-punzocat-vizcarra-c-50-piezas/",
+    "sourceImage": "https://sumeba.com.mx/wp-content/uploads/2023/11/CATETER-PUNZOCAT-VIZCARRA.jpg",
+    "expectedTerms": ["punzocat", "vizcarra", "19g"]
+  },
+  {
+    "slug": "punzocat-21g-blanco-vizcarra-vizca007",
+    "sourcePage": "https://sumeba.com.mx/producto/cateter-punzocat-vizcarra-c-50-piezas/",
+    "sourceImage": "https://sumeba.com.mx/wp-content/uploads/2023/11/CATETER-PUNZOCAT-VIZCARRA.jpg",
+    "expectedTerms": ["punzocat", "vizcarra", "21g"]
+  },
+  {
+    "slug": "punzocat-23g-morado-vizcarra-vizca010",
+    "sourcePage": "https://sumeba.com.mx/producto/cateter-punzocat-vizcarra-c-50-piezas/",
+    "sourceImage": "https://sumeba.com.mx/wp-content/uploads/2023/11/CATETER-PUNZOCAT-VIZCARRA.jpg",
+    "expectedTerms": ["punzocat", "vizcarra", "23g"]
+  },
+  {
+    "slug": "punzocat-24g-amarillo-vizcarra-vizca002",
+    "sourcePage": "https://sumeba.com.mx/producto/cateter-punzocat-vizcarra-c-50-piezas/",
+    "sourceImage": "https://sumeba.com.mx/wp-content/uploads/2023/11/CATETER-PUNZOCAT-VIZCARRA.jpg",
+    "expectedTerms": ["punzocat", "vizcarra", "24g"]
+  },
+  {
+    "slug": "gypsona-s-10cm-x-2-74m-bsn001",
+    "sourcePage": "https://sumeba.com.mx/producto/venda-de-yeso-gypsona/",
+    "sourceImage": "https://sumeba.com.mx/wp-content/uploads/2023/11/Gypsona.png",
+    "expectedTerms": ["gypsona", "10cm"]
+  },
+  {
+    "slug": "gypsona-s-15cm-x-2-74m-bsn002",
+    "sourcePage": "https://sumeba.com.mx/producto/venda-de-yeso-gypsona/",
+    "sourceImage": "https://sumeba.com.mx/wp-content/uploads/2023/11/Gypsona.png",
+    "expectedTerms": ["gypsona", "15cm"]
+  },
+  {
+    "slug": "collarin-blando-orto014",
+    "sourcePage": "https://farmalisto.com.mx/higiene-y-belleza/11577-le-roy-collarin-cervical-algodon-talla-grande-caja-con-1-pieza-ortopedico-729513132229.html",
+    "sourceImage": "https://farmalisto.com.mx/101245-large_default/le-roy-collarin-cervical-algodon-talla-grande-caja-con-1-pieza-ortopedico.jpg",
+    "expectedTerms": ["le roy", "collarin", "cervical"]
+  },
+  {
+    "slug": "abatelenguas-de-madera-20bol-c-25pz-amb-amb008",
+    "sourcePage": "https://shop.ambiderm.com.mx/products/abatelenguas",
+    "sourceImage": "https://shop.ambiderm.com.mx/cdn/shop/files/06_abatelenguas.png?v=1778506392",
+    "expectedTerms": ["abatelenguas", "20 bolsas", "25"],
+    "minimumDimension": 500
+  },
+  {
+    "slug": "guante-colorfull-med-c-100-pz-amb046",
+    "sourcePage": "https://shop.ambiderm.com.mx/products/colorfull",
+    "sourceImage": "https://shop.ambiderm.com.mx/cdn/shop/products/ColorFull_M_1.jpg?v=1591973655",
+    "expectedTerms": ["guante", "colorfull", "mediano"]
+  },
+  {
+    "slug": "cubrebocas-ambiderm-colorfull-c-50-amb056",
+    "sourcePage": "https://shop.ambiderm.com.mx/products/cubrebocas-adulto-plisado-surtido-de-colores",
+    "sourceImage": "https://shop.ambiderm.com.mx/cdn/shop/products/cubrebocas_colorfull.jpg?v=1614792954",
+    "expectedTerms": ["cubrebocas", "adulto", "surtido", "colores"]
+  },
+  {
+    "slug": "cubrebocas-ambiderm-infantil-c-50-amb061",
+    "sourcePage": "https://shop.ambiderm.com.mx/products/cubrebocas-infantil-surtido-de-colores",
+    "sourceImage": "https://shop.ambiderm.com.mx/cdn/shop/products/cubrebocasinfantilcolorfull_80c803d7-63a2-4e12-84b4-d4c6c709cf10.jpg?v=1637794892",
+    "expectedTerms": ["cubrebocas", "infantil", "surtido", "colores"]
+  },
+  {
+    "slug": "dermo-qrit-al-12-500ml-dega050",
+    "sourcePage": "https://www.degasa.com/product/dermo-qrit/",
+    "sourceImage": "https://www.degasa.com/wp-content/uploads/2024/05/Dermo-Qrit.jpg",
+    "expectedTerms": ["dermo-qrit", "12%", "500"]
+  },
+  {
+    "slug": "gel-antibacterial-1l-protec-dega067",
+    "sourcePage": "https://www.degasa.com/product/gel-antiseptico/",
+    "sourceImage": "https://www.degasa.com/wp-content/uploads/2024/05/GelAntiseptico.jpg",
+    "expectedTerms": ["gel", "antiséptico", "protec", "1000"]
+  },
+  {
+    "slug": "aposito-adhesivo-circular-c-100-dega039",
+    "sourcePage": "https://www.degasa.com/product/bandas-adhesivas/",
+    "sourceImage": "https://www.degasa.com/wp-content/uploads/2024/05/BandasAdhesivas.jpg",
+    "expectedTerms": ["bandas", "adhesivas", "circulares", "protec", "100"]
+  },
+  {
+    "slug": "aposito-adhesivo-protec-100-pza-dega034",
+    "sourcePage": "https://www.degasa.com/product/bandas-adhesivas/",
+    "sourceImage": "https://www.degasa.com/wp-content/uploads/2024/05/BandasAdhesivas.jpg",
+    "expectedTerms": ["bandas", "adhesivas", "protec", "100"]
+  },
+  {
+    "slug": "malla-tubular-1x2-m-leroy-13702-leroy006",
+    "sourcePage": "https://tienda.leroy.com.mx/products/le-roy-malla-tubular-cal-1x2m-1-pz",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0268/7677/2544/products/3500346_1_4d411e1c-4bc1-499e-a585-b5c7574623f9.jpg?v=1749597915",
+    "expectedTerms": ["malla", "tubular", "cal.1", "2 m"]
+  },
+  {
+    "slug": "malla-tubular-2x2-m-leroy-13702-leroy002",
+    "sourcePage": "https://tienda.leroy.com.mx/products/le-roy-malla-tubular-cal-2x2m-1-pz",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0268/7677/2544/products/3500347_1_2336ac38-a94a-444a-afd2-86fd941ed566.jpg?v=1749597914",
+    "expectedTerms": ["malla", "tubular", "cal.2", "2 m"]
+  },
+  {
+    "slug": "malla-tubular-4x2-m-leroy-13704-leroy005",
+    "sourcePage": "https://tienda.leroy.com.mx/products/le-roy-malla-tubular-cal-4x2m-1-pz",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0268/7677/2544/products/3500349_1_27a4f8c8-5a3a-403e-8429-137b7c5b7c59.jpg?v=1749597882",
+    "expectedTerms": ["malla", "tubular", "cal.4", "2 m"]
+  },
+  {
+    "slug": "malla-tubular-5x2-m-leroy-13705-leroy004",
+    "sourcePage": "https://tienda.leroy.com.mx/products/le-roy-malla-tubular-cal-5x2m-1-pz",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0268/7677/2544/products/3500350_1_84437ed6-fd2d-41cb-bb81-62730821f764.jpg?v=1749597881",
+    "expectedTerms": ["malla", "tubular", "cal.5", "2 m"]
+  },
+  {
+    "slug": "venda-elastomedic-7-5cmx5m-leroy-leroy019",
+    "sourcePage": "https://tienda.leroy.com.mx/products/leroy-elastomedic-venda-de-alta-compresion-75-cm-12-piezas",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0268/7677/2544/files/3501300m.jpg?v=1780671412",
+    "expectedTerms": ["elastomedic", "7.5 cm", "5 m"]
+  },
+  {
+    "slug": "venda-elastomedic-15cmx5m-leroy-leroy023",
+    "sourcePage": "https://tienda.leroy.com.mx/products/leroy-elastomedic-de-alta-compresion-15-cm-12-piezas",
+    "sourceImage": "https://cdn.shopify.com/s/files/1/0268/7677/2544/files/3501302m.jpg?v=1780439354",
+    "expectedTerms": ["elastomedic", "15 cm", "5 m"]
+  },
+  {
+    "slug": "jeringa-ultra-fine-0-3ml-31gx6mm-c-10-bd072",
+    "sourcePage": "https://farmalisto.com.mx/agujas-y-jeringas-medicas/604-comprar-bd-ultrafine-6mm-03ml-para-insulina-caja-con-10-jeringas-31gx6mm-insumos-medicos-precio-382903249138.html",
+    "sourceImage": "https://farmalisto.com.mx/111435-large_default/comprar-bd-ultrafine-6mm-03ml-para-insulina-caja-con-10-jeringas-31gx6mm-insumos-medicos-precio.jpg",
+    "expectedTerms": ["bd", "ultra", "fine", "0.3ml", "31gx", "6mm", "10"]
+  }
+]

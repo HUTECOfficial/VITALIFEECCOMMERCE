@@ -1,20 +1,42 @@
+export const productCategories = [
+  "guantes",
+  "curacion",
+  "antisepticos",
+  "jeringas",
+  "terapia-iv",
+  "sondas-cateteres",
+  "respiratorio",
+  "diagnostico",
+  "quirurgico",
+  "rehabilitacion",
+  "medicamentos",
+  "proteccion-desechables",
+  "residuos",
+  "atencion-paciente",
+] as const;
+
+export type ProductCategory = (typeof productCategories)[number];
+
 export interface Product {
   id: string;
   name: string;
   slug: string;
-  category: "vendas" | "guantes" | "jeringas" | "medicamentos" | "curacion" | "equipo";
+  category: ProductCategory;
   price: number;
   description: string;
   image: string;
   inStock: boolean;
+  stockQuantity?: number;
   featured?: boolean;
   sizes?: string[];
+  colors?: string[];
   quoteOnly?: boolean;
 }
 
 export interface CartItem extends Product {
   quantity: number;
   size?: string;
+  color?: string;
   cartId: string;
 }
 

@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "supabase:seed": "node --env-file=.env.local scripts/seed-supabase.js",
+    "images:import": "node --env-file=.env.local scripts/import-curated-product-images.js"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.4.0",
