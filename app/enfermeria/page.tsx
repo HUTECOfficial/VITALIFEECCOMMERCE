@@ -137,19 +137,16 @@ export default function EnfermeriaPage() {
             <div className="hidden lg:flex justify-center">
               <div className="relative w-80 h-80 animate-float">
                 <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/60 via-[#e8f4fd]/80 to-[#2eb8d4]/20 backdrop-blur-sm border border-white/60 shadow-2xl flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-52 h-32 rounded-3xl bg-white/75 flex items-center justify-center mx-auto mb-4 shadow-lg">
-                      <Image
-                        src="/vitalife-logo.png"
-                        alt="Vital Life Servicios Integrales"
-                        width={200}
-                        height={120}
-                        className="h-28 w-auto object-contain"
-                        priority
-                      />
-                    </div>
-                    <p className="font-bold text-[#1a3a6b]">Enfermería</p>
-                    <p className="text-[#2eb8d4] text-sm">Fisioterapia</p>
+                  <div className="text-center px-6">
+                    <Image
+                      src="/vitalife-logo.png"
+                      alt="Vital Life Servicios Integrales"
+                      width={260}
+                      height={200}
+                      className="w-56 h-auto object-contain mx-auto mb-4"
+                      priority
+                    />
+                    <p className="font-bold text-[#1a3a6b] text-lg">Enfermería</p>
                   </div>
                 </div>
               </div>
