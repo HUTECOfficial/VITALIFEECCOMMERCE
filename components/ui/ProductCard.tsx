@@ -76,6 +76,9 @@ export default function ProductCard({ product }: ProductCardProps) {
             {productName.title}
           </h3>
         </Link>
+        {product.brand && (
+          <p className="mt-1 text-[10px] font-black uppercase tracking-wide text-[#1a3a6b]/50">{product.brand}</p>
+        )}
         {productName.presentation && (
           <p className="mt-1 mb-2 text-[11px] font-bold text-[#1a3a6b]/60">
             <span className="mr-1 uppercase tracking-wide text-[#2eb8d4]">Presentación</span>

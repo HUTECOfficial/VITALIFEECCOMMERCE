@@ -53,6 +53,12 @@ export default async function ProductPage({ params }: PageProps) {
               {categoryLabels[product.category]}
             </span>
             <h1 className="text-4xl font-black text-[#1a3a6b] mb-2">{productName.title}</h1>
+            {product.brand && (
+              <p className="mb-3 text-sm font-bold text-[#1a3a6b]/60">
+                <span className="mr-1.5 uppercase tracking-wide text-[#2eb8d4]">Marca:</span>
+                {product.brand}
+              </p>
+            )}
             {productName.presentation && (
               <p className="mb-4 inline-flex w-fit rounded-full bg-[#e8f4fd] px-3 py-1 text-sm font-bold text-[#1a3a6b]">
                 <span className="mr-1.5 text-[#2eb8d4]">Presentación:</span>

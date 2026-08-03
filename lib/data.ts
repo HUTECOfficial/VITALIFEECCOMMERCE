@@ -21,6 +21,7 @@ function mapRowToProduct(row: any): Product {
     featured: row.featured ?? false,
     ...readProductVariants(row.sizes),
     quoteOnly: row.quote_only ?? false,
+    brand: row.brand ?? undefined,
   };
 }
 

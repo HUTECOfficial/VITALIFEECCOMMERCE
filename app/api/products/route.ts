@@ -27,6 +27,7 @@ interface ProductRow {
   featured?: boolean | null;
   sizes?: unknown;
   quote_only?: boolean | null;
+  brand?: string | null;
 }
 
 function mapRow(row: ProductRow): Product {
@@ -43,6 +44,7 @@ function mapRow(row: ProductRow): Product {
     featured: row.featured ?? false,
     ...readProductVariants(row.sizes),
     quoteOnly: row.quote_only ?? false,
+    brand: row.brand ?? undefined,
   };
 }
 

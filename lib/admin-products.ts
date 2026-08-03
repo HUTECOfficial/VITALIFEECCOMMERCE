@@ -27,6 +27,7 @@ type ProductRow = {
   featured: boolean | null;
   sizes: unknown;
   quote_only: boolean | null;
+  brand: string | null;
 };
 
 function mapProduct(row: ProductRow): Product {
@@ -43,6 +44,7 @@ function mapProduct(row: ProductRow): Product {
     featured: row.featured ?? false,
     ...readProductVariants(row.sizes),
     quoteOnly: row.quote_only ?? false,
+    brand: row.brand ?? undefined,
   };
 }
 
@@ -59,6 +61,7 @@ export function productToRow(product: Product) {
     featured: product.featured ?? false,
     sizes: productVariantsToStorage(product),
     quote_only: product.quoteOnly ?? false,
+    brand: product.brand?.trim() || null,
   };
 }
 
@@ -66,7 +69,7 @@ export async function getAdminDashboardData(): Promise<AdminDashboardData> {
   const supabase = createServerClient();
   const { data: rawProducts, error: productsError } = await supabase
     .from("products")
-    .select("id,name,slug,category,price,description,image,in_stock,stock_quantity,featured,sizes,quote_only")
+    .select("id,name,slug,category,price,description,image,in_stock,stock_quantity,featured,sizes,quote_only,brand")
     .order("name", { ascending: true });
 
   if (productsError) throw new Error("No se pudo cargar el catálogo. Aplica la migración 003_product_stock_quantity.sql.");
