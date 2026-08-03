@@ -3,6 +3,7 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ShoppingCart, Check } from "lucide-react";
+import Link from "next/link";
 import { useCartStore } from "@/store/cartStore";
 import { Product } from "@/types";
 import { cn } from "@/lib/utils";
@@ -26,6 +27,22 @@ export function ShoppingCartButton({ product }: { product: Product }) {
   };
 
   const hasUnselectedVariant = Boolean((product.sizes?.length && !selectedSize) || (product.colors?.length && !selectedColor));
+
+  if (product.quoteOnly) {
+    return (
+      <div className="space-y-2">
+        {product.colors?.length ? <OptionSelector label="Color" options={product.colors} selected={selectedColor} onSelect={setSelectedColor} /> : null}
+        {product.sizes?.length ? <OptionSelector label="Talla / medida" options={product.sizes} selected={selectedSize} onSelect={setSelectedSize} /> : null}
+        <Link
+          href={`/contacto?producto=${encodeURIComponent(product.name)}${selectedSize ? `&talla=${encodeURIComponent(selectedSize)}` : ""}${selectedColor ? `&color=${encodeURIComponent(selectedColor)}` : ""}`}
+          className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-bold transition-colors shadow-md min-h-12 bg-[#1a3a6b] text-white hover:bg-[#2eb8d4]"
+        >
+          <ShoppingCart className="w-4 h-4" /> Cotizar
+        </Link>
+      </div>
+    );
+  }
+
   return (
     <div className="space-y-2">
       {product.colors?.length ? <OptionSelector label="Color" options={product.colors} selected={selectedColor} onSelect={setSelectedColor} /> : null}
