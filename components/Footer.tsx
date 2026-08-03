@@ -1,6 +1,14 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { MapPin, Phone, Mail } from "lucide-react";
+
+const nursingWhatsApp = {
+  href: "https://wa.me/5214777031953",
+  label: "+52 1 477 703 1953",
+};
 
 const footerLinks = {
   enlaces: [
@@ -16,6 +24,11 @@ const footerLinks = {
 };
 
 export default function Footer() {
+  const isNursingPage = usePathname() === "/enfermeria";
+  const whatsappHref = isNursingPage
+    ? nursingWhatsApp.href
+    : "https://wa.me/524771736105";
+
   return (
     <footer className="bg-white border-t border-gray-100">
       {/* Contact strip */}
@@ -23,7 +36,7 @@ export default function Footer() {
         <div className="max-w-5xl mx-auto px-4 sm:px-6 py-6">
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
             <a
-              href="https://wa.me/524771736105"
+              href={whatsappHref}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-3 group"
@@ -33,12 +46,20 @@ export default function Footer() {
               </div>
               <div>
                 <div className="text-xs text-gray-500 font-medium">WhatsApp</div>
-                <div className="text-[#1a3a6b] font-bold text-sm group-hover:text-[#2eb8d4] transition-colors">
-                  477 173 6105
-                </div>
-                <div className="text-[#1a3a6b] font-bold text-sm group-hover:text-[#2eb8d4] transition-colors">
-                  479 228 4057
-                </div>
+                {isNursingPage ? (
+                  <div className="text-[#1a3a6b] font-bold text-sm group-hover:text-[#2eb8d4] transition-colors">
+                    {nursingWhatsApp.label}
+                  </div>
+                ) : (
+                  <>
+                    <div className="text-[#1a3a6b] font-bold text-sm group-hover:text-[#2eb8d4] transition-colors">
+                      477 173 6105
+                    </div>
+                    <div className="text-[#1a3a6b] font-bold text-sm group-hover:text-[#2eb8d4] transition-colors">
+                      479 228 4057
+                    </div>
+                  </>
+                )}
                 <div className="text-xs text-gray-400">Respuesta inmediata</div>
               </div>
             </a>
@@ -115,7 +136,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href="https://wa.me/524771736105"
+                href={whatsappHref}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp"

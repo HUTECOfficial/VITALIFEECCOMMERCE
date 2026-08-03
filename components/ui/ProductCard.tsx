@@ -11,6 +11,7 @@ import { formatPrice } from "@/lib/utils";
 import { categoryLabels } from "@/data/products";
 import { cn } from "@/lib/utils";
 import { StockIndicator } from "@/components/ui/StockIndicator";
+import { getProductNameParts } from "@/lib/product-name";
 
 interface ProductCardProps {
   product: Product;
@@ -21,6 +22,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   const [added, setAdded] = useState(false);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
+  const productName = getProductNameParts(product.name);
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -70,10 +72,16 @@ export default function ProductCard({ product }: ProductCardProps) {
 
       <div className="p-4">
         <Link href={`/productos/${product.slug}`}>
-          <h3 className="font-semibold text-[#1a3a6b] text-sm leading-tight mb-1 hover:text-[#2eb8d4] transition-colors line-clamp-2">
-            {product.name}
+          <h3 className="font-semibold text-[#1a3a6b] text-sm leading-tight hover:text-[#2eb8d4] transition-colors line-clamp-2">
+            {productName.title}
           </h3>
         </Link>
+        {productName.presentation && (
+          <p className="mt-1 mb-2 text-[11px] font-bold text-[#1a3a6b]/60">
+            <span className="mr-1 uppercase tracking-wide text-[#2eb8d4]">Presentación</span>
+            {productName.presentation}
+          </p>
+        )}
         <p className="text-gray-500 text-xs leading-relaxed mb-3 line-clamp-2">
           {product.description}
         </p>

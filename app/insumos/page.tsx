@@ -20,6 +20,7 @@ import { formatPrice } from "@/lib/utils";
 import { useClientCartCount } from "@/store/cartStore";
 import { ShoppingCartButton } from "@/components/ui/ShoppingCartButton";
 import { StockIndicator } from "@/components/ui/StockIndicator";
+import { getProductNameParts } from "@/lib/product-name";
 
 /* ── Category visual config ───────────────────────────── */
 interface CatConfig { icon: LucideIcon; iconColor: string; iconBg: string; desc: string; img: string }
@@ -285,8 +286,11 @@ function InsumosContent() {
                     </Link>
                     <p className="text-[11px] uppercase tracking-wide font-bold text-[#2eb8d4] mb-1">{categoryLabels[product.category]}</p>
                     <Link href={`/productos/${product.slug}`}>
-                      <h3 className="font-black text-[#1a3a6b] text-base leading-tight mb-1 line-clamp-2 hover:text-[#2eb8d4] transition-colors">{product.name}</h3>
+                      <h3 className="font-black text-[#1a3a6b] text-base leading-tight hover:text-[#2eb8d4] transition-colors">{getProductNameParts(product.name).title}</h3>
                     </Link>
+                    {getProductNameParts(product.name).presentation && (
+                      <p className="mt-1 mb-2 text-[11px] font-bold text-[#1a3a6b]/60"><span className="mr-1 uppercase tracking-wide text-[#2eb8d4]">Presentación</span>{getProductNameParts(product.name).presentation}</p>
+                    )}
                     <p className="text-xs text-[#1a3a6b]/60 line-clamp-2 min-h-9 mb-3">{product.description}</p>
                     <div className="flex items-center justify-between mb-3">
                       <span className="text-[#1a3a6b] font-black text-lg">{product.quoteOnly ? "Cotizar" : formatPrice(product.price)}</span>
@@ -533,8 +537,11 @@ function ProductResultsSection({ filteredProducts, onClear, title }: ProductResu
                 </Link>
                 <p className="text-[11px] uppercase tracking-wide font-bold text-[#2eb8d4] mb-1">{categoryLabels[product.category]}</p>
                 <Link href={`/productos/${product.slug}`}>
-                  <h3 className="font-black text-[#1a3a6b] text-base leading-tight mb-1 line-clamp-2 hover:text-[#2eb8d4] transition-colors">{product.name}</h3>
+                  <h3 className="font-black text-[#1a3a6b] text-base leading-tight hover:text-[#2eb8d4] transition-colors">{getProductNameParts(product.name).title}</h3>
                 </Link>
+                {getProductNameParts(product.name).presentation && (
+                  <p className="mt-1 mb-2 text-[11px] font-bold text-[#1a3a6b]/60"><span className="mr-1 uppercase tracking-wide text-[#2eb8d4]">Presentación</span>{getProductNameParts(product.name).presentation}</p>
+                )}
                 <p className="text-xs text-[#1a3a6b]/60 line-clamp-2 min-h-9 mb-3">{product.description}</p>
                 <div className="flex items-center justify-between mb-3">
                   <span className="text-[#1a3a6b] font-black text-lg">{product.quoteOnly ? "Cotizar" : formatPrice(product.price)}</span>

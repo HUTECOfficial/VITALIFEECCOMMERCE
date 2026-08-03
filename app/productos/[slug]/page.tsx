@@ -9,6 +9,7 @@ import { ShoppingCartButton } from "@/components/ui/ShoppingCartButton";
 import { StockIndicator } from "@/components/ui/StockIndicator";
 import { ProductImageZoom } from "@/components/ui/ProductImageZoom";
 import { productGalleryImages } from "@/data/productGallery";
+import { getProductNameParts } from "@/lib/product-name";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -28,6 +29,7 @@ export default async function ProductPage({ params }: PageProps) {
   const { slug } = await params;
   const product = await getProductBySlug(slug);
   if (!product) notFound();
+  const productName = getProductNameParts(product.name);
 
   return (
     <div className="min-h-screen pt-24 pb-16 hero-gradient">
@@ -50,7 +52,13 @@ export default async function ProductPage({ params }: PageProps) {
             <span className="text-[#2eb8d4] font-bold text-xs uppercase tracking-[0.2em] mb-2">
               {categoryLabels[product.category]}
             </span>
-            <h1 className="text-4xl font-black text-[#1a3a6b] mb-4">{product.name}</h1>
+            <h1 className="text-4xl font-black text-[#1a3a6b] mb-2">{productName.title}</h1>
+            {productName.presentation && (
+              <p className="mb-4 inline-flex w-fit rounded-full bg-[#e8f4fd] px-3 py-1 text-sm font-bold text-[#1a3a6b]">
+                <span className="mr-1.5 text-[#2eb8d4]">Presentación:</span>
+                {productName.presentation}
+              </p>
+            )}
             <p className="text-[#1a3a6b]/65 mb-6">{product.description}</p>
             <div className="mb-6 space-y-3">
               <span className="block text-3xl font-black text-[#1a3a6b]">{product.quoteOnly ? "Cotización disponible" : formatPrice(product.price)}</span>

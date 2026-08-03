@@ -52,9 +52,7 @@ export async function POST(request: NextRequest) {
 
     const { data: catalogProducts, error: catalogError } = await supabase
       .from("products")
-      // Some active deployments do not yet have the optional stock_quantity column.
-      // Keep checkout compatible while validating the authoritative product price.
-      .select("id, name, price, in_stock")
+      .select("id, name, price, in_stock, stock_quantity")
       .in("id", productIds);
 
     if (catalogError || !catalogProducts || catalogProducts.length !== productIds.length) {
@@ -62,10 +60,15 @@ export async function POST(request: NextRequest) {
     }
 
     const catalogById = new Map(catalogProducts.map((product) => [product.id, product]));
+    const requestedQuantityByProduct = new Map<string, number>();
+    for (const item of body.items) {
+      requestedQuantityByProduct.set(item.productId!, (requestedQuantityByProduct.get(item.productId!) ?? 0) + item.quantity);
+    }
     const items: Array<{ productId: string; name: string; price: number; quantity: number; size?: string }> = [];
     for (const item of body.items) {
       const product = catalogById.get(item.productId!);
-      if (!product || !product.in_stock || Number(product.price) <= 0) {
+      const requestedQuantity = requestedQuantityByProduct.get(item.productId!) ?? 0;
+      if (!product || !product.in_stock || Number(product.stock_quantity) < requestedQuantity || Number(product.price) <= 0) {
         return NextResponse.json(
           { error: `El producto \"${item.name}\" no está disponible para compra en línea` },
           { status: 400 }
