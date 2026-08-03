@@ -47,6 +47,7 @@ export function parseProductInput(value: unknown): Omit<Product, "id"> | { error
     quoteOnly: input.quoteOnly === true,
     colors: colors.length ? colors : undefined,
     brand: typeof input.brand === "string" ? input.brand.trim() : undefined,
+    presentation: typeof input.presentation === "string" ? input.presentation.trim() : undefined,
   };
 }
 

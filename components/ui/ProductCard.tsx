@@ -23,6 +23,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
   const productName = getProductNameParts(product.name);
+  const presentation = product.presentation || productName.presentation;
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
@@ -79,10 +80,10 @@ export default function ProductCard({ product }: ProductCardProps) {
         {product.brand && (
           <p className="mt-1 text-[10px] font-black uppercase tracking-wide text-[#1a3a6b]/50">{product.brand}</p>
         )}
-        {productName.presentation && (
+        {presentation && (
           <p className="mt-1 mb-2 text-[11px] font-bold text-[#1a3a6b]/60">
             <span className="mr-1 uppercase tracking-wide text-[#2eb8d4]">Presentación</span>
-            {productName.presentation}
+            {presentation}
           </p>
         )}
         <p className="text-gray-500 text-xs leading-relaxed mb-3 line-clamp-2">

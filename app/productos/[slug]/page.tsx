@@ -59,10 +59,10 @@ export default async function ProductPage({ params }: PageProps) {
                 {product.brand}
               </p>
             )}
-            {productName.presentation && (
+            {(product.presentation || productName.presentation) && (
               <p className="mb-4 inline-flex w-fit rounded-full bg-[#e8f4fd] px-3 py-1 text-sm font-bold text-[#1a3a6b]">
                 <span className="mr-1.5 text-[#2eb8d4]">Presentación:</span>
-                {productName.presentation}
+                {product.presentation || productName.presentation}
               </p>
             )}
             <p className="text-[#1a3a6b]/65 mb-6">{product.description}</p>

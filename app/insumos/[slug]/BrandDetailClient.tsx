@@ -243,8 +243,8 @@ export default function BrandDetailClient({ brand, total }: Props) {
                     <Link href={`/productos/${product.slug}`}>
                       <h3 className="font-black text-[#1a3a6b] text-base leading-tight hover:text-[#2eb8d4] transition-colors">{getProductNameParts(product.name).title}</h3>
                     </Link>
-                    {getProductNameParts(product.name).presentation && (
-                      <p className="mt-1 mb-2 text-[11px] font-bold text-[#1a3a6b]/60"><span className="mr-1 uppercase tracking-wide text-[#2eb8d4]">Presentación</span>{getProductNameParts(product.name).presentation}</p>
+                    {(product.presentation || getProductNameParts(product.name).presentation) && (
+                      <p className="mt-1 mb-2 text-[11px] font-bold text-[#1a3a6b]/60"><span className="mr-1 uppercase tracking-wide text-[#2eb8d4]">Presentación</span>{product.presentation || getProductNameParts(product.name).presentation}</p>
                     )}
                     <p className="text-xs text-[#1a3a6b]/60 line-clamp-2 min-h-9 mb-3">{product.description}</p>
                     <div className="flex items-center justify-between mb-3">

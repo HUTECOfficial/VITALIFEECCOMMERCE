@@ -17,6 +17,23 @@ export const productCategories = [
 
 export type ProductCategory = (typeof productCategories)[number];
 
+export const presentationOptions = [
+  "Pieza",
+  "Par",
+  "Caja",
+  "Paquete",
+  "Rollo",
+  "Kit",
+  "Frasco",
+  "Litro",
+  "Mililitro",
+  "Bidón",
+  "Garrafa",
+  "Galón",
+] as const;
+
+export type PresentationOption = (typeof presentationOptions)[number];
+
 export interface Product {
   id: string;
   name: string;
@@ -32,6 +49,7 @@ export interface Product {
   colors?: string[];
   quoteOnly?: boolean;
   brand?: string;
+  presentation?: string;
 }
 
 export interface CartItem extends Product {
