@@ -5,7 +5,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, useScroll, useTransform } from "framer-motion";
 import Image from "next/image";
-import { Phone, ShoppingCart, Menu, X, ChevronDown, Package, Activity, Sparkles } from "lucide-react";
+import { Phone, ShoppingCart, Menu, X, ChevronDown, Package, Activity } from "lucide-react";
 import { useCartStore, useClientCartCount } from "@/store/cartStore";
 import { cn } from "@/lib/utils";
 
@@ -149,10 +149,10 @@ export default function Navbar() {
           <div className="flex items-center gap-1.5 sm:gap-2 pr-1 shrink-0">
             {/* Vender / Cotizar Highlight Button */}
             <Link
-              href="/contacto"
+              href="/insumos"
               className="hidden lg:flex items-center gap-1.5 bg-gradient-to-r from-[#2eb8d4] to-[#1a3a6b] text-white px-4 py-2.5 rounded-full text-xs font-black uppercase tracking-wide hover:shadow-lg hover:shadow-[#2eb8d4]/30 transition-all hover:-translate-y-0.5"
             >
-              <Sparkles className="w-3.5 h-3.5 text-[#e8f4fd]" /> Comprar ahora
+              Comprar ahora
             </Link>
 
             <Link
