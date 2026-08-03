@@ -81,7 +81,7 @@ function HeroSection() {
 
             <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4 relative z-20 max-w-xl">
               <Link
-                href="/contacto"
+                href="/insumos"
                 className="bg-gradient-to-r from-[#ff4757] to-[#e84118] text-white px-6 sm:px-8 py-4 rounded-2xl font-black hover:shadow-2xl hover:shadow-[#ff4757]/40 hover:-translate-y-1 transition-all duration-300 uppercase text-sm tracking-wide flex items-center justify-center gap-2 min-h-12"
               >
                 Comprar ahora <ChevronRight className="w-5 h-5" />
@@ -91,6 +91,12 @@ function HeroSection() {
                 className="bg-white/80 backdrop-blur-md px-6 sm:px-8 py-4 rounded-2xl text-[#1a3a6b] font-black border border-white hover:bg-white hover:shadow-xl hover:shadow-[#1a3a6b]/10 transition-all duration-300 flex items-center justify-center gap-2 uppercase tracking-wide text-sm min-h-12"
               >
                 <ShoppingBag className="w-5 h-5" /> Ver Catálogo
+              </Link>
+              <Link
+                href="/contacto"
+                className="bg-white/80 backdrop-blur-md px-6 sm:px-8 py-4 rounded-2xl text-[#1a3a6b] font-black border border-white hover:bg-white hover:shadow-xl hover:shadow-[#1a3a6b]/10 transition-all duration-300 flex items-center justify-center gap-2 uppercase tracking-wide text-sm min-h-12"
+              >
+                Escríbenos
               </Link>
             </div>
 
