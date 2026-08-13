@@ -1,6 +1,6 @@
 import { createServerClient } from "@/lib/supabase/server";
 import type { Product } from "@/types";
-import { productVariantsToStorage, readProductVariants } from "@/lib/product-variants";
+import { productVariantsToStorage, readInventoryVariants, readProductVariants } from "@/lib/product-variants";
 
 export type ProductMetrics = {
   unitsSold: number;
@@ -29,6 +29,7 @@ type ProductRow = {
   quote_only: boolean | null;
   brand: string | null;
   presentation: string | null;
+  product_variants?: unknown;
 };
 
 function mapProduct(row: ProductRow): Product {
@@ -44,6 +45,7 @@ function mapProduct(row: ProductRow): Product {
     stockQuantity: row.stock_quantity ?? 0,
     featured: row.featured ?? false,
     ...readProductVariants(row.sizes),
+    variants: readInventoryVariants(row.product_variants),
     quoteOnly: row.quote_only ?? false,
     brand: row.brand ?? undefined,
     presentation: row.presentation ?? undefined,
@@ -72,7 +74,7 @@ export async function getAdminDashboardData(): Promise<AdminDashboardData> {
   const supabase = createServerClient();
   const { data: rawProducts, error: productsError } = await supabase
     .from("products")
-    .select("id,name,slug,category,price,description,image,in_stock,stock_quantity,featured,sizes,quote_only,brand,presentation")
+    .select("id,name,slug,category,price,description,image,in_stock,stock_quantity,featured,sizes,quote_only,brand,presentation,product_variants(color,size,stock_quantity)")
     .order("name", { ascending: true });
 
   if (productsError) throw new Error("No se pudo cargar el catálogo. Aplica la migración 003_product_stock_quantity.sql.");

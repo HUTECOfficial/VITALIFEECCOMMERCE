@@ -1,0 +1,951 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link [ref=e3] [cursor=pointer]:
+      - /url: /
+      - img "Vital Life" [ref=e4]
+      - img "GTO" [ref=e6]
+    - generic [ref=e7]:
+      - link "Inicio" [ref=e8] [cursor=pointer]:
+        - /url: /
+      - link "Nosotros" [ref=e9] [cursor=pointer]:
+        - /url: /nosotros
+      - link "Catálogo Insumos" [ref=e10] [cursor=pointer]:
+        - /url: /insumos
+      - button [ref=e13]
+    - generic [ref=e17]:
+      - link "Cotizar Ahora" [ref=e18] [cursor=pointer]:
+        - /url: /contacto
+      - link [ref=e22] [cursor=pointer]:
+        - /url: /carrito
+  - main [ref=e27]:
+    - generic [ref=e753]:
+      - generic [ref=e756]:
+        - link "← Volver al catálogo" [ref=e758] [cursor=pointer]:
+          - /url: /insumos
+        - generic [ref=e759]:
+          - generic [ref=e760]: OTRA
+          - generic [ref=e763]:
+            - generic [ref=e764]: Misceláneos
+            - heading "OTRAS MARCAS" [level=1] [ref=e766]
+            - paragraph [ref=e767]: Arrow (CVC), Drenovac, Glucoderm, DuoDERM, Baby Sleeper, Aspi-Tract, MTG y más.
+            - generic [ref=e768]:
+              - generic [ref=e769]:
+                - generic [ref=e770]: "24"
+                - generic [ref=e771]: productos
+              - generic [ref=e772]:
+                - generic [ref=e773]: "6"
+                - generic [ref=e774]: líneas
+              - link "Ver en catálogo" [ref=e775] [cursor=pointer]:
+                - /url: /insumos?q=OTRAS%20MARCAS
+      - generic [ref=e780]:
+        - generic [ref=e781]:
+          - generic [ref=e782]:
+            - button "01 Arrow — Catéter Venoso Central CVC 5 FR 3 vías y 7 FR 3 vías. 2 productos" [ref=e783]:
+              - generic [ref=e784]:
+                - generic [ref=e785]: "01"
+                - generic [ref=e787]:
+                  - heading "Arrow — Catéter Venoso Central" [level=3] [ref=e788]
+                  - paragraph [ref=e789]: CVC 5 FR 3 vías y 7 FR 3 vías.
+              - generic [ref=e790]: 2 productos
+            - generic [ref=e795]:
+              - generic [ref=e796]:
+                - generic [ref=e797]:
+                  - generic [ref=e798]: Catéter venoso central 5 FR, 3 vías
+                  - link "Ver en catálogo" [ref=e801] [cursor=pointer]:
+                    - /url: /insumos?q=Cat%C3%A9ter%20venoso%20central%205%20FR%2C%203%20v%C3%ADas
+                - generic [ref=e802]:
+                  - generic [ref=e803]: Catéter venoso central 7 FR, 3 vías
+                  - link "Ver en catálogo" [ref=e806] [cursor=pointer]:
+                    - /url: /insumos?q=Cat%C3%A9ter%20venoso%20central%207%20FR%2C%203%20v%C3%ADas
+              - link "Ver productos en el catálogo" [ref=e808] [cursor=pointer]:
+                - /url: /insumos?q=Arrow%20%E2%80%94%20Cat%C3%A9ter%20Venoso%20Central
+          - 'button "02 MTG — Guantes de Nitrilo Cirugía Guantes de nitrilo para cirugía #6 a #8.5. 6 productos" [ref=e810]':
+            - generic [ref=e811]:
+              - generic [ref=e812]: "02"
+              - generic [ref=e814]:
+                - heading "MTG — Guantes de Nitrilo Cirugía" [level=3] [ref=e815]
+                - paragraph [ref=e816]: "Guantes de nitrilo para cirugía #6 a #8.5."
+            - generic [ref=e817]: 6 productos
+          - button "03 Drenovac — Drenaje Equipos de drenaje esterilizados. 2 productos" [ref=e823]:
+            - generic [ref=e824]:
+              - generic [ref=e825]: "03"
+              - generic [ref=e827]:
+                - heading "Drenovac — Drenaje" [level=3] [ref=e828]
+                - paragraph [ref=e829]: Equipos de drenaje esterilizados.
+            - generic [ref=e830]: 2 productos
+          - button "04 Glucoderm / Aspi-Tract Antisépticos y sistemas de succión cerrada. 3 productos" [ref=e836]:
+            - generic [ref=e837]:
+              - generic [ref=e838]: "04"
+              - generic [ref=e840]:
+                - heading "Glucoderm / Aspi-Tract" [level=3] [ref=e841]
+                - paragraph [ref=e842]: Antisépticos y sistemas de succión cerrada.
+            - generic [ref=e843]: 3 productos
+          - button "05 Protec / DuoDERM / Baby Sleeper Apósitos especializados, pediátricos y varios. 4 productos" [ref=e849]:
+            - generic [ref=e850]:
+              - generic [ref=e851]: "05"
+              - generic [ref=e853]:
+                - heading "Protec / DuoDERM / Baby Sleeper" [level=3] [ref=e854]
+                - paragraph [ref=e855]: Apósitos especializados, pediátricos y varios.
+            - generic [ref=e856]: 4 productos
+          - button "06 Varios — Consumibles Generales Artículos misceláneos de diversas marcas. 7 productos" [ref=e862]:
+            - generic [ref=e863]:
+              - generic [ref=e864]: "06"
+              - generic [ref=e866]:
+                - heading "Varios — Consumibles Generales" [level=3] [ref=e867]
+                - paragraph [ref=e868]: Artículos misceláneos de diversas marcas.
+            - generic [ref=e869]: 7 productos
+        - generic [ref=e875]:
+          - generic [ref=e876]:
+            - generic [ref=e877]:
+              - paragraph [ref=e878]: Productos disponibles
+              - heading "Compra directa de OTRAS MARCAS" [level=2] [ref=e879]
+            - generic [ref=e880]: 42 productos
+          - generic [ref=e881]:
+            - generic [ref=e882]:
+              - link [ref=e883] [cursor=pointer]:
+                - /url: /productos/abatelenguas-de-madera-20bol-c-25pz-amb-amb008
+                - img "ABATELENGUAS DE MADERA 20BOL C/25PZ AMB" [ref=e884]
+              - paragraph [ref=e885]: Atención al paciente y generales
+              - link [ref=e886] [cursor=pointer]:
+                - /url: /productos/abatelenguas-de-madera-20bol-c-25pz-amb-amb008
+                - heading "ABATELENGUAS DE MADERA 20BOL C/25PZ AMB" [level=3] [ref=e887]
+              - paragraph [ref=e888]: "Clave de artículo: AMB008. Disponible bajo cotización."
+              - generic [ref=e889]:
+                - generic [ref=e890]: Cotizar
+                - generic [ref=e891]: 4 unidades disponibles
+              - generic [ref=e893]:
+                - link "Solicitar cotización para ABATELENGUAS DE MADERA 20BOL C/25PZ AMB" [ref=e895] [cursor=pointer]:
+                  - /url: /contacto?producto=ABATELENGUAS%20DE%20MADERA%2020BOL%20C%2F25PZ%20AMB
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e896] [cursor=pointer]:
+                  - /url: /productos/abatelenguas-de-madera-20bol-c-25pz-amb-amb008
+            - generic [ref=e897]:
+              - link [ref=e898] [cursor=pointer]:
+                - /url: /productos/articulos-varios-checar-comentario-va002
+                - img "Artículos varios; revisar comentario" [ref=e899]
+              - paragraph [ref=e900]: Atención al paciente y generales
+              - link [ref=e901] [cursor=pointer]:
+                - /url: /productos/articulos-varios-checar-comentario-va002
+                - heading "Artículos varios; revisar comentario" [level=3] [ref=e902]
+              - paragraph [ref=e903]: "Clave de artículo: VA002. Disponible bajo cotización."
+              - generic [ref=e904]:
+                - generic [ref=e905]: Cotizar
+                - generic [ref=e906]: Agotado
+              - generic [ref=e908]:
+                - link "Solicitar cotización para Artículos varios; revisar comentario" [ref=e910] [cursor=pointer]:
+                  - /url: /contacto?producto=Art%C3%ADculos%20varios%3B%20revisar%20comentario
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e911] [cursor=pointer]:
+                  - /url: /productos/articulos-varios-checar-comentario-va002
+            - generic [ref=e912]:
+              - link [ref=e913] [cursor=pointer]:
+                - /url: /productos/bata-para-paciente-tela-chica-bat003
+                - img "Bata de tela para paciente, chica" [ref=e914]
+              - paragraph [ref=e915]: Atención al paciente y generales
+              - link [ref=e916] [cursor=pointer]:
+                - /url: /productos/bata-para-paciente-tela-chica-bat003
+                - heading "Bata de tela para paciente, chica" [level=3] [ref=e917]
+              - paragraph [ref=e918]: "Clave de artículo: BAT003. Disponible bajo cotización."
+              - generic [ref=e919]:
+                - generic [ref=e920]: Cotizar
+                - generic [ref=e921]: 1 unidad disponibles
+              - generic [ref=e923]:
+                - link "Solicitar cotización para Bata de tela para paciente, chica" [ref=e925] [cursor=pointer]:
+                  - /url: /contacto?producto=Bata%20de%20tela%20para%20paciente%2C%20chica
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e926] [cursor=pointer]:
+                  - /url: /productos/bata-para-paciente-tela-chica-bat003
+            - generic [ref=e927]:
+              - link [ref=e928] [cursor=pointer]:
+                - /url: /productos/bata-p-paciente-s-manga-c-10-cbd001
+                - img "Bata para paciente sin manga, paquete con 10 CDB" [ref=e929]
+              - paragraph [ref=e930]: Atención al paciente y generales
+              - link [ref=e931] [cursor=pointer]:
+                - /url: /productos/bata-p-paciente-s-manga-c-10-cbd001
+                - heading "Bata para paciente sin manga, paquete con 10 CDB" [level=3] [ref=e932]
+              - paragraph [ref=e933]: "Clave de artículo: CBD001. Disponible bajo cotización."
+              - generic [ref=e934]:
+                - generic [ref=e935]: Cotizar
+                - generic [ref=e936]: 39 unidades disponibles
+              - generic [ref=e938]:
+                - link "Solicitar cotización para Bata para paciente sin manga, paquete con 10 CDB" [ref=e940] [cursor=pointer]:
+                  - /url: /contacto?producto=Bata%20para%20paciente%20sin%20manga%2C%20paquete%20con%2010%20CDB
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e941] [cursor=pointer]:
+                  - /url: /productos/bata-p-paciente-s-manga-c-10-cbd001
+            - generic [ref=e942]:
+              - link [ref=e943] [cursor=pointer]:
+                - /url: /productos/bata-quirurgica-esteril-grande-est001
+                - img "Bata quirúrgica estéril grande CDB" [ref=e944]
+              - paragraph [ref=e945]: Protección y desechables
+              - link [ref=e946] [cursor=pointer]:
+                - /url: /productos/bata-quirurgica-esteril-grande-est001
+                - heading "Bata quirúrgica estéril grande CDB" [level=3] [ref=e947]
+              - paragraph [ref=e948]: "Clave de artículo: EST001. Disponible bajo cotización."
+              - generic [ref=e949]:
+                - generic [ref=e950]: Cotizar
+                - generic [ref=e951]: 210 unidades disponibles
+              - generic [ref=e953]:
+                - link "Solicitar cotización para Bata quirúrgica estéril grande CDB" [ref=e955] [cursor=pointer]:
+                  - /url: /contacto?producto=Bata%20quir%C3%BArgica%20est%C3%A9ril%20grande%20CDB
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e956] [cursor=pointer]:
+                  - /url: /productos/bata-quirurgica-esteril-grande-est001
+            - generic [ref=e957]:
+              - link [ref=e958] [cursor=pointer]:
+                - /url: /productos/bolsa-p-esterilizar-7-1-2x13-sunset-ester001
+                - img "BOLSA P/ESTERILIZAR 7 1/2X13\" SUNSET" [ref=e959]
+              - paragraph [ref=e960]: Gestión de residuos
+              - link [ref=e961] [cursor=pointer]:
+                - /url: /productos/bolsa-p-esterilizar-7-1-2x13-sunset-ester001
+                - heading "BOLSA P/ESTERILIZAR 7 1/2X13\" SUNSET" [level=3] [ref=e962]
+              - paragraph [ref=e963]: "Clave de artículo: ESTER001. Disponible bajo cotización."
+              - generic [ref=e964]:
+                - generic [ref=e965]: Cotizar
+                - generic [ref=e966]: 1 unidad disponibles
+              - generic [ref=e968]:
+                - link "Solicitar cotización para BOLSA P/ESTERILIZAR 7 1/2X13\" SUNSET" [ref=e970] [cursor=pointer]:
+                  - /url: /contacto?producto=BOLSA%20P%2FESTERILIZAR%207%201%2F2X13%22%20SUNSET
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e971] [cursor=pointer]:
+                  - /url: /productos/bolsa-p-esterilizar-7-1-2x13-sunset-ester001
+            - generic [ref=e972]:
+              - link [ref=e973] [cursor=pointer]:
+                - /url: /productos/bolsa-para-enema-1500-5825-ene001
+                - img "Bolsa para enema 1500, modelo 5825" [ref=e974]
+              - paragraph [ref=e975]: Atención al paciente y generales
+              - link [ref=e976] [cursor=pointer]:
+                - /url: /productos/bolsa-para-enema-1500-5825-ene001
+                - heading "Bolsa para enema 1500, modelo 5825" [level=3] [ref=e977]
+              - paragraph [ref=e978]: "Clave de artículo: ENE001. Disponible bajo cotización."
+              - generic [ref=e979]:
+                - generic [ref=e980]: Cotizar
+                - generic [ref=e981]: 1 unidad disponibles
+              - generic [ref=e983]:
+                - link "Solicitar cotización para Bolsa para enema 1500, modelo 5825" [ref=e985] [cursor=pointer]:
+                  - /url: /contacto?producto=Bolsa%20para%20enema%201500%2C%20modelo%205825
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e986] [cursor=pointer]:
+                  - /url: /productos/bolsa-para-enema-1500-5825-ene001
+            - generic [ref=e987]:
+              - link [ref=e988] [cursor=pointer]:
+                - /url: /productos/bolsa-resid-bio-50x60-c-25-amb017
+                - img "BOLSA RESID BIO 50X60 C/25" [ref=e989]
+              - paragraph [ref=e990]: Gestión de residuos
+              - link [ref=e991] [cursor=pointer]:
+                - /url: /productos/bolsa-resid-bio-50x60-c-25-amb017
+                - heading "BOLSA RESID BIO 50X60 C/25" [level=3] [ref=e992]
+              - paragraph [ref=e993]: Disponible bajo cotización. Elige las opciones disponibles.
+              - generic [ref=e994]:
+                - generic [ref=e995]: Cotizar
+                - generic [ref=e996]: 81 unidades disponibles
+              - generic [ref=e998]:
+                - generic [ref=e999]:
+                  - generic [ref=e1000]:
+                    - paragraph [ref=e1001]: Color
+                    - generic [ref=e1002]:
+                      - button "Amarillo" [ref=e1003]
+                      - button "Rojo" [ref=e1004]
+                  - link "Solicitar cotización para BOLSA RESID BIO 50X60 C/25" [ref=e1005] [cursor=pointer]:
+                    - /url: /contacto?producto=BOLSA%20RESID%20BIO%2050X60%20C%2F25
+                    - text: Solicitar cotización
+                - link "Ver detalle" [ref=e1006] [cursor=pointer]:
+                  - /url: /productos/bolsa-resid-bio-50x60-c-25-amb017
+            - generic [ref=e1007]:
+              - link [ref=e1008] [cursor=pointer]:
+                - /url: /productos/bolsa-resid-bio-roja-50x60-c-25-bd013
+                - img "BOLSA RESID BIO ROJA 50X60 C/25" [ref=e1009]
+              - paragraph [ref=e1010]: Gestión de residuos
+              - link [ref=e1011] [cursor=pointer]:
+                - /url: /productos/bolsa-resid-bio-roja-50x60-c-25-bd013
+                - heading "BOLSA RESID BIO ROJA 50X60 C/25" [level=3] [ref=e1012]
+              - paragraph [ref=e1013]: "Clave de artículo: BD013. Disponible bajo cotización."
+              - generic [ref=e1014]:
+                - generic [ref=e1015]: Cotizar
+                - generic [ref=e1016]: Disponible
+              - generic [ref=e1018]:
+                - link "Solicitar cotización para BOLSA RESID BIO ROJA 50X60 C/25" [ref=e1020] [cursor=pointer]:
+                  - /url: /contacto?producto=BOLSA%20RESID%20BIO%20ROJA%2050X60%20C%2F25
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e1021] [cursor=pointer]:
+                  - /url: /productos/bolsa-resid-bio-roja-50x60-c-25-bd013
+            - generic [ref=e1022]:
+              - link [ref=e1023] [cursor=pointer]:
+                - /url: /productos/bota-sin-plantilla-cbd004
+                - img "Bota sin plantilla CDB" [ref=e1024]
+              - paragraph [ref=e1025]: Protección y desechables
+              - link [ref=e1026] [cursor=pointer]:
+                - /url: /productos/bota-sin-plantilla-cbd004
+                - heading "Bota sin plantilla CDB" [level=3] [ref=e1027]
+              - paragraph [ref=e1028]: "Clave de artículo: CBD004. Disponible bajo cotización."
+              - generic [ref=e1029]:
+                - generic [ref=e1030]: Cotizar
+                - generic [ref=e1031]: 7 unidades disponibles
+              - generic [ref=e1033]:
+                - link "Solicitar cotización para Bota sin plantilla CDB" [ref=e1035] [cursor=pointer]:
+                  - /url: /contacto?producto=Bota%20sin%20plantilla%20CDB
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e1036] [cursor=pointer]:
+                  - /url: /productos/bota-sin-plantilla-cbd004
+            - generic [ref=e1037]:
+              - link [ref=e1038] [cursor=pointer]:
+                - /url: /productos/bota-sin-plantilla-desch-c-25-protec-dega021
+                - img "BOTA SIN PLANTILLA DESCH C/25 PROTEC" [ref=e1039]
+              - paragraph [ref=e1040]: Protección y desechables
+              - link [ref=e1041] [cursor=pointer]:
+                - /url: /productos/bota-sin-plantilla-desch-c-25-protec-dega021
+                - heading "BOTA SIN PLANTILLA DESCH C/25 PROTEC" [level=3] [ref=e1042]
+              - paragraph [ref=e1043]: "Clave de artículo: DEGA021. Disponible bajo cotización."
+              - generic [ref=e1044]:
+                - generic [ref=e1045]: Cotizar
+                - generic [ref=e1046]: 1 unidad disponibles
+              - generic [ref=e1048]:
+                - link "Solicitar cotización para BOTA SIN PLANTILLA DESCH C/25 PROTEC" [ref=e1050] [cursor=pointer]:
+                  - /url: /contacto?producto=BOTA%20SIN%20PLANTILLA%20DESCH%20C%2F25%20PROTEC
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e1051] [cursor=pointer]:
+                  - /url: /productos/bota-sin-plantilla-desch-c-25-protec-dega021
+            - generic [ref=e1052]:
+              - link [ref=e1053] [cursor=pointer]:
+                - /url: /productos/botiquin-jaloma-prim-aux-35105-x000d-jal015
+                - img "BOTIQUIN JALOMA PRIM AUX 35105_x000D_" [ref=e1054]
+              - paragraph [ref=e1055]: Atención al paciente y generales
+              - link [ref=e1056] [cursor=pointer]:
+                - /url: /productos/botiquin-jaloma-prim-aux-35105-x000d-jal015
+                - heading "BOTIQUIN JALOMA PRIM AUX 35105_x000D_" [level=3] [ref=e1057]
+              - paragraph [ref=e1058]: "Clave de artículo: JAL015. Disponible bajo cotización."
+              - generic [ref=e1059]:
+                - generic [ref=e1060]: Cotizar
+                - generic [ref=e1061]: Agotado
+              - generic [ref=e1063]:
+                - link "Solicitar cotización para BOTIQUIN JALOMA PRIM AUX 35105_x000D_" [ref=e1065] [cursor=pointer]:
+                  - /url: /contacto?producto=BOTIQUIN%20JALOMA%20PRIM%20AUX%2035105_x000D_%0A
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e1066] [cursor=pointer]:
+                  - /url: /productos/botiquin-jaloma-prim-aux-35105-x000d-jal015
+            - generic [ref=e1067]:
+              - link [ref=e1068] [cursor=pointer]:
+                - /url: /productos/campo-quirurgico-c-adhes-esteril-40x60cm-c-5-amb077
+                - img "CAMPO QUIRURGICO C/ADHES ESTERIL 40X60CM C/5" [ref=e1069]
+              - paragraph [ref=e1070]: Protección y desechables
+              - link [ref=e1071] [cursor=pointer]:
+                - /url: /productos/campo-quirurgico-c-adhes-esteril-40x60cm-c-5-amb077
+                - heading "CAMPO QUIRURGICO C/ADHES ESTERIL 40X60CM C/5" [level=3] [ref=e1072]
+              - paragraph [ref=e1073]: "Clave de artículo: AMB077. Disponible bajo cotización."
+              - generic [ref=e1074]:
+                - generic [ref=e1075]: Cotizar
+                - generic [ref=e1076]: 16 unidades disponibles
+              - generic [ref=e1078]:
+                - link "Solicitar cotización para CAMPO QUIRURGICO C/ADHES ESTERIL 40X60CM C/5" [ref=e1080] [cursor=pointer]:
+                  - /url: /contacto?producto=CAMPO%20QUIRURGICO%20C%2FADHES%20ESTERIL%2040X60CM%20C%2F5
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e1081] [cursor=pointer]:
+                  - /url: /productos/campo-quirurgico-c-adhes-esteril-40x60cm-c-5-amb077
+            - generic [ref=e1082]:
+              - link [ref=e1083] [cursor=pointer]:
+                - /url: /productos/campo-quirurgico-esteril-70x70-b-med001
+                - img "CAMPO QUIRURGICO ESTERIL 70X70" [ref=e1084]
+              - paragraph [ref=e1085]: Protección y desechables
+              - link [ref=e1086] [cursor=pointer]:
+                - /url: /productos/campo-quirurgico-esteril-70x70-b-med001
+                - heading "CAMPO QUIRURGICO ESTERIL 70X70" [level=3] [ref=e1087]
+              - paragraph [ref=e1088]: "Clave de artículo: B&MED001. Disponible bajo cotización."
+              - generic [ref=e1089]:
+                - generic [ref=e1090]: Cotizar
+                - generic [ref=e1091]: 1 unidad disponibles
+              - generic [ref=e1093]:
+                - link "Solicitar cotización para CAMPO QUIRURGICO ESTERIL 70X70" [ref=e1095] [cursor=pointer]:
+                  - /url: /contacto?producto=CAMPO%20QUIRURGICO%20ESTERIL%2070X70
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e1096] [cursor=pointer]:
+                  - /url: /productos/campo-quirurgico-esteril-70x70-b-med001
+            - generic [ref=e1097]:
+              - link [ref=e1098] [cursor=pointer]:
+                - /url: /productos/cinta-testigo-para-vapor-protec-dega047
+                - img "CINTA TESTIGO PARA VAPOR PROTEC" [ref=e1099]
+              - paragraph [ref=e1100]: Gestión de residuos
+              - link [ref=e1101] [cursor=pointer]:
+                - /url: /productos/cinta-testigo-para-vapor-protec-dega047
+                - heading "CINTA TESTIGO PARA VAPOR PROTEC" [level=3] [ref=e1102]
+              - paragraph [ref=e1103]: "Clave de artículo: DEGA047. Disponible bajo cotización."
+              - generic [ref=e1104]:
+                - generic [ref=e1105]: Cotizar
+                - generic [ref=e1106]: 10 unidades disponibles
+              - generic [ref=e1108]:
+                - link "Solicitar cotización para CINTA TESTIGO PARA VAPOR PROTEC" [ref=e1110] [cursor=pointer]:
+                  - /url: /contacto?producto=CINTA%20TESTIGO%20PARA%20VAPOR%20PROTEC
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e1111] [cursor=pointer]:
+                  - /url: /productos/cinta-testigo-para-vapor-protec-dega047
+            - generic [ref=e1112]:
+              - link [ref=e1113] [cursor=pointer]:
+                - /url: /productos/comodo-de-plastico-adulto-edigar-edig002
+                - img "COMODO DE PLASTICO ADULTO EDIGAR" [ref=e1114]
+              - paragraph [ref=e1115]: Atención al paciente y generales
+              - link [ref=e1116] [cursor=pointer]:
+                - /url: /productos/comodo-de-plastico-adulto-edigar-edig002
+                - heading "COMODO DE PLASTICO ADULTO EDIGAR" [level=3] [ref=e1117]
+              - paragraph [ref=e1118]: "Clave de artículo: EDIG002. Disponible bajo cotización."
+              - generic [ref=e1119]:
+                - generic [ref=e1120]: Cotizar
+                - generic [ref=e1121]: 33 unidades disponibles
+              - generic [ref=e1123]:
+                - link "Solicitar cotización para COMODO DE PLASTICO ADULTO EDIGAR" [ref=e1125] [cursor=pointer]:
+                  - /url: /contacto?producto=COMODO%20DE%20PLASTICO%20ADULTO%20EDIGAR
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e1126] [cursor=pointer]:
+                  - /url: /productos/comodo-de-plastico-adulto-edigar-edig002
+            - generic [ref=e1127]:
+              - link [ref=e1128] [cursor=pointer]:
+                - /url: /productos/cubreboca-plisado-c-50-nacional-cubr002
+                - img "CUBREBOCA PLISADO C/50 NACIONAL" [ref=e1129]
+              - paragraph [ref=e1130]: Protección y desechables
+              - link [ref=e1131] [cursor=pointer]:
+                - /url: /productos/cubreboca-plisado-c-50-nacional-cubr002
+                - heading "CUBREBOCA PLISADO C/50 NACIONAL" [level=3] [ref=e1132]
+              - paragraph [ref=e1133]: "Clave de artículo: CUBR002. Disponible bajo cotización."
+              - generic [ref=e1134]:
+                - generic [ref=e1135]: Cotizar
+                - generic [ref=e1136]: 1 unidad disponibles
+              - generic [ref=e1138]:
+                - link "Solicitar cotización para CUBREBOCA PLISADO C/50 NACIONAL" [ref=e1140] [cursor=pointer]:
+                  - /url: /contacto?producto=CUBREBOCA%20PLISADO%20C%2F50%20NACIONAL
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e1141] [cursor=pointer]:
+                  - /url: /productos/cubreboca-plisado-c-50-nacional-cubr002
+            - generic [ref=e1142]:
+              - link [ref=e1143] [cursor=pointer]:
+                - /url: /productos/cubrebocas-ambiderm-c-50-amb007
+                - img "CUBREBOCAS AMBIDERM C/50" [ref=e1144]
+              - paragraph [ref=e1145]: Protección y desechables
+              - link [ref=e1146] [cursor=pointer]:
+                - /url: /productos/cubrebocas-ambiderm-c-50-amb007
+                - heading "CUBREBOCAS AMBIDERM C/50" [level=3] [ref=e1147]
+              - paragraph [ref=e1148]: Disponible bajo cotización. Elige las opciones disponibles.
+              - generic [ref=e1149]:
+                - generic [ref=e1150]: Cotizar
+                - generic [ref=e1151]: 120 unidades disponibles
+              - generic [ref=e1153]:
+                - generic [ref=e1154]:
+                  - generic [ref=e1155]:
+                    - paragraph [ref=e1156]: Color
+                    - generic [ref=e1157]:
+                      - button "Azul" [ref=e1158]
+                      - button "Negro" [ref=e1159]
+                  - link "Solicitar cotización para CUBREBOCAS AMBIDERM C/50" [ref=e1160] [cursor=pointer]:
+                    - /url: /contacto?producto=CUBREBOCAS%20AMBIDERM%20C%2F50
+                    - text: Solicitar cotización
+                - link "Ver detalle" [ref=e1161] [cursor=pointer]:
+                  - /url: /productos/cubrebocas-ambiderm-c-50-amb007
+            - generic [ref=e1162]:
+              - link [ref=e1163] [cursor=pointer]:
+                - /url: /productos/cubrebocas-ambiderm-colorfull-c-50-amb056
+                - img "CUBREBOCAS AMBIDERM COLORFULL C/50" [ref=e1164]
+              - paragraph [ref=e1165]: Protección y desechables
+              - link [ref=e1166] [cursor=pointer]:
+                - /url: /productos/cubrebocas-ambiderm-colorfull-c-50-amb056
+                - heading "CUBREBOCAS AMBIDERM COLORFULL C/50" [level=3] [ref=e1167]
+              - paragraph [ref=e1168]: "Clave de artículo: AMB056. Disponible bajo cotización."
+              - generic [ref=e1169]:
+                - generic [ref=e1170]: Cotizar
+                - generic [ref=e1171]: 39 unidades disponibles
+              - generic [ref=e1173]:
+                - link "Solicitar cotización para CUBREBOCAS AMBIDERM COLORFULL C/50" [ref=e1175] [cursor=pointer]:
+                  - /url: /contacto?producto=CUBREBOCAS%20AMBIDERM%20COLORFULL%20C%2F50
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e1176] [cursor=pointer]:
+                  - /url: /productos/cubrebocas-ambiderm-colorfull-c-50-amb056
+            - generic [ref=e1177]:
+              - link [ref=e1178] [cursor=pointer]:
+                - /url: /productos/cubrebocas-ambiderm-infantil-c-50-amb061
+                - img "CUBREBOCAS AMBIDERM INFANTIL C/50" [ref=e1179]
+              - paragraph [ref=e1180]: Protección y desechables
+              - link [ref=e1181] [cursor=pointer]:
+                - /url: /productos/cubrebocas-ambiderm-infantil-c-50-amb061
+                - heading "CUBREBOCAS AMBIDERM INFANTIL C/50" [level=3] [ref=e1182]
+              - paragraph [ref=e1183]: "Clave de artículo: AMB061. Disponible bajo cotización."
+              - generic [ref=e1184]:
+                - generic [ref=e1185]: Cotizar
+                - generic [ref=e1186]: 40 unidades disponibles
+              - generic [ref=e1188]:
+                - link "Solicitar cotización para CUBREBOCAS AMBIDERM INFANTIL C/50" [ref=e1190] [cursor=pointer]:
+                  - /url: /contacto?producto=CUBREBOCAS%20AMBIDERM%20INFANTIL%20C%2F50
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e1191] [cursor=pointer]:
+                  - /url: /productos/cubrebocas-ambiderm-infantil-c-50-amb061
+            - generic [ref=e1192]:
+              - link [ref=e1193] [cursor=pointer]:
+                - /url: /productos/cubrebocas-kn95-e-kn95
+                - img "Cubrebocas KN95-E" [ref=e1194]
+              - paragraph [ref=e1195]: Protección y desechables
+              - link [ref=e1196] [cursor=pointer]:
+                - /url: /productos/cubrebocas-kn95-e-kn95
+                - heading "Cubrebocas KN95-E" [level=3] [ref=e1197]
+              - paragraph [ref=e1198]: "Clave de artículo: KN95. Disponible bajo cotización."
+              - generic [ref=e1199]:
+                - generic [ref=e1200]: Cotizar
+                - generic [ref=e1201]: 10 unidades disponibles
+              - generic [ref=e1203]:
+                - link "Solicitar cotización para Cubrebocas KN95-E" [ref=e1205] [cursor=pointer]:
+                  - /url: /contacto?producto=Cubrebocas%20KN95-E
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e1206] [cursor=pointer]:
+                  - /url: /productos/cubrebocas-kn95-e-kn95
+            - generic [ref=e1207]:
+              - link [ref=e1208] [cursor=pointer]:
+                - /url: /productos/cubrezapato-s-anti-amb-c-100-amb018
+                - img "CUBREZAPATO S/ANTI AMB C/100" [ref=e1209]
+              - paragraph [ref=e1210]: Protección y desechables
+              - link [ref=e1211] [cursor=pointer]:
+                - /url: /productos/cubrezapato-s-anti-amb-c-100-amb018
+                - heading "CUBREZAPATO S/ANTI AMB C/100" [level=3] [ref=e1212]
+              - paragraph [ref=e1213]: "Clave de artículo: AMB018. Disponible bajo cotización."
+              - generic [ref=e1214]:
+                - generic [ref=e1215]: Cotizar
+                - generic [ref=e1216]: 52 unidades disponibles
+              - generic [ref=e1218]:
+                - link "Solicitar cotización para CUBREZAPATO S/ANTI AMB C/100" [ref=e1220] [cursor=pointer]:
+                  - /url: /contacto?producto=CUBREZAPATO%20S%2FANTI%20AMB%20C%2F100
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e1221] [cursor=pointer]:
+                  - /url: /productos/cubrezapato-s-anti-amb-c-100-amb018
+            - generic [ref=e1222]:
+              - link [ref=e1223] [cursor=pointer]:
+                - /url: /productos/gorro-p-cirujano-desechable-c-100-protec-dega006
+                - img "GORRO P/CIRUJANO DESECHABLE C/100 PROTEC" [ref=e1224]
+              - paragraph [ref=e1225]: Protección y desechables
+              - link [ref=e1226] [cursor=pointer]:
+                - /url: /productos/gorro-p-cirujano-desechable-c-100-protec-dega006
+                - heading "GORRO P/CIRUJANO DESECHABLE C/100 PROTEC" [level=3] [ref=e1227]
+              - paragraph [ref=e1228]: "Clave de artículo: DEGA006. Disponible bajo cotización."
+              - generic [ref=e1229]:
+                - generic [ref=e1230]: Cotizar
+                - generic [ref=e1231]: 6 unidades disponibles
+              - generic [ref=e1233]:
+                - link "Solicitar cotización para GORRO P/CIRUJANO DESECHABLE C/100 PROTEC" [ref=e1235] [cursor=pointer]:
+                  - /url: /contacto?producto=GORRO%20P%2FCIRUJANO%20DESECHABLE%20C%2F100%20PROTEC
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e1236] [cursor=pointer]:
+                  - /url: /productos/gorro-p-cirujano-desechable-c-100-protec-dega006
+            - generic [ref=e1237]:
+              - link [ref=e1238] [cursor=pointer]:
+                - /url: /productos/gorro-p-cirujano-azul-c-100-fmm002
+                - img "Gorro para cirujano azul, caja con 100 marca FM+M" [ref=e1239]
+              - paragraph [ref=e1240]: Protección y desechables
+              - link [ref=e1241] [cursor=pointer]:
+                - /url: /productos/gorro-p-cirujano-azul-c-100-fmm002
+                - heading "Gorro para cirujano azul, caja con 100 marca FM+M" [level=3] [ref=e1242]
+              - paragraph [ref=e1243]: "Clave de artículo: FMM002. Disponible bajo cotización."
+              - generic [ref=e1244]:
+                - generic [ref=e1245]: Cotizar
+                - generic [ref=e1246]: 24 unidades disponibles
+              - generic [ref=e1248]:
+                - link "Solicitar cotización para Gorro para cirujano azul, caja con 100 marca FM+M" [ref=e1250] [cursor=pointer]:
+                  - /url: /contacto?producto=Gorro%20para%20cirujano%20azul%2C%20caja%20con%20100%20marca%20FM%2BM
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e1251] [cursor=pointer]:
+                  - /url: /productos/gorro-p-cirujano-azul-c-100-fmm002
+            - generic [ref=e1252]:
+              - link [ref=e1253] [cursor=pointer]:
+                - /url: /productos/gorro-plisado-azul-c-100-amb-amb315
+                - img "GORRO PLISADO AZUL C/100 AMB" [ref=e1254]
+              - paragraph [ref=e1255]: Protección y desechables
+              - link [ref=e1256] [cursor=pointer]:
+                - /url: /productos/gorro-plisado-azul-c-100-amb-amb315
+                - heading "GORRO PLISADO AZUL C/100 AMB" [level=3] [ref=e1257]
+              - paragraph [ref=e1258]: "Clave de artículo: AMB315. Disponible bajo cotización."
+              - generic [ref=e1259]:
+                - generic [ref=e1260]: Cotizar
+                - generic [ref=e1261]: 40 unidades disponibles
+              - generic [ref=e1263]:
+                - link "Solicitar cotización para GORRO PLISADO AZUL C/100 AMB" [ref=e1265] [cursor=pointer]:
+                  - /url: /contacto?producto=GORRO%20PLISADO%20AZUL%20C%2F100%20AMB
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e1266] [cursor=pointer]:
+                  - /url: /productos/gorro-plisado-azul-c-100-amb-amb315
+            - generic [ref=e1267]:
+              - link [ref=e1268] [cursor=pointer]:
+                - /url: /productos/gorro-plisado-blanco-c-100-ambiderm-amb038
+                - img "GORRO PLISADO BLANCO C/100 AMBIDERM" [ref=e1269]
+              - paragraph [ref=e1270]: Protección y desechables
+              - link [ref=e1271] [cursor=pointer]:
+                - /url: /productos/gorro-plisado-blanco-c-100-ambiderm-amb038
+                - heading "GORRO PLISADO BLANCO C/100 AMBIDERM" [level=3] [ref=e1272]
+              - paragraph [ref=e1273]: "Clave de artículo: AMB038. Disponible bajo cotización."
+              - generic [ref=e1274]:
+                - generic [ref=e1275]: Cotizar
+                - generic [ref=e1276]: 20 unidades disponibles
+              - generic [ref=e1278]:
+                - link "Solicitar cotización para GORRO PLISADO BLANCO C/100 AMBIDERM" [ref=e1280] [cursor=pointer]:
+                  - /url: /contacto?producto=GORRO%20PLISADO%20BLANCO%20C%2F100%20AMBIDERM
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e1281] [cursor=pointer]:
+                  - /url: /productos/gorro-plisado-blanco-c-100-ambiderm-amb038
+            - generic [ref=e1282]:
+              - link [ref=e1283] [cursor=pointer]:
+                - /url: /productos/gotero-c-pipeta-vid-c-10-edig018
+                - img "GOTERO C/PIPETA VID C/10" [ref=e1284]
+              - paragraph [ref=e1285]: Atención al paciente y generales
+              - link [ref=e1286] [cursor=pointer]:
+                - /url: /productos/gotero-c-pipeta-vid-c-10-edig018
+                - heading "GOTERO C/PIPETA VID C/10" [level=3] [ref=e1287]
+              - paragraph [ref=e1288]: "Clave de artículo: EDIG018. Disponible bajo cotización."
+              - generic [ref=e1289]:
+                - generic [ref=e1290]: Cotizar
+                - generic [ref=e1291]: 1 unidad disponibles
+              - generic [ref=e1293]:
+                - link "Solicitar cotización para GOTERO C/PIPETA VID C/10" [ref=e1295] [cursor=pointer]:
+                  - /url: /contacto?producto=GOTERO%20C%2FPIPETA%20VID%20C%2F10
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e1296] [cursor=pointer]:
+                  - /url: /productos/gotero-c-pipeta-vid-c-10-edig018
+            - generic [ref=e1297]:
+              - link [ref=e1298] [cursor=pointer]:
+                - /url: /productos/kit-pop-wash-bolsa-c-1-pisa195
+                - img "KIT POP WASH BOLSA C/1" [ref=e1299]
+              - paragraph [ref=e1300]: Atención al paciente y generales
+              - link [ref=e1301] [cursor=pointer]:
+                - /url: /productos/kit-pop-wash-bolsa-c-1-pisa195
+                - heading "KIT POP WASH BOLSA C/1" [level=3] [ref=e1302]
+              - paragraph [ref=e1303]: "Clave de artículo: PISA195. Disponible bajo cotización."
+              - generic [ref=e1304]:
+                - generic [ref=e1305]: Cotizar
+                - generic [ref=e1306]: 13 unidades disponibles
+              - generic [ref=e1308]:
+                - link "Solicitar cotización para KIT POP WASH BOLSA C/1" [ref=e1310] [cursor=pointer]:
+                  - /url: /contacto?producto=KIT%20POP%20WASH%20BOLSA%20C%2F1
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e1311] [cursor=pointer]:
+                  - /url: /productos/kit-pop-wash-bolsa-c-1-pisa195
+            - generic [ref=e1312]:
+              - link [ref=e1313] [cursor=pointer]:
+                - /url: /productos/orinal-de-plastico-1l-masculino-edig001
+                - img "ORINAL DE PLASTICO 1L MASCULINO" [ref=e1314]
+              - paragraph [ref=e1315]: Atención al paciente y generales
+              - link [ref=e1316] [cursor=pointer]:
+                - /url: /productos/orinal-de-plastico-1l-masculino-edig001
+                - heading "ORINAL DE PLASTICO 1L MASCULINO" [level=3] [ref=e1317]
+              - paragraph [ref=e1318]: "Clave de artículo: EDIG001. Disponible bajo cotización."
+              - generic [ref=e1319]:
+                - generic [ref=e1320]: Cotizar
+                - generic [ref=e1321]: 43 unidades disponibles
+              - generic [ref=e1323]:
+                - link "Solicitar cotización para ORINAL DE PLASTICO 1L MASCULINO" [ref=e1325] [cursor=pointer]:
+                  - /url: /contacto?producto=ORINAL%20DE%20PLASTICO%201L%20MASCULINO
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e1326] [cursor=pointer]:
+                  - /url: /productos/orinal-de-plastico-1l-masculino-edig001
+            - generic [ref=e1327]:
+              - link [ref=e1328] [cursor=pointer]:
+                - /url: /productos/pastillero-pas001
+                - img "Pastillero" [ref=e1329]
+              - paragraph [ref=e1330]: Atención al paciente y generales
+              - link [ref=e1331] [cursor=pointer]:
+                - /url: /productos/pastillero-pas001
+                - heading "Pastillero" [level=3] [ref=e1332]
+              - paragraph [ref=e1333]: "Clave de artículo: PAS001. Disponible bajo cotización."
+              - generic [ref=e1334]:
+                - generic [ref=e1335]: Cotizar
+                - generic [ref=e1336]: 1 unidad disponibles
+              - generic [ref=e1338]:
+                - link "Solicitar cotización para Pastillero" [ref=e1340] [cursor=pointer]:
+                  - /url: /contacto?producto=Pastillero
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e1341] [cursor=pointer]:
+                  - /url: /productos/pastillero-pas001
+            - generic [ref=e1342]:
+              - link [ref=e1343] [cursor=pointer]:
+                - /url: /productos/pera-hule-azul-6-z001
+                - img "Pera de hule azul número 6 Edigar" [ref=e1344]
+              - paragraph [ref=e1345]: Atención al paciente y generales
+              - link [ref=e1346] [cursor=pointer]:
+                - /url: /productos/pera-hule-azul-6-z001
+                - heading "Pera de hule azul número 6 Edigar" [level=3] [ref=e1347]
+              - paragraph [ref=e1348]: "Clave de artículo: Z001. Disponible bajo cotización."
+              - generic [ref=e1349]:
+                - generic [ref=e1350]: Cotizar
+                - generic [ref=e1351]: 6 unidades disponibles
+              - generic [ref=e1353]:
+                - link "Solicitar cotización para Pera de hule azul número 6 Edigar" [ref=e1355] [cursor=pointer]:
+                  - /url: /contacto?producto=Pera%20de%20hule%20azul%20n%C3%BAmero%206%20Edigar
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e1356] [cursor=pointer]:
+                  - /url: /productos/pera-hule-azul-6-z001
+            - generic [ref=e1357]:
+              - link [ref=e1358] [cursor=pointer]:
+                - /url: /productos/rastrillo-borde-romo-dos-filos-pz-9031-amb026
+                - img "RASTRILLO BORDE ROMO DOS FILOS PZ 9031" [ref=e1359]
+              - paragraph [ref=e1360]: Atención al paciente y generales
+              - link [ref=e1361] [cursor=pointer]:
+                - /url: /productos/rastrillo-borde-romo-dos-filos-pz-9031-amb026
+                - heading "RASTRILLO BORDE ROMO DOS FILOS PZ 9031" [level=3] [ref=e1362]
+              - paragraph [ref=e1363]: "Clave de artículo: AMB026. Disponible bajo cotización."
+              - generic [ref=e1364]:
+                - generic [ref=e1365]: Cotizar
+                - generic [ref=e1366]: 132 unidades disponibles
+              - generic [ref=e1368]:
+                - link "Solicitar cotización para RASTRILLO BORDE ROMO DOS FILOS PZ 9031" [ref=e1370] [cursor=pointer]:
+                  - /url: /contacto?producto=RASTRILLO%20BORDE%20ROMO%20DOS%20FILOS%20PZ%209031
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e1371] [cursor=pointer]:
+                  - /url: /productos/rastrillo-borde-romo-dos-filos-pz-9031-amb026
+            - generic [ref=e1372]:
+              - link [ref=e1373] [cursor=pointer]:
+                - /url: /productos/recolector-de-rpbi-1-8-lts-rec001
+                - img "Recolector de RPBI 1.8 litros" [ref=e1374]
+              - paragraph [ref=e1375]: Gestión de residuos
+              - link [ref=e1376] [cursor=pointer]:
+                - /url: /productos/recolector-de-rpbi-1-8-lts-rec001
+                - heading "Recolector de RPBI 1.8 litros" [level=3] [ref=e1377]
+              - paragraph [ref=e1378]: "Clave de artículo: REC001. Disponible bajo cotización."
+              - generic [ref=e1379]:
+                - generic [ref=e1380]: Cotizar
+                - generic [ref=e1381]: 3 unidades disponibles
+              - generic [ref=e1383]:
+                - link "Solicitar cotización para Recolector de RPBI 1.8 litros" [ref=e1385] [cursor=pointer]:
+                  - /url: /contacto?producto=Recolector%20de%20RPBI%201.8%20litros
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e1386] [cursor=pointer]:
+                  - /url: /productos/recolector-de-rpbi-1-8-lts-rec001
+            - generic [ref=e1387]:
+              - link [ref=e1388] [cursor=pointer]:
+                - /url: /productos/recolector-punzocortante-1-lt-ixion004
+                - img "RECOLECTOR PUNZOCORTANTE 1 LT" [ref=e1389]
+              - paragraph [ref=e1390]: Gestión de residuos
+              - link [ref=e1391] [cursor=pointer]:
+                - /url: /productos/recolector-punzocortante-1-lt-ixion004
+                - heading "RECOLECTOR PUNZOCORTANTE 1 LT" [level=3] [ref=e1392]
+              - paragraph [ref=e1393]: "Clave de artículo: IXION004. Disponible bajo cotización."
+              - generic [ref=e1394]:
+                - generic [ref=e1395]: Cotizar
+                - generic [ref=e1396]: Agotado
+              - generic [ref=e1398]:
+                - link "Solicitar cotización para RECOLECTOR PUNZOCORTANTE 1 LT" [ref=e1400] [cursor=pointer]:
+                  - /url: /contacto?producto=RECOLECTOR%20PUNZOCORTANTE%201%20LT
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e1401] [cursor=pointer]:
+                  - /url: /productos/recolector-punzocortante-1-lt-ixion004
+            - generic [ref=e1402]:
+              - link [ref=e1403] [cursor=pointer]:
+                - /url: /productos/recolector-punzocortante-1-8-lt-ixion005
+                - img "RECOLECTOR PUNZOCORTANTE 1.8 LT" [ref=e1404]
+              - paragraph [ref=e1405]: Gestión de residuos
+              - link [ref=e1406] [cursor=pointer]:
+                - /url: /productos/recolector-punzocortante-1-8-lt-ixion005
+                - heading "RECOLECTOR PUNZOCORTANTE 1.8 LT" [level=3] [ref=e1407]
+              - paragraph [ref=e1408]: "Clave de artículo: IXION005. Disponible bajo cotización."
+              - generic [ref=e1409]:
+                - generic [ref=e1410]: Cotizar
+                - generic [ref=e1411]: Agotado
+              - generic [ref=e1413]:
+                - link "Solicitar cotización para RECOLECTOR PUNZOCORTANTE 1.8 LT" [ref=e1415] [cursor=pointer]:
+                  - /url: /contacto?producto=RECOLECTOR%20PUNZOCORTANTE%201.8%20LT
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e1416] [cursor=pointer]:
+                  - /url: /productos/recolector-punzocortante-1-8-lt-ixion005
+            - generic [ref=e1417]:
+              - link [ref=e1418] [cursor=pointer]:
+                - /url: /productos/recolector-punzocortante-13-l-ixion002
+                - img "RECOLECTOR PUNZOCORTANTE 13 L" [ref=e1419]
+              - paragraph [ref=e1420]: Gestión de residuos
+              - link [ref=e1421] [cursor=pointer]:
+                - /url: /productos/recolector-punzocortante-13-l-ixion002
+                - heading "RECOLECTOR PUNZOCORTANTE 13 L" [level=3] [ref=e1422]
+              - paragraph [ref=e1423]: "Clave de artículo: IXION002. Disponible bajo cotización."
+              - generic [ref=e1424]:
+                - generic [ref=e1425]: Cotizar
+                - generic [ref=e1426]: Agotado
+              - generic [ref=e1428]:
+                - link "Solicitar cotización para RECOLECTOR PUNZOCORTANTE 13 L" [ref=e1430] [cursor=pointer]:
+                  - /url: /contacto?producto=RECOLECTOR%20PUNZOCORTANTE%2013%20L
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e1431] [cursor=pointer]:
+                  - /url: /productos/recolector-punzocortante-13-l-ixion002
+            - generic [ref=e1432]:
+              - link [ref=e1433] [cursor=pointer]:
+                - /url: /productos/recolector-punzocortante-4-75lt-kendall-ken009
+                - img "RECOLECTOR PUNZOCORTANTE 4.75LT KENDALL" [ref=e1434]
+              - paragraph [ref=e1435]: Gestión de residuos
+              - link [ref=e1436] [cursor=pointer]:
+                - /url: /productos/recolector-punzocortante-4-75lt-kendall-ken009
+                - heading "RECOLECTOR PUNZOCORTANTE 4.75LT KENDALL" [level=3] [ref=e1437]
+              - paragraph [ref=e1438]: "Clave de artículo: KEN009. Disponible bajo cotización."
+              - generic [ref=e1439]:
+                - generic [ref=e1440]: Cotizar
+                - generic [ref=e1441]: Agotado
+              - generic [ref=e1443]:
+                - link "Solicitar cotización para RECOLECTOR PUNZOCORTANTE 4.75LT KENDALL" [ref=e1445] [cursor=pointer]:
+                  - /url: /contacto?producto=RECOLECTOR%20PUNZOCORTANTE%204.75LT%20KENDALL
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e1446] [cursor=pointer]:
+                  - /url: /productos/recolector-punzocortante-4-75lt-kendall-ken009
+            - generic [ref=e1447]:
+              - link [ref=e1448] [cursor=pointer]:
+                - /url: /productos/recolector-puzocortante-8-5l-ixion003
+                - img "RECOLECTOR PUZOCORTANTE 8.5L" [ref=e1449]
+              - paragraph [ref=e1450]: Gestión de residuos
+              - link [ref=e1451] [cursor=pointer]:
+                - /url: /productos/recolector-puzocortante-8-5l-ixion003
+                - heading "RECOLECTOR PUZOCORTANTE 8.5L" [level=3] [ref=e1452]
+              - paragraph [ref=e1453]: "Clave de artículo: IXION003. Disponible bajo cotización."
+              - generic [ref=e1454]:
+                - generic [ref=e1455]: Cotizar
+                - generic [ref=e1456]: Agotado
+              - generic [ref=e1458]:
+                - link "Solicitar cotización para RECOLECTOR PUZOCORTANTE 8.5L" [ref=e1460] [cursor=pointer]:
+                  - /url: /contacto?producto=RECOLECTOR%20PUZOCORTANTE%208.5L
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e1461] [cursor=pointer]:
+                  - /url: /productos/recolector-puzocortante-8-5l-ixion003
+            - generic [ref=e1462]:
+              - link [ref=e1463] [cursor=pointer]:
+                - /url: /productos/rollo-p-mesa-pre-cortado-53x38-plast-7023-amb039
+                - img "ROLLO P/MESA PRE-CORTADO 53X38 PLAST. 7023" [ref=e1464]
+              - paragraph [ref=e1465]: Atención al paciente y generales
+              - link [ref=e1466] [cursor=pointer]:
+                - /url: /productos/rollo-p-mesa-pre-cortado-53x38-plast-7023-amb039
+                - heading "ROLLO P/MESA PRE-CORTADO 53X38 PLAST. 7023" [level=3] [ref=e1467]
+              - paragraph [ref=e1468]: "Clave de artículo: AMB039. Disponible bajo cotización."
+              - generic [ref=e1469]:
+                - generic [ref=e1470]: Cotizar
+                - generic [ref=e1471]: 6 unidades disponibles
+              - generic [ref=e1473]:
+                - link "Solicitar cotización para ROLLO P/MESA PRE-CORTADO 53X38 PLAST. 7023" [ref=e1475] [cursor=pointer]:
+                  - /url: /contacto?producto=ROLLO%20P%2FMESA%20PRE-CORTADO%2053X38%20PLAST.%207023
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e1476] [cursor=pointer]:
+                  - /url: /productos/rollo-p-mesa-pre-cortado-53x38-plast-7023-amb039
+            - generic [ref=e1477]:
+              - link [ref=e1478] [cursor=pointer]:
+                - /url: /productos/sabana-para-exploracion-1-0x1-80-c-10-cbd002
+                - img "Sábana para exploración 1 × 1.80 m, paquete con 10 CDB" [ref=e1479]
+              - paragraph [ref=e1480]: Protección y desechables
+              - link [ref=e1481] [cursor=pointer]:
+                - /url: /productos/sabana-para-exploracion-1-0x1-80-c-10-cbd002
+                - heading "Sábana para exploración 1 × 1.80 m, paquete con 10 CDB" [level=3] [ref=e1482]
+              - paragraph [ref=e1483]: "Clave de artículo: CBD002. Disponible bajo cotización."
+              - generic [ref=e1484]:
+                - generic [ref=e1485]: Cotizar
+                - generic [ref=e1486]: 20 unidades disponibles
+              - generic [ref=e1488]:
+                - link "Solicitar cotización para Sábana para exploración 1 × 1.80 m, paquete con 10 CDB" [ref=e1490] [cursor=pointer]:
+                  - /url: /contacto?producto=S%C3%A1bana%20para%20exploraci%C3%B3n%201%20%C3%97%201.80%20m%2C%20paquete%20con%2010%20CDB
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e1491] [cursor=pointer]:
+                  - /url: /productos/sabana-para-exploracion-1-0x1-80-c-10-cbd002
+            - generic [ref=e1492]:
+              - link [ref=e1493] [cursor=pointer]:
+                - /url: /productos/uniforme-quirurgico-cdb001
+                - img "Uniforme quirúrgico CDB" [ref=e1494]
+              - paragraph [ref=e1495]: Protección y desechables
+              - link [ref=e1496] [cursor=pointer]:
+                - /url: /productos/uniforme-quirurgico-cdb001
+                - heading "Uniforme quirúrgico CDB" [level=3] [ref=e1497]
+              - paragraph [ref=e1498]: "Clave de artículo: CDB001. Disponible bajo cotización."
+              - generic [ref=e1499]:
+                - generic [ref=e1500]: Cotizar
+                - generic [ref=e1501]: 105 unidades disponibles
+              - generic [ref=e1503]:
+                - link "Solicitar cotización para Uniforme quirúrgico CDB" [ref=e1505] [cursor=pointer]:
+                  - /url: /contacto?producto=Uniforme%20quir%C3%BArgico%20CDB
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e1506] [cursor=pointer]:
+                  - /url: /productos/uniforme-quirurgico-cdb001
+            - generic [ref=e1507]:
+              - link [ref=e1508] [cursor=pointer]:
+                - /url: /productos/vaso-recolector-premium-esteril-z005
+                - img "Vaso recolector premium estéril Plasticword" [ref=e1509]
+              - paragraph [ref=e1510]: Atención al paciente y generales
+              - link [ref=e1511] [cursor=pointer]:
+                - /url: /productos/vaso-recolector-premium-esteril-z005
+                - heading "Vaso recolector premium estéril Plasticword" [level=3] [ref=e1512]
+              - paragraph [ref=e1513]: "Clave de artículo: Z005. Disponible bajo cotización."
+              - generic [ref=e1514]:
+                - generic [ref=e1515]: Cotizar
+                - generic [ref=e1516]: 118 unidades disponibles
+              - generic [ref=e1518]:
+                - link "Solicitar cotización para Vaso recolector premium estéril Plasticword" [ref=e1520] [cursor=pointer]:
+                  - /url: /contacto?producto=Vaso%20recolector%20premium%20est%C3%A9ril%20Plasticword
+                  - text: Solicitar cotización
+                - link "Ver detalle" [ref=e1521] [cursor=pointer]:
+                  - /url: /productos/vaso-recolector-premium-esteril-z005
+        - generic [ref=e1523]:
+          - heading "Agrega OTRAS MARCAS a tu carrito" [level=2] [ref=e1524]
+          - paragraph [ref=e1525]: Todos los productos disponibles en nuestro catálogo con compra directa.
+          - generic [ref=e1526]:
+            - link "Ver catálogo" [ref=e1527] [cursor=pointer]:
+              - /url: /insumos?q=OTRAS%20MARCAS
+            - link "Ver carrito" [ref=e1532] [cursor=pointer]:
+              - /url: /carrito
+  - contentinfo [ref=e474]:
+    - generic [ref=e477]:
+      - link "WhatsApp 477 173 6105 479 228 4057 Respuesta inmediata" [ref=e478] [cursor=pointer]:
+        - /url: https://wa.me/524771736105
+        - generic [ref=e482]:
+          - generic [ref=e483]: WhatsApp
+          - generic [ref=e484]: 477 173 6105
+          - generic [ref=e485]: 479 228 4057
+          - generic [ref=e486]: Respuesta inmediata
+      - link "Email serviciovitalife@outlook.com Te respondemos pronto" [ref=e487] [cursor=pointer]:
+        - /url: mailto:serviciovitalife@outlook.com
+        - generic [ref=e492]:
+          - generic [ref=e493]: Email
+          - generic [ref=e494]: serviciovitalife@outlook.com
+          - generic [ref=e495]: Te respondemos pronto
+      - generic [ref=e501]:
+        - generic [ref=e502]: Ubicación
+        - generic [ref=e503]: León, Guanajuato
+        - generic [ref=e504]: Atención personalizada
+    - generic [ref=e505]:
+      - generic [ref=e506]:
+        - generic [ref=e507]:
+          - img "Vital Life Servicios Integrales" [ref=e509]
+          - paragraph [ref=e510]: Comprometidos en ofrecer un servicio humano, digno y eficaz para el cuidado integral de tu salud y bienestar.
+          - generic [ref=e511]:
+            - link "Facebook" [ref=e512] [cursor=pointer]:
+              - /url: https://www.facebook.com/vitallifeenfermeria/
+            - link "Instagram" [ref=e515] [cursor=pointer]:
+              - /url: https://www.instagram.com/vital_life_insumosmedicos/
+            - link "WhatsApp" [ref=e518] [cursor=pointer]:
+              - /url: https://wa.me/524771736105
+        - generic [ref=e521]:
+          - heading "Enlaces" [level=3] [ref=e522]
+          - list [ref=e523]:
+            - listitem [ref=e524]:
+              - link "Inicio" [ref=e525] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e526]:
+              - link "Nosotros" [ref=e527] [cursor=pointer]:
+                - /url: /nosotros
+            - listitem [ref=e528]:
+              - link "Servicios" [ref=e529] [cursor=pointer]:
+                - /url: /insumos
+            - listitem [ref=e530]:
+              - link "Contacto" [ref=e531] [cursor=pointer]:
+                - /url: /contacto
+        - generic [ref=e532]:
+          - heading "Servicios" [level=3] [ref=e533]
+          - list [ref=e534]:
+            - listitem [ref=e535]:
+              - link "Insumos" [ref=e536] [cursor=pointer]:
+                - /url: /insumos
+            - listitem [ref=e537]:
+              - link "Enfermería - Fisioterapia" [ref=e538] [cursor=pointer]:
+                - /url: /enfermeria
+        - generic [ref=e539]:
+          - heading "Certificaciones" [level=3] [ref=e540]
+          - generic [ref=e541]:
+            - img "Marca GTO" [ref=e543]
+            - generic [ref=e544]:
+              - generic [ref=e545]: Marca GTO
+              - generic [ref=e546]: Guanajuato
+              - generic [ref=e547]: Comprometidos con la calidad y el bienestar de nuestra comunidad.
+      - generic [ref=e548]:
+        - paragraph [ref=e549]: © 2024 Vital Life Insumos Médicos. Todos los derechos reservados.
+        - generic [ref=e550]:
+          - link "Aviso de Privacidad" [ref=e551] [cursor=pointer]:
+            - /url: "#"
+          - link "Términos y Condiciones" [ref=e552] [cursor=pointer]:
+            - /url: "#"
+  - button "Open Next.js Dev Tools" [ref=e714] [cursor=pointer]
+  - alert [ref=e718]: OTRAS MARCAS — Insumos Médicos | Vital Life | Vital Life Insumos Médicos

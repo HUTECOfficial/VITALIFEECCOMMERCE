@@ -1,0 +1,383 @@
+- generic [ref=e1]:
+  - navigation [ref=e2]:
+    - link [ref=e3] [cursor=pointer]:
+      - /url: /
+      - img "Vital Life" [ref=e4]
+      - img "GTO" [ref=e6]
+    - generic [ref=e7]:
+      - link "Inicio" [ref=e8] [cursor=pointer]:
+        - /url: /
+      - link "Nosotros" [ref=e9] [cursor=pointer]:
+        - /url: /nosotros
+      - link "Catálogo Insumos" [ref=e10] [cursor=pointer]:
+        - /url: /insumos
+      - button [ref=e13]
+    - generic [ref=e17]:
+      - link "Comprar ahora" [ref=e18] [cursor=pointer]:
+        - /url: /contacto
+      - link "1" [ref=e540] [cursor=pointer]:
+        - /url: /carrito
+  - main [ref=e27]:
+    - generic [ref=e117]:
+      - generic [ref=e120]:
+        - paragraph [ref=e121]: catálogo de
+        - heading "Insumos Médicos" [level=1] [ref=e122]
+        - paragraph [ref=e123]: Distribuidores autorizados de las mejores marcas médicas en México. Todos los productos disponibles para compra directa con carrito.
+        - textbox "Buscar marca, producto o categoría..." [ref=e128]
+      - generic [ref=e130]:
+        - generic [ref=e131]:
+          - generic [ref=e132]:
+            - paragraph [ref=e133]: Compra rápida
+            - heading "Agrega al carrito en un clic" [level=2] [ref=e134]
+            - paragraph [ref=e135]: Experiencia optimizada para móvil y desktop.
+          - link "Ver carrito (1)" [ref=e542] [cursor=pointer]:
+            - /url: /carrito
+        - generic [ref=e139]:
+          - article [ref=e140]:
+            - link [ref=e141] [cursor=pointer]:
+              - /url: /productos/abatelenguas-de-madera-20bol-c-25pz-amb-amb008
+              - img "ABATELENGUAS DE MADERA 20BOL C/25PZ AMB" [ref=e142]
+            - paragraph [ref=e143]: Atención al paciente y generales
+            - link [ref=e144] [cursor=pointer]:
+              - /url: /productos/abatelenguas-de-madera-20bol-c-25pz-amb-amb008
+              - heading "ABATELENGUAS DE MADERA 20BOL C/25PZ AMB" [level=3] [ref=e145]
+            - paragraph [ref=e146]: "Clave de artículo: AMB008. Disponible bajo cotización."
+            - generic [ref=e147]:
+              - generic [ref=e148]: Cotizar
+              - generic [ref=e149]: 4 unidades disponibles
+            - button "Comprar ABATELENGUAS DE MADERA 20BOL C/25PZ AMB" [active] [ref=e152]:
+              - generic [ref=e543]: Agregado
+          - article [ref=e158]:
+            - link [ref=e159] [cursor=pointer]:
+              - /url: /productos/aciclovir-400mg-c-35-tab-aci002
+              - img "Aciclovir 400 mg, caja con 35 tabletas" [ref=e160]
+            - paragraph [ref=e161]: Medicamentos
+            - link [ref=e162] [cursor=pointer]:
+              - /url: /productos/aciclovir-400mg-c-35-tab-aci002
+              - heading "Aciclovir 400 mg, caja con 35 tabletas" [level=3] [ref=e163]
+            - paragraph [ref=e164]: "Clave de artículo: ACI002. Disponible bajo cotización."
+            - generic [ref=e165]:
+              - generic [ref=e166]: Cotizar
+              - generic [ref=e167]: 13 unidades disponibles
+            - button "Comprar Aciclovir 400 mg, caja con 35 tabletas" [ref=e170]:
+              - generic [ref=e171]: Comprar
+          - article [ref=e176]:
+            - link [ref=e177] [cursor=pointer]:
+              - /url: /productos/agua-destilada-20-lt-mapla-mapla001
+              - img "AGUA DESTILADA 20 LT MAPLA" [ref=e178]
+            - paragraph [ref=e179]: Terapia intravenosa y soluciones
+            - link [ref=e180] [cursor=pointer]:
+              - /url: /productos/agua-destilada-20-lt-mapla-mapla001
+              - heading "AGUA DESTILADA 20 LT MAPLA" [level=3] [ref=e181]
+            - paragraph [ref=e182]: "Clave de artículo: MAPLA001. Disponible bajo cotización."
+            - generic [ref=e183]:
+              - generic [ref=e184]: Cotizar
+              - generic [ref=e185]: 1 unidad disponibles
+            - button "Comprar AGUA DESTILADA 20 LT MAPLA" [ref=e188]:
+              - generic [ref=e189]: Comprar
+          - article [ref=e194]:
+            - link [ref=e195] [cursor=pointer]:
+              - /url: /productos/agua-iny-10ml-c-100-amp-plastico-pisa196
+              - img "AGUA INY 10ML C/100 AMP PLASTICO" [ref=e196]
+            - paragraph [ref=e197]: Terapia intravenosa y soluciones
+            - link [ref=e198] [cursor=pointer]:
+              - /url: /productos/agua-iny-10ml-c-100-amp-plastico-pisa196
+              - heading "AGUA INY 10ML C/100 AMP PLASTICO" [level=3] [ref=e199]
+            - paragraph [ref=e200]: "Clave de artículo: PISA196. Disponible bajo cotización."
+            - generic [ref=e201]:
+              - generic [ref=e202]: Cotizar
+              - generic [ref=e203]: 1 unidad disponibles
+            - button "Comprar AGUA INY 10ML C/100 AMP PLASTICO" [ref=e206]:
+              - generic [ref=e207]: Comprar
+          - article [ref=e212]:
+            - link [ref=e213] [cursor=pointer]:
+              - /url: /productos/agua-oxigenada-110ml-ox002
+              - img "Agua oxigenada 110 ml Protec" [ref=e214]
+            - paragraph [ref=e215]: Antisépticos y control de infecciones
+            - link [ref=e216] [cursor=pointer]:
+              - /url: /productos/agua-oxigenada-110ml-ox002
+              - heading "Agua oxigenada 110 ml Protec" [level=3] [ref=e217]
+            - paragraph [ref=e218]: "Clave de artículo: OX002. Disponible bajo cotización."
+            - generic [ref=e219]:
+              - generic [ref=e220]: Cotizar
+              - generic [ref=e221]: 68 unidades disponibles
+            - button "Comprar Agua oxigenada 110 ml Protec" [ref=e224]:
+              - generic [ref=e225]: Comprar
+          - article [ref=e230]:
+            - link [ref=e231] [cursor=pointer]:
+              - /url: /productos/agua-oxigenada-250ml-ac-ac002
+              - img "Agua oxigenada 250 ml Protec" [ref=e232]
+            - paragraph [ref=e233]: Antisépticos y control de infecciones
+            - link [ref=e234] [cursor=pointer]:
+              - /url: /productos/agua-oxigenada-250ml-ac-ac002
+              - heading "Agua oxigenada 250 ml Protec" [level=3] [ref=e235]
+            - paragraph [ref=e236]: "Clave de artículo: AC002. Disponible bajo cotización."
+            - generic [ref=e237]:
+              - generic [ref=e238]: Cotizar
+              - generic [ref=e239]: 30 unidades disponibles
+            - button "Comprar Agua oxigenada 250 ml Protec" [ref=e242]:
+              - generic [ref=e243]: Comprar
+          - article [ref=e248]:
+            - link [ref=e249] [cursor=pointer]:
+              - /url: /productos/agua-oxigenada-500-ml-ac-az008
+              - img "Agua oxigenada 500 ml Protec" [ref=e250]
+            - paragraph [ref=e251]: Antisépticos y control de infecciones
+            - link [ref=e252] [cursor=pointer]:
+              - /url: /productos/agua-oxigenada-500-ml-ac-az008
+              - heading "Agua oxigenada 500 ml Protec" [level=3] [ref=e253]
+            - paragraph [ref=e254]: "Clave de artículo: AZ008. Disponible bajo cotización."
+            - generic [ref=e255]:
+              - generic [ref=e256]: Cotizar
+              - generic [ref=e257]: 12 unidades disponibles
+            - button "Comprar Agua oxigenada 500 ml Protec" [ref=e260]:
+              - generic [ref=e261]: Comprar
+          - article [ref=e266]:
+            - link [ref=e267] [cursor=pointer]:
+              - /url: /productos/agua-p-irriga-esteril-1000ml-1fco-plas-pisa013
+              - img "AGUA P/IRRIGA ESTERIL 1000ML 1FCO PLAS" [ref=e268]
+            - paragraph [ref=e269]: Terapia intravenosa y soluciones
+            - link [ref=e270] [cursor=pointer]:
+              - /url: /productos/agua-p-irriga-esteril-1000ml-1fco-plas-pisa013
+              - heading "AGUA P/IRRIGA ESTERIL 1000ML 1FCO PLAS" [level=3] [ref=e271]
+            - paragraph [ref=e272]: "Clave de artículo: PISA013. Disponible bajo cotización."
+            - generic [ref=e273]:
+              - generic [ref=e274]: Cotizar
+              - generic [ref=e275]: 4 unidades disponibles
+            - button "Comprar AGUA P/IRRIGA ESTERIL 1000ML 1FCO PLAS" [ref=e278]:
+              - generic [ref=e279]: Comprar
+          - article [ref=e284]:
+            - link [ref=e285] [cursor=pointer]:
+              - /url: /productos/agua-p-irriga-esteril-3000ml-pisa124
+              - img "AGUA P/IRRIGA ESTERIL 3000ML" [ref=e286]
+            - paragraph [ref=e287]: Terapia intravenosa y soluciones
+            - link [ref=e288] [cursor=pointer]:
+              - /url: /productos/agua-p-irriga-esteril-3000ml-pisa124
+              - heading "AGUA P/IRRIGA ESTERIL 3000ML" [level=3] [ref=e289]
+            - paragraph [ref=e290]: "Clave de artículo: PISA124. Disponible bajo cotización."
+            - generic [ref=e291]:
+              - generic [ref=e292]: Cotizar
+              - generic [ref=e293]: 12 unidades disponibles
+            - button "Comprar AGUA P/IRRIGA ESTERIL 3000ML" [ref=e296]:
+              - generic [ref=e297]: Comprar
+          - article [ref=e302]:
+            - link [ref=e303] [cursor=pointer]:
+              - /url: /productos/agua-p-irriga-esteril-500ml-1fco-plas-pisa012
+              - img "AGUA P/IRRIGA ESTERIL 500ML 1FCO PLAS" [ref=e304]
+            - paragraph [ref=e305]: Terapia intravenosa y soluciones
+            - link [ref=e306] [cursor=pointer]:
+              - /url: /productos/agua-p-irriga-esteril-500ml-1fco-plas-pisa012
+              - heading "AGUA P/IRRIGA ESTERIL 500ML 1FCO PLAS" [level=3] [ref=e307]
+            - paragraph [ref=e308]: "Clave de artículo: PISA012. Disponible bajo cotización."
+            - generic [ref=e309]:
+              - generic [ref=e310]: Cotizar
+              - generic [ref=e311]: 10 unidades disponibles
+            - button "Comprar AGUA P/IRRIGA ESTERIL 500ML 1FCO PLAS" [ref=e314]:
+              - generic [ref=e315]: Comprar
+          - article [ref=e320]:
+            - link [ref=e321] [cursor=pointer]:
+              - /url: /productos/aguja-desech-21-x-32-verde-c-100-bd025
+              - img "AGUJA DESECH. 21 X 32 (VERDE) C/100" [ref=e322]
+            - paragraph [ref=e323]: Agujas, jeringas y punción
+            - link [ref=e324] [cursor=pointer]:
+              - /url: /productos/aguja-desech-21-x-32-verde-c-100-bd025
+              - heading "AGUJA DESECH. 21 X 32 (VERDE) C/100" [level=3] [ref=e325]
+            - paragraph [ref=e326]: "Clave de artículo: BD025. Disponible bajo cotización."
+            - generic [ref=e327]:
+              - generic [ref=e328]: Cotizar
+              - generic [ref=e329]: 6 unidades disponibles
+            - button "Comprar AGUJA DESECH. 21 X 32 (VERDE) C/100" [ref=e332]:
+              - generic [ref=e333]: Comprar
+          - article [ref=e338]:
+            - link [ref=e339] [cursor=pointer]:
+              - /url: /productos/aguja-hip-16x38-morada-c-100-dl-dlp006
+              - img "Aguja hipodérmica 16 × 38 morada, caja con 100 marca DL" [ref=e340]
+            - paragraph [ref=e341]: Agujas, jeringas y punción
+            - link [ref=e342] [cursor=pointer]:
+              - /url: /productos/aguja-hip-16x38-morada-c-100-dl-dlp006
+              - heading "Aguja hipodérmica 16 × 38 morada, caja con 100 marca DL" [level=3] [ref=e343]
+            - paragraph [ref=e344]: "Clave de artículo: DLP006. Disponible bajo cotización."
+            - generic [ref=e345]:
+              - generic [ref=e346]: Cotizar
+              - generic [ref=e347]: 1 unidad disponibles
+            - button "Comprar Aguja hipodérmica 16 × 38 morada, caja con 100 marca DL" [ref=e350]:
+              - generic [ref=e351]: Comprar
+      - generic [ref=e357]:
+        - generic [ref=e358]:
+          - generic [ref=e359] [cursor=pointer]:
+            - img "guantes" [ref=e360]
+            - generic [ref=e362]: Destacado
+            - generic [ref=e367]:
+              - heading "Guantes" [level=3] [ref=e375]
+              - paragraph [ref=e376]: Guantes estériles y no estériles de la más alta calidad.
+              - generic [ref=e377]: AMBIDERM
+              - button "Ver productos →" [ref=e379]
+          - generic [ref=e380] [cursor=pointer]:
+            - generic:
+              - img "Curación, apósitos y vendajes"
+            - generic [ref=e381]:
+              - heading "Curación, apósitos y vendajes" [level=3] [ref=e385]
+              - paragraph [ref=e386]: Todo lo necesario para el cuidado y curación de heridas.
+              - generic [ref=e387]: Ver productos →
+          - generic [ref=e388] [cursor=pointer]:
+            - generic:
+              - img "Antisépticos y control de infecciones"
+            - generic [ref=e389]:
+              - heading "Antisépticos y control de infecciones" [level=3] [ref=e393]
+              - paragraph [ref=e394]: Soluciones antisépticas y desinfectantes certificados.
+              - generic [ref=e395]: Ver productos →
+          - generic [ref=e396] [cursor=pointer]:
+            - generic:
+              - img "Agujas, jeringas y punción"
+            - generic [ref=e397]:
+              - heading "Agujas, jeringas y punción" [level=3] [ref=e406]
+              - paragraph [ref=e407]: Agujas, jeringas y sistemas de punción estériles.
+              - generic [ref=e408]: Ver productos →
+          - generic [ref=e409] [cursor=pointer]:
+            - generic:
+              - img "Terapia intravenosa y soluciones"
+            - generic [ref=e410]:
+              - heading "Terapia intravenosa y soluciones" [level=3] [ref=e415]
+              - paragraph [ref=e416]: Catéteres, cánulas y accesorios para terapia intravenosa.
+              - generic [ref=e417]: Ver productos →
+          - generic [ref=e418] [cursor=pointer]:
+            - generic:
+              - img "Sondas, catéteres y drenajes"
+            - generic [ref=e419]:
+              - heading "Sondas, catéteres y drenajes" [level=3] [ref=e423]
+              - paragraph [ref=e424]: Sondas y catéteres para diversas aplicaciones médicas.
+              - generic [ref=e425]: Ver productos →
+          - generic [ref=e426] [cursor=pointer]:
+            - generic:
+              - img "Terapia respiratoria y ventilación"
+            - generic [ref=e427]:
+              - heading "Terapia respiratoria y ventilación" [level=3] [ref=e433]
+              - paragraph [ref=e434]: Soluciones completas para soporte respiratorio.
+              - generic [ref=e435]: Ver productos →
+        - generic [ref=e436]:
+          - generic [ref=e437] [cursor=pointer]:
+            - generic:
+              - img "Diagnóstico y monitoreo"
+            - generic [ref=e438]:
+              - heading "Diagnóstico y monitoreo" [level=3] [ref=e444]
+              - generic [ref=e445]: Ver →
+          - generic [ref=e446] [cursor=pointer]:
+            - generic:
+              - img "Equipo e instrumental quirúrgico"
+            - generic [ref=e447]:
+              - heading "Equipo e instrumental quirúrgico" [level=3] [ref=e455]
+              - generic [ref=e456]: Ver →
+          - generic [ref=e457] [cursor=pointer]:
+            - generic:
+              - img "Rehabilitación y ortopedia"
+            - generic [ref=e458]:
+              - heading "Rehabilitación y ortopedia" [level=3] [ref=e466]
+              - generic [ref=e467]: Ver →
+          - generic [ref=e468] [cursor=pointer]:
+            - generic:
+              - img "Medicamentos"
+            - generic [ref=e469]:
+              - heading "Medicamentos" [level=3] [ref=e474]
+              - generic [ref=e475]: Ver →
+          - generic [ref=e476] [cursor=pointer]:
+            - generic:
+              - img "Protección y desechables"
+            - generic [ref=e477]:
+              - heading "Protección y desechables" [level=3] [ref=e482]
+              - generic [ref=e483]: Ver →
+          - generic [ref=e484] [cursor=pointer]:
+            - generic:
+              - img "Gestión de residuos"
+            - generic [ref=e485]:
+              - heading "Gestión de residuos" [level=3] [ref=e490]
+              - generic [ref=e491]: Ver →
+          - generic [ref=e492] [cursor=pointer]:
+            - generic:
+              - img "Atención al paciente y generales"
+            - generic [ref=e493]:
+              - heading "Atención al paciente y generales" [level=3] [ref=e497]
+              - generic [ref=e498]: Ver →
+      - generic [ref=e501]:
+        - generic [ref=e507]:
+          - paragraph [ref=e508]: Marcas autorizadas
+          - paragraph [ref=e509]: Trabajamos con los mejores
+        - generic [ref=e517]:
+          - paragraph [ref=e518]: Envíos seguros
+          - paragraph [ref=e519]: A todo México
+        - generic [ref=e526]:
+          - paragraph [ref=e527]: Asesoría experta
+          - paragraph [ref=e528]: Atención personalizada
+        - generic [ref=e535]:
+          - paragraph [ref=e536]: Carrito de compras
+          - paragraph [ref=e537]: Compra fácil y segura
+  - contentinfo [ref=e29]:
+    - generic [ref=e32]:
+      - link "WhatsApp 477 173 6105 479 228 4057 Respuesta inmediata" [ref=e33] [cursor=pointer]:
+        - /url: https://wa.me/524771736105
+        - generic [ref=e37]:
+          - generic [ref=e38]: WhatsApp
+          - generic [ref=e39]: 477 173 6105
+          - generic [ref=e40]: 479 228 4057
+          - generic [ref=e41]: Respuesta inmediata
+      - link "Email serviciovitalife@outlook.com Te respondemos pronto" [ref=e42] [cursor=pointer]:
+        - /url: mailto:serviciovitalife@outlook.com
+        - generic [ref=e47]:
+          - generic [ref=e48]: Email
+          - generic [ref=e49]: serviciovitalife@outlook.com
+          - generic [ref=e50]: Te respondemos pronto
+      - generic [ref=e56]:
+        - generic [ref=e57]: Ubicación
+        - generic [ref=e58]: León, Guanajuato
+        - generic [ref=e59]: Atención personalizada
+    - generic [ref=e60]:
+      - generic [ref=e61]:
+        - generic [ref=e62]:
+          - img "Vital Life Servicios Integrales" [ref=e64]
+          - paragraph [ref=e65]: Comprometidos en ofrecer un servicio humano, digno y eficaz para el cuidado integral de tu salud y bienestar.
+          - generic [ref=e66]:
+            - link "Facebook" [ref=e67] [cursor=pointer]:
+              - /url: https://www.facebook.com/vitallifeenfermeria/
+            - link "Instagram" [ref=e70] [cursor=pointer]:
+              - /url: https://www.instagram.com/vital_life_insumosmedicos/
+            - link "WhatsApp" [ref=e73] [cursor=pointer]:
+              - /url: https://wa.me/524771736105
+        - generic [ref=e76]:
+          - heading "Enlaces" [level=3] [ref=e77]
+          - list [ref=e78]:
+            - listitem [ref=e79]:
+              - link "Inicio" [ref=e80] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e81]:
+              - link "Nosotros" [ref=e82] [cursor=pointer]:
+                - /url: /nosotros
+            - listitem [ref=e83]:
+              - link "Servicios" [ref=e84] [cursor=pointer]:
+                - /url: /insumos
+            - listitem [ref=e85]:
+              - link "Contacto" [ref=e86] [cursor=pointer]:
+                - /url: /contacto
+        - generic [ref=e87]:
+          - heading "Servicios" [level=3] [ref=e88]
+          - list [ref=e89]:
+            - listitem [ref=e90]:
+              - link "Insumos" [ref=e91] [cursor=pointer]:
+                - /url: /insumos
+            - listitem [ref=e92]:
+              - link "Enfermería - Fisioterapia" [ref=e93] [cursor=pointer]:
+                - /url: /enfermeria
+        - generic [ref=e94]:
+          - heading "Certificaciones" [level=3] [ref=e95]
+          - generic [ref=e96]:
+            - img "Marca GTO" [ref=e98]
+            - generic [ref=e99]:
+              - generic [ref=e100]: Marca GTO
+              - generic [ref=e101]: Guanajuato
+              - generic [ref=e102]: Comprometidos con la calidad y el bienestar de nuestra comunidad.
+      - generic [ref=e103]:
+        - paragraph [ref=e104]: © 2024 Vital Life Insumos Médicos. Todos los derechos reservados.
+        - generic [ref=e105]:
+          - link "Aviso de Privacidad" [ref=e106] [cursor=pointer]:
+            - /url: "#"
+          - link "Términos y Condiciones" [ref=e107] [cursor=pointer]:
+            - /url: "#"
+  - button "Open Next.js Dev Tools" [ref=e113] [cursor=pointer]
+  - alert [ref=e538]

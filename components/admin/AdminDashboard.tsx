@@ -7,7 +7,7 @@ import {
   BarChart3, Boxes, DollarSign, ImageUp, LogOut, Pencil, Plus,
   Search, Trash2, TrendingDown, TrendingUp, X,
 } from "lucide-react";
-import type { Product } from "@/types";
+import type { Product, ProductVariant } from "@/types";
 import { presentationOptions } from "@/types";
 import type { ProductMetrics } from "@/lib/admin-products";
 import { formatPrice } from "@/lib/utils";
@@ -24,6 +24,7 @@ type ProductForm = {
   stockQuantity: string;
   sizes: string;
   colors: string;
+  variants: ProductVariant[];
   featured: boolean;
   quoteOnly: boolean;
   brand: string;
@@ -40,6 +41,7 @@ const blankForm: ProductForm = {
   stockQuantity: "0",
   sizes: "",
   colors: "",
+  variants: [{ color: "", size: "", stockQuantity: 0 }],
   featured: false,
   quoteOnly: true,
   brand: "",
@@ -58,11 +60,23 @@ function toForm(product: Product): ProductForm {
     stockQuantity: String(product.stockQuantity ?? 0),
     sizes: product.sizes?.join(", ") ?? "",
     colors: product.colors?.join(", ") ?? "",
+    variants: product.variants?.length ? product.variants : [{ color: "", size: "", stockQuantity: product.stockQuantity ?? 0 }],
     featured: product.featured ?? false,
     quoteOnly: product.quoteOnly ?? false,
     brand: product.brand ?? "",
     presentation: product.presentation ?? "",
   };
+}
+
+function parseOptions(value: string) {
+  return [...new Set(value.split(",").map((option) => option.trim()).filter(Boolean))];
+}
+
+function buildVariants(sizes: string[], colors: string[], current: ProductVariant[]): ProductVariant[] {
+  const availableSizes = sizes.length ? sizes : [""];
+  const availableColors = colors.length ? colors : [""];
+  const stockByKey = new Map(current.map((variant) => [`${variant.color}\u0000${variant.size}`, variant.stockQuantity]));
+  return availableColors.flatMap((color) => availableSizes.map((size) => ({ color, size, stockQuantity: stockByKey.get(`${color}\u0000${size}`) ?? 0 })));
 }
 
 function MetricCard({ icon: Icon, label, value, tone = "navy" }: { icon: typeof Boxes; label: string; value: string; tone?: "navy" | "teal" | "green" }) {
@@ -95,6 +109,22 @@ export default function AdminDashboard({ products: initialProducts, metricsByPro
     return products.filter((product) => product.name.toLowerCase().includes(term) || product.slug.toLowerCase().includes(term));
   }, [products, query]);
   const best = ranked[0];
+  const variantStockTotal = form?.variants.reduce((total, variant) => total + variant.stockQuantity, 0) ?? 0;
+
+  function changeOptions(field: "sizes" | "colors", value: string) {
+    if (!form) return;
+    const next = { ...form, [field]: value };
+    next.variants = buildVariants(parseOptions(next.sizes), parseOptions(next.colors), form.variants);
+    next.stockQuantity = String(next.variants.reduce((total, variant) => total + variant.stockQuantity, 0));
+    setForm(next);
+  }
+
+  function changeVariantStock(index: number, value: string) {
+    if (!form) return;
+    const stockQuantity = Math.max(0, Math.floor(Number(value) || 0));
+    const variants = form.variants.map((variant, variantIndex) => variantIndex === index ? { ...variant, stockQuantity } : variant);
+    setForm({ ...form, variants, stockQuantity: String(variants.reduce((total, variant) => total + variant.stockQuantity, 0)) });
+  }
 
   async function logout() {
     await fetch("/api/admin/auth/logout", { method: "POST" });
@@ -139,8 +169,9 @@ export default function AdminDashboard({ products: initialProducts, metricsByPro
         ...form,
         price: Number(form.price),
         stockQuantity: Number(form.stockQuantity),
-        sizes: form.sizes.split(",").map((size) => size.trim()).filter(Boolean),
-        colors: form.colors.split(",").map((color) => color.trim()).filter(Boolean),
+        sizes: parseOptions(form.sizes),
+        colors: parseOptions(form.colors),
+        variants: form.variants,
       };
       const response = await fetch(form.id ? `/api/admin/products/${form.id}` : "/api/admin/products", {
         method: form.id ? "PATCH" : "POST",
@@ -149,7 +180,7 @@ export default function AdminDashboard({ products: initialProducts, metricsByPro
       });
       const result = await response.json();
       if (!response.ok) throw new Error(result.error || "No se pudo guardar el producto.");
-      const saved = { ...result, inStock: result.in_stock, stockQuantity: result.stock_quantity, quoteOnly: result.quote_only, brand: result.brand ?? undefined, presentation: result.presentation ?? undefined } as Product;
+      const saved = result as Product;
       setProducts((current) => form.id ? current.map((product) => product.id === saved.id ? saved : product) : [...current, saved].sort((a, b) => a.name.localeCompare(b.name)));
       setForm(null);
       router.refresh();
@@ -182,7 +213,7 @@ export default function AdminDashboard({ products: initialProducts, metricsByPro
         </article>
       </div>
 
-      {form && <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#071a3d]/45 p-4 backdrop-blur-sm"><form onSubmit={save} className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl bg-white p-6 shadow-2xl"><div className="mb-5 flex items-center justify-between"><div><p className="text-xs font-black uppercase tracking-[0.18em] text-[#2eb8d4]">Catálogo</p><h2 className="text-2xl font-black text-[#1a3a6b]">{form.id ? "Editar producto" : "Nuevo producto"}</h2></div><button type="button" onClick={() => setForm(null)} className="rounded-full bg-slate-100 p-2 text-[#1a3a6b]" aria-label="Cerrar"><X className="h-5 w-5" /></button></div><div className="grid gap-4 sm:grid-cols-2"><Field label="Nombre" value={form.name} onChange={(value) => setForm({ ...form, name: value })} required /><Field label="Slug (URL)" value={form.slug} onChange={(value) => setForm({ ...form, slug: value })} /><Field label="Marca (opcional)" value={form.brand} onChange={(value) => setForm({ ...form, brand: value })} /><label className="block text-sm font-bold text-[#1a3a6b]">Presentación (opcional)<select value={form.presentation} onChange={(event) => setForm({ ...form, presentation: event.target.value })} className="mt-1.5 w-full rounded-xl border border-slate-200 px-3 py-2.5 font-normal outline-none focus:border-[#2eb8d4]"><option value="">Sin especificar</option>{presentationOptions.map((option) => <option key={option} value={option}>{option}</option>)}</select></label><label className="block text-sm font-bold text-[#1a3a6b]">Categoría<select value={form.category} onChange={(event) => setForm({ ...form, category: event.target.value as Product["category"] })} className="mt-1.5 w-full rounded-xl border border-slate-200 px-3 py-2.5 font-normal outline-none focus:border-[#2eb8d4]">{Object.entries(categoryLabels).map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select></label><Field label="Precio (MXN)" type="number" min="0" step="0.01" value={form.price} onChange={(value) => setForm({ ...form, price: value })} required /><Field label="Unidades en existencia" type="number" min="0" step="1" value={form.stockQuantity} onChange={(value) => setForm({ ...form, stockQuantity: value })} required /><Field label="URL de imagen" value={form.image} onChange={(value) => setForm({ ...form, image: value })} /><label className="sm:col-span-2 block text-sm font-bold text-[#1a3a6b]">Foto del producto<span className="mt-1 flex items-center gap-2 rounded-xl border border-dashed border-[#2eb8d4]/50 bg-[#f5fafd] px-3 py-3 text-sm font-medium text-[#1a3a6b]"><ImageUp className="h-5 w-5 text-[#2eb8d4]" /><input type="file" accept="image/jpeg,image/png,image/webp" onChange={(event) => { const file = event.target.files?.[0]; if (file) uploadImage(file); event.currentTarget.value = ""; }} disabled={uploading} className="w-full text-xs file:mr-3 file:rounded-lg file:border-0 file:bg-[#1a3a6b] file:px-3 file:py-1.5 file:text-xs file:font-bold file:text-white hover:file:bg-[#2eb8d4]" />{uploading && <span className="shrink-0 text-xs text-[#2eb8d4]">Subiendo…</span>}</span></label>{form.image && <div className="sm:col-span-2 flex items-center gap-4 rounded-xl border border-slate-100 bg-slate-50 p-3"><Image src={form.image} alt="Vista previa" width={72} height={72} className="h-16 w-16 rounded-lg bg-white object-contain" /><p className="min-w-0 truncate text-xs text-[#1a3a6b]/60">Vista previa de la imagen guardada.</p></div>}<label className="sm:col-span-2 block text-sm font-bold text-[#1a3a6b]">Descripción<textarea value={form.description} onChange={(event) => setForm({ ...form, description: event.target.value })} rows={3} className="mt-1.5 w-full rounded-xl border border-slate-200 px-3 py-2.5 font-normal outline-none focus:border-[#2eb8d4]" /></label><Field label="Tallas / medidas (separadas por coma)" value={form.sizes} onChange={(value) => setForm({ ...form, sizes: value })} /><Field label="Colores (separados por coma)" value={form.colors} onChange={(value) => setForm({ ...form, colors: value })} /><div className="sm:col-span-2 flex flex-wrap gap-4 pt-1"><label className="flex items-center gap-2 text-sm font-bold text-[#1a3a6b]"><input type="checkbox" checked={form.quoteOnly} onChange={(event) => setForm({ ...form, quoteOnly: event.target.checked })} />Solo cotización</label><label className="flex items-center gap-2 text-sm font-bold text-[#1a3a6b]"><input type="checkbox" checked={form.featured} onChange={(event) => setForm({ ...form, featured: event.target.checked })} />Producto destacado</label></div></div><div className="mt-6 flex justify-end gap-3"><button type="button" onClick={() => setForm(null)} className="rounded-xl px-4 py-3 font-bold text-[#1a3a6b] hover:bg-slate-100">Cancelar</button><button disabled={saving || uploading} className="rounded-xl bg-[#1a3a6b] px-5 py-3 font-bold text-white hover:bg-[#2eb8d4] disabled:opacity-60">{saving ? "Guardando…" : "Guardar producto"}</button></div></form></div>}
+      {form && <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#071a3d]/45 p-4 backdrop-blur-sm"><form onSubmit={save} className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl bg-white p-6 shadow-2xl"><div className="mb-5 flex items-center justify-between"><div><p className="text-xs font-black uppercase tracking-[0.18em] text-[#2eb8d4]">Catálogo</p><h2 className="text-2xl font-black text-[#1a3a6b]">{form.id ? "Editar producto" : "Nuevo producto"}</h2></div><button type="button" onClick={() => setForm(null)} className="rounded-full bg-slate-100 p-2 text-[#1a3a6b]" aria-label="Cerrar"><X className="h-5 w-5" /></button></div><div className="grid gap-4 sm:grid-cols-2"><Field label="Nombre" value={form.name} onChange={(value) => setForm({ ...form, name: value })} required /><Field label="Slug (URL)" value={form.slug} onChange={(value) => setForm({ ...form, slug: value })} /><Field label="Marca (opcional)" value={form.brand} onChange={(value) => setForm({ ...form, brand: value })} /><label className="block text-sm font-bold text-[#1a3a6b]">Presentación (opcional)<select value={form.presentation} onChange={(event) => setForm({ ...form, presentation: event.target.value })} className="mt-1.5 w-full rounded-xl border border-slate-200 px-3 py-2.5 font-normal outline-none focus:border-[#2eb8d4]"><option value="">Sin especificar</option>{presentationOptions.map((option) => <option key={option} value={option}>{option}</option>)}</select></label><label className="block text-sm font-bold text-[#1a3a6b]">Categoría<select value={form.category} onChange={(event) => setForm({ ...form, category: event.target.value as Product["category"] })} className="mt-1.5 w-full rounded-xl border border-slate-200 px-3 py-2.5 font-normal outline-none focus:border-[#2eb8d4]">{Object.entries(categoryLabels).map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select></label><Field label="Precio (MXN)" type="number" min="0" step="0.01" value={form.price} onChange={(value) => setForm({ ...form, price: value })} required /><div className="rounded-xl border border-[#2eb8d4]/25 bg-[#f5fafd] px-3 py-2.5"><p className="text-sm font-bold text-[#1a3a6b]">Existencia total</p><p className="text-xs text-[#1a3a6b]/60">{variantStockTotal} unidades, calculadas por variante.</p></div><Field label="URL de imagen" value={form.image} onChange={(value) => setForm({ ...form, image: value })} /><label className="sm:col-span-2 block text-sm font-bold text-[#1a3a6b]">Foto del producto<span className="mt-1 flex items-center gap-2 rounded-xl border border-dashed border-[#2eb8d4]/50 bg-[#f5fafd] px-3 py-3 text-sm font-medium text-[#1a3a6b]"><ImageUp className="h-5 w-5 text-[#2eb8d4]" /><input type="file" accept="image/jpeg,image/png,image/webp" onChange={(event) => { const file = event.target.files?.[0]; if (file) uploadImage(file); event.currentTarget.value = ""; }} disabled={uploading} className="w-full text-xs file:mr-3 file:rounded-lg file:border-0 file:bg-[#1a3a6b] file:px-3 file:py-1.5 file:text-xs file:font-bold file:text-white hover:file:bg-[#2eb8d4]" />{uploading && <span className="shrink-0 text-xs text-[#2eb8d4]">Subiendo…</span>}</span></label>{form.image && <div className="sm:col-span-2 flex items-center gap-4 rounded-xl border border-slate-100 bg-slate-50 p-3"><Image src={form.image} alt="Vista previa" width={72} height={72} className="h-16 w-16 rounded-lg bg-white object-contain" /><p className="min-w-0 truncate text-xs text-[#1a3a6b]/60">Vista previa de la imagen guardada.</p></div>}<label className="sm:col-span-2 block text-sm font-bold text-[#1a3a6b]">Descripción<textarea value={form.description} onChange={(event) => setForm({ ...form, description: event.target.value })} rows={3} className="mt-1.5 w-full rounded-xl border border-slate-200 px-3 py-2.5 font-normal outline-none focus:border-[#2eb8d4]" /></label><Field label="Tallas / medidas (separadas por coma)" value={form.sizes} onChange={(value) => changeOptions("sizes", value)} /><Field label="Colores (separados por coma)" value={form.colors} onChange={(value) => changeOptions("colors", value)} /><div className="sm:col-span-2 rounded-2xl border border-[#1a3a6b]/10 bg-[#f8fcff] p-4"><div className="mb-3"><p className="font-black text-[#1a3a6b]">Inventario por variante</p><p className="text-xs text-[#1a3a6b]/60">Define la cantidad para cada combinación de color y talla/medida.</p></div><div className="space-y-2">{form.variants.map((variant, index) => <label key={`${variant.color}-${variant.size}`} className="flex items-center gap-3 rounded-xl bg-white px-3 py-2 text-sm"><span className="min-w-0 flex-1 font-bold text-[#1a3a6b]">{[variant.color && `Color: ${variant.color}`, variant.size && `Talla: ${variant.size}`].filter(Boolean).join(" · ") || "Producto sin opciones"}</span><input aria-label={`Existencia ${variant.color} ${variant.size}`} type="number" min="0" step="1" value={variant.stockQuantity} onChange={(event) => changeVariantStock(index, event.target.value)} className="w-24 rounded-lg border border-slate-200 px-2 py-1.5 text-right outline-none focus:border-[#2eb8d4]" /><span className="text-xs font-semibold text-[#1a3a6b]/60">u.</span></label>)}</div></div><div className="sm:col-span-2 flex flex-wrap gap-4 pt-1"><label className="flex items-center gap-2 text-sm font-bold text-[#1a3a6b]"><input type="checkbox" checked={form.quoteOnly} onChange={(event) => setForm({ ...form, quoteOnly: event.target.checked })} />Solo cotización</label><label className="flex items-center gap-2 text-sm font-bold text-[#1a3a6b]"><input type="checkbox" checked={form.featured} onChange={(event) => setForm({ ...form, featured: event.target.checked })} />Producto destacado</label></div></div><div className="mt-6 flex justify-end gap-3"><button type="button" onClick={() => setForm(null)} className="rounded-xl px-4 py-3 font-bold text-[#1a3a6b] hover:bg-slate-100">Cancelar</button><button disabled={saving || uploading} className="rounded-xl bg-[#1a3a6b] px-5 py-3 font-bold text-white hover:bg-[#2eb8d4] disabled:opacity-60">{saving ? "Guardando…" : "Guardar producto"}</button></div></form></div>}
     </section>
   );
 }

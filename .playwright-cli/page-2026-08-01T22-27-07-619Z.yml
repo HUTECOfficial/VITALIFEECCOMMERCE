@@ -1,0 +1,97 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link [ref=e3] [cursor=pointer]:
+      - /url: /
+      - img "Vital Life" [ref=e4]
+      - img "GTO" [ref=e6]
+    - generic [ref=e7]:
+      - link "Inicio" [ref=e8] [cursor=pointer]:
+        - /url: /
+      - link "Nosotros" [ref=e9] [cursor=pointer]:
+        - /url: /nosotros
+      - link "Catálogo Insumos" [ref=e10] [cursor=pointer]:
+        - /url: /insumos
+      - button [ref=e12]
+    - generic [ref=e16]:
+      - link "Comprar ahora" [ref=e17] [cursor=pointer]:
+        - /url: /contacto
+      - link [ref=e21] [cursor=pointer]:
+        - /url: /carrito
+  - main [ref=e26]:
+    - generic [ref=e28]:
+      - heading "Pago cancelado" [level=2] [ref=e29]
+      - paragraph [ref=e30]: El pago fue cancelado. Tu carrito sigue intacto y puedes intentarlo nuevamente cuando estés listo.
+      - paragraph [ref=e31]: "Pedido: prueba"
+      - link "Volver al carrito" [ref=e32] [cursor=pointer]:
+        - /url: /carrito
+  - contentinfo [ref=e37]:
+    - generic [ref=e40]:
+      - link "WhatsApp 477 173 6105 479 228 4057 Respuesta inmediata" [ref=e41] [cursor=pointer]:
+        - /url: https://wa.me/524771736105
+        - generic [ref=e45]:
+          - generic [ref=e46]: WhatsApp
+          - generic [ref=e47]: 477 173 6105
+          - generic [ref=e48]: 479 228 4057
+          - generic [ref=e49]: Respuesta inmediata
+      - link "Email serviciovitalife@outlook.com Te respondemos pronto" [ref=e50] [cursor=pointer]:
+        - /url: mailto:serviciovitalife@outlook.com
+        - generic [ref=e55]:
+          - generic [ref=e56]: Email
+          - generic [ref=e57]: serviciovitalife@outlook.com
+          - generic [ref=e58]: Te respondemos pronto
+      - generic [ref=e64]:
+        - generic [ref=e65]: Ubicación
+        - generic [ref=e66]: León, Guanajuato
+        - generic [ref=e67]: Atención personalizada
+    - generic [ref=e68]:
+      - generic [ref=e69]:
+        - generic [ref=e70]:
+          - img "Vital Life Servicios Integrales" [ref=e72]
+          - paragraph [ref=e73]: Comprometidos en ofrecer un servicio humano, digno y eficaz para el cuidado integral de tu salud y bienestar.
+          - generic [ref=e74]:
+            - link "Facebook" [ref=e75] [cursor=pointer]:
+              - /url: https://www.facebook.com/vitallifeenfermeria/
+            - link "Instagram" [ref=e78] [cursor=pointer]:
+              - /url: https://www.instagram.com/vital_life_insumosmedicos/
+            - link "WhatsApp" [ref=e81] [cursor=pointer]:
+              - /url: https://wa.me/524771736105
+        - generic [ref=e84]:
+          - heading "Enlaces" [level=3] [ref=e85]
+          - list [ref=e86]:
+            - listitem [ref=e87]:
+              - link "Inicio" [ref=e88] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e89]:
+              - link "Nosotros" [ref=e90] [cursor=pointer]:
+                - /url: /nosotros
+            - listitem [ref=e91]:
+              - link "Servicios" [ref=e92] [cursor=pointer]:
+                - /url: /insumos
+            - listitem [ref=e93]:
+              - link "Contacto" [ref=e94] [cursor=pointer]:
+                - /url: /contacto
+        - generic [ref=e95]:
+          - heading "Servicios" [level=3] [ref=e96]
+          - list [ref=e97]:
+            - listitem [ref=e98]:
+              - link "Insumos" [ref=e99] [cursor=pointer]:
+                - /url: /insumos
+            - listitem [ref=e100]:
+              - link "Enfermería - Fisioterapia" [ref=e101] [cursor=pointer]:
+                - /url: /enfermeria
+        - generic [ref=e102]:
+          - heading "Certificaciones" [level=3] [ref=e103]
+          - generic [ref=e104]:
+            - img "Marca GTO" [ref=e106]
+            - generic [ref=e107]:
+              - generic [ref=e108]: Marca GTO
+              - generic [ref=e109]: Guanajuato
+              - generic [ref=e110]: Comprometidos con la calidad y el bienestar de nuestra comunidad.
+      - generic [ref=e111]:
+        - paragraph [ref=e112]: © 2024 Vital Life Insumos Médicos. Todos los derechos reservados.
+        - generic [ref=e113]:
+          - link "Aviso de Privacidad" [ref=e114] [cursor=pointer]:
+            - /url: "#"
+          - link "Términos y Condiciones" [ref=e115] [cursor=pointer]:
+            - /url: "#"
+  - button "Open Next.js Dev Tools" [ref=e121] [cursor=pointer]

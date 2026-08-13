@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import { createServerClient } from "@/lib/supabase/server";
 import { products as localProducts } from "@/data/products";
 import type { Product } from "@/types";
-import { readProductVariants } from "@/lib/product-variants";
+import { readInventoryVariants, readProductVariants } from "@/lib/product-variants";
 
 const cacheHeaders = {
   // Product images and stock are managed in Supabase. Do not let the browser
@@ -29,6 +29,7 @@ interface ProductRow {
   quote_only?: boolean | null;
   brand?: string | null;
   presentation?: string | null;
+  product_variants?: unknown;
 }
 
 function mapRow(row: ProductRow): Product {
@@ -44,6 +45,7 @@ function mapRow(row: ProductRow): Product {
     stockQuantity: row.stock_quantity ?? localStockBySlug.get(row.slug),
     featured: row.featured ?? false,
     ...readProductVariants(row.sizes),
+    variants: readInventoryVariants(row.product_variants),
     quoteOnly: row.quote_only ?? false,
     brand: row.brand ?? undefined,
     presentation: row.presentation ?? undefined,
@@ -57,7 +59,7 @@ export async function GET() {
       .from("products")
       // Select all fields until the stock migration has reached every
       // environment; the response is still mapped to the public shape above.
-      .select("*")
+      .select("*, product_variants(color,size,stock_quantity)")
       .order("name", { ascending: true });
 
     if (error || !data || data.length === 0) {

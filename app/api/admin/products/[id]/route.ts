@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { isAdminRequest } from "@/lib/admin-auth";
 import { createServerClient } from "@/lib/supabase/server";
 import { productToRow } from "@/lib/admin-products";
-import { parseProductInput } from "@/app/api/admin/products/route";
+import { parseProductInput, productResponse, replaceProductVariants } from "@/app/api/admin/products/route";
 
 type Context = { params: Promise<{ id: string }> };
 
@@ -17,7 +17,13 @@ export async function PATCH(request: NextRequest, { params }: Context) {
     const message = error.code === "23505" ? "Ya existe un producto con ese slug." : "No se pudo actualizar el producto.";
     return NextResponse.json({ error: message }, { status: 400 });
   }
-  return NextResponse.json(data);
+  try {
+    await replaceProductVariants(supabase, id, product.variants);
+  } catch {
+    return NextResponse.json({ error: "No se pudieron guardar las variantes. Aplica la migración 008_product_variant_stock.sql." }, { status: 400 });
+  }
+  const { data: saved } = await supabase.from("products").select("*").eq("id", id).single();
+  return NextResponse.json(productResponse(saved ?? data, { ...product, id }));
 }
 
 export async function DELETE(request: NextRequest, { params }: Context) {

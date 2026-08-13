@@ -1,0 +1,411 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link [ref=e3] [cursor=pointer]:
+      - /url: /
+      - img "Vital Life" [ref=e4]
+      - img "GTO" [ref=e6]
+    - generic [ref=e7]:
+      - link "Inicio" [ref=e8] [cursor=pointer]:
+        - /url: /
+      - link "Nosotros" [ref=e9] [cursor=pointer]:
+        - /url: /nosotros
+      - link "Catálogo Insumos" [ref=e10] [cursor=pointer]:
+        - /url: /insumos
+      - button [ref=e13]
+    - generic [ref=e17]:
+      - link "Comprar ahora" [ref=e18] [cursor=pointer]:
+        - /url: /contacto
+      - link [ref=e22] [cursor=pointer]:
+        - /url: /carrito
+  - main [ref=e27]:
+    - generic [ref=e28]:
+      - generic [ref=e31]:
+        - paragraph [ref=e32]: catálogo de
+        - heading "Insumos Médicos" [level=1] [ref=e33]
+        - paragraph [ref=e34]: Distribuidores autorizados de las mejores marcas médicas en México. Todos los productos disponibles para compra directa con carrito.
+        - textbox "Buscar marca, producto o categoría..." [ref=e39]
+      - generic [ref=e41]:
+        - generic [ref=e42]:
+          - generic [ref=e43]:
+            - paragraph [ref=e44]: Compra rápida
+            - heading "Agrega al carrito en un clic" [level=2] [ref=e45]
+            - paragraph [ref=e46]: Experiencia optimizada para móvil y desktop.
+          - link "Ver carrito (0)" [ref=e47] [cursor=pointer]:
+            - /url: /carrito
+        - generic [ref=e50]:
+          - article [ref=e51]:
+            - link [ref=e52] [cursor=pointer]:
+              - /url: /productos/guantes-nitrilo-100pcs
+              - img "Guantes de Nitrilo 100pcs" [ref=e53]
+            - paragraph [ref=e54]: Guantes
+            - link [ref=e55] [cursor=pointer]:
+              - /url: /productos/guantes-nitrilo-100pcs
+              - heading "Guantes de Nitrilo 100pcs" [level=3] [ref=e56]
+            - paragraph [ref=e57]: Guantes desechables de nitrilo sin látex. Alta resistencia a químicos. Caja de 100 piezas.
+            - generic [ref=e58]:
+              - generic [ref=e59]: $189
+              - generic [ref=e60]: Disponible
+            - generic [ref=e62]:
+              - generic [ref=e63]:
+                - paragraph [ref=e64]: Talla / medida
+                - generic [ref=e65]:
+                  - button "Chico" [ref=e66]
+                  - button "Mediano" [ref=e67]
+                  - button "Grande" [ref=e68]
+              - button "Agregar Guantes de Nitrilo 100pcs al carrito" [disabled] [ref=e69]:
+                - generic [ref=e70]: Agregar al carrito
+          - article [ref=e75]:
+            - link [ref=e76] [cursor=pointer]:
+              - /url: /productos/gel-antibacterial
+              - img "Gel Antibacterial" [ref=e77]
+            - paragraph [ref=e78]: Antisépticos y control de infecciones
+            - link [ref=e79] [cursor=pointer]:
+              - /url: /productos/gel-antibacterial
+              - heading "Gel Antibacterial" [level=3] [ref=e80]
+            - paragraph [ref=e81]: Gel antibacterial con 70% de alcohol isopropílico. Fórmula con aloe vera para cuidado de manos.
+            - generic [ref=e82]:
+              - generic [ref=e83]: $85
+              - generic [ref=e84]: Disponible
+            - generic [ref=e86]:
+              - generic [ref=e87]:
+                - paragraph [ref=e88]: Talla / medida
+                - generic [ref=e89]:
+                  - button "100ml" [ref=e90]
+                  - button "250ml" [ref=e91]
+                  - button "500ml" [ref=e92]
+              - button "Agregar Gel Antibacterial al carrito" [disabled] [ref=e93]:
+                - generic [ref=e94]: Agregar al carrito
+          - article [ref=e99]:
+            - link [ref=e100] [cursor=pointer]:
+              - /url: /productos/vendas-gasa-10cm-5m
+              - img "Vendas de Gasa 10cm x 5m" [ref=e101]
+            - paragraph [ref=e102]: Curación, apósitos y vendajes
+            - link [ref=e103] [cursor=pointer]:
+              - /url: /productos/vendas-gasa-10cm-5m
+              - heading "Vendas de Gasa 10cm x 5m" [level=3] [ref=e104]
+            - paragraph [ref=e105]: Venda de gasa esterilizada 100% algodón. Ideal para apósitos y curaciones. Paquete con 12 rollos.
+            - generic [ref=e106]:
+              - generic [ref=e107]: $45
+              - generic [ref=e108]: Disponible
+            - button "Agregar Vendas de Gasa 10cm x 5m al carrito" [ref=e111]:
+              - generic [ref=e112]: Agregar al carrito
+          - article [ref=e117]:
+            - link [ref=e118] [cursor=pointer]:
+              - /url: /productos/jeringas-5ml-10pcs
+              - img "Jeringas 5ml x 10pcs" [ref=e119]
+            - paragraph [ref=e120]: Agujas, jeringas y punción
+            - link [ref=e121] [cursor=pointer]:
+              - /url: /productos/jeringas-5ml-10pcs
+              - heading "Jeringas 5ml x 10pcs" [level=3] [ref=e122]
+            - paragraph [ref=e123]: Jeringas desechables de 5ml con aguja 21G. Estériles y empacadas individualmente. Paquete de 10.
+            - generic [ref=e124]:
+              - generic [ref=e125]: $65
+              - generic [ref=e126]: Disponible
+            - button "Agregar Jeringas 5ml x 10pcs al carrito" [ref=e129]:
+              - generic [ref=e130]: Agregar al carrito
+          - article [ref=e135]:
+            - link [ref=e136] [cursor=pointer]:
+              - /url: /productos/gasa-tela-2-5cm
+              - img "Gasa de Tela 2.5cm" [ref=e137]
+            - paragraph [ref=e138]: Curación, apósitos y vendajes
+            - link [ref=e139] [cursor=pointer]:
+              - /url: /productos/gasa-tela-2-5cm
+              - heading "Gasa de Tela 2.5cm" [level=3] [ref=e140]
+            - paragraph [ref=e141]: Gasa de tela de algodón transpirable. Alta adherencia. Rollo de 9m x 2.5cm.
+            - generic [ref=e142]:
+              - generic [ref=e143]: $38
+              - generic [ref=e144]: Disponible
+            - button "Agregar Gasa de Tela 2.5cm al carrito" [ref=e147]:
+              - generic [ref=e148]: Agregar al carrito
+          - article [ref=e153]:
+            - link [ref=e154] [cursor=pointer]:
+              - /url: /productos/oximetro-pulso-digital
+              - img "Oxímetro de Pulso Digital" [ref=e155]
+            - paragraph [ref=e156]: Diagnóstico y monitoreo
+            - link [ref=e157] [cursor=pointer]:
+              - /url: /productos/oximetro-pulso-digital
+              - heading "Oxímetro de Pulso Digital" [level=3] [ref=e158]
+            - paragraph [ref=e159]: Oxímetro de pulso digital con pantalla LED. Mide la saturación de oxígeno (SpO2) y frecuencia cardíaca. Compacto y fácil de usar.
+            - generic [ref=e160]:
+              - generic [ref=e161]: $220
+              - generic [ref=e162]: Disponible
+            - button "Agregar Oxímetro de Pulso Digital al carrito" [ref=e165]:
+              - generic [ref=e166]: Agregar al carrito
+          - article [ref=e171]:
+            - link [ref=e172] [cursor=pointer]:
+              - /url: /productos/tensiometro-manual
+              - img "Tensiómetro Manual" [ref=e173]
+            - paragraph [ref=e174]: Diagnóstico y monitoreo
+            - link [ref=e175] [cursor=pointer]:
+              - /url: /productos/tensiometro-manual
+              - heading "Tensiómetro Manual" [level=3] [ref=e176]
+            - paragraph [ref=e177]: Esfigmomanómetro manual aneroide con estetoscopio. Rango 0-300mmHg. Brazalete adulto incluido.
+            - generic [ref=e178]:
+              - generic [ref=e179]: $650
+              - generic [ref=e180]: Disponible
+            - button "Agregar Tensiómetro Manual al carrito" [ref=e183]:
+              - generic [ref=e184]: Agregar al carrito
+          - article [ref=e189]:
+            - link [ref=e190] [cursor=pointer]:
+              - /url: /productos/estetoscopio-clinico
+              - img "Estetoscopio Clínico" [ref=e191]
+            - paragraph [ref=e192]: Diagnóstico y monitoreo
+            - link [ref=e193] [cursor=pointer]:
+              - /url: /productos/estetoscopio-clinico
+              - heading "Estetoscopio Clínico" [level=3] [ref=e194]
+            - paragraph [ref=e195]: Estetoscopio de doble campana para uso clínico. Acústica superior. Tubos de 22 pulgadas.
+            - generic [ref=e196]:
+              - generic [ref=e197]: $480
+              - generic [ref=e198]: Disponible
+            - button "Agregar Estetoscopio Clínico al carrito" [ref=e201]:
+              - generic [ref=e202]: Agregar al carrito
+          - article [ref=e207]:
+            - link [ref=e208] [cursor=pointer]:
+              - /url: /productos/apositos-esteriles-10x10cm
+              - img "Apósitos Estériles 10x10cm" [ref=e209]
+            - paragraph [ref=e210]: Curación, apósitos y vendajes
+            - link [ref=e211] [cursor=pointer]:
+              - /url: /productos/apositos-esteriles-10x10cm
+              - heading "Apósitos Estériles 10x10cm" [level=3] [ref=e212]
+            - paragraph [ref=e213]: Apósitos no tejidos estériles para cobertura de heridas. Paquete de 25 piezas de 10x10cm.
+            - generic [ref=e214]:
+              - generic [ref=e215]: $55
+              - generic [ref=e216]: Disponible
+            - button "Agregar Apósitos Estériles 10x10cm al carrito" [ref=e219]:
+              - generic [ref=e220]: Agregar al carrito
+          - article [ref=e225]:
+            - link [ref=e226] [cursor=pointer]:
+              - /url: /productos/solucion-inyectable
+              - img "Solución Inyectable" [ref=e227]
+            - paragraph [ref=e228]: Terapia intravenosa y soluciones
+            - link [ref=e229] [cursor=pointer]:
+              - /url: /productos/solucion-inyectable
+              - heading "Solución Inyectable" [level=3] [ref=e230]
+            - paragraph [ref=e231]: Solución salina isotónica 0.9% para irrigación. Uso médico profesional.
+            - generic [ref=e232]:
+              - generic [ref=e233]: $95
+              - generic [ref=e234]: Disponible
+            - generic [ref=e236]:
+              - generic [ref=e237]:
+                - paragraph [ref=e238]: Talla / medida
+                - generic [ref=e239]:
+                  - button "100ml" [ref=e240]
+                  - button "250ml" [ref=e241]
+                  - button "500ml" [ref=e242]
+                  - button "1000ml" [ref=e243]
+              - button "Agregar Solución Inyectable al carrito" [disabled] [ref=e244]:
+                - generic [ref=e245]: Agregar al carrito
+          - article [ref=e250]:
+            - link [ref=e251] [cursor=pointer]:
+              - /url: /productos/gasas-esteriles-7-5x7-5cm
+              - img "Gasas Estériles 7.5x7.5cm" [ref=e252]
+            - paragraph [ref=e253]: Curación, apósitos y vendajes
+            - link [ref=e254] [cursor=pointer]:
+              - /url: /productos/gasas-esteriles-7-5x7-5cm
+              - heading "Gasas Estériles 7.5x7.5cm" [level=3] [ref=e255]
+            - paragraph [ref=e256]: Gasas de tejido abierto 100% algodón estéril. Paquete de 50 unidades de 7.5x7.5cm.
+            - generic [ref=e257]:
+              - generic [ref=e258]: $42
+              - generic [ref=e259]: Disponible
+            - button "Agregar Gasas Estériles 7.5x7.5cm al carrito" [ref=e262]:
+              - generic [ref=e263]: Agregar al carrito
+          - article [ref=e268]:
+            - link [ref=e269] [cursor=pointer]:
+              - /url: /productos/guantes-latex-50pcs
+              - img "Guantes de Látex 50pcs" [ref=e270]
+            - paragraph [ref=e271]: Guantes
+            - link [ref=e272] [cursor=pointer]:
+              - /url: /productos/guantes-latex-50pcs
+              - heading "Guantes de Látex 50pcs" [level=3] [ref=e273]
+            - paragraph [ref=e274]: Guantes de látex natural desechables con polvo. Alta elasticidad y sensibilidad táctil. Caja de 50.
+            - generic [ref=e275]:
+              - generic [ref=e276]: $155
+              - generic [ref=e277]: Disponible
+            - generic [ref=e279]:
+              - generic [ref=e280]:
+                - paragraph [ref=e281]: Talla / medida
+                - generic [ref=e282]:
+                  - button "Chico" [ref=e283]
+                  - button "Mediano" [ref=e284]
+                  - button "Grande" [ref=e285]
+              - button "Agregar Guantes de Látex 50pcs al carrito" [disabled] [ref=e286]:
+                - generic [ref=e287]: Agregar al carrito
+      - generic [ref=e293]:
+        - generic [ref=e294]:
+          - generic [ref=e295] [cursor=pointer]:
+            - img "guantes" [ref=e296]
+            - generic [ref=e298]: Destacado
+            - generic [ref=e303]:
+              - heading "Guantes" [level=3] [ref=e311]
+              - paragraph [ref=e312]: Guantes estériles y no estériles de la más alta calidad.
+              - generic [ref=e313]: AMBIDERM
+              - button "Ver productos →" [ref=e315]
+          - generic [ref=e316] [cursor=pointer]:
+            - generic:
+              - img "Curación, apósitos y vendajes"
+            - generic [ref=e317]:
+              - heading "Curación, apósitos y vendajes" [level=3] [ref=e321]
+              - paragraph [ref=e322]: Todo lo necesario para el cuidado y curación de heridas.
+              - generic [ref=e323]: Ver productos →
+          - generic [ref=e324] [cursor=pointer]:
+            - generic:
+              - img "Antisépticos y control de infecciones"
+            - generic [ref=e325]:
+              - heading "Antisépticos y control de infecciones" [level=3] [ref=e329]
+              - paragraph [ref=e330]: Soluciones antisépticas y desinfectantes certificados.
+              - generic [ref=e331]: Ver productos →
+          - generic [ref=e332] [cursor=pointer]:
+            - generic:
+              - img "Agujas, jeringas y punción"
+            - generic [ref=e333]:
+              - heading "Agujas, jeringas y punción" [level=3] [ref=e342]
+              - paragraph [ref=e343]: Agujas, jeringas y sistemas de punción estériles.
+              - generic [ref=e344]: Ver productos →
+          - generic [ref=e345] [cursor=pointer]:
+            - generic:
+              - img "Terapia intravenosa y soluciones"
+            - generic [ref=e346]:
+              - heading "Terapia intravenosa y soluciones" [level=3] [ref=e351]
+              - paragraph [ref=e352]: Catéteres, cánulas y accesorios para terapia intravenosa.
+              - generic [ref=e353]: Ver productos →
+          - generic [ref=e354] [cursor=pointer]:
+            - generic:
+              - img "Sondas, catéteres y drenajes"
+            - generic [ref=e355]:
+              - heading "Sondas, catéteres y drenajes" [level=3] [ref=e359]
+              - paragraph [ref=e360]: Sondas y catéteres para diversas aplicaciones médicas.
+              - generic [ref=e361]: Ver productos →
+          - generic [ref=e362] [cursor=pointer]:
+            - generic:
+              - img "Terapia respiratoria y ventilación"
+            - generic [ref=e363]:
+              - heading "Terapia respiratoria y ventilación" [level=3] [ref=e369]
+              - paragraph [ref=e370]: Soluciones completas para soporte respiratorio.
+              - generic [ref=e371]: Ver productos →
+        - generic [ref=e372]:
+          - generic [ref=e373] [cursor=pointer]:
+            - generic:
+              - img "Diagnóstico y monitoreo"
+            - generic [ref=e374]:
+              - heading "Diagnóstico y monitoreo" [level=3] [ref=e380]
+              - generic [ref=e381]: Ver →
+          - generic [ref=e382] [cursor=pointer]:
+            - generic:
+              - img "Equipo e instrumental quirúrgico"
+            - generic [ref=e383]:
+              - heading "Equipo e instrumental quirúrgico" [level=3] [ref=e391]
+              - generic [ref=e392]: Ver →
+          - generic [ref=e393] [cursor=pointer]:
+            - generic:
+              - img "Rehabilitación y ortopedia"
+            - generic [ref=e394]:
+              - heading "Rehabilitación y ortopedia" [level=3] [ref=e402]
+              - generic [ref=e403]: Ver →
+          - generic [ref=e404] [cursor=pointer]:
+            - generic:
+              - img "Medicamentos"
+            - generic [ref=e405]:
+              - heading "Medicamentos" [level=3] [ref=e410]
+              - generic [ref=e411]: Ver →
+          - generic [ref=e412] [cursor=pointer]:
+            - generic:
+              - img "Protección y desechables"
+            - generic [ref=e413]:
+              - heading "Protección y desechables" [level=3] [ref=e418]
+              - generic [ref=e419]: Ver →
+          - generic [ref=e420] [cursor=pointer]:
+            - generic:
+              - img "Gestión de residuos"
+            - generic [ref=e421]:
+              - heading "Gestión de residuos" [level=3] [ref=e426]
+              - generic [ref=e427]: Ver →
+          - generic [ref=e428] [cursor=pointer]:
+            - generic:
+              - img "Atención al paciente y generales"
+            - generic [ref=e429]:
+              - heading "Atención al paciente y generales" [level=3] [ref=e433]
+              - generic [ref=e434]: Ver →
+      - generic [ref=e437]:
+        - generic [ref=e443]:
+          - paragraph [ref=e444]: Marcas autorizadas
+          - paragraph [ref=e445]: Trabajamos con los mejores
+        - generic [ref=e453]:
+          - paragraph [ref=e454]: Envíos seguros
+          - paragraph [ref=e455]: A todo México
+        - generic [ref=e462]:
+          - paragraph [ref=e463]: Asesoría experta
+          - paragraph [ref=e464]: Atención personalizada
+        - generic [ref=e471]:
+          - paragraph [ref=e472]: Carrito de compras
+          - paragraph [ref=e473]: Compra fácil y segura
+  - contentinfo [ref=e474]:
+    - generic [ref=e477]:
+      - link "WhatsApp 477 173 6105 479 228 4057 Respuesta inmediata" [ref=e478] [cursor=pointer]:
+        - /url: https://wa.me/524771736105
+        - generic [ref=e482]:
+          - generic [ref=e483]: WhatsApp
+          - generic [ref=e484]: 477 173 6105
+          - generic [ref=e485]: 479 228 4057
+          - generic [ref=e486]: Respuesta inmediata
+      - link "Email serviciovitalife@outlook.com Te respondemos pronto" [ref=e487] [cursor=pointer]:
+        - /url: mailto:serviciovitalife@outlook.com
+        - generic [ref=e492]:
+          - generic [ref=e493]: Email
+          - generic [ref=e494]: serviciovitalife@outlook.com
+          - generic [ref=e495]: Te respondemos pronto
+      - generic [ref=e501]:
+        - generic [ref=e502]: Ubicación
+        - generic [ref=e503]: León, Guanajuato
+        - generic [ref=e504]: Atención personalizada
+    - generic [ref=e505]:
+      - generic [ref=e506]:
+        - generic [ref=e507]:
+          - img "Vital Life Servicios Integrales" [ref=e509]
+          - paragraph [ref=e510]: Comprometidos en ofrecer un servicio humano, digno y eficaz para el cuidado integral de tu salud y bienestar.
+          - generic [ref=e511]:
+            - link "Facebook" [ref=e512] [cursor=pointer]:
+              - /url: https://www.facebook.com/vitallifeenfermeria/
+            - link "Instagram" [ref=e515] [cursor=pointer]:
+              - /url: https://www.instagram.com/vital_life_insumosmedicos/
+            - link "WhatsApp" [ref=e518] [cursor=pointer]:
+              - /url: https://wa.me/524771736105
+        - generic [ref=e521]:
+          - heading "Enlaces" [level=3] [ref=e522]
+          - list [ref=e523]:
+            - listitem [ref=e524]:
+              - link "Inicio" [ref=e525] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e526]:
+              - link "Nosotros" [ref=e527] [cursor=pointer]:
+                - /url: /nosotros
+            - listitem [ref=e528]:
+              - link "Servicios" [ref=e529] [cursor=pointer]:
+                - /url: /insumos
+            - listitem [ref=e530]:
+              - link "Contacto" [ref=e531] [cursor=pointer]:
+                - /url: /contacto
+        - generic [ref=e532]:
+          - heading "Servicios" [level=3] [ref=e533]
+          - list [ref=e534]:
+            - listitem [ref=e535]:
+              - link "Insumos" [ref=e536] [cursor=pointer]:
+                - /url: /insumos
+            - listitem [ref=e537]:
+              - link "Enfermería - Fisioterapia" [ref=e538] [cursor=pointer]:
+                - /url: /enfermeria
+        - generic [ref=e539]:
+          - heading "Certificaciones" [level=3] [ref=e540]
+          - generic [ref=e541]:
+            - img "Marca GTO" [ref=e543]
+            - generic [ref=e544]:
+              - generic [ref=e545]: Marca GTO
+              - generic [ref=e546]: Guanajuato
+              - generic [ref=e547]: Comprometidos con la calidad y el bienestar de nuestra comunidad.
+      - generic [ref=e548]:
+        - paragraph [ref=e549]: © 2024 Vital Life Insumos Médicos. Todos los derechos reservados.
+        - generic [ref=e550]:
+          - link "Aviso de Privacidad" [ref=e551] [cursor=pointer]:
+            - /url: "#"
+          - link "Términos y Condiciones" [ref=e552] [cursor=pointer]:
+            - /url: "#"
+  - button "Open Next.js Dev Tools" [ref=e558] [cursor=pointer]

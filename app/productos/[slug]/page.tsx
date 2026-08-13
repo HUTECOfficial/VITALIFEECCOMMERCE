@@ -6,7 +6,6 @@ import { getProductBySlug } from "@/lib/data";
 import { formatPrice } from "@/lib/utils";
 import { categoryLabels } from "@/data/products";
 import { ShoppingCartButton } from "@/components/ui/ShoppingCartButton";
-import { StockIndicator } from "@/components/ui/StockIndicator";
 import { ProductImageZoom } from "@/components/ui/ProductImageZoom";
 import { productGalleryImages } from "@/data/productGallery";
 import { getProductNameParts } from "@/lib/product-name";
@@ -66,9 +65,8 @@ export default async function ProductPage({ params }: PageProps) {
               </p>
             )}
             <p className="text-[#1a3a6b]/65 mb-6">{product.description}</p>
-            <div className="mb-6 space-y-3">
+            <div className="mb-6">
               <span className="block text-3xl font-black text-[#1a3a6b]">{product.quoteOnly ? "Cotización disponible" : formatPrice(product.price)}</span>
-              <StockIndicator quantity={product.stockQuantity} inStock={product.inStock} />
             </div>
             <div className="w-full max-w-xs">
               <ShoppingCartButton product={product} />

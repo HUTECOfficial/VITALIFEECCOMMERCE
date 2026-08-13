@@ -187,6 +187,12 @@ function InsumosContent() {
 
   return (
     <div className="min-h-screen bg-white">
+      {/* Las categorías son el primer bloque visible del catálogo. */}
+      <CategoryGrid
+        activeCategory={activeCategory}
+        onCategoryClick={handleCategoryClick}
+      />
+
       {/* ══ HERO ══════════════════════════════════════════ */}
       <section
         className="relative overflow-hidden"
@@ -201,6 +207,20 @@ function InsumosContent() {
           }}
         />
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-14 pb-14 text-center">
+          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.1 }}
+            className="max-w-lg mx-auto mb-8">
+            <div className="bg-white rounded-2xl shadow-xl shadow-[#1a3a6b]/10 border border-gray-100 flex items-center gap-3 px-5 py-4">
+              <svg className="w-5 h-5 text-[#2eb8d4] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
+              </svg>
+              <input type="text" placeholder="Buscar marca, producto o categoría..."
+                value={search} onChange={(e) => setSearch(e.target.value)}
+                className="flex-1 bg-transparent text-[#1a3a6b] placeholder-[#1a3a6b]/40 text-base outline-none font-medium" />
+              {search && (
+                <button onClick={() => setSearch("")} className="text-[#1a3a6b]/40 hover:text-[#1a3a6b] transition-colors text-lg leading-none">✕</button>
+              )}
+            </div>
+          </motion.div>
           <motion.p initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}
             className="text-[#2eb8d4] font-bold text-sm uppercase tracking-[0.2em] mb-3">
             catálogo de
@@ -214,20 +234,6 @@ function InsumosContent() {
             Distribuidores autorizados de las mejores marcas médicas en México.
             Todos los productos disponibles para compra directa con carrito.
           </motion.p>
-          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.3 }}
-            className="max-w-lg mx-auto">
-            <div className="bg-white rounded-2xl shadow-xl shadow-[#1a3a6b]/10 border border-gray-100 flex items-center gap-3 px-5 py-4">
-              <svg className="w-5 h-5 text-[#2eb8d4] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
-              </svg>
-              <input type="text" placeholder="Buscar marca, producto o categoría..."
-                value={search} onChange={(e) => setSearch(e.target.value)}
-                className="flex-1 bg-transparent text-[#1a3a6b] placeholder-[#1a3a6b]/40 text-base outline-none font-medium" />
-              {search && (
-                <button onClick={() => setSearch("")} className="text-[#1a3a6b]/40 hover:text-[#1a3a6b] transition-colors text-lg leading-none">✕</button>
-              )}
-            </div>
-          </motion.div>
         </div>
       </section>
 
@@ -303,67 +309,6 @@ function InsumosContent() {
             </div>
           </section>
 
-          {/* ══ CATEGORY GRID ═════════════════════════════════ */}
-          <section className="bg-[#eef7fd] py-8 px-4 sm:px-6">
-            <div className="max-w-6xl mx-auto space-y-4">
-              {/* Row 1 + 2: Featured (row-span-2) + 6 regular cards */}
-              <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-                {/* Featured card */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
-                  onClick={() => handleCategoryClick(FEATURED)}
-                  className={`md:row-span-2 relative rounded-3xl overflow-hidden cursor-pointer group border-2 transition-all duration-300 ${
-                    activeCategory === FEATURED
-                      ? "border-[#2eb8d4] shadow-xl shadow-[#2eb8d4]/30"
-                      : "border-transparent hover:shadow-xl"
-                  }`}
-                  style={{ minHeight: 420 }}
-                >
-                  <Image src={catCfg[FEATURED].img} alt={FEATURED} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#1a3a6b]/90 via-[#1a3a6b]/35 to-transparent" />
-                  <div className="absolute top-4 left-4">
-                    <span className="inline-flex items-center gap-1.5 bg-yellow-400 text-[#1a3a6b] text-xs font-black px-3 py-1.5 rounded-full shadow-lg">
-                      <Award className="w-3.5 h-3.5" /> Destacado
-                    </span>
-                  </div>
-                  <div className="absolute bottom-0 left-0 right-0 p-6">
-                    <div className="flex items-center gap-3 mb-2">
-                      <div className="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30">
-                        <Hand className="w-5 h-5 text-white" />
-                      </div>
-                      <h3 className="text-3xl font-black text-white">Guantes</h3>
-                    </div>
-                    <p className="text-white/80 text-sm mb-4 leading-relaxed">Guantes estériles y no estériles de la más alta calidad.</p>
-                    <div className="flex flex-wrap gap-2 mb-5">
-                      {getBrandsByCategory("Guantes").map((b) => (
-                        <span key={b.id} className="bg-white/20 backdrop-blur-sm text-white text-xs font-bold px-2.5 py-1 rounded-lg border border-white/30 uppercase tracking-wide">
-                          {b.name}
-                        </span>
-                      ))}
-                    </div>
-                    <button onClick={(e) => { e.stopPropagation(); handleCategoryClick(FEATURED); }}
-                      className="inline-flex items-center gap-2 bg-white text-[#1a3a6b] text-sm font-bold px-5 py-2.5 rounded-xl hover:bg-[#e8f4fd] transition-colors shadow-lg">
-                      Ver productos →
-                    </button>
-                  </div>
-                </motion.div>
-
-                {REST.slice(0, 6).map((cat, i) => (
-                  <RegularCard key={cat} cat={cat} config={catCfg[cat]}
-                    active={activeCategory === cat} onClick={() => handleCategoryClick(cat)} delay={0.05 + i * 0.04} />
-                ))}
-              </div>
-
-              {/* Bottom compact row */}
-              <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-                {REST.slice(6).map((cat, i) => (
-                  <CompactCard key={cat} cat={cat} config={catCfg[cat]}
-                    active={activeCategory === cat} onClick={() => handleCategoryClick(cat)} delay={0.12 + i * 0.04} />
-                ))}
-              </div>
-            </div>
-          </section>
-
           {/* ══ PRODUCT + BRAND RESULTS (category selection) ═════════════════ */}
       <div ref={brandsRef} />
       <AnimatePresence>
@@ -409,6 +354,86 @@ function InsumosContent() {
         </div>
       </section>
     </div>
+  );
+}
+
+interface CategoryGridProps {
+  activeCategory: Product["category"] | null;
+  onCategoryClick: (category: Product["category"]) => void;
+}
+
+function CategoryGrid({ activeCategory, onCategoryClick }: CategoryGridProps) {
+  return (
+    <section className="bg-[#eef7fd] py-8 px-4 sm:px-6">
+      <div className="max-w-6xl mx-auto space-y-4">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}
+            onClick={() => onCategoryClick(FEATURED)}
+            className={`md:row-span-2 relative rounded-3xl overflow-hidden cursor-pointer group border-2 transition-all duration-300 ${
+              activeCategory === FEATURED
+                ? "border-[#2eb8d4] shadow-xl shadow-[#2eb8d4]/30"
+                : "border-transparent hover:shadow-xl"
+            }`}
+            style={{ minHeight: 420 }}
+          >
+            <Image src={catCfg[FEATURED].img} alt={FEATURED} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1a3a6b]/90 via-[#1a3a6b]/35 to-transparent" />
+            <div className="absolute top-4 left-4">
+              <span className="inline-flex items-center gap-1.5 bg-yellow-400 text-[#1a3a6b] text-xs font-black px-3 py-1.5 rounded-full shadow-lg">
+                <Award className="w-3.5 h-3.5" /> Destacado
+              </span>
+            </div>
+            <div className="absolute bottom-0 left-0 right-0 p-6">
+              <div className="flex items-center gap-3 mb-2">
+                <div className="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30">
+                  <Hand className="w-5 h-5 text-white" />
+                </div>
+                <h3 className="text-3xl font-black text-white">Guantes</h3>
+              </div>
+              <p className="text-white/80 text-sm mb-4 leading-relaxed">Guantes estériles y no estériles de la más alta calidad.</p>
+              <div className="flex flex-wrap gap-2 mb-5">
+                {getBrandsByCategory("Guantes").map((brand) => (
+                  <span key={brand.id} className="bg-white/20 backdrop-blur-sm text-white text-xs font-bold px-2.5 py-1 rounded-lg border border-white/30 uppercase tracking-wide">
+                    {brand.name}
+                  </span>
+                ))}
+              </div>
+              <button
+                onClick={(event) => { event.stopPropagation(); onCategoryClick(FEATURED); }}
+                className="inline-flex items-center gap-2 bg-white text-[#1a3a6b] text-sm font-bold px-5 py-2.5 rounded-xl hover:bg-[#e8f4fd] transition-colors shadow-lg"
+              >
+                Ver productos →
+              </button>
+            </div>
+          </motion.div>
+
+          {REST.slice(0, 6).map((cat, i) => (
+            <RegularCard
+              key={cat}
+              cat={cat}
+              config={catCfg[cat]}
+              active={activeCategory === cat}
+              onClick={() => onCategoryClick(cat)}
+              delay={0.05 + i * 0.04}
+            />
+          ))}
+        </div>
+
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+          {REST.slice(6).map((cat, i) => (
+            <CompactCard
+              key={cat}
+              cat={cat}
+              config={catCfg[cat]}
+              active={activeCategory === cat}
+              onClick={() => onCategoryClick(cat)}
+              delay={0.12 + i * 0.04}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }
 

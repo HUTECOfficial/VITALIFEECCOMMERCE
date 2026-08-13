@@ -9,6 +9,7 @@ interface CheckoutItem {
   price: number;
   quantity: number;
   size?: string;
+  color?: string;
 }
 
 interface CheckoutPayload {
@@ -52,7 +53,7 @@ export async function POST(request: NextRequest) {
 
     const { data: catalogProducts, error: catalogError } = await supabase
       .from("products")
-      .select("id, name, price, in_stock, stock_quantity")
+      .select("id, name, price, in_stock, stock_quantity, quote_only")
       .in("id", productIds);
 
     if (catalogError || !catalogProducts || catalogProducts.length !== productIds.length) {
@@ -60,17 +61,30 @@ export async function POST(request: NextRequest) {
     }
 
     const catalogById = new Map(catalogProducts.map((product) => [product.id, product]));
-    const requestedQuantityByProduct = new Map<string, number>();
-    for (const item of body.items) {
-      requestedQuantityByProduct.set(item.productId!, (requestedQuantityByProduct.get(item.productId!) ?? 0) + item.quantity);
+    const { data: catalogVariants, error: variantsError } = await supabase
+      .from("product_variants")
+      .select("product_id,color,size,stock_quantity")
+      .in("product_id", productIds);
+    if (variantsError || !catalogVariants) {
+      return NextResponse.json({ error: "No se pudo validar el inventario por variante. Aplica la migración 008_product_variant_stock.sql." }, { status: 400 });
     }
-    const items: Array<{ productId: string; name: string; price: number; quantity: number; size?: string }> = [];
+    const variantByKey = new Map(catalogVariants.map((variant) => [`${variant.product_id}\u0000${variant.color}\u0000${variant.size}`, variant]));
+    const requestedQuantityByVariant = new Map<string, number>();
+    for (const item of body.items) {
+      const key = `${item.productId}\u0000${item.color ?? ""}\u0000${item.size ?? ""}`;
+      requestedQuantityByVariant.set(key, (requestedQuantityByVariant.get(key) ?? 0) + item.quantity);
+    }
+    const items: Array<{ productId: string; name: string; price: number; quantity: number; size?: string; color?: string }> = [];
     for (const item of body.items) {
       const product = catalogById.get(item.productId!);
-      const requestedQuantity = requestedQuantityByProduct.get(item.productId!) ?? 0;
-      if (!product || !product.in_stock || Number(product.stock_quantity) < requestedQuantity || Number(product.price) <= 0) {
+      const color = typeof item.color === "string" ? item.color.trim() : "";
+      const size = typeof item.size === "string" ? item.size.trim() : "";
+      const variantKey = `${item.productId}\u0000${color}\u0000${size}`;
+      const variant = variantByKey.get(variantKey);
+      const requestedQuantity = requestedQuantityByVariant.get(variantKey) ?? 0;
+      if (!product || product.quote_only || !variant || Number(variant.stock_quantity) < requestedQuantity || Number(product.price) <= 0) {
         return NextResponse.json(
-          { error: `El producto \"${item.name}\" no está disponible para compra en línea` },
+          { error: `La variante seleccionada de \"${item.name}\" no está disponible para compra en línea` },
           { status: 400 }
         );
       }
@@ -79,7 +93,8 @@ export async function POST(request: NextRequest) {
         name: product.name,
         price: Number(product.price),
         quantity: item.quantity,
-        size: item.size,
+        size: size || undefined,
+        color: color || undefined,
       });
     }
 
@@ -124,6 +139,7 @@ export async function POST(request: NextRequest) {
       price: item.price,
       quantity: item.quantity,
       size: item.size || null,
+      color: item.color || null,
     }));
 
     const { error: itemsError } = await supabase
@@ -148,7 +164,7 @@ export async function POST(request: NextRequest) {
           price_data: {
             currency: "mxn",
             product_data: {
-              name: item.name + (item.size ? ` (${item.size})` : ""),
+              name: item.name + ([item.color && `Color: ${item.color}`, item.size && `Talla: ${item.size}`].filter(Boolean).length ? ` (${[item.color && `Color: ${item.color}`, item.size && `Talla: ${item.size}`].filter(Boolean).join(" · ")})` : ""),
             },
             unit_amount: Math.round(item.price * 100),
           },

@@ -1,0 +1,2322 @@
+- generic [active] [ref=e1]:
+  - generic [ref=e3]:
+    - generic:
+      - link "Cerrar banner":
+        - /url: "#"
+    - generic [ref=e4]:
+      - figure [ref=e5]:
+        - img "Descarga la app Fahorro." [ref=e6]
+      - generic [ref=e7]:
+        - heading "Descarga tu App - Envíos gratis" [level=3] [ref=e8]
+        - paragraph [ref=e9]: Promociones exclusivas y Orientación Médica Gratuita
+    - generic [ref=e10]:
+      - link "Descarga" [ref=e11] [cursor=pointer]:
+        - /url: https://play.google.com/store/apps/details?id=mx.com.fahorro2&hl=es_MX&gl=US
+      - link "Descarga" [ref=e12] [cursor=pointer]:
+        - /url: https://apps.apple.com/mx/app/farmacias-del-ahorro/id474207034?l=en
+  - paragraph [ref=e16]:
+    - link [ref=e17] [cursor=pointer]:
+      - /url: https://www.fahorro.com/control-de-peso.html
+      - strong [ref=e19]: LAS MEJORES PROMOCIONES EN TU TRATAMIENTO DE CONTROL DE PESO
+  - generic [ref=e20]:
+    - banner [ref=e21]:
+      - generic [ref=e22]:
+        - button "Categorías" [ref=e23]
+        - link "store logo" [ref=e24] [cursor=pointer]:
+          - /url: https://www.fahorro.com/
+          - img "Farmacias del Ahorro" [ref=e25]
+        - list [ref=e26]:
+          - listitem [ref=e27]:
+            - link "Sucursales" [ref=e28] [cursor=pointer]:
+              - /url: https://www.fahorro.com/find-a-store.html
+          - listitem [ref=e29]:
+            - link [ref=e30] [cursor=pointer]:
+              - /url: https://www.fahorro.com/facturacion/
+              - img "Facturación" [ref=e31]
+              - text: Facturación
+          - listitem [ref=e32]:
+            - button "Mi cuenta" [ref=e33]
+          - listitem [ref=e34]:
+            - link "Monedero del Ahorro" [ref=e35] [cursor=pointer]:
+              - /url: https://www.fahorro.com/monedero/customer/index/
+        - link "Mi carrito" [ref=e37] [cursor=pointer]:
+          - /url: https://www.fahorro.com/checkout/cart/
+    - navigation [ref=e39]:
+      - list [ref=e40]:
+        - link [disabled] [ref=e41] [cursor=pointer]:
+          - /url: https://www.fahorro.com/ahorro-market
+          - text: Ahorro Market
+        - link [disabled] [ref=e42] [cursor=pointer]:
+          - /url: https://www.fahorro.com/derma.html
+          - text: Cuidado de la Piel
+        - list [ref=e43]:
+          - link [disabled] [ref=e44] [cursor=pointer]:
+            - /url: https://www.fahorro.com/derma/solares-kids.html
+            - text: Solares Kids
+          - link [disabled] [ref=e45] [cursor=pointer]:
+            - /url: https://www.fahorro.com/derma/derma.html
+            - text: DERMA
+          - link [disabled] [ref=e46] [cursor=pointer]:
+            - /url: https://www.fahorro.com/derma/cuidado-facial.html
+            - text: Cuidado Facial
+          - list [ref=e47]:
+            - link [disabled] [ref=e48] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/cuidado-facial/cremas-e-hidratantes-faciales.html
+              - text: Cremas e Hidratantes Faciales
+            - link [disabled] [ref=e49] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/cuidado-facial/anti-acne.html
+              - text: Anti-Acné
+            - link [disabled] [ref=e50] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/cuidado-facial/serums-faciales.html
+              - text: Serums Faciales
+            - link [disabled] [ref=e51] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/cuidado-facial/cremas-de-noche.html
+              - text: Cremas de Noche
+            - link [disabled] [ref=e52] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/cuidado-facial/contorno-de-ojos.html
+              - text: Contorno de Ojos
+            - link [disabled] [ref=e53] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/cuidado-facial/limpiadores.html
+              - text: Limpiadores, Tónicos y Exfoliantes
+            - link [disabled] [ref=e54] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/cuidado-facial/tratamientos-y-mascarillas.html
+              - text: Tratamientos y Mascarillas
+            - link [disabled] [ref=e55] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/cuidado-facial/proteccion-de-labios.html
+              - text: Protección de Labios
+          - link [disabled] [ref=e56] [cursor=pointer]:
+            - /url: https://www.fahorro.com/derma/protectores-solares.html
+            - text: Protectores Solares
+          - list [ref=e57]:
+            - link [disabled] [ref=e58] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/protectores-solares/facial.html
+              - text: Facial
+            - link [disabled] [ref=e59] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/protectores-solares/corporal.html
+              - text: Corporal
+            - link [disabled] [ref=e60] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/protectores-solares/ninos-y-bebes.html
+              - text: Niños y Bebés
+          - link [disabled] [ref=e61] [cursor=pointer]:
+            - /url: https://www.fahorro.com/derma/cuidado-capilar.html
+            - text: Cuidado Capilar
+          - list [ref=e62]:
+            - link [disabled] [ref=e63] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/cuidado-capilar/tratamientos.html
+              - text: Tratamientos
+            - link [disabled] [ref=e64] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/cuidado-capilar/shampoo.html
+              - text: Shampoo
+            - link [disabled] [ref=e65] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/cuidado-capilar/acondicionador.html
+              - text: Acondicionador
+          - link [disabled] [ref=e66] [cursor=pointer]:
+            - /url: https://www.fahorro.com/derma/cuidado-corporal.html
+            - text: Cuidado Corporal
+          - list [ref=e67]:
+            - link [disabled] [ref=e68] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/cuidado-corporal/cremas-humectantes.html
+              - text: Cremas Humectantes
+            - link [disabled] [ref=e69] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/cuidado-corporal/proteccion-solar.html
+              - text: Protección Solar
+            - link [disabled] [ref=e70] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/cuidado-corporal/bronceadores.html
+              - text: Bronceadores
+            - link [disabled] [ref=e71] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/cuidado-corporal/exfoliantes.html
+              - text: Exfoliantes
+          - link [disabled] [ref=e72] [cursor=pointer]:
+            - /url: https://www.fahorro.com/derma/cuidado-del-hombre.html
+            - text: Cuidado del Hombre
+          - list [ref=e73]:
+            - link [disabled] [ref=e74] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/cuidado-del-hombre/facial.html
+              - text: Facial
+            - link [disabled] [ref=e75] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/cuidado-del-hombre/capilar.html
+              - text: Capilar
+            - link [disabled] [ref=e76] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/cuidado-del-hombre/corporal.html
+              - text: Corporal
+          - link [disabled] [ref=e77] [cursor=pointer]:
+            - /url: https://www.fahorro.com/derma/bebes.html
+            - text: Bebés
+          - list [ref=e78]:
+            - link [disabled] [ref=e79] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/bebes/bloqueadores.html
+              - text: Bloqueadores
+            - link [disabled] [ref=e80] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/bebes/cuidados-de-mama.html
+              - text: Cuidados de Mamá
+            - link [disabled] [ref=e81] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/bebes/hidratacion.html
+              - text: Hidratación
+          - link [disabled] [ref=e82] [cursor=pointer]:
+            - /url: https://www.fahorro.com/derma/aguas-micelares-y-desmaquillantes.html
+            - text: Desmaquillantes
+          - link [disabled] [ref=e83] [cursor=pointer]:
+            - /url: https://www.fahorro.com/derma/sets-kits.html
+            - text: Kits & Packs
+          - link [disabled] [ref=e84] [cursor=pointer]:
+            - /url: https://www.fahorro.com/derma/marcas.html
+            - text: Marcas Destacadas
+          - list [ref=e85]:
+            - link [disabled] [ref=e86] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/marcas/la-roche-posay.html
+              - text: La Roche-Posay
+            - link [disabled] [ref=e87] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/marcas/isdin.html
+              - text: ISDIN
+            - link [disabled] [ref=e88] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/marcas/clinique.html
+              - text: Clinique
+            - link [disabled] [ref=e89] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/marcas/avene.html
+              - text: Avene
+            - link [disabled] [ref=e90] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/marcas/bioderma.html
+              - text: Bioderma
+            - list [ref=e91]:
+              - link [disabled] [ref=e92] [cursor=pointer]:
+                - /url: https://www.fahorro.com/derma/marcas/bioderma/photoderm.html
+                - text: Photoderm
+              - link [disabled] [ref=e93] [cursor=pointer]:
+                - /url: https://www.fahorro.com/derma/marcas/bioderma/sebium.html
+                - text: Sébium
+              - link [disabled] [ref=e94] [cursor=pointer]:
+                - /url: https://www.fahorro.com/derma/marcas/bioderma/sensibio.html
+                - text: Sensibio
+              - link [disabled] [ref=e95] [cursor=pointer]:
+                - /url: https://www.fahorro.com/derma/marcas/bioderma/pigmentbio.html
+                - text: Pigmentbio
+              - link [disabled] [ref=e96] [cursor=pointer]:
+                - /url: https://www.fahorro.com/derma/marcas/bioderma/abcderm.html
+                - text: ABCderm
+              - link [disabled] [ref=e97] [cursor=pointer]:
+                - /url: https://www.fahorro.com/derma/marcas/bioderma/atoderm.html
+                - text: Atoderm
+              - link [disabled] [ref=e98] [cursor=pointer]:
+                - /url: https://www.fahorro.com/derma/marcas/bioderma/serums.html
+                - text: Serums
+            - link [disabled] [ref=e99] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/marcas/vichy.html
+              - text: Vichy
+            - link [disabled] [ref=e100] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/marcas/eucerin.html
+              - text: Eucerin
+            - link [disabled] [ref=e101] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/marcas/cerave.html
+              - text: CeraVe
+            - link [disabled] [ref=e102] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/marcas/cetaphil.html
+              - text: Cetaphil
+            - link [disabled] [ref=e103] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/marcas/cantabria.html
+              - text: Cantabria
+            - link [disabled] [ref=e104] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/marcas/uriage.html
+              - text: Uriage
+            - link [disabled] [ref=e105] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/marcas/darrow.html
+              - text: Darrow
+            - link [disabled] [ref=e106] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/marcas/ducray.html
+              - text: Ducray
+            - link [disabled] [ref=e107] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/marcas/a-derma.html
+              - text: A-Derma
+            - link [disabled] [ref=e108] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/marcas/dexeryl.html
+              - text: Dexeryl
+            - link [disabled] [ref=e109] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/marcas/the-ordinary.html
+              - text: The Ordinary
+            - link [disabled] [ref=e110] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/marcas/k-beauty.html
+              - text: K Beauty
+            - list [ref=e111]:
+              - link [disabled] [ref=e112] [cursor=pointer]:
+                - /url: https://www.fahorro.com/derma/marcas/k-beauty/limpiador-aceite.html
+                - text: Limpiador aceite
+              - link [disabled] [ref=e113] [cursor=pointer]:
+                - /url: https://www.fahorro.com/derma/marcas/k-beauty/limpiador.html
+                - text: Limpiador
+              - link [disabled] [ref=e114] [cursor=pointer]:
+                - /url: https://www.fahorro.com/derma/marcas/k-beauty/exfoliante.html
+                - text: Exfoliante
+              - link [disabled] [ref=e115] [cursor=pointer]:
+                - /url: https://www.fahorro.com/derma/marcas/k-beauty/tonico.html
+                - text: Tónico
+              - link [disabled] [ref=e116] [cursor=pointer]:
+                - /url: https://www.fahorro.com/derma/marcas/k-beauty/esencia.html
+                - text: Esencia
+              - link [disabled] [ref=e117] [cursor=pointer]:
+                - /url: https://www.fahorro.com/derma/marcas/k-beauty/serum.html
+                - text: Serum
+              - link [disabled] [ref=e118] [cursor=pointer]:
+                - /url: https://www.fahorro.com/derma/marcas/k-beauty/contorno-de-ojos.html
+                - text: Contorno de ojos
+              - link [disabled] [ref=e119] [cursor=pointer]:
+                - /url: https://www.fahorro.com/derma/marcas/k-beauty/hidratante.html
+                - text: Hidratante
+              - link [disabled] [ref=e120] [cursor=pointer]:
+                - /url: https://www.fahorro.com/derma/marcas/k-beauty/protector-solar.html
+                - text: Protector solar
+              - link [disabled] [ref=e121] [cursor=pointer]:
+                - /url: https://www.fahorro.com/derma/marcas/k-beauty/cuidado-capilar.html
+                - text: Cuidado capilar
+            - link [disabled] [ref=e122] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/marcas/derma.html
+              - text: DERMA
+            - link [disabled] [ref=e123] [cursor=pointer]:
+              - /url: https://www.fahorro.com/derma/marcas/cala.html
+              - text: CALA
+        - link [disabled] [ref=e124] [cursor=pointer]:
+          - /url: https://www.fahorro.com/ofertas-verano.html
+          - text: Ofertas de Verano
+        - list [ref=e125]:
+          - link [disabled] [ref=e126] [cursor=pointer]:
+            - /url: https://www.fahorro.com/ofertas-verano/ver-todo.html
+            - text: Ver todo Ofertas de Verano
+          - link [disabled] [ref=e127] [cursor=pointer]:
+            - /url: https://www.fahorro.com/ofertas-verano/perfumes.html
+            - text: Perfumes
+          - link [disabled] [ref=e128] [cursor=pointer]:
+            - /url: https://www.fahorro.com/ofertas-verano/bebes.html
+            - text: Bebés
+          - link [disabled] [ref=e129] [cursor=pointer]:
+            - /url: https://www.fahorro.com/ofertas-verano/hogar.html
+            - text: Hogar
+          - link [disabled] [ref=e130] [cursor=pointer]:
+            - /url: https://www.fahorro.com/ofertas-verano/belleza.html
+            - text: Belleza
+          - link [disabled] [ref=e131] [cursor=pointer]:
+            - /url: https://www.fahorro.com/ofertas-verano/nutricion-y-deporte.html
+            - text: Nutrición y Deporte
+          - link [disabled] [ref=e132] [cursor=pointer]:
+            - /url: https://www.fahorro.com/ofertas-verano/electronica.html
+            - text: Electrónica
+          - link [disabled] [ref=e133] [cursor=pointer]:
+            - /url: https://www.fahorro.com/ofertas-verano/mascotas.html
+            - text: Mascotas
+        - link [disabled] [ref=e134] [cursor=pointer]:
+          - /url: https://www.fahorro.com/bebes.html
+          - text: Bebés
+        - list [ref=e135]:
+          - link [disabled] [ref=e136] [cursor=pointer]:
+            - /url: https://www.fahorro.com/bebes/semana-lactancia.html
+            - text: Semana de la Lactancia
+          - link [disabled] [ref=e137] [cursor=pointer]:
+            - /url: https://www.fahorro.com/bebes/formulas-lacteas.html
+            - text: Fórmulas y Leches
+          - list [ref=e138]:
+            - link [disabled] [ref=e139] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/formulas-lacteas/especialidad.html
+              - text: Especialidad
+            - link [disabled] [ref=e140] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/formulas-lacteas/regulares.html
+              - text: Regulares
+            - link [disabled] [ref=e141] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/formulas-lacteas/etapa-1.html
+              - text: Etapa 1
+            - link [disabled] [ref=e142] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/formulas-lacteas/etapa-2.html
+              - text: Etapa 2
+            - link [disabled] [ref=e143] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/formulas-lacteas/etapa-3.html
+              - text: Etapa 3
+            - link [disabled] [ref=e144] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/formulas-lacteas/crecimiento.html
+              - text: Crecimiento
+            - link [disabled] [ref=e145] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/formulas-lacteas/confort.html
+              - text: Confort
+            - link [disabled] [ref=e146] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/formulas-lacteas/organicas.html
+              - text: Orgánicas
+            - link [disabled] [ref=e147] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/formulas-lacteas/fortificados.html
+              - text: Fortificados
+            - link [disabled] [ref=e148] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/formulas-lacteas/deslactosada.html
+              - text: Deslactosada
+            - link [disabled] [ref=e149] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/formulas-lacteas/aguas.html
+              - text: Aguas
+            - link [disabled] [ref=e150] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/formulas-lacteas/nido.html
+              - text: NIDO
+            - link [disabled] [ref=e151] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/formulas-lacteas/nan.html
+              - text: NAN
+          - link [disabled] [ref=e152] [cursor=pointer]:
+            - /url: https://www.fahorro.com/bebes/panales-y-toallitas-humedas.html
+            - text: Pañales y Toallitas Húmedas
+          - list [ref=e153]:
+            - link [disabled] [ref=e154] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/panales-y-toallitas-humedas/panales.html
+              - text: Pañales
+            - link [disabled] [ref=e155] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/panales-y-toallitas-humedas/etapa-1.html
+              - text: Etapa 1
+            - link [disabled] [ref=e156] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/panales-y-toallitas-humedas/etapa-2.html
+              - text: Etapa 2
+            - link [disabled] [ref=e157] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/panales-y-toallitas-humedas/etapa-3.html
+              - text: Etapa 3
+            - link [disabled] [ref=e158] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/panales-y-toallitas-humedas/etapa-4.html
+              - text: Etapa 4
+            - link [disabled] [ref=e159] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/panales-y-toallitas-humedas/etapa-5.html
+              - text: Etapa 5
+            - link [disabled] [ref=e160] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/panales-y-toallitas-humedas/etapa-6-7.html
+              - text: Etapa 6 & 7
+            - link [disabled] [ref=e161] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/panales-y-toallitas-humedas/recien-nacido.html
+              - text: Recién Nacido
+            - link [disabled] [ref=e162] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/panales-y-toallitas-humedas/toallitas-humedas.html
+              - text: Toallitas Húmedas
+            - link [disabled] [ref=e163] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/panales-y-toallitas-humedas/ecologicos.html
+              - text: Ecológicos
+          - link [disabled] [ref=e164] [cursor=pointer]:
+            - /url: https://www.fahorro.com/bebes/cuidado-del-bebe.html
+            - text: Cuidado del Bebé
+          - list [ref=e165]:
+            - link [disabled] [ref=e166] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/cuidado-del-bebe/cuidado-dental-para-bebes.html
+              - text: Cuidado Dental para Bebés
+            - link [disabled] [ref=e167] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/cuidado-del-bebe/pomadas-y-unguentos.html
+              - text: Pomadas y Unguentos
+            - link [disabled] [ref=e168] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/cuidado-del-bebe/shampoo-y-jabones-para-bebe.html
+              - text: Shampoo y Jabones para Bebé
+            - link [disabled] [ref=e169] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/cuidado-del-bebe/cremas-y-aceites-para-bebe.html
+              - text: Cremas y Aceites para Bebé
+            - link [disabled] [ref=e170] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/cuidado-del-bebe/cuidado-de-la-mama.html
+              - text: Cuidado de la Mamá
+            - link [disabled] [ref=e171] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/cuidado-del-bebe/talcos-y-aceites.html
+              - text: Talcos y Aceites
+          - link [disabled] [ref=e172] [cursor=pointer]:
+            - /url: https://www.fahorro.com/bebes/accesorios-para-bebe.html
+            - text: Accesorios para Bebé
+          - list [ref=e173]:
+            - link [disabled] [ref=e174] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/accesorios-para-bebe/biberones-y-mamilas.html
+              - text: Biberones y Mamilas
+            - link [disabled] [ref=e175] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/accesorios-para-bebe/vasos-y-utensilios.html
+              - text: Vasos y Utensilios
+            - link [disabled] [ref=e176] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/accesorios-para-bebe/chupones-y-mordederas.html
+              - text: Chupones y Mordederas
+            - link [disabled] [ref=e177] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/accesorios-para-bebe/extractores-para-lactancia-y-accesorios-para-lactancia.html
+              - text: Extractores para Lactancia y Accesorios para Lactancia
+            - link [disabled] [ref=e178] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/accesorios-para-bebe/panaleras-y-accesorios.html
+              - text: Pañaleras y Accesorios
+            - link [disabled] [ref=e179] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/accesorios-para-bebe/cepillos-y-peines.html
+              - text: Cepillos y peines
+            - link [disabled] [ref=e180] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/accesorios-para-bebe/accesorios-de-bano.html
+              - text: Accesorios de Baño
+            - link [disabled] [ref=e181] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/accesorios-para-bebe/cuidado-de-unas.html
+              - text: Cuidado de Uñas
+            - link [disabled] [ref=e182] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/accesorios-para-bebe/ropa-para-bebe.html
+              - text: Ropa para Bebé
+          - link [disabled] [ref=e183] [cursor=pointer]:
+            - /url: https://www.fahorro.com/bebes/alimentacion-bebe.html
+            - text: Alimentación Bebé
+          - list [ref=e184]:
+            - link [disabled] [ref=e185] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/alimentacion-bebe/biberones-y-mamilas.html
+              - text: Biberones y Mamilas
+            - link [disabled] [ref=e186] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/alimentacion-bebe/cereales.html
+              - text: Cereales
+            - link [disabled] [ref=e187] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/alimentacion-bebe/alimentos-organicos.html
+              - text: Alimentos Orgánicos
+            - link [disabled] [ref=e188] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/alimentacion-bebe/accesorios-para-la-alimentacion.html
+              - text: Accesorios para la Alimentación
+            - link [disabled] [ref=e189] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/alimentacion-bebe/papillas.html
+              - text: Papillas
+            - link [disabled] [ref=e190] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/alimentacion-bebe/jugos-bebidas.html
+              - text: Jugos & Bebidas
+          - link [disabled] [ref=e191] [cursor=pointer]:
+            - /url: https://www.fahorro.com/bebes/marcas-destacadas.html
+            - text: Marcas Destacadas
+          - list [ref=e192]:
+            - link [disabled] [ref=e193] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/marcas-destacadas/huggies.html
+              - text: Huggies
+            - link [disabled] [ref=e194] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/marcas-destacadas/medela.html
+              - text: Medela
+            - link [disabled] [ref=e195] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/marcas-destacadas/frida-mom.html
+              - text: Frida Mom
+            - link [disabled] [ref=e196] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/marcas-destacadas/alula.html
+              - text: Alula
+            - link [disabled] [ref=e197] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bebes/marcas-destacadas/materna.html
+              - text: Materna
+          - link [disabled] [ref=e198] [cursor=pointer]:
+            - /url: https://www.fahorro.com/bebes/catalogo-extendido-bebes.html
+            - text: Nuevos Lanzamientos
+          - link [disabled] [ref=e199] [cursor=pointer]:
+            - /url: https://www.fahorro.com/bebes/catalogo-extendido-juguetes-bebes.html
+            - text: Catálogo Extendido Juguetes Bebés
+          - link [disabled] [ref=e200] [cursor=pointer]:
+            - /url: https://www.fahorro.com/bebes/promociones-panales.html
+            - text: Promociones Pañales
+          - link [disabled] [ref=e201] [cursor=pointer]:
+            - /url: https://www.fahorro.com/bebes/expo-maternidad.html
+            - text: Expo Maternidad
+        - link [disabled] [ref=e202] [cursor=pointer]:
+          - /url: https://www.fahorro.com/verano.html
+          - text: Verano Saludable
+        - list [ref=e203]:
+          - link [disabled] [ref=e204] [cursor=pointer]:
+            - /url: https://www.fahorro.com/verano/ver-todo.html
+            - text: Ver todo Verano
+          - link [disabled] [ref=e205] [cursor=pointer]:
+            - /url: https://www.fahorro.com/verano/farmacia.html
+            - text: Farmacia
+          - link [disabled] [ref=e206] [cursor=pointer]:
+            - /url: https://www.fahorro.com/verano/derma.html
+            - text: Cuidado de la Piel
+          - link [disabled] [ref=e207] [cursor=pointer]:
+            - /url: https://www.fahorro.com/verano/perfumes.html
+            - text: Perfumes
+          - link [disabled] [ref=e208] [cursor=pointer]:
+            - /url: https://www.fahorro.com/verano/nutricion-y-deporte.html
+            - text: Nutrición y Deporte
+          - link [disabled] [ref=e209] [cursor=pointer]:
+            - /url: https://www.fahorro.com/verano/travel.html
+            - text: Travel
+          - link [disabled] [ref=e210] [cursor=pointer]:
+            - /url: https://www.fahorro.com/verano/hogar.html
+            - text: Hogar
+          - link [disabled] [ref=e211] [cursor=pointer]:
+            - /url: https://www.fahorro.com/verano/electronica.html
+            - text: Electronica
+          - link [disabled] [ref=e212] [cursor=pointer]:
+            - /url: https://www.fahorro.com/verano/higiene-personal.html
+            - text: Higiene Personal
+          - link [disabled] [ref=e213] [cursor=pointer]:
+            - /url: https://www.fahorro.com/verano/bienestar-sexual.html
+            - text: Bienestar Sexual
+        - link [disabled] [ref=e214] [cursor=pointer]:
+          - /url: https://www.fahorro.com/derma-mexico
+          - text: Derma
+        - link [disabled] [ref=e215] [cursor=pointer]:
+          - /url: https://www.fahorro.com/vitaminas.html
+          - text: Vitaminas & Suplementos
+        - list [ref=e216]:
+          - link [disabled] [ref=e217] [cursor=pointer]:
+            - /url: https://www.fahorro.com/vitaminas/cuida-tu-salud.html
+            - text: Cuida tu Salud
+          - list [ref=e218]:
+            - link [disabled] [ref=e219] [cursor=pointer]:
+              - /url: https://www.fahorro.com/vitaminas/cuida-tu-salud/huesos-y-articulaciones.html
+              - text: Huesos y articulaciones
+            - link [disabled] [ref=e220] [cursor=pointer]:
+              - /url: https://www.fahorro.com/vitaminas/cuida-tu-salud/sistema-inmune.html
+              - text: Sistema Inmune
+            - link [disabled] [ref=e221] [cursor=pointer]:
+              - /url: https://www.fahorro.com/vitaminas/cuida-tu-salud/memoria-y-concentracion.html
+              - text: Memoria y Concentración
+            - link [disabled] [ref=e222] [cursor=pointer]:
+              - /url: https://www.fahorro.com/vitaminas/cuida-tu-salud/digestion.html
+              - text: Digestión
+            - link [disabled] [ref=e223] [cursor=pointer]:
+              - /url: https://www.fahorro.com/vitaminas/cuida-tu-salud/control-de-peso.html
+              - text: Control de peso
+            - link [disabled] [ref=e224] [cursor=pointer]:
+              - /url: https://www.fahorro.com/vitaminas/cuida-tu-salud/antiedad.html
+              - text: Antiedad
+            - link [disabled] [ref=e225] [cursor=pointer]:
+              - /url: https://www.fahorro.com/vitaminas/cuida-tu-salud/antiestres-e-insomnio.html
+              - text: Antiestrés E Insomnio
+            - link [disabled] [ref=e226] [cursor=pointer]:
+              - /url: https://www.fahorro.com/vitaminas/cuida-tu-salud/cardiovasculares.html
+              - text: Cardiovasculares
+          - link [disabled] [ref=e227] [cursor=pointer]:
+            - /url: https://www.fahorro.com/vitaminas/para-cada-etapa.html
+            - text: Para Cada Etapa
+          - list [ref=e228]:
+            - link [disabled] [ref=e229] [cursor=pointer]:
+              - /url: https://www.fahorro.com/vitaminas/para-cada-etapa/mujer.html
+              - text: Mujer
+            - link [disabled] [ref=e230] [cursor=pointer]:
+              - /url: https://www.fahorro.com/vitaminas/para-cada-etapa/infantil.html
+              - text: Infantil
+          - link [disabled] [ref=e231] [cursor=pointer]:
+            - /url: https://www.fahorro.com/vitaminas/vitamina-a-z.html
+            - text: Vitaminas A - Z
+          - list [ref=e232]:
+            - link [disabled] [ref=e233] [cursor=pointer]:
+              - /url: https://www.fahorro.com/vitaminas/vitamina-a-z/vitamina-a.html
+              - text: Vitamina A
+            - link [disabled] [ref=e234] [cursor=pointer]:
+              - /url: https://www.fahorro.com/vitaminas/vitamina-a-z/vitamina-b.html
+              - text: Vitamina B
+            - link [disabled] [ref=e235] [cursor=pointer]:
+              - /url: https://www.fahorro.com/vitaminas/vitamina-a-z/vitamina-c.html
+              - text: Vitamina C
+            - link [disabled] [ref=e236] [cursor=pointer]:
+              - /url: https://www.fahorro.com/vitaminas/vitamina-a-z/vitamina-d.html
+              - text: Vitamina D
+            - link [disabled] [ref=e237] [cursor=pointer]:
+              - /url: https://www.fahorro.com/vitaminas/vitamina-a-z/vitamina-e.html
+              - text: Vitamina E
+            - link [disabled] [ref=e238] [cursor=pointer]:
+              - /url: https://www.fahorro.com/vitaminas/vitamina-a-z/multivitaminicos.html
+              - text: Multivitamínicos
+            - link [disabled] [ref=e239] [cursor=pointer]:
+              - /url: https://www.fahorro.com/vitaminas/vitamina-a-z/univitaminicos.html
+              - text: Univitamínicos
+          - link [disabled] [ref=e240] [cursor=pointer]:
+            - /url: https://www.fahorro.com/vitaminas/minerales.html
+            - text: Minerales
+          - list [ref=e241]:
+            - link [disabled] [ref=e242] [cursor=pointer]:
+              - /url: https://www.fahorro.com/vitaminas/minerales/potasio.html
+              - text: Potasio
+            - link [disabled] [ref=e243] [cursor=pointer]:
+              - /url: https://www.fahorro.com/vitaminas/minerales/magnesio.html
+              - text: Magnesio
+            - link [disabled] [ref=e244] [cursor=pointer]:
+              - /url: https://www.fahorro.com/vitaminas/minerales/calcio.html
+              - text: Calcio
+          - link [disabled] [ref=e245] [cursor=pointer]:
+            - /url: https://www.fahorro.com/vitaminas/especialidades.html
+            - text: Especialidades
+          - list [ref=e246]:
+            - link [disabled] [ref=e247] [cursor=pointer]:
+              - /url: https://www.fahorro.com/vitaminas/especialidades/suplementos.html
+              - text: Suplementos
+            - link [disabled] [ref=e248] [cursor=pointer]:
+              - /url: https://www.fahorro.com/vitaminas/especialidades/mqb-super-alimentos.html
+              - text: Super Alimentos
+            - link [disabled] [ref=e249] [cursor=pointer]:
+              - /url: https://www.fahorro.com/vitaminas/especialidades/omegas.html
+              - text: Omegas
+            - link [disabled] [ref=e250] [cursor=pointer]:
+              - /url: https://www.fahorro.com/vitaminas/especialidades/probioticos.html
+              - text: Probióticos
+            - link [disabled] [ref=e251] [cursor=pointer]:
+              - /url: https://www.fahorro.com/vitaminas/especialidades/colagenos.html
+              - text: Colágenos
+          - link [disabled] [ref=e252] [cursor=pointer]:
+            - /url: https://www.fahorro.com/vitaminas/promociones-del-mes.html
+            - text: Renuévate
+        - link [disabled] [ref=e253] [cursor=pointer]:
+          - /url: https://www.fahorro.com/sitio-diabetes
+          - text: Diabetes
+        - link [disabled] [ref=e254] [cursor=pointer]:
+          - /url: https://www.fahorro.com/mi-bebe
+          - text: Mamás y Papás
+        - link [disabled] [ref=e255] [cursor=pointer]:
+          - /url: https://www.fahorro.com/monedero-del-ahorro
+          - text: Monedero del Ahorro
+        - link [disabled] [ref=e256] [cursor=pointer]:
+          - /url: https://www.fahorro.com/#
+          - text: Descubre más
+        - link [disabled] [ref=e257] [cursor=pointer]:
+          - /url: https://www.fahorro.com/marca-del-ahorro.html
+          - text: Marca del Ahorro
+        - list [ref=e258]:
+          - link [disabled] [ref=e259] [cursor=pointer]:
+            - /url: https://www.fahorro.com/marca-del-ahorro/alergias.html
+            - text: Alergias
+          - link [disabled] [ref=e260] [cursor=pointer]:
+            - /url: https://www.fahorro.com/marca-del-ahorro/antibioticos.html
+            - text: Antibióticos
+          - link [disabled] [ref=e261] [cursor=pointer]:
+            - /url: https://www.fahorro.com/marca-del-ahorro/bebida-nutricionales.html
+            - text: Bebida Nutricionales
+          - link [disabled] [ref=e262] [cursor=pointer]:
+            - /url: https://www.fahorro.com/marca-del-ahorro/cardio.html
+            - text: Cardio
+          - link [disabled] [ref=e263] [cursor=pointer]:
+            - /url: https://www.fahorro.com/marca-del-ahorro/cuidado-de-los-ojos.html
+            - text: Cuidado de los ojos
+          - link [disabled] [ref=e264] [cursor=pointer]:
+            - /url: https://www.fahorro.com/marca-del-ahorro/derma.html
+            - text: Derma
+          - link [disabled] [ref=e265] [cursor=pointer]:
+            - /url: https://www.fahorro.com/marca-del-ahorro/diabetes.html
+            - text: Diabetes
+          - link [disabled] [ref=e266] [cursor=pointer]:
+            - /url: https://www.fahorro.com/marca-del-ahorro/dolor-e-inflamacion.html
+            - text: Dolor e Inflamación
+          - link [disabled] [ref=e267] [cursor=pointer]:
+            - /url: https://www.fahorro.com/marca-del-ahorro/estomacales.html
+            - text: Estomacales
+          - link [disabled] [ref=e268] [cursor=pointer]:
+            - /url: https://www.fahorro.com/marca-del-ahorro/gripe-y-tos.html
+            - text: Gripe y Tos
+          - link [disabled] [ref=e269] [cursor=pointer]:
+            - /url: https://www.fahorro.com/marca-del-ahorro/hormonales.html
+            - text: Hormonales
+          - link [disabled] [ref=e270] [cursor=pointer]:
+            - /url: https://www.fahorro.com/marca-del-ahorro/material-de-curacion.html
+            - text: Material De Curación
+          - link [disabled] [ref=e271] [cursor=pointer]:
+            - /url: https://www.fahorro.com/marca-del-ahorro/medicion.html
+            - text: Medición
+          - link [disabled] [ref=e272] [cursor=pointer]:
+            - /url: https://www.fahorro.com/marca-del-ahorro/neurologia.html
+            - text: Neurología
+          - link [disabled] [ref=e273] [cursor=pointer]:
+            - /url: https://www.fahorro.com/marca-del-ahorro/proteccion.html
+            - text: Protección
+          - link [disabled] [ref=e274] [cursor=pointer]:
+            - /url: https://www.fahorro.com/marca-del-ahorro/prueba-de-embarazo.html
+            - text: Prueba De Embarazo
+          - link [disabled] [ref=e275] [cursor=pointer]:
+            - /url: https://www.fahorro.com/marca-del-ahorro/salud-sexual.html
+            - text: Salud sexual
+          - link [disabled] [ref=e276] [cursor=pointer]:
+            - /url: https://www.fahorro.com/marca-del-ahorro/sueros.html
+            - text: Sueros
+          - link [disabled] [ref=e277] [cursor=pointer]:
+            - /url: https://www.fahorro.com/marca-del-ahorro/suplementos-alimenticios.html
+            - text: Suplementos Alimenticios
+          - link [disabled] [ref=e278] [cursor=pointer]:
+            - /url: https://www.fahorro.com/marca-del-ahorro/vitaminas.html
+            - text: Vitaminas
+          - link [disabled] [ref=e279] [cursor=pointer]:
+            - /url: https://www.fahorro.com/marca-del-ahorro/que-buen-plan.html
+            - text: Acumula y Gana Piezas GRATIS
+        - link [disabled] [ref=e280] [cursor=pointer]:
+          - /url: https://www.fahorro.com/equipo-medico.html
+          - text: Equipo Médico & Ortopedia
+        - list [ref=e281]:
+          - link [disabled] [ref=e282] [cursor=pointer]:
+            - /url: https://www.fahorro.com/equipo-medico/monitoreo-y-diagnostico.html
+            - text: Monitoreo y Diagnóstico
+          - list [ref=e283]:
+            - link [disabled] [ref=e284] [cursor=pointer]:
+              - /url: https://www.fahorro.com/equipo-medico/monitoreo-y-diagnostico/monitores-de-presion.html
+              - text: Monitores de Presión
+            - link [disabled] [ref=e285] [cursor=pointer]:
+              - /url: https://www.fahorro.com/equipo-medico/monitoreo-y-diagnostico/termometros.html
+              - text: Termómetros
+            - link [disabled] [ref=e286] [cursor=pointer]:
+              - /url: https://www.fahorro.com/equipo-medico/monitoreo-y-diagnostico/articulos-de-medicion.html
+              - text: Glucómetros y Diabetes
+            - link [disabled] [ref=e287] [cursor=pointer]:
+              - /url: https://www.fahorro.com/equipo-medico/monitoreo-y-diagnostico/basculas.html
+              - text: Básculas
+          - link [disabled] [ref=e288] [cursor=pointer]:
+            - /url: https://www.fahorro.com/equipo-medico/movilidad-y-asistencia.html
+            - text: Movilidad y Asistencia
+          - list [ref=e289]:
+            - link [disabled] [ref=e290] [cursor=pointer]:
+              - /url: https://www.fahorro.com/equipo-medico/movilidad-y-asistencia/andaderas-y-caminadoras.html
+              - text: Andaderas y Caminadoras
+            - link [disabled] [ref=e291] [cursor=pointer]:
+              - /url: https://www.fahorro.com/equipo-medico/movilidad-y-asistencia/bastones-y-muletas.html
+              - text: Bastones y Muletas
+            - link [disabled] [ref=e292] [cursor=pointer]:
+              - /url: https://www.fahorro.com/equipo-medico/movilidad-y-asistencia/sillas-de-ruedas.html
+              - text: Sillas de Ruedas
+          - link [disabled] [ref=e293] [cursor=pointer]:
+            - /url: https://www.fahorro.com/equipo-medico/ortopedia-y-soportes.html
+            - text: Ortopedia y Soportes
+          - list [ref=e294]:
+            - link [disabled] [ref=e295] [cursor=pointer]:
+              - /url: https://www.fahorro.com/equipo-medico/ortopedia-y-soportes/espalda-y-abdomen.html
+              - text: Espalda y Abdomen
+            - link [disabled] [ref=e296] [cursor=pointer]:
+              - /url: https://www.fahorro.com/equipo-medico/ortopedia-y-soportes/rodilla-y-pierna.html
+              - text: Rodilla y Pierna
+            - link [disabled] [ref=e297] [cursor=pointer]:
+              - /url: https://www.fahorro.com/equipo-medico/ortopedia-y-soportes/tobillo-y-pie.html
+              - text: Tobillo y Pie
+            - link [disabled] [ref=e298] [cursor=pointer]:
+              - /url: https://www.fahorro.com/equipo-medico/ortopedia-y-soportes/mano-muneca-y-brazo.html
+              - text: Mano, Muñeca y Brazo
+            - link [disabled] [ref=e299] [cursor=pointer]:
+              - /url: https://www.fahorro.com/equipo-medico/ortopedia-y-soportes/cuello-y-hombros.html
+              - text: Cuello y Hombros
+          - link [disabled] [ref=e300] [cursor=pointer]:
+            - /url: https://www.fahorro.com/equipo-medico/prendas-de-compresion-medica.html
+            - text: Prendas de Compresión Médica
+          - link [disabled] [ref=e301] [cursor=pointer]:
+            - /url: https://www.fahorro.com/equipo-medico/rehabilitacion-y-terapia.html
+            - text: Rehabilitación y Terapia
+          - list [ref=e302]:
+            - link [disabled] [ref=e303] [cursor=pointer]:
+              - /url: https://www.fahorro.com/equipo-medico/rehabilitacion-y-terapia/terapia-de-frio-y-calor.html
+              - text: Terapia de Frío y Calor
+            - link [disabled] [ref=e304] [cursor=pointer]:
+              - /url: https://www.fahorro.com/equipo-medico/rehabilitacion-y-terapia/pistolas-de-masaje.html
+              - text: Pistolas de Masaje
+            - link [disabled] [ref=e305] [cursor=pointer]:
+              - /url: https://www.fahorro.com/equipo-medico/rehabilitacion-y-terapia/equipo-de-ejercicio-terapeutico.html
+              - text: Equipo de Ejercicio Terapéutico
+            - link [disabled] [ref=e306] [cursor=pointer]:
+              - /url: https://www.fahorro.com/equipo-medico/rehabilitacion-y-terapia/cojines-terapeuticos-y-de-postura.html
+              - text: Cojines Terapéuticos y de Postura
+          - link [disabled] [ref=e307] [cursor=pointer]:
+            - /url: https://www.fahorro.com/equipo-medico/cuidado-en-casa-y-mobiliario.html
+            - text: Cuidado en casa y Mobiliario
+          - list [ref=e308]:
+            - link [disabled] [ref=e309] [cursor=pointer]:
+              - /url: https://www.fahorro.com/equipo-medico/cuidado-en-casa-y-mobiliario/seguridad-para-el-bano.html
+              - text: Seguridad para el Baño
+            - link [disabled] [ref=e310] [cursor=pointer]:
+              - /url: https://www.fahorro.com/equipo-medico/cuidado-en-casa-y-mobiliario/mobiliario-auxiliar.html
+              - text: Mobiliario Auxiliar
+        - link [disabled] [ref=e311] [cursor=pointer]:
+          - /url: https://www.fahorro.com/control-de-peso.html
+          - text: Control de Peso
+        - list [ref=e312]:
+          - link [disabled] [ref=e313] [cursor=pointer]:
+            - /url: https://www.fahorro.com/control-de-peso/mounjaro.html
+            - text: Mounjaro
+          - link [disabled] [ref=e314] [cursor=pointer]:
+            - /url: https://www.fahorro.com/control-de-peso/wegovy.html
+            - text: Wegovy
+          - link [disabled] [ref=e315] [cursor=pointer]:
+            - /url: https://www.fahorro.com/control-de-peso/rybelsus.html
+            - text: Rybelsus
+          - link [disabled] [ref=e316] [cursor=pointer]:
+            - /url: https://www.fahorro.com/control-de-peso/ozempic.html
+            - text: Ozempic
+          - link [disabled] [ref=e317] [cursor=pointer]:
+            - /url: https://www.fahorro.com/control-de-peso/saxenda.html
+            - text: Saxenda
+          - link [disabled] [ref=e318] [cursor=pointer]:
+            - /url: https://www.fahorro.com/control-de-peso/trulicity.html
+            - text: Trulicity
+        - link [disabled] [ref=e319] [cursor=pointer]:
+          - /url: https://www.fahorro.com/cuidado-personal.html
+          - text: Higiene y Cuidado Personal
+        - list [ref=e320]:
+          - link [disabled] [ref=e321] [cursor=pointer]:
+            - /url: https://www.fahorro.com/cuidado-personal/higiene-bucal.html
+            - text: Higiene Bucal
+          - list [ref=e322]:
+            - link [disabled] [ref=e323] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/higiene-bucal/cremas-dentales.html
+              - text: Cremas Dentales
+            - link [disabled] [ref=e324] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/higiene-bucal/cepillos-dentales.html
+              - text: Cepillos Dentales
+            - link [disabled] [ref=e325] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/higiene-bucal/enjuagues-bucales.html
+              - text: Enjuagues Bucales
+            - link [disabled] [ref=e326] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/higiene-bucal/especializados.html
+              - text: Especializados
+          - link [disabled] [ref=e327] [cursor=pointer]:
+            - /url: https://www.fahorro.com/cuidado-personal/higiene-y-belleza.html
+            - text: Cuidado Personal
+          - list [ref=e328]:
+            - link [disabled] [ref=e329] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/higiene-y-belleza/cuidado-facial.html
+              - text: Cuidado Facial
+            - link [disabled] [ref=e330] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/higiene-y-belleza/cuidado-corporal.html
+              - text: Cuidado Corporal
+            - link [disabled] [ref=e331] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/higiene-y-belleza/mascarillas.html
+              - text: Mascarillas
+            - link [disabled] [ref=e332] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/higiene-y-belleza/proteccion-de-labios.html
+              - text: Protección de Labios
+            - link [disabled] [ref=e333] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/higiene-y-belleza/cremas-para-las-manos.html
+              - text: Cremas para las Manos
+            - link [disabled] [ref=e334] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/higiene-y-belleza/cuidado-solar.html
+              - text: Cuidado Solar
+            - link [disabled] [ref=e335] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/higiene-y-belleza/masaje-y-relajacion.html
+              - text: Masaje y Relajación
+          - link [disabled] [ref=e336] [cursor=pointer]:
+            - /url: https://www.fahorro.com/cuidado-personal/incontinencia.html
+            - text: Incontinencia
+          - list [ref=e337]:
+            - link [disabled] [ref=e338] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/incontinencia/ropa-interior.html
+              - text: Ropa Interior
+            - link [disabled] [ref=e339] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/incontinencia/panales.html
+              - text: Pañales
+            - link [disabled] [ref=e340] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/incontinencia/toallas-humedas.html
+              - text: Toallas Húmedas
+            - link [disabled] [ref=e341] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/incontinencia/otros.html
+              - text: Otros
+            - link [disabled] [ref=e342] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/incontinencia/compra-mas-ahorra-mas.html
+              - text: Compra Más, Ahorra Más
+          - link [disabled] [ref=e343] [cursor=pointer]:
+            - /url: https://www.fahorro.com/cuidado-personal/proteccion-femenina.html
+            - text: Protección Femenina
+          - list [ref=e344]:
+            - link [disabled] [ref=e345] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/proteccion-femenina/toallas-femeninas.html
+              - text: Toallas Femeninas
+            - link [disabled] [ref=e346] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/proteccion-femenina/tampones.html
+              - text: Tampones
+            - link [disabled] [ref=e347] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/proteccion-femenina/higiene-intima.html
+              - text: Higiene Intima
+            - link [disabled] [ref=e348] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/proteccion-femenina/panty-protector.html
+              - text: Panty Protector
+            - link [disabled] [ref=e349] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/proteccion-femenina/copas-menstruales.html
+              - text: Copas Menstruales
+          - link [disabled] [ref=e350] [cursor=pointer]:
+            - /url: https://www.fahorro.com/cuidado-personal/cuidado-del-cabello.html
+            - text: Cuidado del Cabello
+          - list [ref=e351]:
+            - link [disabled] [ref=e352] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/cuidado-del-cabello/shampoo.html
+              - text: Shampoo
+            - link [disabled] [ref=e353] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/cuidado-del-cabello/acondicionadores.html
+              - text: Acondicionadores
+            - link [disabled] [ref=e354] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/cuidado-del-cabello/tratamientos-capilares.html
+              - text: Tratamientos Capilares
+            - link [disabled] [ref=e355] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/cuidado-del-cabello/fijadores-y-modeladores.html
+              - text: Fijadores y Modeladores
+            - link [disabled] [ref=e356] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/cuidado-del-cabello/crema-para-peinar.html
+              - text: Crema para Peinar
+            - link [disabled] [ref=e357] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/cuidado-del-cabello/tintes.html
+              - text: Tintes
+          - link [disabled] [ref=e358] [cursor=pointer]:
+            - /url: https://www.fahorro.com/cuidado-personal/desodorantes.html
+            - text: Desodorantes
+          - list [ref=e359]:
+            - link [disabled] [ref=e360] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/desodorantes/aerosol.html
+              - text: Aerosol
+            - link [disabled] [ref=e361] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/desodorantes/barra.html
+              - text: Barra
+            - link [disabled] [ref=e362] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/desodorantes/clinical.html
+              - text: Clinical
+            - link [disabled] [ref=e363] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/desodorantes/gel.html
+              - text: Gel
+            - link [disabled] [ref=e364] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/desodorantes/roll-on.html
+              - text: Roll-On
+          - link [disabled] [ref=e365] [cursor=pointer]:
+            - /url: https://www.fahorro.com/cuidado-personal/afeitado.html
+            - text: Rasurado & Afeitado
+          - list [ref=e366]:
+            - link [disabled] [ref=e367] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/afeitado/sistemas-y-cartuchos.html
+              - text: Rastrillos y Cartuchos
+            - link [disabled] [ref=e368] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/afeitado/crema-para-afeitar.html
+              - text: Crema para Afeitar
+            - link [disabled] [ref=e369] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/afeitado/aparatos-electricos.html
+              - text: Aparatos Eléctricos
+          - link [disabled] [ref=e370] [cursor=pointer]:
+            - /url: https://www.fahorro.com/cuidado-personal/cuidado-corporal.html
+            - text: Cuidado Corporal
+          - list [ref=e371]:
+            - link [disabled] [ref=e372] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/cuidado-corporal/jabones.html
+              - text: Jabones
+          - link [disabled] [ref=e373] [cursor=pointer]:
+            - /url: https://www.fahorro.com/cuidado-personal/cuidado-del-hombre.html
+            - text: Cuidado del Hombre
+          - list [ref=e374]:
+            - link [disabled] [ref=e375] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/cuidado-del-hombre/cuidado-corporal.html
+              - text: Cuidado Corporal
+            - link [disabled] [ref=e376] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/cuidado-del-hombre/cuidado-facial.html
+              - text: Cuidado Facial
+            - link [disabled] [ref=e377] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/cuidado-del-hombre/cuidado-capilar.html
+              - text: Cuidado Capilar
+            - link [disabled] [ref=e378] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/cuidado-del-hombre/manicure-y-pedicure.html
+              - text: Manicure y Pedicure
+          - link [disabled] [ref=e379] [cursor=pointer]:
+            - /url: https://www.fahorro.com/cuidado-personal/travel.html
+            - text: Travel
+          - link [disabled] [ref=e380] [cursor=pointer]:
+            - /url: https://www.fahorro.com/cuidado-personal/marcas.html
+            - text: Marcas Destacadas
+          - list [ref=e381]:
+            - link [disabled] [ref=e382] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/marcas/bexident.html
+              - text: Bexident
+            - link [disabled] [ref=e383] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/marcas/loreal.html
+              - text: L'Oréal
+            - link [disabled] [ref=e384] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/marcas/blistex.html
+              - text: Blistex
+            - link [disabled] [ref=e385] [cursor=pointer]:
+              - /url: https://www.fahorro.com/cuidado-personal/marcas/quiin.html
+              - text: Quiin
+          - link [disabled] [ref=e386] [cursor=pointer]:
+            - /url: https://www.fahorro.com/cuidado-personal/catalogo-extendido-belleza.html
+            - text: Catálogo extendido Belleza
+          - link [disabled] [ref=e387] [cursor=pointer]:
+            - /url: https://www.fahorro.com/cuidado-personal/outlet.html
+            - text: Outlet
+          - link [disabled] [ref=e388] [cursor=pointer]:
+            - /url: https://www.fahorro.com/cuidado-personal/lanzamientos.html
+            - text: Lanzamientos
+          - link [disabled] [ref=e389] [cursor=pointer]:
+            - /url: https://www.fahorro.com/cuidado-personal/mi-rutina-diaria.html
+            - text: Días de mi rutina
+        - link [disabled] [ref=e390] [cursor=pointer]:
+          - /url: https://www.fahorro.com/derma-cuidado-de-la-piel.html
+          - text: DERMA
+        - list [ref=e391]:
+          - link [disabled] [ref=e392] [cursor=pointer]:
+            - /url: https://www.fahorro.com/derma-cuidado-de-la-piel/derma.html
+            - text: Derma
+        - link [disabled] [ref=e393] [cursor=pointer]:
+          - /url: https://www.fahorro.com/deportes.html
+          - text: Deportes
+        - list [ref=e394]:
+          - link [disabled] [ref=e395] [cursor=pointer]:
+            - /url: https://www.fahorro.com/deportes/nutricion-deportiva.html
+            - text: Nutrición Deportiva
+          - list [ref=e396]:
+            - link [disabled] [ref=e397] [cursor=pointer]:
+              - /url: https://www.fahorro.com/deportes/nutricion-deportiva/proteina.html
+              - text: Proteína
+            - link [disabled] [ref=e398] [cursor=pointer]:
+              - /url: https://www.fahorro.com/deportes/nutricion-deportiva/rendimiento-y-energeticos.html
+              - text: Rendimiento y Energéticos
+            - link [disabled] [ref=e399] [cursor=pointer]:
+              - /url: https://www.fahorro.com/deportes/nutricion-deportiva/hidratacion.html
+              - text: Hidratación
+          - link [disabled] [ref=e400] [cursor=pointer]:
+            - /url: https://www.fahorro.com/deportes/accesorios-deportivos.html
+            - text: Accesorios Deportivos
+          - link [disabled] [ref=e401] [cursor=pointer]:
+            - /url: https://www.fahorro.com/deportes/deportes-al-aire-libre.html
+            - text: Deportes al Aire libre
+          - list [ref=e402]:
+            - link [disabled] [ref=e403] [cursor=pointer]:
+              - /url: https://www.fahorro.com/deportes/deportes-al-aire-libre/camping-y-senderismo.html
+              - text: Campismo y Senderismo
+          - link [disabled] [ref=e404] [cursor=pointer]:
+            - /url: https://www.fahorro.com/deportes/ciclismo.html
+            - text: Ciclismo
+          - link [disabled] [ref=e405] [cursor=pointer]:
+            - /url: https://www.fahorro.com/deportes/maquinaria-de-cardio.html
+            - text: Maquinaria de Cardio
+          - link [disabled] [ref=e406] [cursor=pointer]:
+            - /url: https://www.fahorro.com/deportes/padel.html
+            - text: Pádel
+          - list [ref=e407]:
+            - link [disabled] [ref=e408] [cursor=pointer]:
+              - /url: https://www.fahorro.com/deportes/padel/palas-de-padel.html
+              - text: Palas de Pádel
+          - link [disabled] [ref=e409] [cursor=pointer]:
+            - /url: https://www.fahorro.com/deportes/ropa-deportiva.html
+            - text: Ropa Deportiva
+          - list [ref=e410]:
+            - link [disabled] [ref=e411] [cursor=pointer]:
+              - /url: https://www.fahorro.com/deportes/ropa-deportiva/ropa-para-mujer.html
+              - text: Ropa Para Mujer
+            - link [disabled] [ref=e412] [cursor=pointer]:
+              - /url: https://www.fahorro.com/deportes/ropa-deportiva/ropa-para-hombre.html
+              - text: Ropa Para Hombre
+            - link [disabled] [ref=e413] [cursor=pointer]:
+              - /url: https://www.fahorro.com/deportes/ropa-deportiva/ropa-infantil.html
+              - text: Ropa Infantil
+        - link [disabled] [ref=e414] [cursor=pointer]:
+          - /url: https://www.fahorro.com/farmacia.html
+          - text: Farmacia
+        - list [ref=e415]:
+          - link [disabled] [ref=e416] [cursor=pointer]:
+            - /url: https://www.fahorro.com/farmacia/antitabaco.html
+            - text: Antitabaco
+          - list [ref=e417]:
+            - link [disabled] [ref=e418] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/antitabaco/recupera-tu-salud.html
+              - text: Recupera tu Salud
+            - link [disabled] [ref=e419] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/antitabaco/controla-los-sintomas.html
+              - text: Controla los Síntomas
+            - link [disabled] [ref=e420] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/antitabaco/recupera-tu-imagen.html
+              - text: Recupera tu Imagen
+          - link [disabled] [ref=e421] [cursor=pointer]:
+            - /url: https://www.fahorro.com/farmacia/articulos-de-medicion.html
+            - text: Articulos de medición
+          - link [disabled] [ref=e422] [cursor=pointer]:
+            - /url: https://www.fahorro.com/farmacia/bienestar-sexual.html
+            - text: Bienestar sexual
+          - list [ref=e423]:
+            - link [disabled] [ref=e424] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/bienestar-sexual/accesorios-sexualidad.html
+              - text: Accesorios sexualidad
+            - link [disabled] [ref=e425] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/bienestar-sexual/ginecologia-rx.html
+              - text: Ginecología RX
+            - link [disabled] [ref=e426] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/bienestar-sexual/higiene-y-cuidado-intimo.html
+              - text: Higiene y Cuidado Intimo
+            - link [disabled] [ref=e427] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/bienestar-sexual/lubricantes.html
+              - text: Lubricantes
+            - link [disabled] [ref=e428] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/bienestar-sexual/me-cuido-bien.html
+              - text: Me cuido bien
+            - link [disabled] [ref=e429] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/bienestar-sexual/suplementos.html
+              - text: Suplementos
+            - link [disabled] [ref=e430] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/bienestar-sexual/urologia-nefro-rx.html
+              - text: Urología - Nefro Rx
+            - link [disabled] [ref=e431] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/bienestar-sexual/urologia-rx.html
+              - text: Urología RX
+          - link [disabled] [ref=e432] [cursor=pointer]:
+            - /url: https://www.fahorro.com/farmacia/cuidado-de-los-ojos.html
+            - text: Cuidado de los ojos
+          - link [disabled] [ref=e433] [cursor=pointer]:
+            - /url: https://www.fahorro.com/farmacia/cuidado-de-los-pies.html
+            - text: Cuidado de los pies
+          - list [ref=e434]:
+            - link [disabled] [ref=e435] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/cuidado-de-los-pies/antimicoticos-pies.html
+              - text: Antimicóticos Pies
+            - link [disabled] [ref=e436] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/cuidado-de-los-pies/antimicoticos-unas.html
+              - text: Antimicóticos Uñas
+            - link [disabled] [ref=e437] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/cuidado-de-los-pies/accesorios.html
+              - text: Accesorios
+            - link [disabled] [ref=e438] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/cuidado-de-los-pies/callos.html
+              - text: Callos
+            - link [disabled] [ref=e439] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/cuidado-de-los-pies/desodorantes.html
+              - text: Desodorantes
+            - link [disabled] [ref=e440] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/cuidado-de-los-pies/talco.html
+              - text: Talco
+          - link [disabled] [ref=e441] [cursor=pointer]:
+            - /url: https://www.fahorro.com/farmacia/dermatologia.html
+            - text: Dermatología
+          - link [disabled] [ref=e442] [cursor=pointer]:
+            - /url: https://www.fahorro.com/farmacia/dolor-y-fiebre.html
+            - text: Dolor y Fiebre
+          - link [disabled] [ref=e443] [cursor=pointer]:
+            - /url: https://www.fahorro.com/farmacia/especialidades.html
+            - text: Especialidades
+          - list [ref=e444]:
+            - link [disabled] [ref=e445] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/especialidades/alergologia.html
+              - text: Alergología
+            - link [disabled] [ref=e446] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/especialidades/cardiologia.html
+              - text: Cardiología
+            - link [disabled] [ref=e447] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/especialidades/dermatologia.html
+              - text: Dermatología
+            - link [disabled] [ref=e448] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/especialidades/endocrinologia.html
+              - text: Endocrinología
+            - link [disabled] [ref=e449] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/especialidades/gastroenterologia.html
+              - text: Gastroenterología
+            - link [disabled] [ref=e450] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/especialidades/ginecologia.html
+              - text: Ginecología
+            - link [disabled] [ref=e451] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/especialidades/hematologia.html
+              - text: Hematología
+            - link [disabled] [ref=e452] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/especialidades/infectologia.html
+              - text: Infectología
+            - link [disabled] [ref=e453] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/especialidades/oftalmologia.html
+              - text: Oftalmología
+            - link [disabled] [ref=e454] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/especialidades/oncologia.html
+              - text: Oncología
+            - link [disabled] [ref=e455] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/especialidades/ortopedia-y-reuma.html
+              - text: Ortopedia y Reuma
+            - link [disabled] [ref=e456] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/especialidades/neumologia.html
+              - text: Neumología
+            - link [disabled] [ref=e457] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/especialidades/neurologia.html
+              - text: Neurología
+            - link [disabled] [ref=e458] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/especialidades/urologia.html
+              - text: Urología
+          - link [disabled] [ref=e459] [cursor=pointer]:
+            - /url: https://www.fahorro.com/farmacia/ginecologia.html
+            - text: Ginecología
+          - link [disabled] [ref=e460] [cursor=pointer]:
+            - /url: https://www.fahorro.com/farmacia/gripa-y-tos.html
+            - text: Salud Respiratoria
+          - list [ref=e461]:
+            - link [disabled] [ref=e462] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/gripa-y-tos/gripa.html
+              - text: Gripa
+            - link [disabled] [ref=e463] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/gripa-y-tos/tos.html
+              - text: Tos
+            - link [disabled] [ref=e464] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/gripa-y-tos/dolor-de-garganta.html
+              - text: Dolor de Garganta
+            - link [disabled] [ref=e465] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/gripa-y-tos/congestion-nasal.html
+              - text: Congestión Nasal
+            - link [disabled] [ref=e466] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/gripa-y-tos/alergias.html
+              - text: Alergias
+          - link [disabled] [ref=e467] [cursor=pointer]:
+            - /url: https://www.fahorro.com/farmacia/material-de-curacion.html
+            - text: Material de curación
+          - link [disabled] [ref=e468] [cursor=pointer]:
+            - /url: https://www.fahorro.com/farmacia/nutricionales.html
+            - text: Nutricionales
+          - link [disabled] [ref=e469] [cursor=pointer]:
+            - /url: https://www.fahorro.com/farmacia/pruebas-de-embarazo.html
+            - text: Pruebas de Embarazo
+          - link [disabled] [ref=e470] [cursor=pointer]:
+            - /url: https://www.fahorro.com/farmacia/salud-digestiva.html
+            - text: Salud digestiva
+          - list [ref=e471]:
+            - link [disabled] [ref=e472] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/salud-digestiva/acidez.html
+              - text: Acidez
+            - link [disabled] [ref=e473] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/salud-digestiva/control-de-peso.html
+              - text: Control de Peso
+            - link [disabled] [ref=e474] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/salud-digestiva/desparasitantes.html
+              - text: Desparasitantes
+            - link [disabled] [ref=e475] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/salud-digestiva/diarrea.html
+              - text: Diarrea
+            - link [disabled] [ref=e476] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/salud-digestiva/dolor-y-malestar.html
+              - text: Dolor y Malestar
+            - link [disabled] [ref=e477] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/salud-digestiva/estrenimiento.html
+              - text: Estreñimiento
+            - link [disabled] [ref=e478] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/salud-digestiva/probioticos.html
+              - text: Probióticos
+          - link [disabled] [ref=e479] [cursor=pointer]:
+            - /url: https://www.fahorro.com/farmacia/suplementos-alimenticios.html
+            - text: Suplementos Alimenticios
+          - link [disabled] [ref=e480] [cursor=pointer]:
+            - /url: https://www.fahorro.com/farmacia/sueros.html
+            - text: Sueros
+          - link [disabled] [ref=e481] [cursor=pointer]:
+            - /url: https://www.fahorro.com/farmacia/vitaminas-y-minerales.html
+            - text: Vitaminas y Minerales
+          - link [disabled] [ref=e482] [cursor=pointer]:
+            - /url: https://www.fahorro.com/farmacia/promociones-del-mes.html
+            - text: Te Queremos Protegido
+          - link [disabled] [ref=e483] [cursor=pointer]:
+            - /url: https://www.fahorro.com/farmacia/farma-week.html
+            - text: Farma Week
+          - link [disabled] [ref=e484] [cursor=pointer]:
+            - /url: https://www.fahorro.com/farmacia/salud-mental.html
+            - text: Salud Mental
+          - link [disabled] [ref=e485] [cursor=pointer]:
+            - /url: https://www.fahorro.com/farmacia/marcas-destacadas.html
+            - text: Marcas Destacadas
+          - list [ref=e486]:
+            - link [disabled] [ref=e487] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/marcas-destacadas/metamucil.html
+              - text: Metamucil
+            - link [disabled] [ref=e488] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/marcas-destacadas/promociones-sanofi.html
+              - text: Promociones Sanofi
+            - link [disabled] [ref=e489] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/marcas-destacadas/pediasure.html
+              - text: Pediasure
+            - link [disabled] [ref=e490] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/marcas-destacadas/vick.html
+              - text: Vick
+            - link [disabled] [ref=e491] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/marcas-destacadas/histacil.html
+              - text: Histacil
+            - link [disabled] [ref=e492] [cursor=pointer]:
+              - /url: https://www.fahorro.com/farmacia/marcas-destacadas/aderogyl.html
+              - text: Aderogyl
+          - link [disabled] [ref=e493] [cursor=pointer]:
+            - /url: https://www.fahorro.com/farmacia/120-horas.html
+            - text: 120 Horas Banamex
+        - link [disabled] [ref=e494] [cursor=pointer]:
+          - /url: https://www.fahorro.com/bienestar-sexual.html
+          - text: Bienestar Sexual
+        - list [ref=e495]:
+          - link [disabled] [ref=e496] [cursor=pointer]:
+            - /url: https://www.fahorro.com/bienestar-sexual/ver-mas-bienestar-sexual.html
+            - text: Catálogo Extendido de Bienestar Sexual
+          - link [disabled] [ref=e497] [cursor=pointer]:
+            - /url: https://www.fahorro.com/bienestar-sexual/juguetes-sexuales.html
+            - text: Juguetes Sexuales
+          - list [ref=e498]:
+            - link [disabled] [ref=e499] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bienestar-sexual/juguetes-sexuales/dildos.html
+              - text: Dildos
+            - link [disabled] [ref=e500] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bienestar-sexual/juguetes-sexuales/juguetes-eroticos.html
+              - text: Juguetes Eróticos
+            - link [disabled] [ref=e501] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bienestar-sexual/juguetes-sexuales/juguetes-para-hombre.html
+              - text: Juguetes Para Hombre
+            - link [disabled] [ref=e502] [cursor=pointer]:
+              - /url: https://www.fahorro.com/bienestar-sexual/juguetes-sexuales/vibradores-y-succionadores.html
+              - text: Vibradores y Succionadores
+            - link [disabled] [ref=e503] [cursor=pointer]:
+              - /url: https://www.fahorro.com/catalog/category/view/s/juguetes-eroticos/id/14290/
+              - text: Juguetes Eróticos
+            - link [disabled] [ref=e504] [cursor=pointer]:
+              - /url: https://www.fahorro.com/catalog/category/view/s/accesorios-sexualidad/id/15141/
+              - text: Accesorios Sexualidad
+          - link [disabled] [ref=e505] [cursor=pointer]:
+            - /url: https://www.fahorro.com/bienestar-sexual/preservativos.html
+            - text: Preservativos
+          - link [disabled] [ref=e506] [cursor=pointer]:
+            - /url: https://www.fahorro.com/bienestar-sexual/suplementos.html
+            - text: Suplementos
+          - link [disabled] [ref=e507] [cursor=pointer]:
+            - /url: https://www.fahorro.com/bienestar-sexual/lubricantes.html
+            - text: Lubricantes
+          - link [disabled] [ref=e508] [cursor=pointer]:
+            - /url: https://www.fahorro.com/bienestar-sexual/accesorios-sexualidad.html
+            - text: Accesorios Sexualidad
+          - link [disabled] [ref=e509] [cursor=pointer]:
+            - /url: https://www.fahorro.com/bienestar-sexual/promociones.html
+            - text: Promociones del Mes
+          - link [disabled] [ref=e510] [cursor=pointer]:
+            - /url: https://www.fahorro.com/bienestar-sexual/lo-mas-vendido.html
+            - text: Lo Más Vendido
+        - link [disabled] [ref=e511] [cursor=pointer]:
+          - /url: https://www.fahorro.com/nutricion-y-deporte.html
+          - text: Nutrición y Deporte
+        - list [ref=e512]:
+          - link [disabled] [ref=e513] [cursor=pointer]:
+            - /url: https://www.fahorro.com/nutricion-y-deporte/vida-en-balance.html
+            - text: Vida en balance
+          - list [ref=e514]:
+            - link [disabled] [ref=e515] [cursor=pointer]:
+              - /url: https://www.fahorro.com/nutricion-y-deporte/vida-en-balance/remedios-naturales.html
+              - text: Remedios Naturales
+            - link [disabled] [ref=e516] [cursor=pointer]:
+              - /url: https://www.fahorro.com/nutricion-y-deporte/vida-en-balance/tes-en-sobre.html
+              - text: Tés en Sobre
+            - link [disabled] [ref=e517] [cursor=pointer]:
+              - /url: https://www.fahorro.com/nutricion-y-deporte/vida-en-balance/aromaterapia.html
+              - text: Aromaterapia
+          - link [disabled] [ref=e518] [cursor=pointer]:
+            - /url: https://www.fahorro.com/nutricion-y-deporte/promociones-del-mes.html
+            - text: Vuelta a los Hábitos
+          - link [disabled] [ref=e519] [cursor=pointer]:
+            - /url: https://www.fahorro.com/nutricion-y-deporte/marcas-destacadas.html
+            - text: Marcas Destacadas
+          - list [ref=e520]:
+            - link [disabled] [ref=e521] [cursor=pointer]:
+              - /url: https://www.fahorro.com/nutricion-y-deporte/marcas-destacadas/habits.html
+              - text: Habits
+            - link [disabled] [ref=e522] [cursor=pointer]:
+              - /url: https://www.fahorro.com/nutricion-y-deporte/marcas-destacadas/multiblue.html
+              - text: MultiBlue
+            - link [disabled] [ref=e523] [cursor=pointer]:
+              - /url: https://www.fahorro.com/nutricion-y-deporte/marcas-destacadas/microbiot-fit.html
+              - text: Microbiot Fit
+            - link [disabled] [ref=e524] [cursor=pointer]:
+              - /url: https://www.fahorro.com/nutricion-y-deporte/marcas-destacadas/birdman.html
+              - text: Birdman
+            - link [disabled] [ref=e525] [cursor=pointer]:
+              - /url: https://www.fahorro.com/nutricion-y-deporte/marcas-destacadas/goli.html
+              - text: GOLI
+            - link [disabled] [ref=e526] [cursor=pointer]:
+              - /url: https://www.fahorro.com/nutricion-y-deporte/marcas-destacadas/vital.html
+              - text: Vital Proteins
+            - link [disabled] [ref=e527] [cursor=pointer]:
+              - /url: https://www.fahorro.com/nutricion-y-deporte/marcas-destacadas/boost.html
+              - text: Boost
+            - link [disabled] [ref=e528] [cursor=pointer]:
+              - /url: https://www.fahorro.com/nutricion-y-deporte/marcas-destacadas/pro-flex.html
+              - text: Pro Flex
+          - link [disabled] [ref=e529] [cursor=pointer]:
+            - /url: https://www.fahorro.com/nutricion-y-deporte/lo-mas-vendido.html
+            - text: Renuévate
+          - link [disabled] [ref=e530] [cursor=pointer]:
+            - /url: https://www.fahorro.com/nutricion-y-deporte/lunes-fit.html
+            - text: Lunes Fit
+          - link [disabled] [ref=e531] [cursor=pointer]:
+            - /url: https://www.fahorro.com/nutricion-y-deporte/catalogo-extendido-nutricion-y-deporte.html
+            - text: Catálogo extendido nutrición y deporte
+        - link [disabled] [ref=e532] [cursor=pointer]:
+          - /url: https://www.fahorro.com/diabetes.html
+          - text: Diabetes
+        - list [ref=e533]:
+          - link [disabled] [ref=e534] [cursor=pointer]:
+            - /url: https://www.fahorro.com/diabetes/articulos-de-medicion.html
+            - text: Artículos De Medición
+          - link [disabled] [ref=e535] [cursor=pointer]:
+            - /url: https://www.fahorro.com/diabetes/cuidado-personal.html
+            - text: Cuidado Personal
+          - link [disabled] [ref=e536] [cursor=pointer]:
+            - /url: https://www.fahorro.com/diabetes/gripa-y-tos.html
+            - text: Gripa y Tos
+          - link [disabled] [ref=e537] [cursor=pointer]:
+            - /url: https://www.fahorro.com/diabetes/jeringas-y-agujas.html
+            - text: Jeringas y Agujas
+          - link [disabled] [ref=e538] [cursor=pointer]:
+            - /url: https://www.fahorro.com/diabetes/medicamentos-especializados.html
+            - text: Medicamentos Especializados
+          - link [disabled] [ref=e539] [cursor=pointer]:
+            - /url: https://www.fahorro.com/diabetes/snacks-bajos-en-azucar.html
+            - text: Snacks Bajos en Azúcar
+          - link [disabled] [ref=e540] [cursor=pointer]:
+            - /url: https://www.fahorro.com/diabetes/suplementos-alimenticios.html
+            - text: Suplementos Alimenticios
+          - link [disabled] [ref=e541] [cursor=pointer]:
+            - /url: https://www.fahorro.com/diabetes/vitaminas-y-minerales.html
+            - text: Vitaminas y Minerales
+          - link [disabled] [ref=e542] [cursor=pointer]:
+            - /url: https://www.fahorro.com/diabetes/sueros.html
+            - text: Sueros
+        - link [disabled] [ref=e543] [cursor=pointer]:
+          - /url: https://www.fahorro.com/conveniencia.html
+          - text: Conveniencia
+        - list [ref=e544]:
+          - link [disabled] [ref=e545] [cursor=pointer]:
+            - /url: https://www.fahorro.com/conveniencia/articulos-para-el-hogar.html
+            - text: Artículos para el Hogar
+          - link [disabled] [ref=e546] [cursor=pointer]:
+            - /url: https://www.fahorro.com/conveniencia/bebidas-refrescantes.html
+            - text: Bebidas
+          - link [disabled] [ref=e547] [cursor=pointer]:
+            - /url: https://www.fahorro.com/conveniencia/repelentes.html
+            - text: Repelentes
+          - link [disabled] [ref=e548] [cursor=pointer]:
+            - /url: https://www.fahorro.com/conveniencia/hidratazone.html
+            - text: Hidratazone
+          - link [disabled] [ref=e549] [cursor=pointer]:
+            - /url: https://www.fahorro.com/conveniencia/anti-tabaco.html
+            - text: Anti-Tabaco
+        - link [disabled] [ref=e550] [cursor=pointer]:
+          - /url: https://www.fahorro.com/electronica.html
+          - text: Electrónica
+        - list [ref=e551]:
+          - link [disabled] [ref=e552] [cursor=pointer]:
+            - /url: https://www.fahorro.com/electronica/computacion-tablets.html
+            - text: Computación & Tablets
+          - list [ref=e553]:
+            - link [disabled] [ref=e554] [cursor=pointer]:
+              - /url: https://www.fahorro.com/electronica/computacion-tablets/tablet.html
+              - text: Tablets
+            - link [disabled] [ref=e555] [cursor=pointer]:
+              - /url: https://www.fahorro.com/electronica/computacion-tablets/accesorios.html
+              - text: Accesorios
+          - link [disabled] [ref=e556] [cursor=pointer]:
+            - /url: https://www.fahorro.com/electronica/tecnologia-para-vestir.html
+            - text: Smartwatches
+          - list [ref=e557]:
+            - link [disabled] [ref=e558] [cursor=pointer]:
+              - /url: https://www.fahorro.com/electronica/tecnologia-para-vestir/smartwatches-y-trackers.html
+              - text: Smartwatches
+            - link [disabled] [ref=e559] [cursor=pointer]:
+              - /url: https://www.fahorro.com/electronica/tecnologia-para-vestir/smartbands.html
+              - text: Smartbands
+          - link [disabled] [ref=e560] [cursor=pointer]:
+            - /url: https://www.fahorro.com/electronica/telefonia.html
+            - text: Telefonía
+          - list [ref=e561]:
+            - link [disabled] [ref=e562] [cursor=pointer]:
+              - /url: https://www.fahorro.com/electronica/telefonia/celulares-y-smartphones.html
+              - text: Celulares y Smartphones
+            - link [disabled] [ref=e563] [cursor=pointer]:
+              - /url: https://www.fahorro.com/electronica/telefonia/accesorios-para-celular.html
+              - text: Accesorios para Celular
+            - link [disabled] [ref=e564] [cursor=pointer]:
+              - /url: https://www.fahorro.com/electronica/telefonia/fotografia-video-movil.html
+              - text: Fotografía & Video móvil
+            - link [disabled] [ref=e565] [cursor=pointer]:
+              - /url: https://www.fahorro.com/electronica/telefonia/carga-energia.html
+              - text: Carga & Energía
+            - link [disabled] [ref=e566] [cursor=pointer]:
+              - /url: https://www.fahorro.com/electronica/telefonia/audifonos.html
+              - text: Audifonos
+          - link [disabled] [ref=e567] [cursor=pointer]:
+            - /url: https://www.fahorro.com/electronica/tv-audio-y-video.html
+            - text: Tv, Audio y Vídeo
+          - list [ref=e568]:
+            - link [disabled] [ref=e569] [cursor=pointer]:
+              - /url: https://www.fahorro.com/electronica/tv-audio-y-video/pantallas.html
+              - text: Pantallas
+            - link [disabled] [ref=e570] [cursor=pointer]:
+              - /url: https://www.fahorro.com/electronica/tv-audio-y-video/bocinas-portatiles.html
+              - text: Bocinas Portátiles
+            - link [disabled] [ref=e571] [cursor=pointer]:
+              - /url: https://www.fahorro.com/electronica/tv-audio-y-video/barras-de-sonido-y-home-theater.html
+              - text: Barras de Sonido y Home Theater
+            - link [disabled] [ref=e572] [cursor=pointer]:
+              - /url: https://www.fahorro.com/electronica/tv-audio-y-video/reproductores-y-accesorios-de-audio.html
+              - text: Reproductores y Accesorios de Audio
+            - link [disabled] [ref=e573] [cursor=pointer]:
+              - /url: https://www.fahorro.com/electronica/tv-audio-y-video/audifonos.html
+              - text: Audifonos
+          - link [disabled] [ref=e574] [cursor=pointer]:
+            - /url: https://www.fahorro.com/electronica/hogar-inteligente.html
+            - text: Hogar Inteligente
+          - link [disabled] [ref=e575] [cursor=pointer]:
+            - /url: https://www.fahorro.com/electronica/consolas-videojuegos.html
+            - text: Consolas & Videojuegos
+          - link [disabled] [ref=e576] [cursor=pointer]:
+            - /url: https://www.fahorro.com/electronica/otros.html
+            - text: Otros
+          - link [disabled] [ref=e577] [cursor=pointer]:
+            - /url: https://www.fahorro.com/electronica/audio.html
+            - text: Audio
+        - link [disabled] [ref=e578] [cursor=pointer]:
+          - /url: https://www.fahorro.com/perfumes.html
+          - text: Perfumes
+        - list [ref=e579]:
+          - link [disabled] [ref=e580] [cursor=pointer]:
+            - /url: https://www.fahorro.com/perfumes/ver-mas-perfumes.html
+            - text: Ver Todo Perfumes
+          - link [disabled] [ref=e581] [cursor=pointer]:
+            - /url: https://www.fahorro.com/perfumes/perfumes.html
+            - text: Perfumes más vendidos
+          - link [disabled] [ref=e582] [cursor=pointer]:
+            - /url: https://www.fahorro.com/perfumes/mujer.html
+            - text: Perfumes Mujer
+          - link [disabled] [ref=e583] [cursor=pointer]:
+            - /url: https://www.fahorro.com/perfumes/perfumes-hombre.html
+            - text: Perfumes Hombre
+          - link [disabled] [ref=e584] [cursor=pointer]:
+            - /url: https://www.fahorro.com/perfumes/unisex.html
+            - text: Unisex
+          - link [disabled] [ref=e585] [cursor=pointer]:
+            - /url: https://www.fahorro.com/catalog/category/view/s/perfumes-unisex/id/21042/
+            - text: Perfumes Unisex
+          - link [disabled] [ref=e586] [cursor=pointer]:
+            - /url: https://www.fahorro.com/perfumes/venta-nocturna.html
+            - text: Noches de Perfumes
+        - link [disabled] [ref=e587] [cursor=pointer]:
+          - /url: https://www.fahorro.com/catalogo-extendido.html
+          - text: Catálogo Extendido
+        - list [ref=e588]:
+          - link [disabled] [ref=e589] [cursor=pointer]:
+            - /url: https://www.fahorro.com/catalogo-extendido/ofertas-flash.html
+            - text: Ofertas Flash
+          - link [disabled] [ref=e590] [cursor=pointer]:
+            - /url: https://www.fahorro.com/catalogo-extendido/catalogo-extendido-lo-mas-vendido.html
+            - text: Lo más vendido
+          - link [disabled] [ref=e591] [cursor=pointer]:
+            - /url: https://www.fahorro.com/catalogo-extendido/catalogo-extendido-belleza.html
+            - text: Belleza
+          - link [disabled] [ref=e592] [cursor=pointer]:
+            - /url: https://www.fahorro.com/catalogo-extendido/catalogo-extendido-nutricion-y-deporte.html
+            - text: Nutrición y Deporte
+          - link [disabled] [ref=e593] [cursor=pointer]:
+            - /url: https://www.fahorro.com/catalogo-extendido/catalogo-extendido-perfumes.html
+            - text: Perfumes
+          - link [disabled] [ref=e594] [cursor=pointer]:
+            - /url: https://www.fahorro.com/catalogo-extendido/catalogo-extendido-equipo-medico.html
+            - text: Equipo Médico
+          - link [disabled] [ref=e595] [cursor=pointer]:
+            - /url: https://www.fahorro.com/catalogo-extendido/catalogo-extendido-mascotas.html
+            - text: Mascotas
+          - link [disabled] [ref=e596] [cursor=pointer]:
+            - /url: https://www.fahorro.com/catalogo-extendido/catalogo-extendido-bienestar-sexual.html
+            - text: Salud Sexual
+          - link [disabled] [ref=e597] [cursor=pointer]:
+            - /url: https://www.fahorro.com/catalogo-extendido/catalogo-extendido-hogar.html
+            - text: Hogar
+          - link [disabled] [ref=e598] [cursor=pointer]:
+            - /url: https://www.fahorro.com/catalogo-extendido/catalogo-extendido-electrobelleza.html
+            - text: Electro - belleza
+          - link [disabled] [ref=e599] [cursor=pointer]:
+            - /url: https://www.fahorro.com/catalogo-extendido/catalogo-extendido-maquillaje.html
+            - text: Maquillaje
+          - link [disabled] [ref=e600] [cursor=pointer]:
+            - /url: https://www.fahorro.com/catalogo-extendido/exclusivos-en-linea-electronica.html
+            - text: Electrónica
+          - link [disabled] [ref=e601] [cursor=pointer]:
+            - /url: https://www.fahorro.com/catalogo-extendido/catalogo-extendido-juguetes.html
+            - text: Juguetes
+          - list [ref=e602]:
+            - link [disabled] [ref=e603] [cursor=pointer]:
+              - /url: https://www.fahorro.com/catalogo-extendido/catalogo-extendido-juguetes/lego.html
+              - text: LEGO
+          - link [disabled] [ref=e604] [cursor=pointer]:
+            - /url: https://www.fahorro.com/catalogo-extendido/fajas-y-moldeadores.html
+            - text: Fajas y Moldeadores
+          - link [disabled] [ref=e605] [cursor=pointer]:
+            - /url: https://www.fahorro.com/catalogo-extendido/ver-todo-catalogo-extendido.html
+            - text: Ver Todo Catálogo Extendido
+          - link [disabled] [ref=e606] [cursor=pointer]:
+            - /url: https://www.fahorro.com/catalogo-extendido/catalogo-extendido-bebes.html
+            - text: Bebés
+          - link [disabled] [ref=e607] [cursor=pointer]:
+            - /url: https://www.fahorro.com/catalogo-extendido/ahorro-market.html
+            - text: Ahorro Market
+        - link [disabled] [ref=e608] [cursor=pointer]:
+          - /url: https://www.fahorro.com/belleza.html
+          - text: Belleza
+        - list [ref=e609]:
+          - link [disabled] [ref=e610] [cursor=pointer]:
+            - /url: https://www.fahorro.com/belleza/ver-todo-belleza.html
+            - text: Ver Todo Catálogo Extendido Belleza
+          - link [disabled] [ref=e611] [cursor=pointer]:
+            - /url: https://www.fahorro.com/belleza/belleza-profesional.html
+            - text: Belleza Premium
+          - list [ref=e612]:
+            - link [disabled] [ref=e613] [cursor=pointer]:
+              - /url: https://www.fahorro.com/belleza/belleza-profesional/accesorios.html
+              - text: Accesorios
+            - link [disabled] [ref=e614] [cursor=pointer]:
+              - /url: https://www.fahorro.com/belleza/belleza-profesional/cabello.html
+              - text: Cabello
+            - link [disabled] [ref=e615] [cursor=pointer]:
+              - /url: https://www.fahorro.com/belleza/belleza-profesional/cuidado-facial.html
+              - text: Cuidado Facial
+            - link [disabled] [ref=e616] [cursor=pointer]:
+              - /url: https://www.fahorro.com/belleza/belleza-profesional/maquillaje.html
+              - text: Maquillaje
+          - link [disabled] [ref=e617] [cursor=pointer]:
+            - /url: https://www.fahorro.com/belleza/herramientas-de-peinado.html
+            - text: Herramientas de peinado
+          - list [ref=e618]:
+            - link [disabled] [ref=e619] [cursor=pointer]:
+              - /url: https://www.fahorro.com/belleza/herramientas-de-peinado/cepillos-electricos.html
+              - text: Cepillos eléctricos
+            - link [disabled] [ref=e620] [cursor=pointer]:
+              - /url: https://www.fahorro.com/belleza/herramientas-de-peinado/planchas.html
+              - text: Planchas
+            - link [disabled] [ref=e621] [cursor=pointer]:
+              - /url: https://www.fahorro.com/belleza/herramientas-de-peinado/rizadoras.html
+              - text: Rizadoras
+            - link [disabled] [ref=e622] [cursor=pointer]:
+              - /url: https://www.fahorro.com/belleza/herramientas-de-peinado/secadoras.html
+              - text: Secadoras
+            - link [disabled] [ref=e623] [cursor=pointer]:
+              - /url: https://www.fahorro.com/belleza/herramientas-de-peinado/cepillos-y-peines.html
+              - text: Cepillos y peines
+            - link [disabled] [ref=e624] [cursor=pointer]:
+              - /url: https://www.fahorro.com/belleza/herramientas-de-peinado/otros.html
+              - text: Otros
+          - link [disabled] [ref=e625] [cursor=pointer]:
+            - /url: https://www.fahorro.com/belleza/maquillaje.html
+            - text: Maquillaje
+          - list [ref=e626]:
+            - link [disabled] [ref=e627] [cursor=pointer]:
+              - /url: https://www.fahorro.com/belleza/maquillaje/labios.html
+              - text: Labios
+            - link [disabled] [ref=e628] [cursor=pointer]:
+              - /url: https://www.fahorro.com/belleza/maquillaje/mejillas.html
+              - text: Mejillas
+            - link [disabled] [ref=e629] [cursor=pointer]:
+              - /url: https://www.fahorro.com/belleza/maquillaje/ojos.html
+              - text: Ojos
+            - link [disabled] [ref=e630] [cursor=pointer]:
+              - /url: https://www.fahorro.com/belleza/maquillaje/rostro.html
+              - text: Rostro
+            - link [disabled] [ref=e631] [cursor=pointer]:
+              - /url: https://www.fahorro.com/belleza/maquillaje/unas.html
+              - text: Uñas
+          - link [disabled] [ref=e632] [cursor=pointer]:
+            - /url: https://www.fahorro.com/belleza/perfumes.html
+            - text: Perfumes
+          - list [ref=e633]:
+            - link [disabled] [ref=e634] [cursor=pointer]:
+              - /url: https://www.fahorro.com/belleza/perfumes/hombre.html
+              - text: Hombre
+            - link [disabled] [ref=e635] [cursor=pointer]:
+              - /url: https://www.fahorro.com/belleza/perfumes/mujer.html
+              - text: Mujer
+            - link [disabled] [ref=e636] [cursor=pointer]:
+              - /url: https://www.fahorro.com/belleza/perfumes/sets.html
+              - text: Sets
+            - link [disabled] [ref=e637] [cursor=pointer]:
+              - /url: https://www.fahorro.com/belleza/perfumes/unisex.html
+              - text: Unisex
+          - link [disabled] [ref=e638] [cursor=pointer]:
+            - /url: https://www.fahorro.com/belleza/tratamientos.html
+            - text: Tratamientos
+          - list [ref=e639]:
+            - link [disabled] [ref=e640] [cursor=pointer]:
+              - /url: https://www.fahorro.com/belleza/tratamientos/pestanas.html
+              - text: Pestañas
+            - link [disabled] [ref=e641] [cursor=pointer]:
+              - /url: https://www.fahorro.com/belleza/tratamientos/cuidado-facial.html
+              - text: Cuidado Facial
+            - link [disabled] [ref=e642] [cursor=pointer]:
+              - /url: https://www.fahorro.com/belleza/tratamientos/cuidado-de-los-pies.html
+              - text: Cuidado de los Pies
+          - link [disabled] [ref=e643] [cursor=pointer]:
+            - /url: https://www.fahorro.com/belleza/utensilios-de-belleza.html
+            - text: Accesorios de Belleza
+          - list [ref=e644]:
+            - link [disabled] [ref=e645] [cursor=pointer]:
+              - /url: https://www.fahorro.com/belleza/utensilios-de-belleza/espejos.html
+              - text: Espejos y organizadores
+          - link [disabled] [ref=e646] [cursor=pointer]:
+            - /url: https://www.fahorro.com/belleza/cuidado-facial.html
+            - text: Cuidado Facial
+          - list [ref=e647]:
+            - link [disabled] [ref=e648] [cursor=pointer]:
+              - /url: https://www.fahorro.com/belleza/cuidado-facial/limpiadores-y-tonicos.html
+              - text: Limpiadores y Tónicos
+          - link [disabled] [ref=e649] [cursor=pointer]:
+            - /url: https://www.fahorro.com/belleza/kbeauty.html
+            - text: K-Beauty
+          - link [disabled] [ref=e650] [cursor=pointer]:
+            - /url: https://www.fahorro.com/belleza/marcas-destacadas.html
+            - text: Marcas Destacadas
+          - list [ref=e651]:
+            - link [disabled] [ref=e652] [cursor=pointer]:
+              - /url: https://www.fahorro.com/belleza/marcas-destacadas/the-ordinary.html
+              - text: The Ordinary
+            - link [disabled] [ref=e653] [cursor=pointer]:
+              - /url: https://www.fahorro.com/belleza/marcas-destacadas/clinique.html
+              - text: Clinique
+            - link [disabled] [ref=e654] [cursor=pointer]:
+              - /url: https://www.fahorro.com/belleza/marcas-destacadas/yuya.html
+              - text: YUYA
+            - link [disabled] [ref=e655] [cursor=pointer]:
+              - /url: https://www.fahorro.com/belleza/marcas-destacadas/cala.html
+              - text: CALA
+            - link [disabled] [ref=e656] [cursor=pointer]:
+              - /url: https://www.fahorro.com/belleza/marcas-destacadas/revlon.html
+              - text: Revlon
+          - link [disabled] [ref=e657] [cursor=pointer]:
+            - /url: https://www.fahorro.com/belleza/proteccion-solar-facial.html
+            - text: Protección Solar Facial
+          - link [disabled] [ref=e658] [cursor=pointer]:
+            - /url: https://www.fahorro.com/belleza/cuidado-de-labios.html
+            - text: Cuidado de Labios
+          - link [disabled] [ref=e659] [cursor=pointer]:
+            - /url: https://www.fahorro.com/belleza/electrobelleza.html
+            - text: Electrobelleza
+          - list [ref=e660]:
+            - link [disabled] [ref=e661] [cursor=pointer]:
+              - /url: https://www.fahorro.com/belleza/electrobelleza/depilacion.html
+              - text: Depilación
+          - link [disabled] [ref=e662] [cursor=pointer]:
+            - /url: https://www.fahorro.com/belleza/herramienta-de-peinado.html
+            - text: Herramienta de peinado
+          - list [ref=e663]:
+            - link [disabled] [ref=e664] [cursor=pointer]:
+              - /url: https://www.fahorro.com/belleza/herramienta-de-peinado/otros.html
+              - text: Otros
+        - link [disabled] [ref=e665] [cursor=pointer]:
+          - /url: https://www.fahorro.com/electrobelleza.html
+          - text: Electro belleza
+        - list [ref=e666]:
+          - link [disabled] [ref=e667] [cursor=pointer]:
+            - /url: https://www.fahorro.com/electrobelleza/barberia-cuidado-masculino.html
+            - text: Barbería & Cuidado Masculino
+          - list [ref=e668]:
+            - link [disabled] [ref=e669] [cursor=pointer]:
+              - /url: https://www.fahorro.com/electrobelleza/barberia-cuidado-masculino/afeitadoras-electricas.html
+              - text: Afeitadoras Eléctricas
+          - link [disabled] [ref=e670] [cursor=pointer]:
+            - /url: https://www.fahorro.com/electrobelleza/bienestar-salud.html
+            - text: Bienestar & Salud
+          - link [disabled] [ref=e671] [cursor=pointer]:
+            - /url: https://www.fahorro.com/electrobelleza/herramientas-de-peinado.html
+            - text: Herramientas de peinado
+          - list [ref=e672]:
+            - link [disabled] [ref=e673] [cursor=pointer]:
+              - /url: https://www.fahorro.com/electrobelleza/herramientas-de-peinado/planchas.html
+              - text: Planchas y Alaciadoras
+            - link [disabled] [ref=e674] [cursor=pointer]:
+              - /url: https://www.fahorro.com/electrobelleza/herramientas-de-peinado/secadoras.html
+              - text: Secadoras de Cabello
+            - link [disabled] [ref=e675] [cursor=pointer]:
+              - /url: https://www.fahorro.com/electrobelleza/herramientas-de-peinado/rizadoras.html
+              - text: Rizadoras y Tenazas
+            - link [disabled] [ref=e676] [cursor=pointer]:
+              - /url: https://www.fahorro.com/electrobelleza/herramientas-de-peinado/cepillos-electricos.html
+              - text: Cepillos eléctricos
+          - link [disabled] [ref=e677] [cursor=pointer]:
+            - /url: https://www.fahorro.com/electrobelleza/cuidado-facial.html
+            - text: Cuidado Facial Eléctrico
+          - link [disabled] [ref=e678] [cursor=pointer]:
+            - /url: https://www.fahorro.com/electrobelleza/depilacion.html
+            - text: Depilación Eléctrica
+          - link [disabled] [ref=e679] [cursor=pointer]:
+            - /url: https://www.fahorro.com/electrobelleza/ver-mas-electrobelleza.html
+            - text: Ver Todo Electrobelleza
+        - link [disabled] [ref=e680] [cursor=pointer]:
+          - /url: https://www.fahorro.com/hogar.html
+          - text: Hogar
+        - list [ref=e681]:
+          - link [disabled] [ref=e682] [cursor=pointer]:
+            - /url: https://www.fahorro.com/hogar/cocina.html
+            - text: Cocina
+          - list [ref=e683]:
+            - link [disabled] [ref=e684] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hogar/cocina/licuadoras-y-procesadoras.html
+              - text: Electrodomésticos
+            - link [disabled] [ref=e685] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hogar/cocina/utensilios-de-cocina.html
+              - text: Utensilios de Cocina
+            - link [disabled] [ref=e686] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hogar/cocina/vajillas.html
+              - text: Mesa y Vajilla
+            - link [disabled] [ref=e687] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hogar/cocina/cocina-profesional.html
+              - text: Cocina Profesional
+            - link [disabled] [ref=e688] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hogar/cocina/organizacion-para-cocina-y-despensa.html
+              - text: Organización para Cocina y Despensa
+            - link [disabled] [ref=e689] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hogar/cocina/para-llevar-y-termos.html
+              - text: Para Llevar y Termos
+          - link [disabled] [ref=e690] [cursor=pointer]:
+            - /url: https://www.fahorro.com/hogar/recamaras.html
+            - text: Recámara
+          - list [ref=e691]:
+            - link [disabled] [ref=e692] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hogar/recamaras/ropa-de-cama.html
+              - text: Ropa de Cama
+            - link [disabled] [ref=e693] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hogar/recamaras/colchones-y-protectores.html
+              - text: Colchones y protectores
+            - link [disabled] [ref=e694] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hogar/recamaras/almohadas-y-cojines.html
+              - text: Almohadas y Cojines
+            - link [disabled] [ref=e695] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hogar/recamaras/muebles-de-recamara.html
+              - text: Muebles de Recámara
+          - link [disabled] [ref=e696] [cursor=pointer]:
+            - /url: https://www.fahorro.com/hogar/estudio-y-oficina.html
+            - text: Estudio y Oficina
+          - list [ref=e697]:
+            - link [disabled] [ref=e698] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hogar/estudio-y-oficina/muebles-de-oficina.html
+              - text: Muebles de Oficina
+          - link [disabled] [ref=e699] [cursor=pointer]:
+            - /url: https://www.fahorro.com/hogar/sala.html
+            - text: Sala
+          - list [ref=e700]:
+            - link [disabled] [ref=e701] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hogar/sala/muebles-de-sala.html
+              - text: Muebles de Sala
+          - link [disabled] [ref=e702] [cursor=pointer]:
+            - /url: https://www.fahorro.com/hogar/bano.html
+            - text: Baño
+          - list [ref=e703]:
+            - link [disabled] [ref=e704] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hogar/bano/accesorios-de-bano.html
+              - text: Accesorios de Baño
+            - link [disabled] [ref=e705] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hogar/bano/blancos-de-bano.html
+              - text: Blancos de Baño
+            - link [disabled] [ref=e706] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hogar/bano/cortinas-y-seguridad.html
+              - text: Cortinas y Seguridad
+          - link [disabled] [ref=e707] [cursor=pointer]:
+            - /url: https://www.fahorro.com/hogar/iluminacion.html
+            - text: Iluminación
+          - list [ref=e708]:
+            - link [disabled] [ref=e709] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hogar/iluminacion/lamparas.html
+              - text: Lámparas
+            - link [disabled] [ref=e710] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hogar/iluminacion/focos-y-bombillas.html
+              - text: Focos y Bombillas
+            - link [disabled] [ref=e711] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hogar/iluminacion/exterior.html
+              - text: Exterior
+          - link [disabled] [ref=e712] [cursor=pointer]:
+            - /url: https://www.fahorro.com/hogar/almacenamiento-y-organizacion.html
+            - text: Almacenamiento y Organización
+          - list [ref=e713]:
+            - link [disabled] [ref=e714] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hogar/almacenamiento-y-organizacion/organizacion-de-closet.html
+              - text: Organización de Closet
+            - link [disabled] [ref=e715] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hogar/almacenamiento-y-organizacion/accesorios-de-cocina.html
+              - text: Organización de Cocina
+            - link [disabled] [ref=e716] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hogar/almacenamiento-y-organizacion/contenedores.html
+              - text: Contenedores
+          - link [disabled] [ref=e717] [cursor=pointer]:
+            - /url: https://www.fahorro.com/hogar/herramientas-y-mejoras-del-hogar.html
+            - text: Herramientas y mejoras del Hogar
+          - link [disabled] [ref=e718] [cursor=pointer]:
+            - /url: https://www.fahorro.com/hogar/decoracion-del-hogar.html
+            - text: Decoración del Hogar
+          - list [ref=e719]:
+            - link [disabled] [ref=e720] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hogar/decoracion-del-hogar/acentos-decorativos.html
+              - text: Acentos Decorativos
+            - link [disabled] [ref=e721] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hogar/decoracion-del-hogar/espejos-y-pared.html
+              - text: Espejos y Pared
+            - link [disabled] [ref=e722] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hogar/decoracion-del-hogar/fragancias.html
+              - text: Fragancias
+          - link [disabled] [ref=e723] [cursor=pointer]:
+            - /url: https://www.fahorro.com/hogar/jardin-y-exteriores.html
+            - text: Jardín y Exteriores
+          - list [ref=e724]:
+            - link [disabled] [ref=e725] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hogar/jardin-y-exteriores/muebles-de-jardin.html
+              - text: Muebles de Jardín
+            - link [disabled] [ref=e726] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hogar/jardin-y-exteriores/herramientas-para-jardin.html
+              - text: Herramientas para Jardín
+          - link [disabled] [ref=e727] [cursor=pointer]:
+            - /url: https://www.fahorro.com/hogar/aspiracion-y-limpieza.html
+            - text: Aspiración y Limpieza
+          - list [ref=e728]:
+            - link [disabled] [ref=e729] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hogar/aspiracion-y-limpieza/aspiradoras.html
+              - text: Equipo de Aspiración
+            - link [disabled] [ref=e730] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hogar/aspiracion-y-limpieza/herramientas-de-limpieza.html
+              - text: Herramientas de Limpieza
+            - link [disabled] [ref=e731] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hogar/aspiracion-y-limpieza/planchas.html
+              - text: Planchado y Cuidado
+            - link [disabled] [ref=e732] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hogar/aspiracion-y-limpieza/productos-de-limpieza.html
+              - text: Productos de Limpieza
+          - link [disabled] [ref=e733] [cursor=pointer]:
+            - /url: https://www.fahorro.com/hogar/ver-mas-hogar.html
+            - text: Ver Todo Hogar
+        - link [disabled] [ref=e734] [cursor=pointer]:
+          - /url: https://www.fahorro.com/juguetes.html
+          - text: Juegos y Juguetes
+        - list [ref=e735]:
+          - link [disabled] [ref=e736] [cursor=pointer]:
+            - /url: https://www.fahorro.com/juguetes/ver-mas-juguetes.html
+            - text: Ver Todo Juguetes
+          - link [disabled] [ref=e737] [cursor=pointer]:
+            - /url: https://www.fahorro.com/juguetes/juguetes-electronicos.html
+            - text: Juguetes Electrónicos
+          - link [disabled] [ref=e738] [cursor=pointer]:
+            - /url: https://www.fahorro.com/juguetes/juguetes-para-nina.html
+            - text: Juguetes para Niña
+          - link [disabled] [ref=e739] [cursor=pointer]:
+            - /url: https://www.fahorro.com/juguetes/juguetes-para-nino.html
+            - text: Juguetes para Niño
+          - link [disabled] [ref=e740] [cursor=pointer]:
+            - /url: https://www.fahorro.com/juguetes/juegos-de-mesa.html
+            - text: Juegos de Mesa
+          - link [disabled] [ref=e741] [cursor=pointer]:
+            - /url: https://www.fahorro.com/catalog/category/view/s/juguetes-de-construccion/id/14912/
+            - text: Juguetes de Construcción
+          - link [disabled] [ref=e742] [cursor=pointer]:
+            - /url: https://www.fahorro.com/juguetes/juguetes-para-bebe.html
+            - text: Juguetes para Bebé
+          - link [disabled] [ref=e743] [cursor=pointer]:
+            - /url: https://www.fahorro.com/juguetes/aire-libre-y-deportes.html
+            - text: Aire Libre y Deportes
+        - link [disabled] [ref=e744] [cursor=pointer]:
+          - /url: https://www.fahorro.com/mascotas.html
+          - text: Mascotas
+        - list [ref=e745]:
+          - link [disabled] [ref=e746] [cursor=pointer]:
+            - /url: https://www.fahorro.com/mascotas/ver-mas-mascotas.html
+            - text: Ver Todo Mascotas
+          - link [disabled] [ref=e747] [cursor=pointer]:
+            - /url: https://www.fahorro.com/mascotas/perros.html
+            - text: Perros
+          - list [ref=e748]:
+            - link [disabled] [ref=e749] [cursor=pointer]:
+              - /url: https://www.fahorro.com/mascotas/perros/alimentos.html
+              - text: Alimentos
+            - link [disabled] [ref=e750] [cursor=pointer]:
+              - /url: https://www.fahorro.com/mascotas/perros/premios-y-snacks.html
+              - text: Premios y Snacks
+            - link [disabled] [ref=e751] [cursor=pointer]:
+              - /url: https://www.fahorro.com/mascotas/perros/ropa-y-accesorios.html
+              - text: Ropa y Accesorios
+            - link [disabled] [ref=e752] [cursor=pointer]:
+              - /url: https://www.fahorro.com/mascotas/perros/collares-y-correas.html
+              - text: Collares y Correas
+            - link [disabled] [ref=e753] [cursor=pointer]:
+              - /url: https://www.fahorro.com/mascotas/perros/platos-bebederos-y-contenedores.html
+              - text: Platos, Bebederos y Contenedores
+            - link [disabled] [ref=e754] [cursor=pointer]:
+              - /url: https://www.fahorro.com/mascotas/perros/juguetes.html
+              - text: Juguetes para Perros
+            - link [disabled] [ref=e755] [cursor=pointer]:
+              - /url: https://www.fahorro.com/mascotas/perros/casas-y-camas.html
+              - text: Casas y Camas
+            - link [disabled] [ref=e756] [cursor=pointer]:
+              - /url: https://www.fahorro.com/mascotas/perros/cuidado-e-higiene.html
+              - text: Cuidado e Higiene
+          - link [disabled] [ref=e757] [cursor=pointer]:
+            - /url: https://www.fahorro.com/mascotas/gatos.html
+            - text: Gatos
+          - list [ref=e758]:
+            - link [disabled] [ref=e759] [cursor=pointer]:
+              - /url: https://www.fahorro.com/mascotas/gatos/alimento.html
+              - text: Alimento
+            - link [disabled] [ref=e760] [cursor=pointer]:
+              - /url: https://www.fahorro.com/mascotas/gatos/transportadora.html
+              - text: Transportadora
+            - link [disabled] [ref=e761] [cursor=pointer]:
+              - /url: https://www.fahorro.com/mascotas/gatos/juguetes-y-rascadores.html
+              - text: Juguetes y Rascadores para Gatos
+            - link [disabled] [ref=e762] [cursor=pointer]:
+              - /url: https://www.fahorro.com/mascotas/gatos/arena-y-areneros.html
+              - text: Arena y Areneros
+            - link [disabled] [ref=e763] [cursor=pointer]:
+              - /url: https://www.fahorro.com/mascotas/gatos/premios-y-snacks.html
+              - text: Premios y Snacks
+            - link [disabled] [ref=e764] [cursor=pointer]:
+              - /url: https://www.fahorro.com/mascotas/gatos/cuidado-e-higiene.html
+              - text: Cuidado e Higiene
+            - link [disabled] [ref=e765] [cursor=pointer]:
+              - /url: https://www.fahorro.com/mascotas/gatos/collares-y-correas.html
+              - text: Collares y Correas
+            - link [disabled] [ref=e766] [cursor=pointer]:
+              - /url: https://www.fahorro.com/mascotas/gatos/casas-y-camas.html
+              - text: Casas y Camas
+          - link [disabled] [ref=e767] [cursor=pointer]:
+            - /url: https://www.fahorro.com/mascotas/otros.html
+            - text: Otras Mascotas
+          - link [disabled] [ref=e768] [cursor=pointer]:
+            - /url: https://www.fahorro.com/mascotas/marcas-destacadas.html
+            - text: Marcas Destacadas
+          - list [ref=e769]:
+            - link [disabled] [ref=e770] [cursor=pointer]:
+              - /url: https://www.fahorro.com/mascotas/marcas-destacadas/nupec.html
+              - text: NUPEC
+            - link [disabled] [ref=e771] [cursor=pointer]:
+              - /url: https://www.fahorro.com/mascotas/marcas-destacadas/purina.html
+              - text: PURINA
+            - link [disabled] [ref=e772] [cursor=pointer]:
+              - /url: https://www.fahorro.com/mascotas/marcas-destacadas/hills.html
+              - text: HILLS
+            - link [disabled] [ref=e773] [cursor=pointer]:
+              - /url: https://www.fahorro.com/mascotas/marcas-destacadas/royal.html
+              - text: ROYAL
+            - link [disabled] [ref=e774] [cursor=pointer]:
+              - /url: https://www.fahorro.com/mascotas/marcas-destacadas/instinct.html
+              - text: INSTINCT
+            - link [disabled] [ref=e775] [cursor=pointer]:
+              - /url: https://www.fahorro.com/mascotas/marcas-destacadas/grandpet.html
+              - text: GRANDPET
+            - link [disabled] [ref=e776] [cursor=pointer]:
+              - /url: https://www.fahorro.com/mascotas/marcas-destacadas/lapisa-pets.html
+              - text: LAPISA PETS
+            - link [disabled] [ref=e777] [cursor=pointer]:
+              - /url: https://www.fahorro.com/mascotas/marcas-destacadas/zatopets.html
+              - text: ZATOPETS
+        - link [disabled] [ref=e778] [cursor=pointer]:
+          - /url: https://www.fahorro.com/optica.html
+          - text: Salud Visual
+        - list [ref=e779]:
+          - link [disabled] [ref=e780] [cursor=pointer]:
+            - /url: https://www.fahorro.com/optica/lentes-de-sol.html
+            - text: Lentes de Sol
+          - link [disabled] [ref=e781] [cursor=pointer]:
+            - /url: https://www.fahorro.com/optica/lentes-de-luz-azul.html
+            - text: Lentes de Luz Azul
+          - link [disabled] [ref=e782] [cursor=pointer]:
+            - /url: https://www.fahorro.com/optica/lentes-de-lectura.html
+            - text: Lentes de Lectura
+          - link [disabled] [ref=e783] [cursor=pointer]:
+            - /url: https://www.fahorro.com/optica/lentes-de-contacto.html
+            - text: Lentes de Contacto
+          - link [disabled] [ref=e784] [cursor=pointer]:
+            - /url: https://www.fahorro.com/optica/marcas-destacadas.html
+            - text: Marcas Destacadas
+          - list [ref=e785]:
+            - link [disabled] [ref=e786] [cursor=pointer]:
+              - /url: https://www.fahorro.com/optica/marcas-destacadas/alcon.html
+              - text: Alcon
+            - link [disabled] [ref=e787] [cursor=pointer]:
+              - /url: https://www.fahorro.com/optica/marcas-destacadas/bausch.html
+              - text: Bausch
+            - link [disabled] [ref=e788] [cursor=pointer]:
+              - /url: https://www.fahorro.com/optica/marcas-destacadas/sophia.html
+              - text: Sophia
+          - link [disabled] [ref=e789] [cursor=pointer]:
+            - /url: https://www.fahorro.com/optica/soluciones-opticas-id-21192.html
+            - text: Soluciones Ópticas
+          - link [disabled] [ref=e790] [cursor=pointer]:
+            - /url: https://www.fahorro.com/optica/oftalmologia.html
+            - text: Oftalmologia
+          - link [disabled] [ref=e791] [cursor=pointer]:
+            - /url: https://www.fahorro.com/optica/oftalmologia-rx.html
+            - text: Oftalmología RX
+        - link [disabled] [ref=e792] [cursor=pointer]:
+          - /url: https://www.fahorro.com/hidratacion-bebidas.html
+          - text: Hidratación & Bebidas
+        - list [ref=e793]:
+          - link [disabled] [ref=e794] [cursor=pointer]:
+            - /url: https://www.fahorro.com/hidratacion-bebidas/sueros.html
+            - text: Sueros y Bebidas Deportivas
+          - list [ref=e795]:
+            - link [disabled] [ref=e796] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hidratacion-bebidas/sueros/sueros-orales.html
+              - text: Sueros Orales
+            - link [disabled] [ref=e797] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hidratacion-bebidas/sueros/bebidas-isotonicas.html
+              - text: Bebidas Isotónicas
+            - link [disabled] [ref=e798] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hidratacion-bebidas/sueros/bebidas-energeticas.html
+              - text: Bebidas Energéticas
+          - link [disabled] [ref=e799] [cursor=pointer]:
+            - /url: https://www.fahorro.com/hidratacion-bebidas/cafe.html
+            - text: Tés y Cafés
+          - link [disabled] [ref=e800] [cursor=pointer]:
+            - /url: https://www.fahorro.com/hidratacion-bebidas/refrescos.html
+            - text: Refrescos
+          - link [disabled] [ref=e801] [cursor=pointer]:
+            - /url: https://www.fahorro.com/hidratacion-bebidas/aguas.html
+            - text: Aguas
+          - list [ref=e802]:
+            - link [disabled] [ref=e803] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hidratacion-bebidas/aguas/agua-natural.html
+              - text: Agua Natural
+            - link [disabled] [ref=e804] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hidratacion-bebidas/aguas/agua-mineral-y-gasificada.html
+              - text: Agua Mineral y Gasificada
+            - link [disabled] [ref=e805] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hidratacion-bebidas/aguas/agua-saborizada.html
+              - text: Agua Saborizada
+            - link [disabled] [ref=e806] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hidratacion-bebidas/aguas/agua-alcalina.html
+              - text: Agua Alcalina
+            - link [disabled] [ref=e807] [cursor=pointer]:
+              - /url: https://www.fahorro.com/hidratacion-bebidas/aguas/agua-adicionada.html
+              - text: Agua Adicionada
+          - link [disabled] [ref=e808] [cursor=pointer]:
+            - /url: https://www.fahorro.com/hidratacion-bebidas/jugos-y-nectares.html
+            - text: Jugos y Néctares
+          - link [disabled] [ref=e809] [cursor=pointer]:
+            - /url: https://www.fahorro.com/hidratacion-bebidas/bebidas-en-polvo-y-efervescentes.html
+            - text: Bebidas en Polvo y Efervescentes
+        - link [disabled] [ref=e810] [cursor=pointer]:
+          - /url: https://www.fahorro.com/ropa-calzado-y-accesorios.html
+          - text: Ropa, Calzado y Accesorios
+        - list [ref=e811]:
+          - link [disabled] [ref=e812] [cursor=pointer]:
+            - /url: https://www.fahorro.com/ropa-calzado-y-accesorios/mujer.html
+            - text: Mujer
+          - link [disabled] [ref=e813] [cursor=pointer]:
+            - /url: https://www.fahorro.com/ropa-calzado-y-accesorios/hombre.html
+            - text: Hombre
+          - link [disabled] [ref=e814] [cursor=pointer]:
+            - /url: https://www.fahorro.com/ropa-calzado-y-accesorios/bolsas-y-maletas-de-viaje.html
+            - text: Bolsas y Maletas de Viaje
+          - link [disabled] [ref=e815] [cursor=pointer]:
+            - /url: https://www.fahorro.com/ropa-calzado-y-accesorios/relojes.html
+            - text: Relojes
+    - navigation "Main Menu" [ref=e818]:
+      - menubar [ref=e819]:
+        - menuitem [ref=e820]:
+          - button "Categorías" [ref=e821]
+        - menuitem [ref=e822]:
+          - link [ref=e823] [cursor=pointer]:
+            - /url: https://www.fahorro.com/ahorro-market
+            - paragraph [ref=e824]: Ahorro Market
+        - menuitem [ref=e825]:
+          - link [ref=e826] [cursor=pointer]:
+            - /url: https://www.fahorro.com/derma-mexico
+            - paragraph [ref=e827]: Derma
+        - menuitem [ref=e828]:
+          - link [ref=e829] [cursor=pointer]:
+            - /url: https://www.fahorro.com/sitio-diabetes
+            - paragraph [ref=e830]: Diabetes
+        - menuitem [ref=e831]:
+          - link [ref=e832] [cursor=pointer]:
+            - /url: https://www.fahorro.com/mi-bebe
+            - paragraph [ref=e833]: Mamás y Papás
+        - menuitem [ref=e834]:
+          - link [ref=e835] [cursor=pointer]:
+            - /url: https://www.fahorro.com/monedero-del-ahorro
+            - paragraph [ref=e836]: Monedero del Ahorro
+        - menuitem [ref=e837]:
+          - link [ref=e838] [cursor=pointer]:
+            - /url: https://www.fahorro.com/#
+            - paragraph [ref=e839]: Descubre más
+    - generic [ref=e840]:
+      - generic:
+        - generic:
+          - alert
+          - alert
+      - generic [ref=e841]:
+        - list [ref=e843]:
+          - listitem [ref=e844]:
+            - link "Inicio" [ref=e845] [cursor=pointer]:
+              - /url: https://www.fahorro.com/
+          - listitem [ref=e846]:
+            - strong [ref=e847]: metoclopramida
+        - heading "metoclopramida" [level=1] [ref=e849]
+    - main
+    - link "Volver a Inicio de página" [ref=e850] [cursor=pointer]:
+      - /url: "#"
+    - contentinfo [ref=e851]:
+      - generic [ref=e852]:
+        - generic [ref=e856]:
+          - generic [ref=e857]:
+            - heading "Ayuda y Servicios" [level=4] [ref=e858]
+            - list [ref=e860]:
+              - listitem [ref=e861]:
+                - link "Sobre nosotros" [ref=e862] [cursor=pointer]:
+                  - /url: /quienessomos
+              - listitem [ref=e863]:
+                - link "Promolocales" [ref=e864] [cursor=pointer]:
+                  - /url: http://www.promolocales.com/
+              - listitem [ref=e865]:
+                - link "Bolsa de Trabajo" [ref=e866] [cursor=pointer]:
+                  - /url: https://fahorro.wd3.myworkdayjobs.com/es/oportunidades_fdahorro
+              - listitem [ref=e867]:
+                - link "Requisitos de recetas" [ref=e868] [cursor=pointer]:
+                  - /url: /requisitos-recetas
+          - generic [ref=e869]:
+            - heading "Servicios" [level=4] [ref=e870]
+            - list [ref=e872]:
+              - listitem [ref=e873]:
+                - link "Sucursales" [ref=e874] [cursor=pointer]:
+                  - /url: /find-a-store.html
+              - listitem [ref=e875]:
+                - link "Servicio a domicilio" [ref=e876] [cursor=pointer]:
+                  - /url: /servicio-a-domicilio
+              - listitem [ref=e877]:
+                - link "Nuestros servicios" [ref=e878] [cursor=pointer]:
+                  - /url: /ahorropagos
+              - listitem [ref=e879]:
+                - link "Monedero del Ahorro" [ref=e880] [cursor=pointer]:
+                  - /url: /monedero-del-ahorro
+              - listitem [ref=e881]:
+                - link "Alianzas" [ref=e882] [cursor=pointer]:
+                  - /url: https://www.monederodelahorro.com.mx:448/alianzas.php
+              - listitem [ref=e883]:
+                - link "Orientación médica gratuita" [ref=e884] [cursor=pointer]:
+                  - /url: /orientacion-medica
+              - listitem [ref=e885]:
+                - link "Orientación médica gratuita en línea" [ref=e886] [cursor=pointer]:
+                  - /url: https://www.teleorientacion.com/
+          - generic [ref=e887]:
+            - heading "Compra en Línea" [level=4] [ref=e888]
+            - list [ref=e890]:
+              - listitem [ref=e891]:
+                - link "Facturación" [ref=e892] [cursor=pointer]:
+                  - /url: /facturacion
+              - listitem [ref=e893]:
+                - link "Horarios y Entregas" [ref=e894] [cursor=pointer]:
+                  - /url: /horarios-entregas
+              - listitem [ref=e895]:
+                - link "Formas de Pago" [ref=e896] [cursor=pointer]:
+                  - /url: /formas-de-pago
+          - generic [ref=e897]:
+            - heading "Servicio al Cliente" [level=4] [ref=e898]
+            - list [ref=e900]:
+              - listitem [ref=e901]:
+                - link "Preguntas frecuentes" [ref=e902] [cursor=pointer]:
+                  - /url: /preguntas-frecuentes
+              - listitem [ref=e903]:
+                - link "Aviso de Privacidad" [ref=e904] [cursor=pointer]:
+                  - /url: /aviso-de-privacidad
+              - listitem [ref=e905]:
+                - link "Términos y Condiciones Marketplace" [ref=e906] [cursor=pointer]:
+                  - /url: /terminos-y-condiciones-marketplace
+              - listitem [ref=e907]:
+                - link "Recepción de facturas" [ref=e908] [cursor=pointer]:
+                  - /url: http://facturas.fahorro.com.mx/Facturas/Loggin.aspx?sesion=0
+              - listitem [ref=e909]:
+                - link "Medios de contacto" [ref=e910] [cursor=pointer]:
+                  - /url: /medios-de-contacto
+              - listitem [ref=e911]:
+                - link "Aviso de Privacidad Bolsa de Trabajo" [ref=e912] [cursor=pointer]:
+                  - /url: /aviso-privacidad-bolsa-de-trabajo
+              - listitem [ref=e913]:
+                - link "Aviso de Privacidad Proveedores" [ref=e914] [cursor=pointer]:
+                  - /url: /aviso-privacidad-proveedores
+              - listitem [ref=e915]:
+                - link "Tutoriales Para Nuestros Clientes" [ref=e916] [cursor=pointer]:
+                  - /url: /ayuda-ceac
+              - listitem [ref=e917]:
+                - link "Línea de Denuncia (Violación al Código de Conducta)" [ref=e918] [cursor=pointer]:
+                  - /url: /contacto-codigo-conducta-empleados-proveedores
+        - generic [ref=e922]:
+          - heading "Síguenos" [level=4] [ref=e924]
+          - generic [ref=e925]:
+            - figure [ref=e926]:
+              - link [ref=e927] [cursor=pointer]:
+                - /url: https://www.facebook.com/FAhorro
+                - img "Icon Facebook Farmacia del Ahorro" [ref=e928]
+                - img "Icon Facebook Farmacia del Ahorro" [ref=e929]
+            - figure [ref=e930]:
+              - link [ref=e931] [cursor=pointer]:
+                - /url: https://www.instagram.com/fahorro/
+                - img "Icon Instagram Farmacia del Ahorro" [ref=e932]
+                - img "Icon Instagram Farmacia del Ahorro" [ref=e933]
+            - figure [ref=e934]:
+              - link [ref=e935] [cursor=pointer]:
+                - /url: https://twitter.com/FAhorro
+                - img "Icon twitter Farmacia del Ahorro" [ref=e936]
+                - img "Icon twitter Farmacia del Ahorro" [ref=e937]
+            - figure [ref=e938]:
+              - link [ref=e939] [cursor=pointer]:
+                - /url: https://www.youtube.com/user/fahorromx
+                - img "Icon youtube Farmacia del Ahorro" [ref=e940]
+                - img "Icon youtube Farmacia del Ahorro" [ref=e941]
+            - figure [ref=e942]:
+              - link [ref=e943] [cursor=pointer]:
+                - /url: https://www.tiktok.com/@fahorro
+                - img "Icon Tiktok Farmacia del Ahorro" [ref=e944]
+                - img "Icon Tiktok Farmacia del Ahorro" [ref=e945]
+    - figure [ref=e949]:
+      - link [ref=e950] [cursor=pointer]:
+        - /url: https://wa.me/5218007112222?text=Te damos la bienvenida al canal oficial de Farmacias del Ahorro, envía este mensaje para continuar
+        - img "Ir al chat" [ref=e951]
+        - img "Ir al chat" [ref=e952]
+    - generic [ref=e954]:
+      - paragraph [ref=e955]: TODOS LOS DERECHOS RESERVADOS POR COMERCIALIZADORA FARMACÉUTICA DE CHIAPAS S.A.P.I. DE C.V., MÉXICO D.F. 2024
+      - paragraph [ref=e956]: "COFEPRIS: 143300201 B1447"
+      - generic [ref=e957]:
+        - link "Aviso de Privacidad" [ref=e958] [cursor=pointer]:
+          - /url: /aviso-de-privacidad
+        - text: "|"
+        - link "Términos y Condiciones" [ref=e959] [cursor=pointer]:
+          - /url: /terminos-y-condiciones-de-compra

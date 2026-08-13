@@ -10,6 +10,15 @@ import {
 import FadeInWhenVisible from "@/components/animations/FadeInWhenVisible";
 import { brands } from "@/data/brands";
 
+const brandLogoById: Record<string, string> = {
+  "3m": "https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/logosmarcas/3mlogo.png",
+  ambiderm: "https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/logosmarcas/ambidermlogo.jpg",
+  bd: "https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/logosmarcas/LOGO-bd.png",
+  "b-braun": "https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/logosmarcas/logobbrown.webp",
+  covidien: "https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/logosmarcas/covidienlogo.webp",
+  respifix: "https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/logosmarcas/respifix-logov2.webp",
+};
+
 export default function HomePage() {
   return (
     <div className="-mt-[96px] overflow-x-hidden">
@@ -567,9 +576,20 @@ function TopMarcasSection() {
               className="bg-white rounded-2xl p-6 flex flex-col items-center justify-center gap-3 border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-[#2eb8d4]/10 transition-all duration-300 group cursor-pointer"
             >
               <Link href={`/insumos/${b.id}`} className="absolute inset-0 z-10" aria-label={`Ver marca ${b.name}`} />
-              <div className={`w-14 h-14 rounded-full bg-gradient-to-br ${b.gradient} flex items-center justify-center shadow-lg relative overflow-hidden`}>
-                <div className="absolute inset-0 bg-white/10" />
-                <span className="relative z-10 text-white font-black text-sm">{b.name.slice(0, 3)}</span>
+              <div className="relative h-16 w-32 shrink-0">
+                {brandLogoById[b.id] ? (
+                  <Image
+                    src={brandLogoById[b.id]}
+                    alt={`Logo ${b.name}`}
+                    fill
+                    sizes="128px"
+                    className="object-contain"
+                  />
+                ) : (
+                  <div className={`h-14 w-14 rounded-full bg-gradient-to-br ${b.gradient} flex items-center justify-center shadow-lg mx-auto`}>
+                    <span className="text-white font-black text-sm">{b.name.slice(0, 3)}</span>
+                  </div>
+                )}
               </div>
               <div className="text-center">
                 <div className="text-sm font-black text-[#1a3a6b] group-hover:text-[#2eb8d4] transition-colors">{b.name}</div>

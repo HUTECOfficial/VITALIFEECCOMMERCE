@@ -62,7 +62,8 @@ export default function CheckoutPage() {
             name: item.name,
             price: item.price,
             quantity: item.quantity,
-            size: [item.color && `Color: ${item.color}`, item.size && `Talla: ${item.size}`].filter(Boolean).join(" · ") || undefined,
+            size: item.size,
+            color: item.color,
           })),
         }),
       });

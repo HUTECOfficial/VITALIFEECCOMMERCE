@@ -1,0 +1,175 @@
+- generic [active] [ref=e1]:
+  - navigation [ref=e2]:
+    - link [ref=e3] [cursor=pointer]:
+      - /url: /
+      - img "Vital Life" [ref=e4]
+      - img "GTO" [ref=e6]
+    - generic [ref=e7]:
+      - link "Inicio" [ref=e8] [cursor=pointer]:
+        - /url: /
+      - link "Nosotros" [ref=e9] [cursor=pointer]:
+        - /url: /nosotros
+      - link "Catálogo Insumos" [ref=e10] [cursor=pointer]:
+        - /url: /insumos
+      - button [ref=e13]
+    - generic [ref=e17]:
+      - link "Cotizar Ahora" [ref=e18] [cursor=pointer]:
+        - /url: /contacto
+      - link [ref=e22] [cursor=pointer]:
+        - /url: /carrito
+  - main [ref=e27]:
+    - generic [ref=e28]:
+      - generic [ref=e31]:
+        - link "← Volver al catálogo" [ref=e33] [cursor=pointer]:
+          - /url: /insumos
+        - generic [ref=e34]:
+          - generic [ref=e35]: OTRA
+          - generic [ref=e38]:
+            - generic [ref=e39]: Misceláneos
+            - heading "OTRAS MARCAS" [level=1] [ref=e41]
+            - paragraph [ref=e42]: Arrow (CVC), Drenovac, Glucoderm, DuoDERM, Baby Sleeper, Aspi-Tract, MTG y más.
+            - generic [ref=e43]:
+              - generic [ref=e44]:
+                - generic [ref=e45]: "24"
+                - generic [ref=e46]: productos
+              - generic [ref=e47]:
+                - generic [ref=e48]: "6"
+                - generic [ref=e49]: líneas
+              - link "Ver en catálogo" [ref=e50] [cursor=pointer]:
+                - /url: /insumos?q=OTRAS%20MARCAS
+      - generic [ref=e55]:
+        - generic [ref=e56]:
+          - generic [ref=e57]:
+            - button "01 Arrow — Catéter Venoso Central CVC 5 FR 3 vías y 7 FR 3 vías. 2 productos" [ref=e58]:
+              - generic [ref=e59]:
+                - generic [ref=e60]: "01"
+                - generic [ref=e62]:
+                  - heading "Arrow — Catéter Venoso Central" [level=3] [ref=e63]
+                  - paragraph [ref=e64]: CVC 5 FR 3 vías y 7 FR 3 vías.
+              - generic [ref=e65]: 2 productos
+            - generic [ref=e70]:
+              - generic [ref=e71]:
+                - generic [ref=e72]:
+                  - generic [ref=e73]: Catéter venoso central 5 FR, 3 vías
+                  - link "Ver en catálogo" [ref=e76] [cursor=pointer]:
+                    - /url: /insumos?q=Cat%C3%A9ter%20venoso%20central%205%20FR%2C%203%20v%C3%ADas
+                - generic [ref=e77]:
+                  - generic [ref=e78]: Catéter venoso central 7 FR, 3 vías
+                  - link "Ver en catálogo" [ref=e81] [cursor=pointer]:
+                    - /url: /insumos?q=Cat%C3%A9ter%20venoso%20central%207%20FR%2C%203%20v%C3%ADas
+              - link "Ver productos en el catálogo" [ref=e83] [cursor=pointer]:
+                - /url: /insumos?q=Arrow%20%E2%80%94%20Cat%C3%A9ter%20Venoso%20Central
+          - 'button "02 MTG — Guantes de Nitrilo Cirugía Guantes de nitrilo para cirugía #6 a #8.5. 6 productos" [ref=e85]':
+            - generic [ref=e86]:
+              - generic [ref=e87]: "02"
+              - generic [ref=e89]:
+                - heading "MTG — Guantes de Nitrilo Cirugía" [level=3] [ref=e90]
+                - paragraph [ref=e91]: "Guantes de nitrilo para cirugía #6 a #8.5."
+            - generic [ref=e92]: 6 productos
+          - button "03 Drenovac — Drenaje Equipos de drenaje esterilizados. 2 productos" [ref=e98]:
+            - generic [ref=e99]:
+              - generic [ref=e100]: "03"
+              - generic [ref=e102]:
+                - heading "Drenovac — Drenaje" [level=3] [ref=e103]
+                - paragraph [ref=e104]: Equipos de drenaje esterilizados.
+            - generic [ref=e105]: 2 productos
+          - button "04 Glucoderm / Aspi-Tract Antisépticos y sistemas de succión cerrada. 3 productos" [ref=e111]:
+            - generic [ref=e112]:
+              - generic [ref=e113]: "04"
+              - generic [ref=e115]:
+                - heading "Glucoderm / Aspi-Tract" [level=3] [ref=e116]
+                - paragraph [ref=e117]: Antisépticos y sistemas de succión cerrada.
+            - generic [ref=e118]: 3 productos
+          - button "05 Protec / DuoDERM / Baby Sleeper Apósitos especializados, pediátricos y varios. 4 productos" [ref=e124]:
+            - generic [ref=e125]:
+              - generic [ref=e126]: "05"
+              - generic [ref=e128]:
+                - heading "Protec / DuoDERM / Baby Sleeper" [level=3] [ref=e129]
+                - paragraph [ref=e130]: Apósitos especializados, pediátricos y varios.
+            - generic [ref=e131]: 4 productos
+          - button "06 Varios — Consumibles Generales Artículos misceláneos de diversas marcas. 7 productos" [ref=e137]:
+            - generic [ref=e138]:
+              - generic [ref=e139]: "06"
+              - generic [ref=e141]:
+                - heading "Varios — Consumibles Generales" [level=3] [ref=e142]
+                - paragraph [ref=e143]: Artículos misceláneos de diversas marcas.
+            - generic [ref=e144]: 7 productos
+        - generic [ref=e150]:
+          - heading "Agrega OTRAS MARCAS a tu carrito" [level=2] [ref=e151]
+          - paragraph [ref=e152]: Todos los productos disponibles en nuestro catálogo con compra directa.
+          - generic [ref=e153]:
+            - link "Ver catálogo" [ref=e154] [cursor=pointer]:
+              - /url: /insumos?q=OTRAS%20MARCAS
+            - link "Ver carrito" [ref=e159] [cursor=pointer]:
+              - /url: /carrito
+  - contentinfo [ref=e162]:
+    - generic [ref=e165]:
+      - link "WhatsApp 477 173 6105 479 228 4057 Respuesta inmediata" [ref=e166] [cursor=pointer]:
+        - /url: https://wa.me/524771736105
+        - generic [ref=e170]:
+          - generic [ref=e171]: WhatsApp
+          - generic [ref=e172]: 477 173 6105
+          - generic [ref=e173]: 479 228 4057
+          - generic [ref=e174]: Respuesta inmediata
+      - link "Email serviciovitalife@outlook.com Te respondemos pronto" [ref=e175] [cursor=pointer]:
+        - /url: mailto:serviciovitalife@outlook.com
+        - generic [ref=e180]:
+          - generic [ref=e181]: Email
+          - generic [ref=e182]: serviciovitalife@outlook.com
+          - generic [ref=e183]: Te respondemos pronto
+      - generic [ref=e189]:
+        - generic [ref=e190]: Ubicación
+        - generic [ref=e191]: León, Guanajuato
+        - generic [ref=e192]: Atención personalizada
+    - generic [ref=e193]:
+      - generic [ref=e194]:
+        - generic [ref=e195]:
+          - img "Vital Life Servicios Integrales" [ref=e197]
+          - paragraph [ref=e198]: Comprometidos en ofrecer un servicio humano, digno y eficaz para el cuidado integral de tu salud y bienestar.
+          - generic [ref=e199]:
+            - link "Facebook" [ref=e200] [cursor=pointer]:
+              - /url: https://www.facebook.com/vitallifeenfermeria/
+            - link "Instagram" [ref=e203] [cursor=pointer]:
+              - /url: https://www.instagram.com/vital_life_insumosmedicos/
+            - link "WhatsApp" [ref=e206] [cursor=pointer]:
+              - /url: https://wa.me/524771736105
+        - generic [ref=e209]:
+          - heading "Enlaces" [level=3] [ref=e210]
+          - list [ref=e211]:
+            - listitem [ref=e212]:
+              - link "Inicio" [ref=e213] [cursor=pointer]:
+                - /url: /
+            - listitem [ref=e214]:
+              - link "Nosotros" [ref=e215] [cursor=pointer]:
+                - /url: /nosotros
+            - listitem [ref=e216]:
+              - link "Servicios" [ref=e217] [cursor=pointer]:
+                - /url: /insumos
+            - listitem [ref=e218]:
+              - link "Contacto" [ref=e219] [cursor=pointer]:
+                - /url: /contacto
+        - generic [ref=e220]:
+          - heading "Servicios" [level=3] [ref=e221]
+          - list [ref=e222]:
+            - listitem [ref=e223]:
+              - link "Insumos" [ref=e224] [cursor=pointer]:
+                - /url: /insumos
+            - listitem [ref=e225]:
+              - link "Enfermería - Fisioterapia" [ref=e226] [cursor=pointer]:
+                - /url: /enfermeria
+        - generic [ref=e227]:
+          - heading "Certificaciones" [level=3] [ref=e228]
+          - generic [ref=e229]:
+            - img "Marca GTO" [ref=e231]
+            - generic [ref=e232]:
+              - generic [ref=e233]: Marca GTO
+              - generic [ref=e234]: Guanajuato
+              - generic [ref=e235]: Comprometidos con la calidad y el bienestar de nuestra comunidad.
+      - generic [ref=e236]:
+        - paragraph [ref=e237]: © 2024 Vital Life Insumos Médicos. Todos los derechos reservados.
+        - generic [ref=e238]:
+          - link "Aviso de Privacidad" [ref=e239] [cursor=pointer]:
+            - /url: "#"
+          - link "Términos y Condiciones" [ref=e240] [cursor=pointer]:
+            - /url: "#"
+  - alert [ref=e241]

@@ -7,6 +7,8 @@ import Link from "next/link";
 import { useCartStore } from "@/store/cartStore";
 import { Product } from "@/types";
 import { cn } from "@/lib/utils";
+import { StockIndicator } from "@/components/ui/StockIndicator";
+import { getVariantStock } from "@/lib/product-variants";
 
 export function ShoppingCartButton({ product }: { product: Product }) {
   const addItem = useCartStore((s) => s.addItem);
@@ -21,12 +23,14 @@ export function ShoppingCartButton({ product }: { product: Product }) {
   }, [added]);
 
   const handleAdd = () => {
-    if ((product.sizes?.length && !selectedSize) || (product.colors?.length && !selectedColor)) return;
+    if (hasUnselectedVariant || selectedVariantStock === 0) return;
     addItem(product, selectedSize || undefined, selectedColor || undefined);
     setAdded(true);
   };
 
   const hasUnselectedVariant = Boolean((product.sizes?.length && !selectedSize) || (product.colors?.length && !selectedColor));
+  const selectedVariantStock = hasUnselectedVariant ? undefined : getVariantStock(product, selectedSize, selectedColor);
+  const unavailable = !hasUnselectedVariant && (selectedVariantStock === 0 || (Boolean(product.variants?.length) && selectedVariantStock === undefined));
 
   if (product.quoteOnly) {
     return (
@@ -47,14 +51,15 @@ export function ShoppingCartButton({ product }: { product: Product }) {
     <div className="space-y-2">
       {product.colors?.length ? <OptionSelector label="Color" options={product.colors} selected={selectedColor} onSelect={setSelectedColor} /> : null}
       {product.sizes?.length ? <OptionSelector label="Talla / medida" options={product.sizes} selected={selectedSize} onSelect={setSelectedSize} /> : null}
+      {!hasUnselectedVariant && <StockIndicator quantity={unavailable ? 0 : selectedVariantStock} inStock={product.inStock} compact />}
       <motion.button
         type="button"
         onClick={handleAdd}
         whileTap={{ scale: 0.98 }}
-        disabled={hasUnselectedVariant}
+        disabled={hasUnselectedVariant || unavailable}
         className={cn(
           "w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-bold transition-colors shadow-md min-h-12",
-          hasUnselectedVariant
+          hasUnselectedVariant || unavailable
             ? "bg-gray-300 text-white cursor-not-allowed"
             : "bg-[#1a3a6b] text-white hover:bg-[#2eb8d4]"
         )}
@@ -71,6 +76,8 @@ export function ShoppingCartButton({ product }: { product: Product }) {
             >
               <Check className="w-4 h-4" /> Agregado
             </motion.span>
+          ) : unavailable ? (
+            <motion.span key="unavailable" initial={{ opacity: 0 }} animate={{ opacity: 1 }}>Agotado</motion.span>
           ) : (
             <motion.span
               key="cart"

@@ -7,6 +7,7 @@ interface OrderItem {
   price: number;
   quantity: number;
   size?: string;
+  color?: string;
 }
 
 interface OrderPayload {
@@ -59,6 +60,7 @@ export async function POST(request: NextRequest) {
       price: item.price,
       quantity: item.quantity,
       size: item.size || null,
+      color: item.color || null,
     }));
 
     const { error: itemsError } = await supabase

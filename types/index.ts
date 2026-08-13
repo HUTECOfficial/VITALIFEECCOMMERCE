@@ -34,6 +34,13 @@ export const presentationOptions = [
 
 export type PresentationOption = (typeof presentationOptions)[number];
 
+export interface ProductVariant {
+  /** Empty string means that the product does not use that option. */
+  color: string;
+  size: string;
+  stockQuantity: number;
+}
+
 export interface Product {
   id: string;
   name: string;
@@ -47,6 +54,8 @@ export interface Product {
   featured?: boolean;
   sizes?: string[];
   colors?: string[];
+  /** Inventory for each selectable color / size combination. */
+  variants?: ProductVariant[];
   quoteOnly?: boolean;
   brand?: string;
   presentation?: string;

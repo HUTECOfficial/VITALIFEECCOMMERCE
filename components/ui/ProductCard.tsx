@@ -12,6 +12,7 @@ import { categoryLabels } from "@/data/products";
 import { cn } from "@/lib/utils";
 import { StockIndicator } from "@/components/ui/StockIndicator";
 import { getProductNameParts } from "@/lib/product-name";
+import { getVariantStock } from "@/lib/product-variants";
 
 interface ProductCardProps {
   product: Product;
@@ -24,10 +25,13 @@ export default function ProductCard({ product }: ProductCardProps) {
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
   const productName = getProductNameParts(product.name);
   const presentation = product.presentation || productName.presentation;
+  const hasUnselectedVariant = Boolean((product.sizes?.length && !selectedSize) || (product.colors?.length && !selectedColor));
+  const selectedVariantStock = hasUnselectedVariant ? undefined : getVariantStock(product, selectedSize, selectedColor);
+  const unavailable = !hasUnselectedVariant && (selectedVariantStock === 0 || (Boolean(product.variants?.length) && selectedVariantStock === undefined));
 
   const handleAddToCart = (e: React.MouseEvent) => {
     e.preventDefault();
-    if ((product.sizes?.length && !selectedSize) || (product.colors?.length && !selectedColor)) return;
+    if (hasUnselectedVariant || unavailable) return;
     addItem(product, selectedSize || undefined, selectedColor || undefined);
     setAdded(true);
     setTimeout(() => setAdded(false), 1500);
@@ -90,7 +94,7 @@ export default function ProductCard({ product }: ProductCardProps) {
           {product.description}
         </p>
         <div className="mb-3">
-          <StockIndicator quantity={product.stockQuantity} inStock={product.inStock} compact />
+          <StockIndicator quantity={unavailable ? 0 : selectedVariantStock} inStock={product.inStock} compact />
         </div>
         {product.colors?.length && (
           <div className="mb-3">
@@ -153,10 +157,10 @@ export default function ProductCard({ product }: ProductCardProps) {
               <motion.button
                 key="btn"
                 onClick={handleAddToCart}
-                disabled={Boolean((product.sizes?.length && !selectedSize) || (product.colors?.length && !selectedColor))}
+                disabled={hasUnselectedVariant || unavailable}
                 className={cn(
                   "flex items-center gap-1.5 text-xs font-medium px-3 py-2 rounded-full transition-colors",
-                  (product.sizes?.length && !selectedSize) || (product.colors?.length && !selectedColor)
+                  hasUnselectedVariant || unavailable
                     ? "bg-gray-300 text-white cursor-not-allowed"
                     : "bg-[#1a3a6b] text-white hover:bg-[#2eb8d4]"
                 )}
@@ -164,7 +168,7 @@ export default function ProductCard({ product }: ProductCardProps) {
                 aria-label={`Agregar ${product.name} al carrito`}
               >
                 <ShoppingCart className="w-3.5 h-3.5" />
-                Agregar
+                {unavailable ? "Agotado" : "Agregar"}
               </motion.button>
             )}
           </AnimatePresence>
