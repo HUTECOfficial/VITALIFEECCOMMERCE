@@ -65,9 +65,11 @@ export default async function ProductPage({ params }: PageProps) {
               </p>
             )}
             <p className="text-[#1a3a6b]/65 mb-6">{product.description}</p>
-            <div className="mb-6">
-              <span className="block text-3xl font-black text-[#1a3a6b]">{product.quoteOnly ? "Cotización disponible" : formatPrice(product.price)}</span>
-            </div>
+            {!product.quoteOnly && (
+              <div className="mb-6">
+                <span className="block text-3xl font-black text-[#1a3a6b]">{formatPrice(product.price)}</span>
+              </div>
+            )}
             <div className="w-full max-w-xs">
               <ShoppingCartButton product={product} />
             </div>

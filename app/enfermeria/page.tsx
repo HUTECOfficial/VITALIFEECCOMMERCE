@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  Activity, Home as HomeIcon, Star, ChevronRight, Phone,
-  Stethoscope, PersonStanding, HeartPulse, ClipboardList,
+  Activity, Star, ChevronRight, Phone,
+  Stethoscope, HeartPulse, ClipboardList,
   BookOpen, BarChart3, UserCheck, Dumbbell,
   FlaskConical, Scan, Bandage,
 } from "lucide-react";
@@ -20,6 +20,7 @@ const services = [
     icon: Stethoscope,
     title: "Atención domiciliaria",
     desc: "Enfermería general y especializada en la comodidad de tu hogar. Cuidados postoperatorios, aplicación de medicamentos y seguimiento de tratamientos.",
+    image: "/servicio-atencion-domiciliaria.png",
     color: "from-[#1a3a6b] to-[#2251a3]",
     href: "#proceso",
   },
@@ -27,6 +28,7 @@ const services = [
     icon: Dumbbell,
     title: "Rehabilitación física",
     desc: "Recuperación de lesiones musculoesqueléticas, cirugías ortopédicas y neurológicas. Planes de rehabilitación personalizados y progresivos.",
+    image: "/servicio-rehabilitacion-fisica.png",
     color: "from-[#2eb8d4] to-[#1a8fa8]",
     href: "#proceso",
   },
@@ -34,6 +36,7 @@ const services = [
     icon: HeartPulse,
     title: "Cuidado personalizado",
     desc: "Acompañamiento humano y cercano para pacientes con enfermedades crónicas, adultos mayores y personas en recuperación.",
+    image: "/servicio-cuidado-personalizado.png",
     color: "from-[#1a6b5a] to-[#2eb89a]",
     href: "#proceso",
   },
@@ -41,6 +44,7 @@ const services = [
     icon: FlaskConical,
     title: "Laboratorios",
     desc: "Toma de muestras a domicilio para análisis clínicos: biometría hemática, química sanguínea, perfil lipídico y más.",
+    image: "/servicio-laboratorios.png",
     color: "from-[#1a3a6b] to-[#2eb8d4]",
     href: "#proceso",
   },
@@ -48,6 +52,7 @@ const services = [
     icon: Scan,
     title: "Radiografías",
     desc: "Estudios de imagen a domicilio para diagnóstico de fracturas, lesiones óseas y revisiones postoperatorias.",
+    image: "/servicio-radiografias.png",
     color: "from-[#2eb8d4] to-[#1a8fa8]",
     href: "#proceso",
   },
@@ -55,6 +60,7 @@ const services = [
     icon: Bandage,
     title: "Curación de heridas",
     desc: "Manejo especializado de heridas crónicas, postoperatorias y úlceras con técnicas avanzadas de cicatrización.",
+    image: "/servicio-curacion-heridas.png",
     color: "from-[#1a6b5a] to-[#2eb89a]",
     href: "#proceso",
   },
@@ -171,19 +177,31 @@ export default function EnfermeriaPage() {
           <div className="grid md:grid-cols-3 gap-8">
             {services.map((svc, i) => (
               <FadeInWhenVisible key={svc.title} delay={i * 0.15}>
-                <div className="glass-card p-8 h-full hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col">
-                  <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${svc.color} flex items-center justify-center mb-5 shadow-lg`}>
-                    <svc.icon className="w-7 h-7 text-white" />
+                <div className="glass-card h-full overflow-hidden hover:-translate-y-2 hover:shadow-2xl transition-all duration-300 flex flex-col group">
+                  <div className="relative h-44 overflow-hidden">
+                    <Image
+                      src={svc.image}
+                      alt={`Servicio de ${svc.title}`}
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      className="object-cover transition-transform duration-500 group-hover:scale-105"
+                    />
+                    <div className={`absolute inset-0 bg-gradient-to-t ${svc.color} opacity-35`} />
+                    <div className={`absolute bottom-4 left-5 w-14 h-14 rounded-2xl bg-gradient-to-br ${svc.color} flex items-center justify-center border border-white/30 shadow-lg`}>
+                      <svc.icon className="w-7 h-7 text-white" />
+                    </div>
                   </div>
-                  <h3 className="font-bold text-[#1a3a6b] text-xl mb-3">{svc.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed flex-1">{svc.desc}</p>
-                  <a
-                    href={svc.href}
-                    className="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-[#2eb8d4] hover:text-[#1a3a6b] transition-colors group"
-                  >
-                    Conocer más
-                    <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
-                  </a>
+                  <div className="p-8 flex flex-col flex-1">
+                    <h3 className="font-bold text-[#1a3a6b] text-xl mb-3">{svc.title}</h3>
+                    <p className="text-gray-600 text-sm leading-relaxed flex-1">{svc.desc}</p>
+                    <a
+                      href={svc.href}
+                      className="mt-5 inline-flex items-center gap-1.5 text-sm font-bold text-[#2eb8d4] hover:text-[#1a3a6b] transition-colors group"
+                    >
+                      Conocer más
+                      <ChevronRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+                    </a>
+                  </div>
                 </div>
               </FadeInWhenVisible>
             ))}

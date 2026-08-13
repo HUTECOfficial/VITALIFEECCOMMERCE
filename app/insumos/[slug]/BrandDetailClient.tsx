@@ -248,11 +248,11 @@ export default function BrandDetailClient({ brand, total }: Props) {
                     )}
                     <p className="text-xs text-[#1a3a6b]/60 line-clamp-2 min-h-9 mb-3">{product.description}</p>
                     <div className="flex items-center justify-between mb-3">
-                      <span className="text-[#1a3a6b] font-black text-lg">{product.quoteOnly ? "Cotizar" : formatPrice(product.price)}</span>
+                      {!product.quoteOnly && <span className="text-[#1a3a6b] font-black text-lg">{formatPrice(product.price)}</span>}
                       <StockIndicator quantity={product.stockQuantity} inStock={product.inStock} compact />
                     </div>
                     <div className="flex gap-2">
-                      <ShoppingCartButton product={product} />
+                      <ShoppingCartButton product={product} showStock={false} />
                       <Link
                         href={`/productos/${product.slug}`}
                         className="inline-flex items-center justify-center text-xs font-bold text-[#1a3a6b] border border-[#1a3a6b]/20 rounded-xl px-3 py-2 hover:bg-[#e8f4fd] transition-colors shrink-0"

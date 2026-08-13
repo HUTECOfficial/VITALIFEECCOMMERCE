@@ -4,8 +4,8 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  Shield, Clock, Award, Users, Package, Home, Activity, ChevronRight, CheckCircle2,
-  ShieldCheck, Truck, PackageCheck, HeartPulse, Building2, ShoppingBag, ArrowRight
+  Shield, Clock, Award, Users, Activity, ChevronRight, CheckCircle2,
+  ShieldCheck, HeartPulse, Building2, ShoppingBag, ArrowRight
 } from "lucide-react";
 import FadeInWhenVisible from "@/components/animations/FadeInWhenVisible";
 import { brands } from "@/data/brands";
@@ -25,8 +25,8 @@ export default function HomePage() {
       <HeroSection />
       <StatsBar />
       <PromocionesSection />
-      <CategoriasSection />
       <TopDestacadosSection />
+      <CategoriasSection />
       <TopMarcasSection />
       <SectoresSection />
       <SobreNosotrosSection />
@@ -324,25 +324,6 @@ function PromocionesSection() {
 // SECTORES
 // ─────────────────────────────────────────────
 function SectoresSection() {
-  const cards = [
-    {
-      icon: Package,
-      title: "Insumos Médicos",
-      desc: "Distribuidores autorizados de las mejores marcas médicas. +20 marcas y +500 referencias en almacén.",
-      features: ["Productos certificados", "Entrega el mismo día", "Compra con carrito"],
-      href: "/insumos",
-      gradient: "from-[#1a3a6b] to-[#2251a3]",
-    },
-    {
-      icon: Activity,
-      title: "Enfermería y Fisioterapia",
-      desc: "Atención domiciliaria, rehabilitación física y cuidado personalizado para tu recuperación.",
-      features: ["Atención domiciliaria", "Rehabilitación física", "Cuidado personalizado"],
-      href: "/enfermeria",
-      gradient: "from-[#1a6b5a] to-[#2eb89a]",
-    },
-  ];
-
   return (
     <section className="py-24 lg:py-32 relative overflow-hidden">
       <div className="ambient-blob w-[400px] h-[400px] bottom-[-100px] right-[-100px] bg-[rgba(46,184,212,0.10)]" />
@@ -361,47 +342,48 @@ function SectoresSection() {
           </div>
         </FadeInWhenVisible>
 
-        <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-          {cards.map((card, i) => (
-            <FadeInWhenVisible key={card.title} delay={i * 0.12}>
-              <motion.div
-                whileHover={{ y: -8, scale: 1.01 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                className="glass-card overflow-hidden flex flex-col h-full group"
-              >
-                {/* Gradient banner */}
-                <div className={`bg-gradient-to-br ${card.gradient} p-6 relative overflow-hidden`}>
-                  <div className="absolute -top-6 -right-6 w-24 h-24 rounded-full bg-white/10 blur-sm" />
-                  <div className="relative z-10 flex items-center justify-between">
-                    <div className="w-14 h-14 rounded-2xl bg-white/20 backdrop-blur-sm border border-white/30 flex items-center justify-center shadow-lg">
-                      <card.icon className="w-7 h-7 text-white" />
-                    </div>
-                    <ChevronRight className="w-5 h-5 text-white/60 group-hover:text-white group-hover:translate-x-1 transition-all" />
-                  </div>
+        <FadeInWhenVisible delay={0.12}>
+          <motion.div
+            whileHover={{ y: -8, scale: 1.01 }}
+            transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            className="max-w-5xl mx-auto"
+          >
+            <Link
+              href="/enfermeria"
+              className="group relative block min-h-[420px] overflow-hidden rounded-[2rem] border border-white/70 shadow-[0_24px_60px_-20px_rgba(26,107,90,0.35)] focus:outline-none focus-visible:ring-4 focus-visible:ring-[#2eb89a]/40 sm:min-h-[360px]"
+            >
+              <Image
+                src="/enfermeria-fisioterapia-banner.png"
+                alt="Especialista apoyando a una paciente en rehabilitación física a domicilio"
+                fill
+                sizes="(max-width: 1024px) 100vw, 1024px"
+                className="object-cover object-[68%_center] transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-r from-[#063f39]/95 via-[#0b6559]/82 to-[#0b6559]/20 sm:via-[#0b6559]/62 sm:to-transparent" />
+              <div className="relative z-10 flex min-h-[420px] max-w-xl flex-col justify-center p-8 text-white sm:min-h-[360px] sm:p-12">
+                <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl border border-white/30 bg-white/15 backdrop-blur-sm shadow-lg">
+                  <Activity className="h-7 w-7" />
                 </div>
-
-                <div className="p-7 flex flex-col flex-1">
-                  <h3 className="font-black text-[#1a3a6b] text-xl mb-3">{card.title}</h3>
-                  <p className="text-[#1a3a6b]/60 text-sm leading-relaxed mb-5 flex-1">{card.desc}</p>
-                  <ul className="space-y-2.5 mb-6">
-                    {card.features.map((f) => (
-                      <li key={f} className="flex items-center gap-2.5 text-sm text-[#1a3a6b]/75 font-medium">
-                        <CheckCircle2 className="w-4 h-4 text-[#2eb8d4] flex-shrink-0" />
-                        {f}
-                      </li>
-                    ))}
-                  </ul>
-                  <Link
-                    href={card.href}
-                    className="inline-flex items-center gap-1.5 text-[#1a3a6b] text-sm font-bold hover:text-[#2eb8d4] transition-colors"
-                  >
-                    Conocer más <ChevronRight className="w-4 h-4" />
-                  </Link>
-                </div>
-              </motion.div>
-            </FadeInWhenVisible>
-          ))}
-        </div>
+                <p className="mb-3 text-xs font-black uppercase tracking-[0.2em] text-[#9ff4df]">Atención especializada</p>
+                <h3 className="mb-4 text-3xl font-black leading-tight sm:text-4xl">Enfermería y Fisioterapia</h3>
+                <p className="mb-7 max-w-md text-sm leading-relaxed text-white/85 sm:text-base">
+                  Atención domiciliaria, rehabilitación física y cuidado personalizado para tu recuperación.
+                </p>
+                <ul className="mb-8 grid gap-2 text-sm font-bold sm:grid-cols-3 sm:gap-3">
+                  {["Atención domiciliaria", "Rehabilitación física", "Cuidado personalizado"].map((feature) => (
+                    <li key={feature} className="flex items-center gap-2 text-white/95">
+                      <CheckCircle2 className="h-4 w-4 shrink-0 text-[#9ff4df]" />
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+                <span className="inline-flex w-fit items-center gap-2 rounded-xl bg-white px-5 py-3 text-sm font-black text-[#0b6559] shadow-lg transition-transform group-hover:translate-x-1">
+                  Conocer más <ChevronRight className="h-4 w-4" />
+                </span>
+              </div>
+            </Link>
+          </motion.div>
+        </FadeInWhenVisible>
       </div>
     </section>
   );
@@ -490,10 +472,34 @@ function SobreNosotrosSection() {
 // ─────────────────────────────────────────────
 function TopDestacadosSection() {
   const destacadas = [
-    { title: "Guantes de Nitrilo", cat: "Protección", price: "Cotizar por volumen", icon: ShieldCheck, imgId: 1 },
-    { title: "Jeringas 3ml BD", cat: "Aplicación", price: "Cotizar por volumen", icon: HeartPulse, imgId: 2 },
-    { title: "Solución Salina 1000ml", cat: "Fluidos", price: "Cotizar por volumen", icon: Activity, imgId: 3 },
-    { title: "Apósitos Tegaderm", cat: "Curación", price: "Cotizar por volumen", icon: CheckCircle2, imgId: 4 },
+    {
+      title: "Guantes de Nitrilo",
+      cat: "Protección",
+      price: "Cotizar por volumen",
+      icon: ShieldCheck,
+      image: "https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/guante-de-nitrilo_ambiderm.png",
+    },
+    {
+      title: "Jeringas 3ml BD",
+      cat: "Aplicación",
+      price: "Cotizar por volumen",
+      icon: HeartPulse,
+      image: "https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/catalog/jeringa-3ml-21x32-c-100-ambiderm-amb043.webp?v=ambiderm-official-20260801",
+    },
+    {
+      title: "Solución Salina 1000ml",
+      cat: "Fluidos",
+      price: "Cotizar por volumen",
+      icon: Activity,
+      image: "https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/catalog/solucion-cs-iny-0-9-1000ml-pisa003.webp",
+    },
+    {
+      title: "Apósitos Tegaderm",
+      cat: "Curación",
+      price: "Cotizar por volumen",
+      icon: CheckCircle2,
+      image: "https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/catalog/tegaderm-aposito-10x12-c-50-1626-3m021.webp",
+    },
   ];
 
   return (
@@ -523,21 +529,32 @@ function TopDestacadosSection() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
               whileHover={{ y: -8 }}
-              className="bg-white rounded-3xl p-5 border border-gray-100 shadow-[0_8px_30px_-12px_rgba(26,58,107,0.12)] group relative overflow-hidden"
+              className="bg-white rounded-3xl border border-gray-100 shadow-[0_8px_30px_-12px_rgba(26,58,107,0.12)] group relative overflow-hidden"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#2eb8d4]/5 to-transparent rounded-bl-[100px] -z-10 transition-transform group-hover:scale-110" />
-              
-              <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-[#1a3a6b]/5 to-[#1a3a6b]/10 flex items-center justify-center mb-6">
-                <prod.icon className="w-8 h-8 text-[#1a3a6b]" />
+
+              <div className="relative h-40 overflow-hidden bg-[#f8fbfd]">
+                <Image
+                  src={prod.image}
+                  alt={prod.title}
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className="object-contain p-4 transition-transform duration-500 group-hover:scale-105"
+                />
+                <div className="absolute left-5 top-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/70 bg-white/85 shadow-sm backdrop-blur-sm">
+                  <prod.icon className="h-6 w-6 text-[#1a3a6b]" />
+                </div>
               </div>
-              
-              <div className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">{prod.cat}</div>
-              <h3 className="font-black text-[#1a3a6b] text-lg leading-tight mb-2 group-hover:text-[#2eb8d4] transition-colors">{prod.title}</h3>
-              <div className="text-sm font-bold text-[#ff4757] mb-5">{prod.price}</div>
-              
-              <Link href="/contacto" className="flex items-center justify-center gap-2 w-full py-3 bg-[#1a3a6b]/5 hover:bg-[#2eb8d4] text-[#1a3a6b] hover:text-white rounded-xl text-sm font-bold transition-all duration-300">
-                <ShoppingBag className="w-4 h-4" /> Solicitar
-              </Link>
+
+              <div className="p-5">
+                <div className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">{prod.cat}</div>
+                <h3 className="font-black text-[#1a3a6b] text-lg leading-tight mb-2 group-hover:text-[#2eb8d4] transition-colors">{prod.title}</h3>
+                <div className="text-sm font-bold text-[#ff4757] mb-5">{prod.price}</div>
+
+                <Link href="/contacto" className="flex items-center justify-center gap-2 w-full py-3 bg-[#1a3a6b]/5 hover:bg-[#2eb8d4] text-[#1a3a6b] hover:text-white rounded-xl text-sm font-bold transition-all duration-300">
+                  <ShoppingBag className="w-4 h-4" /> Solicitar
+                </Link>
+              </div>
             </motion.div>
           ))}
         </div>

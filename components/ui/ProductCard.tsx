@@ -130,10 +130,10 @@ export default function ProductCard({ product }: ProductCardProps) {
             </div>
           </div>
         )}
-        <div className="flex items-center justify-between">
-          <span className="font-bold text-[#1a3a6b] text-lg">
-            {product.quoteOnly ? "Cotizar" : formatPrice(product.price)}
-          </span>
+        <div className={cn("flex items-center justify-between", product.quoteOnly && "justify-end")}>
+          {!product.quoteOnly && (
+            <span className="font-bold text-[#1a3a6b] text-lg">{formatPrice(product.price)}</span>
+          )}
           {product.quoteOnly ? (
             <Link
               href={`/contacto?producto=${encodeURIComponent(product.name)}${selectedSize ? `&talla=${encodeURIComponent(selectedSize)}` : ""}${selectedColor ? `&color=${encodeURIComponent(selectedColor)}` : ""}`}

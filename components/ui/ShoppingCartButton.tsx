@@ -10,7 +10,7 @@ import { cn } from "@/lib/utils";
 import { StockIndicator } from "@/components/ui/StockIndicator";
 import { getVariantStock } from "@/lib/product-variants";
 
-export function ShoppingCartButton({ product }: { product: Product }) {
+export function ShoppingCartButton({ product, showStock = true }: { product: Product; showStock?: boolean }) {
   const addItem = useCartStore((s) => s.addItem);
   const [added, setAdded] = useState(false);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
@@ -51,7 +51,7 @@ export function ShoppingCartButton({ product }: { product: Product }) {
     <div className="space-y-2">
       {product.colors?.length ? <OptionSelector label="Color" options={product.colors} selected={selectedColor} onSelect={setSelectedColor} /> : null}
       {product.sizes?.length ? <OptionSelector label="Talla / medida" options={product.sizes} selected={selectedSize} onSelect={setSelectedSize} /> : null}
-      {!hasUnselectedVariant && <StockIndicator quantity={unavailable ? 0 : selectedVariantStock} inStock={product.inStock} compact />}
+      {showStock && !hasUnselectedVariant && <StockIndicator quantity={unavailable ? 0 : selectedVariantStock} inStock={product.inStock} compact />}
       <motion.button
         type="button"
         onClick={handleAdd}
