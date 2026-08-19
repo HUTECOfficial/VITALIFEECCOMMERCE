@@ -17,6 +17,8 @@ const brandLogoById: Record<string, string> = {
   "b-braun": "https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/logosmarcas/logobbrown.webp",
   covidien: "https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/logosmarcas/covidienlogo.webp",
   respifix: "https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/logosmarcas/respifix-logov2.webp",
+  pisa: "/brands/pisa-farmaceutica.webp",
+  "le-roy": "/brands/le-roy.png",
 };
 
 export default function HomePage() {
@@ -567,7 +569,11 @@ function TopDestacadosSection() {
 // TOP MARCAS
 // ─────────────────────────────────────────────
 function TopMarcasSection() {
-  const displayBrands = brands.slice(0, 6); // Grab the first 6 brands
+  const featuredBrandIds = ["3m", "ambiderm", "bd", "b-braun", "covidien", "respifix", "pisa", "le-roy"];
+  const displayBrands = featuredBrandIds.flatMap((id) => {
+    const brand = brands.find((item) => item.id === id);
+    return brand ? [brand] : [];
+  });
 
   return (
     <section className="py-16 md:py-24 relative overflow-hidden bg-gray-50/50">
@@ -581,7 +587,7 @@ function TopMarcasSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 sm:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-4 sm:gap-6">
           {displayBrands.map((b, i) => (
             <motion.div
               key={b.id}

@@ -187,12 +187,6 @@ function InsumosContent() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* Las categorías son el primer bloque visible del catálogo. */}
-      <CategoryGrid
-        activeCategory={activeCategory}
-        onCategoryClick={handleCategoryClick}
-      />
-
       {/* ══ HERO ══════════════════════════════════════════ */}
       <section
         className="relative overflow-hidden"
@@ -221,6 +215,27 @@ function InsumosContent() {
               )}
             </div>
           </motion.div>
+
+          {/* Los resultados aparecen inmediatamente debajo de la lupa. */}
+          <AnimatePresence>
+            {search.trim() && (
+              <ProductResultsSection
+                filteredProducts={filteredProducts}
+                onClear={() => { setActiveCategory(null); setSearch(""); }}
+              />
+            )}
+          </AnimatePresence>
+
+          <AnimatePresence>
+            {search.trim() && (
+              <BrandResultsSection
+                filteredBrands={filteredBrands}
+                title="Marcas relacionadas"
+                onClear={() => { setActiveCategory(null); setSearch(""); }}
+              />
+            )}
+          </AnimatePresence>
+
           <motion.p initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}
             className="text-[#2eb8d4] font-bold text-sm uppercase tracking-[0.2em] mb-3">
             catálogo de
@@ -237,29 +252,33 @@ function InsumosContent() {
         </div>
       </section>
 
-      {/* ══ SEARCH RESULTS: PRODUCTS ═════════════════════════════════ */}
-      <AnimatePresence>
-        {search.trim() && (
-          <ProductResultsSection
-            filteredProducts={filteredProducts}
-            onClear={() => { setActiveCategory(null); setSearch(""); }}
-          />
-        )}
-      </AnimatePresence>
-
-      {/* ══ SEARCH RESULTS: BRANDS ═════════════════════════════════ */}
-      <AnimatePresence>
-        {search.trim() && (
-          <BrandResultsSection
-            filteredBrands={filteredBrands}
-            title="Marcas relacionadas"
-            onClear={() => { setActiveCategory(null); setSearch(""); }}
-          />
-        )}
-      </AnimatePresence>
+      {/* Las categorías aparecen después del encabezado y la búsqueda. */}
+      <CategoryGrid
+        activeCategory={activeCategory}
+        onCategoryClick={handleCategoryClick}
+      />
 
       {!search.trim() && (
         <>
+          {/* ══ PRODUCT + BRAND RESULTS (category selection) ═════════════════ */}
+          <div ref={brandsRef} />
+          <AnimatePresence>
+            {!search.trim() && activeCategory && (
+              <>
+                <ProductResultsSection
+                  filteredProducts={categoryProducts}
+                  onClear={() => { setActiveCategory(null); setSearch(""); }}
+                  title={categoryLabels[activeCategory]}
+                />
+                <BrandResultsSection
+                  filteredBrands={filteredBrands}
+                  title={`Marcas de ${categoryLabels[activeCategory]}`}
+                  onClear={() => { setActiveCategory(null); setSearch(""); }}
+                />
+              </>
+            )}
+          </AnimatePresence>
+
           {/* ══ QUICK SHOP ═════════════════════════════════════ */}
           <section id="catalogo-productos" className="bg-white py-10 sm:py-12 px-4 sm:px-6 border-y border-[#1a3a6b]/10">
             <div className="max-w-6xl mx-auto">
@@ -308,25 +327,6 @@ function InsumosContent() {
               </div>
             </div>
           </section>
-
-          {/* ══ PRODUCT + BRAND RESULTS (category selection) ═════════════════ */}
-      <div ref={brandsRef} />
-      <AnimatePresence>
-        {!search.trim() && activeCategory && (
-          <>
-            <ProductResultsSection
-              filteredProducts={categoryProducts}
-              onClear={() => { setActiveCategory(null); setSearch(""); }}
-              title={categoryLabels[activeCategory]}
-            />
-            <BrandResultsSection
-              filteredBrands={filteredBrands}
-              title={`Marcas de ${categoryLabels[activeCategory]}`}
-              onClear={() => { setActiveCategory(null); setSearch(""); }}
-            />
-          </>
-        )}
-      </AnimatePresence>
       </>)}
 
       {/* ══ TRUST BAR ═════════════════════════════════════ */}
@@ -522,7 +522,7 @@ function ProductResultsSection({ filteredProducts, onClear, title }: ProductResu
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
       transition={{ duration: 0.35 }}
-      className="bg-white py-12 px-4 sm:px-6 border-t border-gray-100"
+      className="bg-white py-12 px-4 sm:px-6 border-t border-gray-100 text-left"
     >
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center justify-between mb-8">
@@ -598,7 +598,7 @@ function BrandResultsSection({ filteredBrands, title, onClear }: BrandResultsSec
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0, y: -10 }}
       transition={{ duration: 0.35 }}
-      className="bg-white py-12 px-4 sm:px-6 border-t border-gray-100"
+      className="bg-white py-12 px-4 sm:px-6 border-t border-gray-100 text-left"
     >
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center justify-between mb-8">
