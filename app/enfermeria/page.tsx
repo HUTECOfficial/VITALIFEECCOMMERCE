@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   Activity, Star, ChevronRight, Phone,
-  Stethoscope, HeartPulse, ClipboardList,
+  Stethoscope, Package, ClipboardList,
   BookOpen, BarChart3, UserCheck, Dumbbell,
   FlaskConical, Scan, Bandage,
 } from "lucide-react";
@@ -33,10 +33,10 @@ const services = [
     href: "#proceso",
   },
   {
-    icon: HeartPulse,
-    title: "Cuidado personalizado",
-    desc: "Acompañamiento humano y cercano para pacientes con enfermedades crónicas, adultos mayores y personas en recuperación.",
-    image: "/servicio-cuidado-personalizado.png",
+    icon: Package,
+    title: "Renta de equipo médico",
+    desc: "Equipo médico en renta para apoyar la atención, recuperación y cuidado del paciente en casa, con asesoría para elegir la opción adecuada.",
+    image: "/diagnostico.png",
     color: "from-[#1a6b5a] to-[#2eb89a]",
     href: "#proceso",
   },

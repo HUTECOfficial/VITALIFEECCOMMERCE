@@ -21,11 +21,11 @@ export const services: Service[] = [
     title: "Enfermería y Fisioterapia",
     slug: "enfermeria",
     description:
-      "Servicios de atención domiciliaria, rehabilitación física y cuidado personalizado para tu recuperación y bienestar.",
+      "Servicios de atención domiciliaria, rehabilitación física y renta de equipo médico para tu recuperación y bienestar.",
     features: [
       "Atención domiciliaria",
       "Rehabilitación física",
-      "Cuidado personalizado",
+      "Renta de equipo médico",
       "Profesionales certificados",
     ],
     icon: "Activity",

@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useMemo, useRef, useEffect, Suspense } from "react";
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -13,7 +13,7 @@ import {
 } from "lucide-react";
 import { brands, getBrandsByCategory, getTotalProducts } from "@/data/brands";
 import { categoryLabels, products as localProducts } from "@/data/products";
-import { brandCategoryToProductCategories, catalogCategoryOrder } from "@/data/catalogCategories";
+import { brandCategoryToProductCategories, catalogCategoryBySlug, catalogCategoryOrder } from "@/data/catalogCategories";
 import type { Brand } from "@/data/brands";
 import type { Product } from "@/types";
 import { formatPrice } from "@/lib/utils";
@@ -118,11 +118,22 @@ function InsumosContent() {
   const [allProducts, setAllProducts] = useState<Product[]>(localProducts);
   const brandsRef = useRef<HTMLDivElement>(null);
   const cartCount = useClientCartCount();
+  const router = useRouter();
   const searchParams = useSearchParams();
 
   useEffect(() => {
     const q = searchParams.get("q");
     if (q) setSearch(q);
+  }, [searchParams]);
+
+  useEffect(() => {
+    const categoryParam = searchParams.get("cat");
+    const category = categoryParam ? catalogCategoryBySlug[categoryParam] : undefined;
+    const timeoutId = setTimeout(() => {
+      setActiveCategory(category ?? null);
+      if (category) brandsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" });
+    }, category ? 120 : 0);
+    return () => clearTimeout(timeoutId);
   }, [searchParams]);
 
   useEffect(() => {
@@ -178,11 +189,19 @@ function InsumosContent() {
   }, [search, allProducts]);
 
   function handleCategoryClick(cat: Product["category"]) {
-    setActiveCategory((prev) => (prev === cat ? null : cat));
+    const nextCategory = activeCategory === cat ? null : cat;
+    setActiveCategory(nextCategory);
+    router.replace(nextCategory ? `/insumos?cat=${nextCategory}` : "/insumos", { scroll: false });
     setTimeout(
       () => brandsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }),
       120
     );
+  }
+
+  function clearFilters() {
+    setActiveCategory(null);
+    setSearch("");
+    router.replace("/insumos", { scroll: false });
   }
 
   return (
@@ -221,7 +240,7 @@ function InsumosContent() {
             {search.trim() && (
               <ProductResultsSection
                 filteredProducts={filteredProducts}
-                onClear={() => { setActiveCategory(null); setSearch(""); }}
+                onClear={clearFilters}
               />
             )}
           </AnimatePresence>
@@ -231,7 +250,7 @@ function InsumosContent() {
               <BrandResultsSection
                 filteredBrands={filteredBrands}
                 title="Marcas relacionadas"
-                onClear={() => { setActiveCategory(null); setSearch(""); }}
+                onClear={clearFilters}
               />
             )}
           </AnimatePresence>
@@ -267,20 +286,22 @@ function InsumosContent() {
               <>
                 <ProductResultsSection
                   filteredProducts={categoryProducts}
-                  onClear={() => { setActiveCategory(null); setSearch(""); }}
+                  onClear={clearFilters}
                   title={categoryLabels[activeCategory]}
                 />
                 <BrandResultsSection
                   filteredBrands={filteredBrands}
                   title={`Marcas de ${categoryLabels[activeCategory]}`}
-                  onClear={() => { setActiveCategory(null); setSearch(""); }}
+                  onClear={clearFilters}
                 />
               </>
             )}
           </AnimatePresence>
 
-          {/* ══ QUICK SHOP ═════════════════════════════════════ */}
-          <section id="catalogo-productos" className="bg-white py-10 sm:py-12 px-4 sm:px-6 border-y border-[#1a3a6b]/10">
+          {!activeCategory && (
+            <>
+              {/* ══ QUICK SHOP ═════════════════════════════════════ */}
+              <section id="catalogo-productos" className="bg-white py-10 sm:py-12 px-4 sm:px-6 border-y border-[#1a3a6b]/10">
             <div className="max-w-6xl mx-auto">
               <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-6">
                 <div>
@@ -327,7 +348,10 @@ function InsumosContent() {
               </div>
             </div>
           </section>
-      </>)}
+            </>
+          )}
+        </>
+      )}
 
       {/* ══ TRUST BAR ═════════════════════════════════════ */}
       <section className="bg-white border-t border-gray-100 py-8 px-4 sm:px-6">

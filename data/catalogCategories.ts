@@ -18,6 +18,29 @@ export const catalogCategoryOrder: ProductCategory[] = [
   "atencion-paciente",
 ];
 
+export const catalogCategoryBySlug: Record<string, ProductCategory> = {
+  guantes: "guantes",
+  curacion: "curacion",
+  "material-curacion": "curacion",
+  antisepticos: "antisepticos",
+  jeringas: "jeringas",
+  "terapia-iv": "terapia-iv",
+  "vias-iv": "terapia-iv",
+  "sondas-cateteres": "sondas-cateteres",
+  sondas: "sondas-cateteres",
+  respiratorio: "respiratorio",
+  ventilacion: "respiratorio",
+  diagnostico: "diagnostico",
+  quirurgico: "quirurgico",
+  "equipo-quirurgico": "quirurgico",
+  rehabilitacion: "rehabilitacion",
+  medicamentos: "medicamentos",
+  "proteccion-desechables": "proteccion-desechables",
+  residuos: "residuos",
+  "atencion-paciente": "atencion-paciente",
+  miscelaneos: "atencion-paciente",
+};
+
 export const brandCategoryToProductCategories: Record<BrandCategory, ProductCategory[]> = {
   "Apósitos y Cintas": ["curacion"],
   "Guantes": ["guantes"],

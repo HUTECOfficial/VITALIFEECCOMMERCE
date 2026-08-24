@@ -369,10 +369,10 @@ function SectoresSection() {
                 <p className="mb-3 text-xs font-black uppercase tracking-[0.2em] text-[#9ff4df]">Atención especializada</p>
                 <h3 className="mb-4 text-3xl font-black leading-tight sm:text-4xl">Enfermería y Fisioterapia</h3>
                 <p className="mb-7 max-w-md text-sm leading-relaxed text-white/85 sm:text-base">
-                  Atención domiciliaria, rehabilitación física y cuidado personalizado para tu recuperación.
+                  Atención domiciliaria, rehabilitación física y renta de equipo médico para tu recuperación.
                 </p>
                 <ul className="mb-8 grid gap-2 text-sm font-bold sm:grid-cols-3 sm:gap-3">
-                  {["Atención domiciliaria", "Rehabilitación física", "Cuidado personalizado"].map((feature) => (
+                  {["Atención domiciliaria", "Rehabilitación física", "Renta de equipo médico"].map((feature) => (
                     <li key={feature} className="flex items-center gap-2 text-white/95">
                       <CheckCircle2 className="h-4 w-4 shrink-0 text-[#9ff4df]" />
                       {feature}
@@ -637,15 +637,15 @@ function TopMarcasSection() {
 // ─────────────────────────────────────────────
 function CategoriasSection() {
   const categorias = [
-    { name: "Equipo Quirúrgico", img: "/equipo-quirurgico.png", href: "/insumos?cat=equipo-quirurgico" },
+    { name: "Equipo Quirúrgico", img: "/equipo-quirurgico.png", href: "/insumos?cat=quirurgico" },
     { name: "Diagnóstico", img: "/diagnostico.png", href: "/insumos?cat=diagnostico" },
     { name: "Guantes", img: "/guantes.png", href: "/insumos?cat=guantes" },
-    { name: "Material de Curación", img: "/material-curacion.png", href: "/insumos?cat=material-curacion" },
-    { name: "Sondas y Catéteres", img: "/sondas-cateteres.png", href: "/insumos?cat=sondas" },
-    { name: "Vías IV", img: "/vias-iv.png", href: "/insumos?cat=vias-iv" },
+    { name: "Material de Curación", img: "/material-curacion.png", href: "/insumos?cat=curacion" },
+    { name: "Sondas y Catéteres", img: "/sondas-cateteres.png", href: "/insumos?cat=sondas-cateteres" },
+    { name: "Vías IV", img: "/vias-iv.png", href: "/insumos?cat=terapia-iv" },
     { name: "Rehabilitación", img: "/rehabilitacion.png", href: "/insumos?cat=rehabilitacion" },
-    { name: "Ventilación", img: "/ventilacion.png", href: "/insumos?cat=ventilacion" },
-    { name: "Misceláneos", img: "/miscelaneos.png", href: "/insumos?cat=miscelaneos" },
+    { name: "Ventilación", img: "/ventilacion.png", href: "/insumos?cat=respiratorio" },
+    { name: "Misceláneos", img: "/miscelaneos.png", href: "/insumos?cat=atencion-paciente" },
   ];
 
   return (
@@ -682,9 +682,9 @@ function CategoriasSection() {
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-[#1a3a6b]/80 via-[#1a3a6b]/10 to-transparent opacity-70 group-hover:opacity-100 transition-opacity" />
-                <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end justify-between z-10 translate-y-2 group-hover:translate-y-0 transition-transform">
-                  <h3 className={`text-white font-black leading-tight drop-shadow-md ${isLarge ? 'text-2xl' : 'text-lg'}`}>{cat.name}</h3>
-                  <div className="w-8 h-8 rounded-full bg-[#ff4757] text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all transform scale-50 group-hover:scale-100 shrink-0">
+                <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end justify-center z-10 translate-y-2 group-hover:translate-y-0 transition-transform">
+                  <h3 className={`w-full px-8 text-center text-white font-black leading-tight drop-shadow-md ${isLarge ? 'text-2xl sm:text-3xl' : 'text-xl'}`}>{cat.name}</h3>
+                  <div className="absolute right-5 bottom-5 w-8 h-8 rounded-full bg-[#ff4757] text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all transform scale-50 group-hover:scale-100 shrink-0">
                     <ChevronRight className="w-4 h-4" />
                   </div>
                 </div>
