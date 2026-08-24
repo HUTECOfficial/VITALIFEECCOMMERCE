@@ -29,8 +29,8 @@ const contactCards = [
   {
     icon: Phone,
     title: "WhatsApp",
-    value: "477 173 6105",
-    href: "https://wa.me/524771736105",
+    value: "477 850 0011",
+    href: "https://wa.me/524778500011",
     color: "from-[#25d366] to-[#128c7e]",
   },
   {

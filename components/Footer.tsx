@@ -12,7 +12,7 @@ const nursingWhatsApp = {
 };
 
 const whatsappOptions = [
-  { label: "Insumos médicos", number: "477 173 6105", href: "https://wa.me/524771736105" },
+  { label: "Insumos médicos", number: "477 850 0011", href: "https://wa.me/524778500011" },
   { label: "Insumos médicos", number: "479 228 4057", href: "https://wa.me/524792284057" },
   { label: "Enfermería y fisioterapia", number: "+52 1 477 703 1953", href: nursingWhatsApp.href },
 ];
@@ -35,7 +35,7 @@ export default function Footer() {
   const [isWhatsAppMenuOpen, setIsWhatsAppMenuOpen] = useState(false);
   const whatsappHref = isNursingPage
     ? nursingWhatsApp.href
-    : "https://wa.me/524771736105";
+    : "https://wa.me/524778500011";
 
   return (
     <footer className="bg-white border-t border-gray-100">
@@ -61,7 +61,7 @@ export default function Footer() {
                 ) : (
                   <>
                     <div className="text-[#1a3a6b] font-bold text-sm group-hover:text-[#2eb8d4] transition-colors">
-                      477 173 6105
+                      477 850 0011
                     </div>
                     <div className="text-[#1a3a6b] font-bold text-sm group-hover:text-[#2eb8d4] transition-colors">
                       479 228 4057

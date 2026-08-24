@@ -52,10 +52,10 @@ export default function RootLayout({
         <main className="flex-1 pt-[96px]">{children}</main>
         <Footer />
         <a
-          href="https://wa.me/524771736105"
+          href="https://wa.me/524778500011"
           target="_blank"
           rel="noopener noreferrer"
-          aria-label="Contactar por WhatsApp al 477 173 6105"
+          aria-label="Contactar por WhatsApp al 477 850 0011"
           className="fixed bottom-4 right-4 z-40 flex h-11 w-11 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_6px_20px_rgba(37,211,102,0.28)] transition-all duration-200 hover:-translate-y-0.5 hover:scale-105 hover:shadow-[0_8px_24px_rgba(37,211,102,0.38)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#25D366] focus-visible:ring-offset-2 sm:bottom-5 sm:right-5"
         >
           <svg className="h-5 w-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
