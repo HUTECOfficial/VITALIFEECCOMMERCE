@@ -71,7 +71,7 @@ export default async function ProductPage({ params }: PageProps) {
               </div>
             )}
             <div className="w-full max-w-xs">
-              <ShoppingCartButton product={product} />
+              <ShoppingCartButton product={product} showQuantity />
             </div>
           </div>
         </div>

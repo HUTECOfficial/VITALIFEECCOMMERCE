@@ -7,7 +7,7 @@ import { CartItem, Product } from "@/types";
 
 interface CartStore {
   items: CartItem[];
-  addItem: (product: Product, size?: string, color?: string) => void;
+  addItem: (product: Product, size?: string, color?: string, quantity?: number) => void;
   removeItem: (cartId: string) => void;
   updateQuantity: (cartId: string, quantity: number) => void;
   clearCart: () => void;
@@ -20,8 +20,9 @@ export const useCartStore = create<CartStore>()(
     (set, get) => ({
       items: [],
 
-      addItem: (product: Product, size?: string, color?: string) => {
+      addItem: (product: Product, size?: string, color?: string, quantity = 1) => {
         const cartId = `${product.id}#${size || ""}#${color || ""}`;
+        const quantityToAdd = Math.max(1, Math.floor(quantity));
         set((state) => {
           const items = state.items.map((item) => ({
             ...item,
@@ -32,12 +33,12 @@ export const useCartStore = create<CartStore>()(
             return {
               items: items.map((item) =>
                 item.cartId === cartId
-                  ? { ...item, quantity: item.quantity + 1 }
+                  ? { ...item, quantity: item.quantity + quantityToAdd }
                   : item
               ),
             };
           }
-          return { items: [...items, { ...product, quantity: 1, size, color, cartId }] };
+          return { items: [...items, { ...product, quantity: quantityToAdd, size, color, cartId }] };
         });
       },
 
