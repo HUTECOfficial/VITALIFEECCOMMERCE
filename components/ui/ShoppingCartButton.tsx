@@ -15,7 +15,7 @@ export function ShoppingCartButton({ product, showStock = true, showQuantity = f
   const [addedQuantity, setAddedQuantity] = useState<number | null>(null);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
-  const [quantity, setQuantity] = useState(1);
+  const [quantityInput, setQuantityInput] = useState("1");
 
   useEffect(() => {
     if (addedQuantity === null) return;
@@ -23,26 +23,45 @@ export function ShoppingCartButton({ product, showStock = true, showQuantity = f
     return () => window.clearTimeout(timeoutId);
   }, [addedQuantity]);
 
+  const hasUnselectedVariant = Boolean((product.sizes?.length && !selectedSize) || (product.colors?.length && !selectedColor));
+  const selectedVariantStock = hasUnselectedVariant ? undefined : getVariantStock(product, selectedSize, selectedColor);
+  const unavailable = !hasUnselectedVariant && (!product.inStock || selectedVariantStock === 0 || (Boolean(product.variants?.length) && selectedVariantStock === undefined));
+  const quantity = Number(quantityInput);
+  const hasValidQuantity = /^\d+$/.test(quantityInput) && Number.isSafeInteger(quantity) && quantity >= 1 && (selectedVariantStock === undefined || quantity <= selectedVariantStock);
+  const canIncreaseQuantity = !hasUnselectedVariant && !unavailable && (!hasValidQuantity || selectedVariantStock === undefined || quantity < selectedVariantStock);
+
   const handleAdd = () => {
-    if (hasUnselectedVariant || unavailable) return;
+    if (hasUnselectedVariant || unavailable || !hasValidQuantity) return;
     addItem(product, selectedSize || undefined, selectedColor || undefined, quantity);
     setAddedQuantity(quantity);
   };
 
   const selectSize = (size: string) => {
     setSelectedSize(size);
-    setQuantity(1);
+    setQuantityInput("1");
   };
 
   const selectColor = (color: string) => {
     setSelectedColor(color);
-    setQuantity(1);
+    setQuantityInput("1");
   };
 
-  const hasUnselectedVariant = Boolean((product.sizes?.length && !selectedSize) || (product.colors?.length && !selectedColor));
-  const selectedVariantStock = hasUnselectedVariant ? undefined : getVariantStock(product, selectedSize, selectedColor);
-  const unavailable = !hasUnselectedVariant && (!product.inStock || selectedVariantStock === 0 || (Boolean(product.variants?.length) && selectedVariantStock === undefined));
-  const canIncreaseQuantity = !hasUnselectedVariant && !unavailable && (selectedVariantStock === undefined || quantity < selectedVariantStock);
+  const changeQuantity = (value: string) => {
+    if (value === "") {
+      setQuantityInput("");
+      return;
+    }
+    if (!/^\d+$/.test(value)) return;
+    const nextQuantity = Number(value);
+    if (!Number.isSafeInteger(nextQuantity)) return;
+    setQuantityInput(String(Math.min(Math.max(1, nextQuantity), selectedVariantStock ?? Number.MAX_SAFE_INTEGER)));
+  };
+
+  const adjustQuantity = (amount: number) => {
+    const currentQuantity = hasValidQuantity ? quantity : 1;
+    const nextQuantity = Math.min(Math.max(1, currentQuantity + amount), selectedVariantStock ?? Number.MAX_SAFE_INTEGER);
+    setQuantityInput(String(nextQuantity));
+  };
 
   if (product.quoteOnly) {
     return (
@@ -70,19 +89,31 @@ export function ShoppingCartButton({ product, showStock = true, showQuantity = f
           <div className="flex items-center rounded-lg border border-gray-200 bg-white p-1 shadow-sm">
             <button
               type="button"
-              onClick={() => setQuantity((current) => Math.max(1, current - 1))}
-              disabled={quantity === 1}
+              onClick={() => adjustQuantity(-1)}
+              disabled={!hasValidQuantity || quantity <= 1}
               className="flex h-8 w-8 items-center justify-center rounded-md text-[#1a3a6b] transition-colors hover:bg-[#e8f4fd] disabled:cursor-not-allowed disabled:text-gray-300 disabled:hover:bg-transparent"
               aria-label="Reducir cantidad"
             >
               <Minus className="h-4 w-4" />
             </button>
-            <span className="w-10 text-center text-base font-black text-[#1a3a6b]" aria-live="polite">
-              {quantity}
-            </span>
+            <input
+              type="number"
+              min={1}
+              max={selectedVariantStock}
+              step={1}
+              inputMode="numeric"
+              value={quantityInput}
+              onChange={(event) => changeQuantity(event.target.value)}
+              onFocus={(event) => event.currentTarget.select()}
+              onBlur={() => { if (!hasValidQuantity) setQuantityInput("1"); }}
+              onKeyDown={(event) => { if (event.key === "Enter") event.currentTarget.blur(); }}
+              disabled={hasUnselectedVariant || unavailable}
+              className="h-8 w-12 appearance-none bg-transparent text-center text-base font-black text-[#1a3a6b] outline-none disabled:text-gray-300 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+              aria-label="Cantidad del producto"
+            />
             <button
               type="button"
-              onClick={() => setQuantity((current) => current + 1)}
+              onClick={() => adjustQuantity(1)}
               disabled={!canIncreaseQuantity}
               className="flex h-8 w-8 items-center justify-center rounded-md text-[#1a3a6b] transition-colors hover:bg-[#e8f4fd] disabled:cursor-not-allowed disabled:text-gray-300 disabled:hover:bg-transparent"
               aria-label="Aumentar cantidad"
@@ -96,14 +127,14 @@ export function ShoppingCartButton({ product, showStock = true, showQuantity = f
         type="button"
         onClick={handleAdd}
         whileTap={{ scale: 0.98 }}
-        disabled={hasUnselectedVariant || unavailable}
+        disabled={hasUnselectedVariant || unavailable || !hasValidQuantity}
         className={cn(
           "w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-bold transition-colors shadow-md min-h-12",
-          hasUnselectedVariant || unavailable
+          hasUnselectedVariant || unavailable || !hasValidQuantity
             ? "bg-gray-300 text-white cursor-not-allowed"
             : "bg-[#1a3a6b] text-white hover:bg-[#2eb8d4]"
         )}
-        aria-label={showQuantity ? `Agregar ${quantity} ${quantity === 1 ? "unidad" : "unidades"} de ${product.name} al carrito` : `Comprar ${product.name}`}
+        aria-label={showQuantity ? `Agregar ${hasValidQuantity ? quantity : 1} ${hasValidQuantity && quantity !== 1 ? "unidades" : "unidad"} de ${product.name} al carrito` : `Comprar ${product.name}`}
       >
         <AnimatePresence mode="wait">
           {addedQuantity !== null ? (

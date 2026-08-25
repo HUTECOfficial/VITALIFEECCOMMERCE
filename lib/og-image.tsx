@@ -53,11 +53,10 @@ export function generateFaviconImage(width: number, height: number) {
           src={dataUrl}
           alt="Vital Life"
           style={{
-            width: "350%",
-            height: "350%",
+            width: "240%",
+            height: "240%",
             flexShrink: 0,
             objectFit: "contain",
-            transform: "translateY(5%)",
           }}
         />
       </div>
