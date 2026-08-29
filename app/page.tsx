@@ -8,18 +8,7 @@ import {
   ShieldCheck, HeartPulse, Building2, ShoppingBag, ArrowRight
 } from "lucide-react";
 import FadeInWhenVisible from "@/components/animations/FadeInWhenVisible";
-import { brands } from "@/data/brands";
-
-const brandLogoById: Record<string, string> = {
-  "3m": "https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/logosmarcas/3mlogo.png",
-  ambiderm: "https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/logosmarcas/ambidermlogo.jpg",
-  bd: "https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/logosmarcas/LOGO-bd.png",
-  "b-braun": "https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/logosmarcas/logobbrown.webp",
-  covidien: "https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/logosmarcas/covidienlogo.webp",
-  respifix: "https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/logosmarcas/respifix-logov2.webp",
-  pisa: "/brands/pisa-farmaceutica.webp",
-  "le-roy": "/brands/le-roy.png",
-};
+import { categoryImageById, homeHeroImage, homepageBrandLogos } from "@/data/visualAssets";
 
 export default function HomePage() {
   return (
@@ -45,7 +34,7 @@ function HeroSection() {
       {/* Hero background image — full bleed to top */}
       <div className="absolute inset-0 z-0">
         <Image
-          src="/fondooficial.png"
+          src={homeHeroImage}
           alt="Insumos médicos Vital Life"
           fill
           priority
@@ -60,7 +49,7 @@ function HeroSection() {
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-[120px] sm:pt-[132px] pb-16 sm:pb-20 lg:pb-28 w-full">
-        <div className="grid lg:grid-cols-2 gap-12 sm:gap-16 items-center">
+        <div className="flex items-center">
           {/* LEFT — Copy */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -131,24 +120,6 @@ function HeroSection() {
             </motion.div>
           </motion.div>
 
-          {/* RIGHT — Static Logo column */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.92, y: -20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
-            className="hidden lg:flex justify-end items-start relative lg:-mt-60 lg:mr-72"
-          >
-            <div className="relative w-[200px] h-[200px] xl:w-[240px] xl:h-[240px] flex items-center justify-center">
-              <Image
-                src="/vitalife-logo.png"
-                alt="Vital Life"
-                fill
-                className="object-cover scale-[2]"
-                sizes="(max-width: 1280px) 200px, 240px"
-                priority
-              />
-            </div>
-          </motion.div>
         </div>
       </div>
     </section>
@@ -614,12 +585,6 @@ function TopDestacadosSection() {
 // TOP MARCAS
 // ─────────────────────────────────────────────
 function TopMarcasSection() {
-  const featuredBrandIds = ["3m", "ambiderm", "bd", "b-braun", "covidien", "respifix", "pisa", "le-roy"];
-  const displayBrands = featuredBrandIds.flatMap((id) => {
-    const brand = brands.find((item) => item.id === id);
-    return brand ? [brand] : [];
-  });
-
   return (
     <section className="py-16 md:py-24 relative overflow-hidden bg-gray-50/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -632,44 +597,28 @@ function TopMarcasSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-8 gap-4 sm:gap-6">
-          {displayBrands.map((b, i) => (
-            <motion.div
-              key={b.id}
+        <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6">
+          {homepageBrandLogos.map((brand, i) => (
+            <motion.figure
+              key={brand.id}
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
               whileHover={{ scale: 1.05 }}
-              className="group"
+              className="group m-0"
             >
-              <Link
-                href={`/insumos/${b.id}`}
-                aria-label={`Ver productos de ${b.name}`}
-                className="block rounded-2xl focus:outline-none focus-visible:ring-4 focus-visible:ring-[#2eb8d4]/30"
-              >
-                <div className="relative flex aspect-square items-center justify-center overflow-hidden rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 group-hover:border-[#2eb8d4]/20 group-hover:shadow-xl group-hover:shadow-[#2eb8d4]/10 sm:p-7">
-                  <div className="absolute inset-0 bg-gradient-to-br from-white via-white to-[#e8f4fd]/45" />
-                  {brandLogoById[b.id] ? (
-                    <Image
-                      src={brandLogoById[b.id]}
-                      alt={`Logo ${b.name}`}
-                      fill
-                      sizes="(max-width: 768px) 45vw, (max-width: 1280px) 22vw, 140px"
-                      className="relative z-10 object-contain p-5 transition-transform duration-500 group-hover:scale-105 sm:p-7"
-                    />
-                  ) : (
-                    <div className={`relative z-10 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br ${b.gradient} shadow-lg`}>
-                      <span className="text-sm font-black text-white">{b.name.slice(0, 3)}</span>
-                    </div>
-                  )}
-                </div>
-                <div className="pt-3 text-center">
-                  <div className="text-sm font-black text-[#1a3a6b] transition-colors group-hover:text-[#2eb8d4]">{b.name}</div>
-                  <div className="mt-0.5 text-[10px] font-bold text-gray-400">{b.families.length} Líneas</div>
-                </div>
-              </Link>
-            </motion.div>
+              <div className="relative aspect-square overflow-hidden rounded-2xl bg-[#b9d8f4] shadow-sm transition-all duration-300 group-hover:shadow-lg group-hover:shadow-[#2eb8d4]/20">
+                <Image
+                  src={brand.src}
+                  alt={`Logo ${brand.name}`}
+                  fill
+                  sizes="(max-width: 768px) 45vw, (max-width: 1280px) 22vw, 180px"
+                  className="object-contain transition-transform duration-500 group-hover:scale-[1.02]"
+                />
+              </div>
+              <figcaption className="pt-3 text-center text-sm font-black text-[#1a3a6b]">{brand.name}</figcaption>
+            </motion.figure>
           ))}
         </div>
       </div>
@@ -682,15 +631,15 @@ function TopMarcasSection() {
 // ─────────────────────────────────────────────
 function CategoriasSection() {
   const categorias = [
-    { name: "Equipo Quirúrgico", img: "/equipo-quirurgico.png", href: "/insumos?cat=quirurgico" },
-    { name: "Diagnóstico", img: "/diagnostico.png", href: "/insumos?cat=diagnostico" },
-    { name: "Guantes", img: "/guantes.png", href: "/insumos?cat=guantes" },
-    { name: "Material de Curación", img: "/material-curacion.png", href: "/insumos?cat=curacion" },
-    { name: "Sondas y Catéteres", img: "/sondas-cateteres.png", href: "/insumos?cat=sondas-cateteres" },
-    { name: "Vías IV", img: "/vias-iv.png", href: "/insumos?cat=terapia-iv" },
-    { name: "Rehabilitación", img: "/rehabilitacion.png", href: "/insumos?cat=rehabilitacion" },
-    { name: "Ventilación", img: "/ventilacion.png", href: "/insumos?cat=respiratorio" },
-    { name: "Misceláneos", img: "/miscelaneos.png", href: "/insumos?cat=atencion-paciente" },
+    { name: "Equipo Quirúrgico", img: categoryImageById.quirurgico, href: "/insumos?cat=quirurgico" },
+    { name: "Diagnóstico", img: categoryImageById.diagnostico, href: "/insumos?cat=diagnostico" },
+    { name: "Guantes", img: categoryImageById.guantes, href: "/insumos?cat=guantes" },
+    { name: "Material de Curación", img: categoryImageById.curacion, href: "/insumos?cat=curacion" },
+    { name: "Sondas y Catéteres", img: categoryImageById["sondas-cateteres"], href: "/insumos?cat=sondas-cateteres" },
+    { name: "Vías IV", img: categoryImageById["terapia-iv"], href: "/insumos?cat=terapia-iv" },
+    { name: "Rehabilitación", img: categoryImageById.rehabilitacion, href: "/insumos?cat=rehabilitacion" },
+    { name: "Ventilación", img: categoryImageById.respiratorio, href: "/insumos?cat=respiratorio" },
+    { name: "Misceláneos", img: categoryImageById["atencion-paciente"], href: "/insumos?cat=atencion-paciente" },
   ];
 
   return (

@@ -22,6 +22,7 @@ import { useClientCartCount } from "@/store/cartStore";
 import { ShoppingCartButton } from "@/components/ui/ShoppingCartButton";
 import { StockIndicator } from "@/components/ui/StockIndicator";
 import { getProductNameParts } from "@/lib/product-name";
+import { categoryImageById } from "@/data/visualAssets";
 
 /* ── Category visual config ───────────────────────────── */
 interface CatConfig { icon: LucideIcon; iconColor: string; iconBg: string; desc: string; img: string }
@@ -30,72 +31,72 @@ const catCfg: Record<Product["category"], CatConfig> = {
   guantes: {
     icon: Hand, iconColor: "text-[#1a3a6b]", iconBg: "bg-[#dbeeff]",
     desc: "Guantes estériles y no estériles de la más alta calidad.",
-    img: "/guantes.png",
+    img: categoryImageById.guantes,
   },
   respiratorio: {
     icon: Wind, iconColor: "text-[#0e7490]", iconBg: "bg-[#cffafe]",
     desc: "Soluciones completas para soporte respiratorio.",
-    img: "/ventilacion.png",
+    img: categoryImageById.respiratorio,
   },
   "terapia-iv": {
     icon: Droplets, iconColor: "text-[#1a3a6b]", iconBg: "bg-[#dbeeff]",
     desc: "Catéteres, cánulas y accesorios para terapia intravenosa.",
-    img: "/vias-iv.png",
+    img: categoryImageById["terapia-iv"],
   },
   curacion: {
     icon: Bandage, iconColor: "text-[#2eb8d4]", iconBg: "bg-[#e0f7fa]",
     desc: "Todo lo necesario para el cuidado y curación de heridas.",
-    img: "/material-curacion.png",
+    img: categoryImageById.curacion,
   },
   "sondas-cateteres": {
     icon: TestTube, iconColor: "text-[#1a3a6b]", iconBg: "bg-[#dbeeff]",
     desc: "Sondas y catéteres para diversas aplicaciones médicas.",
-    img: "/sondas-cateteres.png",
+    img: categoryImageById["sondas-cateteres"],
   },
   diagnostico: {
     icon: Stethoscope, iconColor: "text-[#0e7490]", iconBg: "bg-[#cffafe]",
     desc: "Equipos y accesorios para diagnóstico confiable y preciso.",
-    img: "/diagnostico.png",
+    img: categoryImageById.diagnostico,
   },
   rehabilitacion: {
     icon: Dumbbell, iconColor: "text-[#2eb8d4]", iconBg: "bg-[#e0f7fa]",
     desc: "Productos para apoyo en procesos de rehabilitación.",
-    img: "/rehabilitacion.png",
+    img: categoryImageById.rehabilitacion,
   },
   "atencion-paciente": {
     icon: Package2, iconColor: "text-[#1a3a6b]", iconBg: "bg-[#dbeeff]",
     desc: "Artículos para higiene, comodidad y atención diaria del paciente.",
-    img: "/miscelaneos.png",
+    img: categoryImageById["atencion-paciente"],
   },
   quirurgico: {
     icon: Scissors, iconColor: "text-[#0e7490]", iconBg: "bg-[#cffafe]",
     desc: "Instrumental y equipos para procedimientos quirúrgicos.",
-    img: "/equipo-quirurgico.png",
+    img: categoryImageById.quirurgico,
   },
   jeringas: {
     icon: Syringe, iconColor: "text-[#1a3a6b]", iconBg: "bg-[#dbeeff]",
     desc: "Agujas, jeringas y sistemas de punción estériles.",
-    img: "/vias-iv.png",
+    img: categoryImageById.jeringas,
   },
   antisepticos: {
     icon: Shield, iconColor: "text-[#2eb8d4]", iconBg: "bg-[#e0f7fa]",
     desc: "Soluciones antisépticas y desinfectantes certificados.",
-    img: "/material-curacion.png",
+    img: categoryImageById.antisepticos,
   },
   medicamentos: {
     icon: Pill, iconColor: "text-[#1a3a6b]", iconBg: "bg-[#dbeeff]",
     desc: "Medicamentos y fármacos para uso profesional bajo indicación médica.",
-    img: "/diagnostico.png",
+    img: categoryImageById.medicamentos,
   },
   "proteccion-desechables": {
     icon: ShieldCheck, iconColor: "text-[#0e7490]", iconBg: "bg-[#cffafe]",
     desc: "Cubrebocas, batas, campos y otros insumos de protección.",
-    img: "/miscelaneos.png",
+    img: categoryImageById["proteccion-desechables"],
   },
   residuos: {
     icon: Trash2, iconColor: "text-[#2eb8d4]", iconBg: "bg-[#e0f7fa]",
     desc: "Contenedores, bolsas RPBI y material para manejo seguro de residuos.",
-    img: "/miscelaneos.png",
+    img: categoryImageById.residuos,
   },
 };
 
@@ -175,7 +176,10 @@ function InsumosContent() {
 
   useEffect(() => {
     const q = searchParams.get("q");
-    if (q) setSearch(q);
+    if (!q) return;
+
+    const frameId = window.requestAnimationFrame(() => setSearch(q));
+    return () => window.cancelAnimationFrame(frameId);
   }, [searchParams]);
 
   useEffect(() => {

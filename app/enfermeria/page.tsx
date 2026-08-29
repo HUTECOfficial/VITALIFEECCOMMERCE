@@ -8,6 +8,7 @@ import {
   FlaskConical, Scan, Bandage,
 } from "lucide-react";
 import FadeInWhenVisible from "@/components/animations/FadeInWhenVisible";
+import { nursingServiceImageById } from "@/data/visualAssets";
 
 export const metadata: Metadata = {
   title: "Enfermería y Fisioterapia",
@@ -20,7 +21,7 @@ const services = [
     icon: Stethoscope,
     title: "Atención domiciliaria",
     desc: "Enfermería general y especializada en la comodidad de tu hogar. Cuidados postoperatorios, aplicación de medicamentos y seguimiento de tratamientos.",
-    image: "/servicio-atencion-domiciliaria.png",
+    image: nursingServiceImageById["atencion-domiciliaria"],
     color: "from-[#1a3a6b] to-[#2251a3]",
     href: "#proceso",
   },
@@ -28,7 +29,7 @@ const services = [
     icon: Dumbbell,
     title: "Rehabilitación física",
     desc: "Recuperación de lesiones musculoesqueléticas, cirugías ortopédicas y neurológicas. Planes de rehabilitación personalizados y progresivos.",
-    image: "/servicio-rehabilitacion-fisica.png",
+    image: nursingServiceImageById["rehabilitacion-fisica"],
     color: "from-[#2eb8d4] to-[#1a8fa8]",
     href: "#proceso",
   },
@@ -36,7 +37,7 @@ const services = [
     icon: Package,
     title: "Renta de equipo médico",
     desc: "Equipo médico en renta para apoyar la atención, recuperación y cuidado del paciente en casa, con asesoría para elegir la opción adecuada.",
-    image: "/diagnostico.png",
+    image: nursingServiceImageById["renta-equipo-medico"],
     color: "from-[#1a6b5a] to-[#2eb89a]",
     href: "#proceso",
   },
@@ -44,7 +45,7 @@ const services = [
     icon: FlaskConical,
     title: "Laboratorios",
     desc: "Toma de muestras a domicilio para análisis clínicos: biometría hemática, química sanguínea, perfil lipídico y más.",
-    image: "/servicio-laboratorios.png",
+    image: nursingServiceImageById.laboratorios,
     color: "from-[#1a3a6b] to-[#2eb8d4]",
     href: "#proceso",
   },
@@ -52,7 +53,7 @@ const services = [
     icon: Scan,
     title: "Radiografías",
     desc: "Estudios de imagen a domicilio para diagnóstico de fracturas, lesiones óseas y revisiones postoperatorias.",
-    image: "/servicio-radiografias.png",
+    image: nursingServiceImageById.radiografias,
     color: "from-[#2eb8d4] to-[#1a8fa8]",
     href: "#proceso",
   },
@@ -60,7 +61,7 @@ const services = [
     icon: Bandage,
     title: "Curación de heridas",
     desc: "Manejo especializado de heridas crónicas, postoperatorias y úlceras con técnicas avanzadas de cicatrización.",
-    image: "/servicio-curacion-heridas.png",
+    image: nursingServiceImageById["curacion-heridas"],
     color: "from-[#1a6b5a] to-[#2eb89a]",
     href: "#proceso",
   },

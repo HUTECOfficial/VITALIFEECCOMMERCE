@@ -1,5 +1,6 @@
 import inventory from "@/productos_extraidos.json";
 import productNameOverrides from "@/data/product-name-overrides.json";
+import { categoryImageById } from "@/data/visualAssets";
 import type { Product } from "@/types";
 
 type InventoryRecord = {
@@ -117,23 +118,7 @@ function getCategory(name: string): Product["category"] {
 }
 
 function getImage(category: Product["category"]) {
-  const images: Record<Product["category"], string> = {
-    guantes: "/guantes.png",
-    curacion: "/material-curacion.png",
-    antisepticos: "/material-curacion.png",
-    jeringas: "/vias-iv.png",
-    "terapia-iv": "/vias-iv.png",
-    "sondas-cateteres": "/sondas-cateteres.png",
-    respiratorio: "/ventilacion.png",
-    diagnostico: "/diagnostico.png",
-    quirurgico: "/equipo-quirurgico.png",
-    rehabilitacion: "/rehabilitacion.png",
-    medicamentos: "/diagnostico.png",
-    "proteccion-desechables": "/miscelaneos.png",
-    residuos: "/miscelaneos.png",
-    "atencion-paciente": "/miscelaneos.png",
-  };
-  return images[category];
+  return categoryImageById[category];
 }
 
 const records = inventory as InventoryRecord[];
