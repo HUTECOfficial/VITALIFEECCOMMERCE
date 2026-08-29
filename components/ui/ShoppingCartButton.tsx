@@ -3,12 +3,12 @@
 import { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { ShoppingCart, Check, Minus, Plus } from "lucide-react";
-import Link from "next/link";
 import { useCartStore } from "@/store/cartStore";
 import { Product } from "@/types";
 import { cn } from "@/lib/utils";
 import { StockIndicator } from "@/components/ui/StockIndicator";
 import { getVariantStock } from "@/lib/product-variants";
+import { QuoteWhatsAppLink } from "@/components/ui/QuoteWhatsAppLink";
 
 export function ShoppingCartButton({ product, showStock = true, showQuantity = false }: { product: Product; showStock?: boolean; showQuantity?: boolean }) {
   const addItem = useCartStore((s) => s.addItem);
@@ -68,12 +68,14 @@ export function ShoppingCartButton({ product, showStock = true, showQuantity = f
       <div className="space-y-2">
         {product.colors?.length ? <OptionSelector label="Color" options={product.colors} selected={selectedColor} onSelect={selectColor} /> : null}
         {product.sizes?.length ? <OptionSelector label="Talla / medida" options={product.sizes} selected={selectedSize} onSelect={selectSize} /> : null}
-        <Link
-          href={`/contacto?producto=${encodeURIComponent(product.name)}${selectedSize ? `&talla=${encodeURIComponent(selectedSize)}` : ""}${selectedColor ? `&color=${encodeURIComponent(selectedColor)}` : ""}`}
+        <QuoteWhatsAppLink
+          product={product}
+          size={selectedSize}
+          color={selectedColor}
           className="w-full inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl font-bold transition-colors shadow-md min-h-12 bg-[#1a3a6b] text-white hover:bg-[#2eb8d4]"
         >
           <ShoppingCart className="w-4 h-4" /> Cotizar
-        </Link>
+        </QuoteWhatsAppLink>
       </div>
     );
   }

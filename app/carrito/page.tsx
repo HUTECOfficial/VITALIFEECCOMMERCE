@@ -8,13 +8,19 @@ import { useClientCart } from "@/store/cartStore";
 import { formatPrice } from "@/lib/utils";
 import { STRIPE_MINIMUM_ORDER_MXN, calculateCheckoutTotals } from "@/lib/checkout";
 import FadeInWhenVisible from "@/components/animations/FadeInWhenVisible";
+import { getQuoteWhatsAppUrl } from "@/lib/whatsapp";
 
 export default function CarritoPage() {
-  const { items, removeItem, updateQuantity, total, itemCount, clearCart, isReady } =
+  const { items, removeItem, updateQuantity, itemCount, clearCart, isReady } =
     useClientCart();
   const count = itemCount();
-  const { subtotal, iva, total: totalFinal } = calculateCheckoutTotals(total());
+  const purchasableTotal = items.reduce(
+    (sum, item) => sum + (item.quoteOnly ? 0 : item.price * item.quantity),
+    0
+  );
+  const { subtotal, iva, total: totalFinal } = calculateCheckoutTotals(purchasableTotal);
   const meetsCheckoutMinimum = totalFinal >= STRIPE_MINIMUM_ORDER_MXN;
+  const hasQuoteItems = items.some((item) => item.quoteOnly);
 
   if (!isReady) {
     return (
@@ -135,7 +141,7 @@ export default function CarritoPage() {
                           </p>
                         )}
                         <p className="text-[#2eb8d4] font-bold text-sm mt-0.5">
-                          {formatPrice(item.price)}
+                          {item.quoteOnly ? "Precio por cotizar" : formatPrice(item.price)}
                         </p>
                       </div>
                       <button
@@ -167,7 +173,7 @@ export default function CarritoPage() {
                         </button>
                       </div>
                       <span className="font-bold text-[#1a3a6b] text-sm">
-                        {formatPrice(item.price * item.quantity)}
+                        {item.quoteOnly ? "Por cotizar" : formatPrice(item.price * item.quantity)}
                       </span>
                     </div>
                   </div>
@@ -198,7 +204,11 @@ export default function CarritoPage() {
                     <span className="text-xl">{formatPrice(totalFinal)}</span>
                   </div>
                 </div>
-                {meetsCheckoutMinimum ? (
+                {hasQuoteItems ? (
+                  <p className="rounded-xl bg-[#e8f4fd] px-3 py-2 text-xs font-medium text-[#1a3a6b]">
+                    Tu carrito incluye productos que requieren cotización. Envíanos la lista por WhatsApp y te responderemos con disponibilidad y precio.
+                  </p>
+                ) : meetsCheckoutMinimum ? (
                   <Link
                     href="/checkout"
                     className="w-full inline-flex items-center justify-center gap-2 bg-[#1a3a6b] text-white py-3 rounded-full font-medium hover:bg-[#2eb8d4] transition-all hover:scale-105 shadow-lg"
@@ -215,6 +225,16 @@ export default function CarritoPage() {
                       Agrega productos para continuar
                     </span>
                   </>
+                )}
+                {hasQuoteItems && (
+                  <a
+                    href={getQuoteWhatsAppUrl(items)}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="mt-3 w-full inline-flex items-center justify-center gap-2 rounded-full bg-[#25D366] py-3 font-bold text-white transition-all hover:-translate-y-0.5 hover:bg-[#20bd5a]"
+                  >
+                    Cotizar carrito por WhatsApp
+                  </a>
                 )}
                 <Link
                   href="/insumos"
@@ -234,7 +254,16 @@ export default function CarritoPage() {
               <p className="text-[11px] uppercase tracking-wide font-bold text-[#1a3a6b]/55">Total</p>
               <p className="text-[#1a3a6b] font-black text-lg leading-none">{formatPrice(totalFinal)}</p>
             </div>
-            {meetsCheckoutMinimum ? (
+            {hasQuoteItems ? (
+              <a
+                href={getQuoteWhatsAppUrl(items)}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-w-[170px] items-center justify-center gap-2 rounded-xl bg-[#25D366] px-5 py-3 text-sm font-bold text-white transition-colors hover:bg-[#20bd5a]"
+              >
+                Cotizar por WhatsApp
+              </a>
+            ) : meetsCheckoutMinimum ? (
               <Link
                 href="/checkout"
                 className="inline-flex items-center justify-center gap-2 bg-[#1a3a6b] text-white px-5 py-3 rounded-xl font-bold text-sm min-w-[170px]"

@@ -13,6 +13,7 @@ import { cn } from "@/lib/utils";
 import { StockIndicator } from "@/components/ui/StockIndicator";
 import { getProductNameParts } from "@/lib/product-name";
 import { getVariantStock } from "@/lib/product-variants";
+import { QuoteWhatsAppLink } from "@/components/ui/QuoteWhatsAppLink";
 
 interface ProductCardProps {
   product: Product;
@@ -135,12 +136,14 @@ export default function ProductCard({ product }: ProductCardProps) {
             <span className="font-bold text-[#1a3a6b] text-lg">{formatPrice(product.price)}</span>
           )}
           {product.quoteOnly ? (
-            <Link
-              href={`/contacto?producto=${encodeURIComponent(product.name)}${selectedSize ? `&talla=${encodeURIComponent(selectedSize)}` : ""}${selectedColor ? `&color=${encodeURIComponent(selectedColor)}` : ""}`}
+            <QuoteWhatsAppLink
+              product={product}
+              size={selectedSize}
+              color={selectedColor}
               className="text-xs font-medium px-3 py-2 rounded-full bg-[#1a3a6b] text-white hover:bg-[#2eb8d4] transition-colors"
             >
               Cotizar
-            </Link>
+            </QuoteWhatsAppLink>
           ) : (
           <AnimatePresence mode="wait">
             {added ? (

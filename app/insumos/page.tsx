@@ -10,6 +10,7 @@ import {
   Hand, Wind, Droplets, Bandage, TestTube, Stethoscope,
   Dumbbell, Package2, Scissors, Syringe, Pill, Trash2,
   Shield, ShieldCheck, Award, Truck, UserCheck, ShoppingCart, ArrowRight,
+  Search, X,
 } from "lucide-react";
 import { brands, getBrandsByCategory, getTotalProducts } from "@/data/brands";
 import { categoryLabels, products as localProducts } from "@/data/products";
@@ -110,16 +111,67 @@ export default function InsumosPage() {
   );
 }
 
+function CatalogSearchField({
+  search,
+  onSearchChange,
+  onClear,
+  compact = false,
+}: {
+  search: string;
+  onSearchChange: (value: string) => void;
+  onClear: () => void;
+  compact?: boolean;
+}) {
+  return (
+    <div className={`flex items-center gap-3 rounded-2xl border border-gray-100 bg-white ${compact ? "px-4 py-2.5" : "px-5 py-4 shadow-xl shadow-[#1a3a6b]/10"}`}>
+      <Search className={`${compact ? "h-4 w-4" : "h-5 w-5"} shrink-0 text-[#2eb8d4]`} aria-hidden="true" />
+      <input
+        type="search"
+        aria-label="Buscar en el catálogo de insumos"
+        placeholder="Buscar marca, producto o categoría..."
+        value={search}
+        onChange={(event) => onSearchChange(event.target.value)}
+        className={`min-w-0 flex-1 bg-transparent text-[#1a3a6b] outline-none placeholder-[#1a3a6b]/40 ${compact ? "text-sm" : "text-base"} font-medium`}
+      />
+      {search && (
+        <button
+          type="button"
+          onClick={onClear}
+          aria-label="Limpiar búsqueda"
+          className="rounded-full p-1 text-[#1a3a6b]/40 transition-colors hover:bg-[#e8f4fd] hover:text-[#1a3a6b]"
+        >
+          <X className="h-4 w-4" aria-hidden="true" />
+        </button>
+      )}
+    </div>
+  );
+}
+
 function InsumosContent() {
   const [search, setSearch] = useState("");
+  const [searchPinned, setSearchPinned] = useState(false);
   const [activeCategory, setActiveCategory] = useState<Product["category"] | null>(null);
   // Keep a complete local catalog ready for the first search. The Supabase
   // catalog replaces it in the background once it has been downloaded.
   const [allProducts, setAllProducts] = useState<Product[]>(localProducts);
   const brandsRef = useRef<HTMLDivElement>(null);
+  const searchAnchorRef = useRef<HTMLDivElement>(null);
   const cartCount = useClientCartCount();
   const router = useRouter();
   const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const searchAnchor = searchAnchorRef.current;
+    if (!searchAnchor) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setSearchPinned(!entry.isIntersecting),
+      { threshold: 0, rootMargin: "-104px 0px 0px 0px" }
+    );
+
+    observer.observe(searchAnchor);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const q = searchParams.get("q");
@@ -220,19 +272,18 @@ function InsumosContent() {
           }}
         />
         <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 pt-14 pb-14 text-center">
-          <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.1 }}
-            className="max-w-lg mx-auto mb-8">
-            <div className="bg-white rounded-2xl shadow-xl shadow-[#1a3a6b]/10 border border-gray-100 flex items-center gap-3 px-5 py-4">
-              <svg className="w-5 h-5 text-[#2eb8d4] shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-4.35-4.35M17 11A6 6 0 1 1 5 11a6 6 0 0 1 12 0z" />
-              </svg>
-              <input type="text" placeholder="Buscar marca, producto o categoría..."
-                value={search} onChange={(e) => setSearch(e.target.value)}
-                className="flex-1 bg-transparent text-[#1a3a6b] placeholder-[#1a3a6b]/40 text-base outline-none font-medium" />
-              {search && (
-                <button onClick={() => setSearch("")} className="text-[#1a3a6b]/40 hover:text-[#1a3a6b] transition-colors text-lg leading-none">✕</button>
-              )}
-            </div>
+          <motion.div
+            ref={searchAnchorRef}
+            initial={{ opacity: 0, scale: 0.95 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ delay: 0.1 }}
+            className="max-w-lg mx-auto mb-8"
+          >
+            <CatalogSearchField
+              search={search}
+              onSearchChange={setSearch}
+              onClear={() => setSearch("")}
+            />
           </motion.div>
 
           {/* Los resultados aparecen inmediatamente debajo de la lupa. */}
@@ -270,6 +321,27 @@ function InsumosContent() {
           </motion.p>
         </div>
       </section>
+
+      <AnimatePresence>
+        {searchPinned && (
+          <motion.div
+            initial={{ opacity: 0, y: -10, scale: 0.98 }}
+            animate={{ opacity: 1, y: 0, scale: 1 }}
+            exit={{ opacity: 0, y: -10, scale: 0.98 }}
+            transition={{ duration: 0.2, ease: "easeOut" }}
+            className="fixed left-1/2 top-[88px] z-40 w-[calc(100%-2rem)] max-w-lg -translate-x-1/2 sm:top-[104px]"
+          >
+            <div className="rounded-2xl border border-white/80 bg-white/90 p-1.5 shadow-[0_10px_30px_rgba(26,58,107,0.14)] backdrop-blur-xl">
+              <CatalogSearchField
+                search={search}
+                onSearchChange={setSearch}
+                onClear={() => setSearch("")}
+                compact
+              />
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
 
       {/* Las categorías aparecen después del encabezado y la búsqueda. */}
       <CategoryGrid

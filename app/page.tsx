@@ -238,6 +238,51 @@ function PromocionesSection() {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <FadeInWhenVisible>
+          <Link
+            href="/productos/guantes-nitrilo-100pcs"
+            className="group relative isolate mb-16 block min-h-[300px] overflow-hidden rounded-[2rem] border border-white/30 bg-[#1a3a6b] shadow-[0_24px_60px_-20px_rgba(26,58,107,0.35)] transition-transform duration-300 hover:-translate-y-1 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#2eb8d4]/40 sm:min-h-[280px]"
+          >
+            <div className="absolute inset-0 bg-[radial-gradient(circle_at_82%_40%,rgba(46,184,212,0.45),transparent_32%),linear-gradient(115deg,#1a3a6b_0%,#2251a3_54%,#2eb8d4_140%)]" />
+            <div className="absolute -right-20 -top-24 h-80 w-80 rounded-full border border-white/15 bg-white/5 transition-transform duration-700 group-hover:scale-110" />
+            <div className="absolute -bottom-36 right-20 h-80 w-80 rounded-full border border-white/10" />
+            <div className="absolute left-1/2 top-0 h-px w-1/2 bg-gradient-to-r from-transparent via-white/40 to-transparent" />
+
+            <div className="relative z-10 flex min-h-[300px] flex-col justify-between gap-6 px-6 py-7 sm:min-h-[280px] sm:flex-row sm:items-center sm:px-10 sm:py-8 lg:px-14">
+              <div className="max-w-xl">
+                <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.18em] text-white backdrop-blur-sm">
+                  <span className="h-2 w-2 rounded-full bg-[#ff6b78] shadow-[0_0_12px_rgba(255,107,120,0.8)]" />
+                  Oferta destacada
+                </span>
+                <h3 className="max-w-lg text-3xl font-black leading-[1.05] text-white sm:text-4xl lg:text-5xl">
+                  Protección profesional, <span className="text-[#9ff4df]">precio especial.</span>
+                </h3>
+                <p className="mt-3 max-w-md text-sm leading-relaxed text-white/70 sm:text-base">
+                  Guantes de nitrilo Ambiderm para cuidar cada procedimiento. Aprovecha el descuento por tiempo limitado.
+                </p>
+                <span className="mt-5 inline-flex items-center gap-2 rounded-xl bg-[#ff4757] px-4 py-3 text-xs font-black uppercase tracking-wide text-white shadow-lg shadow-[#ff4757]/25 transition-all group-hover:bg-[#ff5d6b] group-hover:shadow-[#ff4757]/40">
+                  Comprar oferta <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                </span>
+              </div>
+
+              <div className="relative mx-auto h-32 w-full max-w-[260px] shrink-0 sm:h-48 sm:w-64 lg:h-56 lg:w-72">
+                <div className="absolute inset-4 rounded-full bg-white/15 blur-2xl transition-transform duration-500 group-hover:scale-110" />
+                <div className="absolute inset-0 rounded-[2rem] border border-white/20 bg-white/10 backdrop-blur-sm" />
+                <Image
+                  src={promos[0].image}
+                  alt="Guantes de nitrilo Ambiderm en oferta"
+                  fill
+                  className="relative z-10 object-contain p-4 drop-shadow-[0_20px_20px_rgba(10,35,75,0.35)] transition-transform duration-500 group-hover:scale-105"
+                  sizes="(max-width: 640px) 260px, 288px"
+                />
+                <span className="absolute -right-2 -top-3 z-20 flex h-14 w-14 rotate-6 items-center justify-center rounded-full bg-[#ff4757] text-sm font-black text-white shadow-xl shadow-[#ff4757]/30 sm:-right-4 sm:-top-4 sm:h-16 sm:w-16">
+                  -23%
+                </span>
+              </div>
+            </div>
+          </Link>
+        </FadeInWhenVisible>
+
+        <FadeInWhenVisible>
           <div className="text-center mb-14">
             <span className="inline-flex items-center gap-2 px-4 py-2 bg-[#ff4757]/10 text-[#ff4757] rounded-full text-xs font-black uppercase tracking-widest mb-4">
               <span className="w-2 h-2 bg-[#ff4757] rounded-full animate-pulse" />
@@ -596,36 +641,36 @@ function TopMarcasSection() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.05 }}
               whileHover={{ scale: 1.05 }}
-              className="bg-white rounded-2xl p-6 flex flex-col items-center justify-center gap-3 border border-gray-100 shadow-sm hover:shadow-xl hover:shadow-[#2eb8d4]/10 transition-all duration-300 group cursor-pointer"
+              className="group"
             >
-              <Link href={`/insumos/${b.id}`} className="absolute inset-0 z-10" aria-label={`Ver marca ${b.name}`} />
-              <div className="relative h-16 w-32 shrink-0">
-                {brandLogoById[b.id] ? (
-                  <Image
-                    src={brandLogoById[b.id]}
-                    alt={`Logo ${b.name}`}
-                    fill
-                    sizes="128px"
-                    className="object-contain"
-                  />
-                ) : (
-                  <div className={`h-14 w-14 rounded-full bg-gradient-to-br ${b.gradient} flex items-center justify-center shadow-lg mx-auto`}>
-                    <span className="text-white font-black text-sm">{b.name.slice(0, 3)}</span>
-                  </div>
-                )}
-              </div>
-              <div className="text-center">
-                <div className="text-sm font-black text-[#1a3a6b] group-hover:text-[#2eb8d4] transition-colors">{b.name}</div>
-                <div className="text-[10px] font-bold text-gray-400 mt-0.5">{b.families.length} Líneas</div>
-              </div>
+              <Link
+                href={`/insumos/${b.id}`}
+                aria-label={`Ver productos de ${b.name}`}
+                className="block rounded-2xl focus:outline-none focus-visible:ring-4 focus-visible:ring-[#2eb8d4]/30"
+              >
+                <div className="relative flex aspect-square items-center justify-center overflow-hidden rounded-2xl border border-gray-100 bg-white p-6 shadow-sm transition-all duration-300 group-hover:border-[#2eb8d4]/20 group-hover:shadow-xl group-hover:shadow-[#2eb8d4]/10 sm:p-7">
+                  <div className="absolute inset-0 bg-gradient-to-br from-white via-white to-[#e8f4fd]/45" />
+                  {brandLogoById[b.id] ? (
+                    <Image
+                      src={brandLogoById[b.id]}
+                      alt={`Logo ${b.name}`}
+                      fill
+                      sizes="(max-width: 768px) 45vw, (max-width: 1280px) 22vw, 140px"
+                      className="relative z-10 object-contain p-5 transition-transform duration-500 group-hover:scale-105 sm:p-7"
+                    />
+                  ) : (
+                    <div className={`relative z-10 flex h-16 w-16 items-center justify-center rounded-full bg-gradient-to-br ${b.gradient} shadow-lg`}>
+                      <span className="text-sm font-black text-white">{b.name.slice(0, 3)}</span>
+                    </div>
+                  )}
+                </div>
+                <div className="pt-3 text-center">
+                  <div className="text-sm font-black text-[#1a3a6b] transition-colors group-hover:text-[#2eb8d4]">{b.name}</div>
+                  <div className="mt-0.5 text-[10px] font-bold text-gray-400">{b.families.length} Líneas</div>
+                </div>
+              </Link>
             </motion.div>
           ))}
-        </div>
-        
-        <div className="mt-12 text-center">
-          <Link href="/insumos" className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-[#1a3a6b] to-[#2251a3] text-white px-8 py-4 rounded-2xl font-black shadow-lg shadow-[#1a3a6b]/20 hover:shadow-xl hover:shadow-[#2eb8d4]/30 hover:-translate-y-1 transition-all duration-300">
-            Explorar todas las marcas <ArrowRight className="w-5 h-5" />
-          </Link>
         </div>
       </div>
     </section>
