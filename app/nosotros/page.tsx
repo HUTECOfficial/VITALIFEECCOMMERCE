@@ -4,6 +4,7 @@ import {
 } from "lucide-react";
 import Image from "next/image";
 import FadeInWhenVisible from "@/components/animations/FadeInWhenVisible";
+import { getSiteContent } from "@/lib/site-content";
 
 export const metadata: Metadata = {
   title: "Nosotros",
@@ -43,7 +44,9 @@ const teamValues = [
   },
 ];
 
-export default function NosotrosPage() {
+export default async function NosotrosPage() {
+  const content = await getSiteContent("nosotros");
+
   return (
     <div className="overflow-hidden">
       {/* Hero */}
@@ -52,15 +55,13 @@ export default function NosotrosPage() {
           <div className="text-center max-w-3xl mx-auto">
             <FadeInWhenVisible>
               <span className="text-[#2eb8d4] text-sm font-semibold uppercase tracking-widest">
-                Sobre Nosotros
+                {String(content.hero.eyebrow)}
               </span>
               <h1 className="text-4xl sm:text-5xl font-bold text-[#1a3a6b] mt-3 mb-6">
-                Somos un equipo profesional comprometido con tu salud
+                {String(content.hero.title)}
               </h1>
               <p className="text-gray-600 text-lg leading-relaxed">
-                En Vital Life, somos más que una empresa de insumos médicos. Somos
-                un grupo de profesionales apasionados por el cuidado humano, con
-                sede en León, Guanajuato.
+                {String(content.hero.description)}
               </p>
             </FadeInWhenVisible>
           </div>
@@ -76,12 +77,9 @@ export default function NosotrosPage() {
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#1a3a6b] to-[#2251a3] flex items-center justify-center mb-5 shadow-lg">
                   <Target className="w-7 h-7 text-white" />
                 </div>
-                <h2 className="text-2xl font-bold text-[#1a3a6b] mb-4">Nuestra Misión</h2>
+                <h2 className="text-2xl font-bold text-[#1a3a6b] mb-4">{String(content.mission.title)}</h2>
                 <p className="text-gray-600 leading-relaxed">
-                  Ofrecer un servicio humano, digno y eficaz para el cuidado
-                  integral de la salud, mediante la comercialización de insumos
-                  médicos certificados y servicios de enfermería y fisioterapia
-                  a domicilio.
+                  {String(content.mission.description)}
                 </p>
               </div>
             </FadeInWhenVisible>
@@ -90,12 +88,9 @@ export default function NosotrosPage() {
                 <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#2eb8d4] to-[#1a8fa8] flex items-center justify-center mb-5 shadow-lg">
                   <Lightbulb className="w-7 h-7 text-white" />
                 </div>
-                <h2 className="text-2xl font-bold text-[#1a3a6b] mb-4">Nuestra Visión</h2>
+                <h2 className="text-2xl font-bold text-[#1a3a6b] mb-4">{String(content.vision.title)}</h2>
                 <p className="text-gray-600 leading-relaxed">
-                  Ser la empresa líder en servicios integrales de salud en
-                  Guanajuato, reconocida por la calidad humana de nuestro equipo,
-                  la excelencia en nuestros productos y la calidez de nuestros
-                  espacios de atención.
+                  {String(content.vision.description)}
                 </p>
               </div>
             </FadeInWhenVisible>
@@ -138,10 +133,9 @@ export default function NosotrosPage() {
           <FadeInWhenVisible>
             <HandHeart className="w-12 h-12 text-[#2eb8d4] mx-auto mb-6" />
             <blockquote className="text-2xl sm:text-3xl font-medium text-white leading-relaxed mb-6">
-              "No solo ofrecemos servicios de salud, acompañamos cada historia de
-              vida con dignidad, amor y profesionalismo."
+              &ldquo;{String(content.quote.text)}&rdquo;
             </blockquote>
-            <p className="text-white/60 text-sm">— Equipo Vital Life</p>
+            <p className="text-white/60 text-sm">{String(content.quote.author)}</p>
           </FadeInWhenVisible>
         </div>
       </section>

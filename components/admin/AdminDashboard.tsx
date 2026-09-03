@@ -12,6 +12,8 @@ import { presentationOptions } from "@/types";
 import type { ProductMetrics } from "@/lib/admin-products";
 import { formatPrice } from "@/lib/utils";
 import { categoryLabels } from "@/data/products";
+import type { AllSiteContent } from "@/data/siteContent";
+import SiteContentEditor from "@/components/admin/SiteContentEditor";
 
 type ProductForm = {
   id?: string;
@@ -90,7 +92,7 @@ function MetricCard({ icon: Icon, label, value, tone = "navy" }: { icon: typeof 
   );
 }
 
-export default function AdminDashboard({ products: initialProducts, metricsByProductId, totalRevenue, totalUnitsSold }: { products: Product[]; metricsByProductId: Record<string, ProductMetrics>; totalRevenue: number; totalUnitsSold: number }) {
+export default function AdminDashboard({ products: initialProducts, metricsByProductId, totalRevenue, totalUnitsSold, initialContent }: { products: Product[]; metricsByProductId: Record<string, ProductMetrics>; totalRevenue: number; totalUnitsSold: number; initialContent: AllSiteContent }) {
   const router = useRouter();
   const [products, setProducts] = useState(initialProducts);
   const [form, setForm] = useState<ProductForm | null>(null);
@@ -195,12 +197,14 @@ export default function AdminDashboard({ products: initialProducts, metricsByPro
     <section className="min-h-screen bg-[#eef7fd] px-4 py-8 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-7xl">
         <header className="mb-7 flex flex-col gap-4 rounded-3xl bg-[#1a3a6b] p-6 text-white shadow-xl sm:flex-row sm:items-center sm:justify-between">
-          <div><p className="text-xs font-black uppercase tracking-[0.2em] text-[#8ae6f5]">CMS interno</p><h1 className="mt-1 text-3xl font-black">Control del catálogo</h1><p className="mt-1 text-sm text-white/70">Productos, fotos, inventario y desempeño de ventas.</p></div>
+          <div><p className="text-xs font-black uppercase tracking-[0.2em] text-[#8ae6f5]">CMS interno</p><h1 className="mt-1 text-3xl font-black">Administración del sitio</h1><p className="mt-1 text-sm text-white/70">Contenido por página, catálogo, inventario y desempeño de ventas.</p></div>
           <div className="flex gap-2"><button onClick={() => { setError(""); setForm(blankForm); }} className="inline-flex items-center gap-2 rounded-xl bg-[#2eb8d4] px-4 py-3 font-bold hover:bg-white hover:text-[#1a3a6b]"><Plus className="h-4 w-4" />Nuevo producto</button><button onClick={logout} className="rounded-xl border border-white/25 p-3 hover:bg-white/10" aria-label="Cerrar sesión"><LogOut className="h-5 w-5" /></button></div>
         </header>
 
         {error && <div className="mb-5 rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm font-semibold text-rose-700">{error}</div>}
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"><MetricCard icon={Boxes} label="Productos activos" value={String(products.length)} /><MetricCard icon={BarChart3} label="Unidades vendidas" value={String(totalUnitsSold)} tone="teal" /><MetricCard icon={DollarSign} label="Ingresos cobrados" value={formatPrice(totalRevenue)} tone="green" /><MetricCard icon={TrendingUp} label="Más vendido" value={best ? best.product.name : "Sin ventas"} /></div>
+        <SiteContentEditor initialContent={initialContent} />
+
+        <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"><MetricCard icon={Boxes} label="Productos activos" value={String(products.length)} /><MetricCard icon={BarChart3} label="Unidades vendidas" value={String(totalUnitsSold)} tone="teal" /><MetricCard icon={DollarSign} label="Ingresos cobrados" value={formatPrice(totalRevenue)} tone="green" /><MetricCard icon={TrendingUp} label="Más vendido" value={best ? best.product.name : "Sin ventas"} /></div>
 
         <div className="mt-6 grid gap-4 lg:grid-cols-2"><article className="rounded-2xl bg-white p-5 shadow-sm"><div className="flex items-center gap-2 text-[#1a3a6b]"><TrendingUp className="h-5 w-5 text-[#2eb8d4]" /><h2 className="font-black">Productos más vendidos</h2></div><Ranking entries={ranked.slice(0, 5)} /></article><article className="rounded-2xl bg-white p-5 shadow-sm"><div className="flex items-center gap-2 text-[#1a3a6b]"><TrendingDown className="h-5 w-5 text-amber-500" /><h2 className="font-black">Menor movimiento</h2></div><Ranking entries={[...ranked].sort((a, b) => a.metrics.unitsSold - b.metrics.unitsSold).slice(0, 5)} /></article></div>
 

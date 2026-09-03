@@ -21,8 +21,10 @@ import { formatPrice } from "@/lib/utils";
 import { useClientCartCount } from "@/store/cartStore";
 import { ShoppingCartButton } from "@/components/ui/ShoppingCartButton";
 import { StockIndicator } from "@/components/ui/StockIndicator";
+import IntrinsicImage from "@/components/ui/IntrinsicImage";
 import { getProductNameParts } from "@/lib/product-name";
 import { categoryImageById } from "@/data/visualAssets";
+import { useSiteContent } from "@/hooks/useSiteContent";
 
 /* ── Category visual config ───────────────────────────── */
 interface CatConfig { icon: LucideIcon; iconColor: string; iconBg: string; desc: string; img: string }
@@ -116,11 +118,13 @@ function CatalogSearchField({
   search,
   onSearchChange,
   onClear,
+  placeholder,
   compact = false,
 }: {
   search: string;
   onSearchChange: (value: string) => void;
   onClear: () => void;
+  placeholder: string;
   compact?: boolean;
 }) {
   return (
@@ -129,7 +133,7 @@ function CatalogSearchField({
       <input
         type="search"
         aria-label="Buscar en el catálogo de insumos"
-        placeholder="Buscar marca, producto o categoría..."
+        placeholder={placeholder}
         value={search}
         onChange={(event) => onSearchChange(event.target.value)}
         className={`min-w-0 flex-1 bg-transparent text-[#1a3a6b] outline-none placeholder-[#1a3a6b]/40 ${compact ? "text-sm" : "text-base"} font-medium`}
@@ -149,6 +153,22 @@ function CatalogSearchField({
 }
 
 function InsumosContent() {
+  const content = useSiteContent("insumos");
+  const hero = content.hero;
+  const quickShop = content.quickShop;
+  const heroEyebrow = String(hero.eyebrow);
+  const heroTitle = String(hero.title);
+  const heroDescription = String(hero.description);
+  const searchPlaceholder = String(hero.searchPlaceholder);
+  const quickShopEnabled = Boolean(quickShop.enabled);
+  const quickShopEyebrow = String(quickShop.eyebrow);
+  const quickShopTitle = String(quickShop.title);
+  const quickShopDescription = String(quickShop.description);
+  const quickShopCartButtonLabel = String(quickShop.cartButtonLabel);
+  const productLimitValue = Number(quickShop.productLimit);
+  const productLimit = Number.isFinite(productLimitValue)
+    ? Math.min(24, Math.max(1, Math.trunc(productLimitValue)))
+    : 12;
   const [search, setSearch] = useState("");
   const [searchPinned, setSearchPinned] = useState(false);
   const [activeCategory, setActiveCategory] = useState<Product["category"] | null>(null);
@@ -205,7 +225,7 @@ function InsumosContent() {
       .catch(() => undefined);
   }, []);
 
-  const quickProducts = useMemo(() => allProducts.filter((p) => p.inStock).slice(0, 12), [allProducts]);
+  const quickProducts = useMemo(() => allProducts.filter((p) => p.inStock).slice(0, productLimit), [allProducts, productLimit]);
 
   const categoryProducts = useMemo(() => {
     if (!activeCategory) return [];
@@ -287,6 +307,7 @@ function InsumosContent() {
               search={search}
               onSearchChange={setSearch}
               onClear={() => setSearch("")}
+              placeholder={searchPlaceholder}
             />
           </motion.div>
 
@@ -312,16 +333,15 @@ function InsumosContent() {
 
           <motion.p initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}
             className="text-[#2eb8d4] font-bold text-sm uppercase tracking-[0.2em] mb-3">
-            catálogo de
+            {heroEyebrow}
           </motion.p>
           <motion.h1 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
             className="text-5xl sm:text-6xl lg:text-7xl font-black text-[#1a3a6b] leading-tight mb-5">
-            Insumos Médicos
+            {heroTitle}
           </motion.h1>
           <motion.p initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }}
             className="text-lg text-[#1a3a6b]/65 max-w-xl mx-auto mb-10">
-            Distribuidores autorizados de las mejores marcas médicas en México.
-            Todos los productos disponibles para compra directa con carrito.
+            {heroDescription}
           </motion.p>
         </div>
       </section>
@@ -340,6 +360,7 @@ function InsumosContent() {
                 search={search}
                 onSearchChange={setSearch}
                 onClear={() => setSearch("")}
+                placeholder={searchPlaceholder}
                 compact
               />
             </div>
@@ -374,22 +395,22 @@ function InsumosContent() {
             )}
           </AnimatePresence>
 
-          {!activeCategory && (
+          {!activeCategory && quickShopEnabled && (
             <>
               {/* ══ QUICK SHOP ═════════════════════════════════════ */}
               <section id="catalogo-productos" className="bg-white py-10 sm:py-12 px-4 sm:px-6 border-y border-[#1a3a6b]/10">
             <div className="max-w-6xl mx-auto">
               <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-6">
                 <div>
-                  <p className="text-[#2eb8d4] font-bold text-xs uppercase tracking-[0.2em] mb-2">Compra rápida</p>
-                  <h2 className="text-2xl sm:text-3xl font-black text-[#1a3a6b]">Agrega al carrito en un clic</h2>
-                  <p className="text-[#1a3a6b]/60 text-sm mt-1">Experiencia optimizada para móvil y desktop.</p>
+                  <p className="text-[#2eb8d4] font-bold text-xs uppercase tracking-[0.2em] mb-2">{quickShopEyebrow}</p>
+                  <h2 className="text-2xl sm:text-3xl font-black text-[#1a3a6b]">{quickShopTitle}</h2>
+                  <p className="text-[#1a3a6b]/60 text-sm mt-1">{quickShopDescription}</p>
                 </div>
                 <Link
                   href="/carrito"
                   className="inline-flex items-center gap-2 self-start sm:self-auto text-sm font-bold text-[#1a3a6b] border border-[#1a3a6b]/20 rounded-xl px-4 py-2 hover:bg-[#e8f4fd] transition-colors"
                 >
-                  Ver carrito ({cartCount}) <ArrowRight className="w-4 h-4" />
+                  {quickShopCartButtonLabel} ({cartCount}) <ArrowRight className="w-4 h-4" />
                 </Link>
               </div>
 
@@ -401,11 +422,18 @@ function InsumosContent() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.05 }}
-                    className="rounded-2xl border border-[#1a3a6b]/10 bg-white p-4 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all"
+                    className="flex h-full flex-col overflow-hidden rounded-2xl border border-[#1a3a6b]/10 bg-white shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-lg"
                   >
-                    <Link href={`/productos/${product.slug}`} className="block relative h-40 rounded-xl overflow-hidden bg-white mb-4">
-                      <Image src={product.image} alt={product.name} fill className="object-contain p-3" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+                    <Link href={`/productos/${product.slug}`} className="block">
+                      <IntrinsicImage
+                        src={product.image}
+                        alt={product.name}
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        fixedAspectRatio={16 / 9}
+                        className="object-contain"
+                      />
                     </Link>
+                    <div className="flex flex-1 flex-col p-4">
                     <p className="text-[11px] uppercase tracking-wide font-bold text-[#2eb8d4] mb-1">{categoryLabels[product.category]}</p>
                     <Link href={`/productos/${product.slug}`}>
                       <h3 className="font-black text-[#1a3a6b] text-base leading-tight hover:text-[#2eb8d4] transition-colors">{getProductNameParts(product.name).title}</h3>
@@ -418,7 +446,10 @@ function InsumosContent() {
                       {!product.quoteOnly && <span className="text-[#1a3a6b] font-black text-lg">{formatPrice(product.price)}</span>}
                       <StockIndicator quantity={product.stockQuantity} inStock={product.inStock} compact />
                     </div>
-                    <ShoppingCartButton product={product} showStock={false} />
+                    <div className="mt-auto">
+                      <ShoppingCartButton product={product} showStock={false} />
+                    </div>
+                    </div>
                   </motion.article>
                 ))}
               </div>
@@ -655,11 +686,18 @@ function ProductResultsSection({ filteredProducts, onClear, title }: ProductResu
                 initial={{ opacity: 0, y: 14 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.05 }}
-                className="rounded-2xl border border-[#1a3a6b]/10 bg-white p-4 shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all"
+                className="flex h-full flex-col overflow-hidden rounded-2xl border border-[#1a3a6b]/10 bg-white shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-lg"
               >
-                <Link href={`/productos/${product.slug}`} className="block relative h-40 rounded-xl overflow-hidden bg-white mb-4">
-                  <Image src={product.image} alt={product.name} fill className="object-contain p-3" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
+                <Link href={`/productos/${product.slug}`} className="block">
+                  <IntrinsicImage
+                    src={product.image}
+                    alt={product.name}
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    fixedAspectRatio={16 / 9}
+                    className="object-contain"
+                  />
                 </Link>
+                <div className="flex flex-1 flex-col p-4">
                 <p className="text-[11px] uppercase tracking-wide font-bold text-[#2eb8d4] mb-1">{categoryLabels[product.category]}</p>
                 <Link href={`/productos/${product.slug}`}>
                   <h3 className="font-black text-[#1a3a6b] text-base leading-tight hover:text-[#2eb8d4] transition-colors">{getProductNameParts(product.name).title}</h3>
@@ -672,7 +710,7 @@ function ProductResultsSection({ filteredProducts, onClear, title }: ProductResu
                   {!product.quoteOnly && <span className="text-[#1a3a6b] font-black text-lg">{formatPrice(product.price)}</span>}
                   <StockIndicator quantity={product.stockQuantity} inStock={product.inStock} compact />
                 </div>
-                <div className="flex gap-2">
+                <div className="mt-auto flex gap-2">
                   <ShoppingCartButton product={product} showStock={false} />
                   <Link
                     href={`/productos/${product.slug}`}
@@ -680,6 +718,7 @@ function ProductResultsSection({ filteredProducts, onClear, title }: ProductResu
                   >
                     Ver detalle
                   </Link>
+                </div>
                 </div>
               </motion.article>
             ))}

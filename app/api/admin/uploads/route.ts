@@ -12,6 +12,12 @@ const allowedTypes = new Map([
 export async function POST(request: NextRequest) {
   if (!isAdminRequest(request)) return NextResponse.json({ error: "No autorizado" }, { status: 401 });
 
+  const requestedScope = request.nextUrl.searchParams.get("scope");
+  const scope = requestedScope ?? "catalog";
+  if (scope !== "catalog" && scope !== "content") {
+    return NextResponse.json({ error: "El destino de carga no es válido." }, { status: 400 });
+  }
+
   const formData = await request.formData().catch(() => null);
   const image = formData?.get("image");
   if (!(image instanceof File)) return NextResponse.json({ error: "Selecciona una imagen válida." }, { status: 400 });
@@ -20,7 +26,7 @@ export async function POST(request: NextRequest) {
 
   const extension = allowedTypes.get(image.type)!;
   const fileName = `${Date.now()}-${crypto.randomUUID()}.${extension}`;
-  const filePath = `catalog/${fileName}`;
+  const filePath = `${scope}/${fileName}`;
   const supabase = createServerClient();
   const { error } = await supabase.storage
     .from("VITALIFE")

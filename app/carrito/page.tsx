@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Trash2, Plus, Minus, ShoppingCart, ArrowRight } from "lucide-react";
 import { useClientCart } from "@/store/cartStore";
@@ -9,6 +10,78 @@ import { formatPrice } from "@/lib/utils";
 import { STRIPE_MINIMUM_ORDER_MXN, calculateCheckoutTotals } from "@/lib/checkout";
 import FadeInWhenVisible from "@/components/animations/FadeInWhenVisible";
 import { getQuoteWhatsAppUrl } from "@/lib/whatsapp";
+import type { CartItem } from "@/types";
+
+function availableStock(item: CartItem) {
+  const variant = item.variants?.find(
+    (option) => option.size === (item.size || "") && option.color === (item.color || "")
+  );
+  const stock = variant?.stockQuantity ?? item.stockQuantity;
+  return typeof stock === "number" && Number.isFinite(stock) ? Math.max(1, Math.floor(stock)) : undefined;
+}
+
+function QuantityControl({ item, updateQuantity }: { item: CartItem; updateQuantity: (cartId: string, quantity: number) => void }) {
+  const [draft, setDraft] = useState<string | null>(null);
+  const max = availableStock(item);
+
+  const commit = (value: string) => {
+    const parsed = Number.parseInt(value, 10);
+    const quantity = Number.isFinite(parsed) ? Math.max(1, Math.min(parsed, max ?? parsed)) : item.quantity;
+    updateQuantity(item.cartId, quantity);
+    setDraft(null);
+  };
+
+  return (
+    <div className="flex items-center gap-2">
+      <button
+        onClick={() => {
+          setDraft(null);
+          updateQuantity(item.cartId, item.quantity - 1);
+        }}
+        className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 transition-colors hover:border-[#2eb8d4] hover:text-[#2eb8d4]"
+        aria-label={`Reducir cantidad de ${item.name}`}
+      >
+        <Minus className="h-3 w-3" />
+      </button>
+      <input
+        type="number"
+        inputMode="numeric"
+        min={1}
+        max={max}
+        step={1}
+        value={draft ?? item.quantity}
+        onFocus={(event) => event.currentTarget.select()}
+        onChange={(event) => {
+          const value = event.target.value;
+          setDraft(value);
+          if (/^\d+$/.test(value) && Number(value) >= 1) {
+            updateQuantity(item.cartId, Math.min(Number(value), max ?? Number(value)));
+          }
+        }}
+        onBlur={(event) => commit(event.target.value)}
+        onKeyDown={(event) => {
+          if (event.key === "Enter") {
+            commit(event.currentTarget.value);
+            event.currentTarget.blur();
+          }
+        }}
+        aria-label={`Cantidad de ${item.name}`}
+        className="h-8 w-14 appearance-none rounded-lg border border-gray-200 bg-white px-1 text-center text-sm font-bold text-[#1a3a6b] outline-none transition-colors focus:border-[#2eb8d4] focus:ring-2 focus:ring-[#2eb8d4]/20 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none"
+      />
+      <button
+        onClick={() => {
+          setDraft(null);
+          updateQuantity(item.cartId, item.quantity + 1);
+        }}
+        disabled={max !== undefined && item.quantity >= max}
+        className="flex h-8 w-8 items-center justify-center rounded-full border border-gray-200 transition-colors hover:border-[#2eb8d4] hover:text-[#2eb8d4] disabled:cursor-not-allowed disabled:opacity-35"
+        aria-label={`Aumentar cantidad de ${item.name}`}
+      >
+        <Plus className="h-3 w-3" />
+      </button>
+    </div>
+  );
+}
 
 export default function CarritoPage() {
   const { items, removeItem, updateQuantity, itemCount, clearCart, isReady } =
@@ -153,25 +226,7 @@ export default function CarritoPage() {
                       </button>
                     </div>
                     <div className="flex items-center justify-between mt-3">
-                      <div className="flex items-center gap-2">
-                        <button
-                          onClick={() => updateQuantity(item.cartId, item.quantity - 1)}
-                          className="w-7 h-7 rounded-full border border-gray-200 flex items-center justify-center hover:border-[#2eb8d4] hover:text-[#2eb8d4] transition-colors"
-                          aria-label="Reducir cantidad"
-                        >
-                          <Minus className="w-3 h-3" />
-                        </button>
-                        <span className="w-8 text-center font-semibold text-[#1a3a6b] text-sm">
-                          {item.quantity}
-                        </span>
-                        <button
-                          onClick={() => updateQuantity(item.cartId, item.quantity + 1)}
-                          className="w-7 h-7 rounded-full border border-gray-200 flex items-center justify-center hover:border-[#2eb8d4] hover:text-[#2eb8d4] transition-colors"
-                          aria-label="Aumentar cantidad"
-                        >
-                          <Plus className="w-3 h-3" />
-                        </button>
-                      </div>
+                      <QuantityControl item={item} updateQuantity={updateQuantity} />
                       <span className="font-bold text-[#1a3a6b] text-sm">
                         {item.quoteOnly ? "Por cotizar" : formatPrice(item.price * item.quantity)}
                       </span>

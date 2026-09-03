@@ -1,8 +1,8 @@
 "use client";
 
 import { useState } from "react";
-import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
+import IntrinsicImage from "@/components/ui/IntrinsicImage";
 import { ShoppingCart, Eye } from "lucide-react";
 import Link from "next/link";
 import { Product } from "@/types";
@@ -40,19 +40,18 @@ export default function ProductCard({ product }: ProductCardProps) {
 
   return (
     <motion.div
-      className="glass-card overflow-hidden group"
+      className="group overflow-hidden rounded-3xl bg-white shadow-[0_10px_30px_rgba(26,58,107,0.1)]"
       whileHover={{ y: -6, boxShadow: "0 20px 40px rgba(26,58,107,0.15)" }}
       transition={{ duration: 0.2 }}
     >
       <Link href={`/productos/${product.slug}`} className="block">
-        <div className="relative h-44 overflow-hidden bg-white">
-          <Image
-            src={product.image}
-            alt={product.name}
-            fill
-            className="object-contain p-3 transition-transform duration-300"
-            sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-          />
+        <IntrinsicImage
+          src={product.image}
+          alt={product.name}
+          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          fixedAspectRatio={16 / 9}
+          className="object-contain transition-transform duration-300"
+        >
           {/* Overlay */}
           <div className="absolute inset-0 bg-[#1a3a6b]/0 group-hover:bg-[#1a3a6b]/40 transition-all duration-300 flex items-center justify-center">
             <motion.div
@@ -73,7 +72,7 @@ export default function ProductCard({ product }: ProductCardProps) {
               {categoryLabels[product.category]}
             </span>
           </div>
-        </div>
+        </IntrinsicImage>
       </Link>
 
       <div className="p-4">

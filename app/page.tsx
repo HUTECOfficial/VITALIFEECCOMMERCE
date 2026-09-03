@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,15 +9,26 @@ import {
   ShieldCheck, HeartPulse, Building2, ShoppingBag, ArrowRight
 } from "lucide-react";
 import FadeInWhenVisible from "@/components/animations/FadeInWhenVisible";
-import { categoryImageById, homeHeroImage, homepageBrandLogos } from "@/data/visualAssets";
+import IntrinsicImage from "@/components/ui/IntrinsicImage";
+import { categoryImageById, homepageBrandLogos } from "@/data/visualAssets";
+import { categoryLabels } from "@/data/products";
+import { useSiteContent } from "@/hooks/useSiteContent";
+import { formatPrice } from "@/lib/utils";
+import type { SiteContentSection } from "@/data/siteContent";
+import type { Product } from "@/types";
 
 export default function HomePage() {
+  const content = useSiteContent("homepage");
+
   return (
     <div className="-mt-[96px] overflow-x-hidden">
-      <HeroSection />
+      <HeroSection content={content.hero} />
       <StatsBar />
-      <PromocionesSection />
-      <TopDestacadosSection />
+      <PromocionesSection
+        featuredPromotion={content.featuredPromotion}
+        promotions={[content.promotion1, content.promotion2, content.promotion3]}
+      />
+      <TopDestacadosSection content={content.featuredProductsHeader} />
       <CategoriasSection />
       <TopMarcasSection />
       <SectoresSection />
@@ -28,14 +40,26 @@ export default function HomePage() {
 // ─────────────────────────────────────────────
 // HERO
 // ─────────────────────────────────────────────
-function HeroSection() {
+function HeroSection({ content }: { content: SiteContentSection }) {
+  const image = String(content.image);
+  const eyebrow = String(content.eyebrow);
+  const title = String(content.title);
+  const highlightedTitle = String(content.highlightedTitle);
+  const description = String(content.description);
+  const primaryButtonLabel = String(content.primaryButtonLabel);
+  const primaryButtonLink = String(content.primaryButtonLink);
+  const secondaryButtonLabel = String(content.secondaryButtonLabel);
+  const secondaryButtonLink = String(content.secondaryButtonLink);
+  const contactButtonLabel = String(content.contactButtonLabel);
+  const contactButtonLink = String(content.contactButtonLink);
+
   return (
     <section className="relative min-h-[88svh] sm:min-h-screen flex items-center overflow-hidden">
       {/* Hero background image — full bleed to top */}
       <div className="absolute inset-0 z-0">
         <Image
-          src={homeHeroImage}
-          alt="Insumos médicos Vital Life"
+          src={image}
+          alt={title}
           fill
           priority
           className="object-cover object-[80%_center] brightness-[0.95] contrast-110 saturate-110"
@@ -66,37 +90,37 @@ function HeroSection() {
             >
               <span className="w-2.5 h-2.5 rounded-full bg-[#ff4757] animate-pulse" />
               <span className="text-[11px] font-black text-[#1a3a6b] tracking-widest uppercase">
-                VENTA MUNDIAL · MAYOREO Y MENUDEO
+                {eyebrow}
               </span>
             </motion.div>
 
             <h1 className="text-4xl sm:text-6xl lg:text-7xl font-black text-[#1a3a6b] leading-[1.04] mb-6 drop-shadow-sm text-balance">
-              Cotiza y compra <br className="hidden sm:block" />
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2eb8d4] to-[#1a3a6b]">al mejor precio</span>
+              {title} <br className="hidden sm:block" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#2eb8d4] to-[#1a3a6b]">{highlightedTitle}</span>
             </h1>
 
             <p className="text-[#1a3a6b]/80 font-bold text-base sm:text-lg leading-relaxed mb-9 sm:mb-10 max-w-xl drop-shadow-sm">
-              Cotiza al instante más de 20 marcas líderes. Envíos veloces a todo México, precios por volumen y atención certificada 24/7.
+              {description}
             </p>
 
             <div className="flex flex-col sm:flex-row sm:flex-wrap gap-3 sm:gap-4 relative z-20 max-w-xl">
               <Link
-                href="/insumos"
+                href={primaryButtonLink}
                 className="bg-gradient-to-r from-[#ff4757] to-[#e84118] text-white px-6 sm:px-8 py-4 rounded-2xl font-black hover:shadow-2xl hover:shadow-[#ff4757]/40 hover:-translate-y-1 transition-all duration-300 uppercase text-sm tracking-wide flex items-center justify-center gap-2 min-h-12"
               >
-                Comprar ahora <ChevronRight className="w-5 h-5" />
+                {primaryButtonLabel} <ChevronRight className="w-5 h-5" />
               </Link>
               <Link
-                href="/insumos"
+                href={secondaryButtonLink}
                 className="bg-white/80 backdrop-blur-md px-6 sm:px-8 py-4 rounded-2xl text-[#1a3a6b] font-black border border-white hover:bg-white hover:shadow-xl hover:shadow-[#1a3a6b]/10 transition-all duration-300 flex items-center justify-center gap-2 uppercase tracking-wide text-sm min-h-12"
               >
-                <ShoppingBag className="w-5 h-5" /> Ver Catálogo
+                <ShoppingBag className="w-5 h-5" /> {secondaryButtonLabel}
               </Link>
               <Link
-                href="/contacto"
+                href={contactButtonLink}
                 className="bg-white/80 backdrop-blur-md px-6 sm:px-8 py-4 rounded-2xl text-[#1a3a6b] font-black border border-white hover:bg-white hover:shadow-xl hover:shadow-[#1a3a6b]/10 transition-all duration-300 flex items-center justify-center gap-2 uppercase tracking-wide text-sm min-h-12"
               >
-                Escríbenos
+                {contactButtonLabel}
               </Link>
             </div>
 
@@ -167,39 +191,32 @@ function StatsBar() {
 // ─────────────────────────────────────────────
 // PROMOCIONES
 // ─────────────────────────────────────────────
-function PromocionesSection() {
-  const promos = [
-    {
-      title: "Guantes de Nitrilo",
-      subtitle: "Caja 100 pzs",
-      oldPrice: 245,
-      newPrice: 189,
-      badge: "-23%",
-      slug: "guantes-nitrilo-100pcs",
-      image: "https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/guante-de-nitrilo_ambiderm.png",
-      color: "from-[#ff4757] to-[#e84118]",
-    },
-    {
-      title: "Gel Antibacterial",
-      subtitle: "500ml",
-      oldPrice: 120,
-      newPrice: 85,
-      badge: "-29%",
-      slug: "gel-antibacterial",
-      image: "https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/catalog/gel-antibacterial.webp",
-      color: "from-[#2eb8d4] to-[#1a8fa8]",
-    },
-    {
-      title: "Jeringas 5ml",
-      subtitle: "Paquete 10 pzs",
-      oldPrice: 89,
-      newPrice: 65,
-      badge: "-27%",
-      slug: "jeringas-5ml-10pcs",
-      image: "https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/jeringas_sensimedical.png",
-      color: "from-[#1a3a6b] to-[#2251a3]",
-    },
+function PromocionesSection({
+  featuredPromotion,
+  promotions,
+}: {
+  featuredPromotion: SiteContentSection;
+  promotions: SiteContentSection[];
+}) {
+  const featuredEnabled = Boolean(featuredPromotion.enabled);
+  const promoColors = [
+    "from-[#ff4757] to-[#e84118]",
+    "from-[#2eb8d4] to-[#1a8fa8]",
+    "from-[#1a3a6b] to-[#2251a3]",
   ];
+  const promos = promotions.map((promotion, index) => ({
+    enabled: Boolean(promotion.enabled),
+    title: String(promotion.title),
+    subtitle: String(promotion.subtitle),
+    oldPrice: Number(promotion.oldPrice),
+    newPrice: Number(promotion.newPrice),
+    badge: String(promotion.badge),
+    link: String(promotion.link),
+    image: String(promotion.image),
+    color: promoColors[index],
+  })).filter((promotion) => promotion.enabled);
+
+  if (!featuredEnabled && promos.length === 0) return null;
 
   return (
     <section className="py-20 relative overflow-hidden bg-gradient-to-br from-[#fff5f5] via-white to-[#f0fbfd]">
@@ -208,9 +225,10 @@ function PromocionesSection() {
       <div className="ambient-blob w-[300px] h-[300px] bottom-[-50px] right-[-50px] bg-[rgba(46,184,212,0.08)]" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <FadeInWhenVisible>
+        {featuredEnabled && (
+          <FadeInWhenVisible>
           <Link
-            href="/productos/guantes-nitrilo-100pcs"
+            href={String(featuredPromotion.link)}
             className="group relative isolate mb-16 block min-h-[300px] overflow-hidden rounded-[2rem] border border-white/30 bg-[#1a3a6b] shadow-[0_24px_60px_-20px_rgba(26,58,107,0.35)] transition-transform duration-300 hover:-translate-y-1 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#2eb8d4]/40 sm:min-h-[280px]"
           >
             <div className="absolute inset-0 bg-[radial-gradient(circle_at_82%_40%,rgba(46,184,212,0.45),transparent_32%),linear-gradient(115deg,#1a3a6b_0%,#2251a3_54%,#2eb8d4_140%)]" />
@@ -222,37 +240,38 @@ function PromocionesSection() {
               <div className="max-w-xl">
                 <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.18em] text-white backdrop-blur-sm">
                   <span className="h-2 w-2 rounded-full bg-[#ff6b78] shadow-[0_0_12px_rgba(255,107,120,0.8)]" />
-                  Oferta destacada
+                  {String(featuredPromotion.eyebrow)}
                 </span>
                 <h3 className="max-w-lg text-3xl font-black leading-[1.05] text-white sm:text-4xl lg:text-5xl">
-                  Protección profesional, <span className="text-[#9ff4df]">precio especial.</span>
+                  {String(featuredPromotion.title)} <span className="text-[#9ff4df]">{String(featuredPromotion.highlightedTitle)}</span>
                 </h3>
                 <p className="mt-3 max-w-md text-sm leading-relaxed text-white/70 sm:text-base">
-                  Guantes de nitrilo Ambiderm para cuidar cada procedimiento. Aprovecha el descuento por tiempo limitado.
+                  {String(featuredPromotion.description)}
                 </p>
                 <span className="mt-5 inline-flex items-center gap-2 rounded-xl bg-[#ff4757] px-4 py-3 text-xs font-black uppercase tracking-wide text-white shadow-lg shadow-[#ff4757]/25 transition-all group-hover:bg-[#ff5d6b] group-hover:shadow-[#ff4757]/40">
-                  Comprar oferta <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
+                  {String(featuredPromotion.buttonLabel)} <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                 </span>
               </div>
 
-              <div className="relative mx-auto h-32 w-full max-w-[260px] shrink-0 sm:h-48 sm:w-64 lg:h-56 lg:w-72">
-                <div className="absolute inset-4 rounded-full bg-white/15 blur-2xl transition-transform duration-500 group-hover:scale-110" />
-                <div className="absolute inset-0 rounded-[2rem] border border-white/20 bg-white/10 backdrop-blur-sm" />
-                <Image
-                  src={promos[0].image}
-                  alt="Guantes de nitrilo Ambiderm en oferta"
-                  fill
-                  className="relative z-10 object-contain p-4 drop-shadow-[0_20px_20px_rgba(10,35,75,0.35)] transition-transform duration-500 group-hover:scale-105"
-                  sizes="(max-width: 640px) 260px, 288px"
+              <div className="relative mx-auto w-full max-w-[240px] shrink-0 sm:max-w-[260px]">
+                <IntrinsicImage
+                  src={String(featuredPromotion.image)}
+                  alt={String(featuredPromotion.title)}
+                  sizes="(max-width: 640px) 240px, 260px"
+                  fixedAspectRatio={16 / 9}
+                  className="object-contain drop-shadow-[0_20px_20px_rgba(10,35,75,0.35)] transition-transform duration-500 group-hover:scale-105"
                 />
                 <span className="absolute -right-2 -top-3 z-20 flex h-14 w-14 rotate-6 items-center justify-center rounded-full bg-[#ff4757] text-sm font-black text-white shadow-xl shadow-[#ff4757]/30 sm:-right-4 sm:-top-4 sm:h-16 sm:w-16">
-                  -23%
+                  {String(featuredPromotion.badge)}
                 </span>
               </div>
             </div>
           </Link>
-        </FadeInWhenVisible>
+          </FadeInWhenVisible>
+        )}
 
+        {promos.length > 0 && (
+          <>
         <FadeInWhenVisible>
           <div className="text-center mb-14">
             <span className="inline-flex items-center gap-2 px-4 py-2 bg-[#ff4757]/10 text-[#ff4757] rounded-full text-xs font-black uppercase tracking-widest mb-4">
@@ -288,16 +307,16 @@ function PromocionesSection() {
 
                 <div className="relative z-10">
                   <Link
-                    href={`/productos/${promo.slug}`}
-                    className="relative mb-6 block h-40 overflow-hidden rounded-2xl bg-white"
+                    href={promo.link}
+                    className="relative mb-6 block overflow-hidden rounded-2xl"
                     aria-label={`Ver ${promo.title}`}
                   >
-                    <Image
+                    <IntrinsicImage
                       src={promo.image}
                       alt={promo.title}
-                      fill
-                      className="object-contain p-3 transition-transform duration-300 group-hover:scale-105"
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                      fixedAspectRatio={16 / 9}
+                      className="object-contain transition-transform duration-300 group-hover:scale-105"
                     />
                   </Link>
 
@@ -311,7 +330,7 @@ function PromocionesSection() {
                   </div>
 
                   <Link
-                    href={`/productos/${promo.slug}`}
+                    href={promo.link}
                     className="flex items-center justify-center gap-2 w-full py-3.5 bg-gradient-to-r from-[#1a3a6b] to-[#2251a3] text-white rounded-2xl text-sm font-black hover:shadow-xl hover:shadow-[#1a3a6b]/20 hover:-translate-y-0.5 transition-all duration-300"
                   >
                     <ShoppingBag className="w-4 h-4" /> Comprar ahora
@@ -333,6 +352,8 @@ function PromocionesSection() {
             </Link>
           </div>
         </FadeInWhenVisible>
+          </>
+        )}
       </div>
     </section>
   );
@@ -488,12 +509,15 @@ function SobreNosotrosSection() {
 // ─────────────────────────────────────────────
 // TOP DESTACADOS (FOCUS ON SALES)
 // ─────────────────────────────────────────────
-function TopDestacadosSection() {
-  const destacadas = [
+function TopDestacadosSection({ content }: { content: SiteContentSection }) {
+  const [featuredProducts, setFeaturedProducts] = useState<Product[] | null>(null);
+  const fallbackProducts = [
     {
       title: "Guantes de Nitrilo",
       cat: "Protección",
       price: "Cotizar por volumen",
+      slug: "guantes-nitrilo-100pcs",
+      quoteOnly: true,
       icon: ShieldCheck,
       image: "https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/guante-de-nitrilo_ambiderm.png",
     },
@@ -501,6 +525,8 @@ function TopDestacadosSection() {
       title: "Jeringas 3ml BD",
       cat: "Aplicación",
       price: "Cotizar por volumen",
+      slug: "jeringa-3ml-21x32-c-100-ambiderm-amb043",
+      quoteOnly: true,
       icon: HeartPulse,
       image: "https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/catalog/jeringa-3ml-21x32-c-100-ambiderm-amb043.webp?v=ambiderm-official-20260801",
     },
@@ -508,6 +534,8 @@ function TopDestacadosSection() {
       title: "Solución Salina 1000ml",
       cat: "Fluidos",
       price: "Cotizar por volumen",
+      slug: "solucion-cs-iny-0-9-1000ml-pisa003",
+      quoteOnly: true,
       icon: Activity,
       image: "https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/catalog/solucion-cs-iny-0-9-1000ml-pisa003.webp",
     },
@@ -515,10 +543,40 @@ function TopDestacadosSection() {
       title: "Apósitos Tegaderm",
       cat: "Curación",
       price: "Cotizar por volumen",
+      slug: "tegaderm-aposito-10x12-c-50-1626-3m021",
+      quoteOnly: true,
       icon: CheckCircle2,
       image: "https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/catalog/tegaderm-aposito-10x12-c-50-1626-3m021.webp",
     },
   ];
+
+  useEffect(() => {
+    let active = true;
+    fetch("/api/products", { cache: "no-store" })
+      .then((response) => {
+        if (!response.ok) throw new Error("No se pudieron cargar los productos destacados");
+        return response.json();
+      })
+      .then((value: unknown) => {
+        if (!Array.isArray(value)) throw new Error("La respuesta de productos no es válida");
+        if (active) setFeaturedProducts((value as Product[]).filter((product) => Boolean(product.featured)).slice(0, 4));
+      })
+      .catch(() => undefined);
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  const icons = [ShieldCheck, HeartPulse, Activity, CheckCircle2];
+  const destacadas = featuredProducts === null ? fallbackProducts : featuredProducts.map((product, index) => ({
+    title: product.name,
+    cat: categoryLabels[product.category],
+    price: Boolean(product.quoteOnly) ? "Cotizar por volumen" : formatPrice(Number(product.price)),
+    slug: product.slug,
+    quoteOnly: Boolean(product.quoteOnly),
+    icon: icons[index],
+    image: product.image,
+  }));
 
   return (
     <section className="py-20 bg-white relative z-10">
@@ -527,14 +585,14 @@ function TopDestacadosSection() {
           <div>
             <span className="inline-flex items-center gap-2 px-3 py-1 bg-[#ff4757]/10 text-[#ff4757] rounded-full text-xs font-black uppercase tracking-widest mb-3">
               <span className="w-1.5 h-1.5 bg-[#ff4757] rounded-full animate-pulse" />
-              Más Vendidos
+              {String(content.eyebrow)}
             </span>
             <h2 className="text-3xl sm:text-4xl font-black text-[#1a3a6b]">
-              Productos <span className="text-[#2eb8d4]">Destacados</span>
+              {String(content.title)} <span className="text-[#2eb8d4]">{String(content.highlightedTitle)}</span>
             </h2>
           </div>
-          <Link href="/insumos" className="inline-flex items-center gap-2 text-[#1a3a6b] font-bold hover:text-[#2eb8d4] transition-colors group">
-            Ver catálogo completo <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          <Link href={String(content.link)} className="inline-flex items-center gap-2 text-[#1a3a6b] font-bold hover:text-[#2eb8d4] transition-colors group">
+            {String(content.linkLabel)} <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
           </Link>
         </div>
 
@@ -547,30 +605,29 @@ function TopDestacadosSection() {
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
               whileHover={{ y: -8 }}
-              className="bg-white rounded-3xl border border-gray-100 shadow-[0_8px_30px_-12px_rgba(26,58,107,0.12)] group relative overflow-hidden"
+              className="group relative flex h-full flex-col overflow-hidden rounded-3xl border border-gray-100 bg-white shadow-[0_8px_30px_-12px_rgba(26,58,107,0.12)]"
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#2eb8d4]/5 to-transparent rounded-bl-[100px] -z-10 transition-transform group-hover:scale-110" />
 
-              <div className="relative h-40 overflow-hidden bg-[#f8fbfd]">
-                <Image
-                  src={prod.image}
-                  alt={prod.title}
-                  fill
-                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
-                  className="object-contain p-4 transition-transform duration-500 group-hover:scale-105"
-                />
+              <IntrinsicImage
+                src={prod.image}
+                alt={prod.title}
+                sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                fixedAspectRatio={16 / 9}
+                className="object-contain transition-transform duration-500 group-hover:scale-105"
+              >
                 <div className="absolute left-5 top-5 flex h-12 w-12 items-center justify-center rounded-2xl border border-white/70 bg-white/85 shadow-sm backdrop-blur-sm">
                   <prod.icon className="h-6 w-6 text-[#1a3a6b]" />
                 </div>
-              </div>
+              </IntrinsicImage>
 
-              <div className="p-5">
+              <div className="flex flex-1 flex-col p-5">
                 <div className="text-[10px] font-black text-gray-400 uppercase tracking-widest mb-1">{prod.cat}</div>
                 <h3 className="font-black text-[#1a3a6b] text-lg leading-tight mb-2 group-hover:text-[#2eb8d4] transition-colors">{prod.title}</h3>
                 <div className="text-sm font-bold text-[#ff4757] mb-5">{prod.price}</div>
 
-                <Link href="/contacto" className="flex items-center justify-center gap-2 w-full py-3 bg-[#1a3a6b]/5 hover:bg-[#2eb8d4] text-[#1a3a6b] hover:text-white rounded-xl text-sm font-bold transition-all duration-300">
-                  <ShoppingBag className="w-4 h-4" /> Solicitar
+                <Link href={`/productos/${prod.slug}`} className="mt-auto flex w-full items-center justify-center gap-2 rounded-xl bg-[#1a3a6b]/5 py-3 text-sm font-bold text-[#1a3a6b] transition-all duration-300 hover:bg-[#2eb8d4] hover:text-white">
+                  <ShoppingBag className="w-4 h-4" /> {prod.quoteOnly ? "Solicitar" : "Comprar"}
                 </Link>
               </div>
             </motion.div>
@@ -608,15 +665,14 @@ function TopMarcasSection() {
               whileHover={{ scale: 1.05 }}
               className="group m-0"
             >
-              <div className="relative aspect-square overflow-hidden rounded-2xl bg-[#b9d8f4] shadow-sm transition-all duration-300 group-hover:shadow-lg group-hover:shadow-[#2eb8d4]/20">
-                <Image
-                  src={brand.src}
-                  alt={`Logo ${brand.name}`}
-                  fill
-                  sizes="(max-width: 768px) 45vw, (max-width: 1280px) 22vw, 180px"
-                  className="object-contain transition-transform duration-500 group-hover:scale-[1.02]"
-                />
-              </div>
+              <IntrinsicImage
+                src={brand.src}
+                alt={`Logo ${brand.name}`}
+                sizes="(max-width: 768px) 45vw, (max-width: 1280px) 22vw, 180px"
+                fallbackAspectRatio={8 / 5}
+                wrapperClassName="rounded-2xl shadow-sm transition-all duration-300 group-hover:shadow-lg group-hover:shadow-[#2eb8d4]/20"
+                className="transition-transform duration-500 group-hover:scale-[1.02]"
+              />
               <figcaption className="pt-3 text-center text-sm font-black text-[#1a3a6b]">{brand.name}</figcaption>
             </motion.figure>
           ))}

@@ -1,6 +1,5 @@
 "use client";
 
-import type { Metadata } from "next";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
@@ -11,6 +10,7 @@ import {
 } from "lucide-react";
 import FadeInWhenVisible from "@/components/animations/FadeInWhenVisible";
 import Image from "next/image";
+import { useSiteContent } from "@/hooks/useSiteContent";
 
 const schema = z.object({
   name: z.string().min(2, "El nombre debe tener al menos 2 caracteres"),
@@ -64,6 +64,21 @@ const contactCards = [
 ];
 
 export default function ContactoPage() {
+  const content = useSiteContent("contacto");
+  const hero = content.hero;
+  const form = content.form;
+  const heroEyebrow = String(hero.eyebrow);
+  const heroTitle = String(hero.title);
+  const heroHighlightedTitle = String(hero.highlightedTitle);
+  const heroDescription = String(hero.description);
+  const heroImage = String(hero.image);
+  const formTitle = String(form.title);
+  const successMessage = String(form.successMessage);
+  const namePlaceholder = String(form.namePlaceholder);
+  const phonePlaceholder = String(form.phonePlaceholder);
+  const emailPlaceholder = String(form.emailPlaceholder);
+  const messagePlaceholder = String(form.messagePlaceholder);
+  const submitLabel = String(form.submitLabel);
   const [submitted, setSubmitted] = useState(false);
   const {
     register,
@@ -89,16 +104,15 @@ export default function ContactoPage() {
             {/* Left */}
             <FadeInWhenVisible>
               <span className="inline-block text-[#2eb8d4] text-xs font-bold uppercase tracking-widest border-b-2 border-[#2eb8d4] pb-0.5 mb-4">
-                Contáctanos
+                {heroEyebrow}
               </span>
               <h1 className="text-4xl sm:text-5xl font-bold leading-tight mb-4">
-                <span className="text-[#1a1a2e]">¡Estamos para</span>
+                <span className="text-[#1a1a2e]">{heroTitle}</span>
                 <br />
-                <span className="text-[#1a3a6b]">cuidarte!</span>
+                <span className="text-[#1a3a6b]">{heroHighlightedTitle}</span>
               </h1>
               <p className="text-gray-500 text-base leading-relaxed max-w-sm">
-                Conecta con nosotros de manera rápida y sencilla. Tu salud y bienestar son
-                nuestra prioridad.
+                {heroDescription}
               </p>
             </FadeInWhenVisible>
             {/* Right — glass orb with logo */}
@@ -116,7 +130,7 @@ export default function ContactoPage() {
                 <div className="absolute inset-4 rounded-full bg-[#2eb8d4]/15 blur-2xl" />
                 <div className="absolute inset-0 rounded-full liquid-glass flex items-center justify-center">
                   <Image
-                    src="/vitalife-logo.png"
+                    src={heroImage}
                     alt="Vital Life Servicios Integrales"
                     width={220}
                     height={220}
@@ -177,7 +191,7 @@ export default function ContactoPage() {
             <FadeInWhenVisible direction="left">
               <div className="white-card p-8">
                 <h2 className="text-2xl font-bold text-[#1a3a6b] mb-6">
-                  Envíanos un mensaje
+                  {formTitle}
                 </h2>
                 <AnimatePresence>
                   {submitted && (
@@ -189,7 +203,7 @@ export default function ContactoPage() {
                     >
                       <CheckCircle2 className="w-5 h-5 shrink-0" />
                       <span className="text-sm font-medium">
-                        ¡Mensaje enviado! Te contactaremos muy pronto.
+                        {successMessage}
                       </span>
                     </motion.div>
                   )}
@@ -204,7 +218,7 @@ export default function ContactoPage() {
                       type="text"
                       {...register("name")}
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-sm text-gray-700 outline-none focus:ring-2 focus:ring-[#2eb8d4] focus:border-transparent transition"
-                      placeholder="Tu nombre"
+                      placeholder={namePlaceholder}
                     />
                     {errors.name && (
                       <p className="text-red-500 text-xs mt-1">{errors.name.message}</p>
@@ -221,7 +235,7 @@ export default function ContactoPage() {
                         type="tel"
                         {...register("phone")}
                         className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-sm text-gray-700 outline-none focus:ring-2 focus:ring-[#2eb8d4] focus:border-transparent transition"
-                        placeholder="477 000 0000"
+                        placeholder={phonePlaceholder}
                       />
                       {errors.phone && (
                         <p className="text-red-500 text-xs mt-1">{errors.phone.message}</p>
@@ -236,7 +250,7 @@ export default function ContactoPage() {
                         type="email"
                         {...register("email")}
                         className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-sm text-gray-700 outline-none focus:ring-2 focus:ring-[#2eb8d4] focus:border-transparent transition"
-                        placeholder="tu@email.com"
+                        placeholder={emailPlaceholder}
                       />
                       {errors.email && (
                         <p className="text-red-500 text-xs mt-1">{errors.email.message}</p>
@@ -272,7 +286,7 @@ export default function ContactoPage() {
                       {...register("message")}
                       rows={4}
                       className="w-full px-4 py-3 rounded-xl border border-gray-200 bg-white text-sm text-gray-700 outline-none focus:ring-2 focus:ring-[#2eb8d4] focus:border-transparent transition resize-none"
-                      placeholder="Cuéntanos cómo podemos ayudarte..."
+                      placeholder={messagePlaceholder}
                     />
                     {errors.message && (
                       <p className="text-red-500 text-xs mt-1">{errors.message.message}</p>
@@ -289,7 +303,7 @@ export default function ContactoPage() {
                     ) : (
                       <Send className="w-4 h-4" />
                     )}
-                    {isSubmitting ? "Enviando..." : "Enviar mensaje"}
+                    {isSubmitting ? "Enviando..." : submitLabel}
                   </button>
                 </form>
               </div>

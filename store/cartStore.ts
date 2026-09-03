@@ -1,9 +1,17 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { CartItem, Product } from "@/types";
+
+function availableStock(product: Product, size?: string, color?: string) {
+  const variant = product.variants?.find(
+    (option) => option.size === (size || "") && option.color === (color || "")
+  );
+  const stock = variant?.stockQuantity ?? product.stockQuantity;
+  return typeof stock === "number" && Number.isFinite(stock) ? Math.max(1, Math.floor(stock)) : undefined;
+}
 
 interface CartStore {
   items: CartItem[];
@@ -22,7 +30,8 @@ export const useCartStore = create<CartStore>()(
 
       addItem: (product: Product, size?: string, color?: string, quantity = 1) => {
         const cartId = `${product.id}#${size || ""}#${color || ""}`;
-        const quantityToAdd = Math.max(1, Math.floor(quantity));
+        const max = availableStock(product, size, color);
+        const quantityToAdd = Math.min(Math.max(1, Math.floor(quantity)), max ?? Number.MAX_SAFE_INTEGER);
         set((state) => {
           const items = state.items.map((item) => ({
             ...item,
@@ -33,7 +42,7 @@ export const useCartStore = create<CartStore>()(
             return {
               items: items.map((item) =>
                 item.cartId === cartId
-                  ? { ...item, quantity: item.quantity + quantityToAdd }
+                  ? { ...item, quantity: Math.min(item.quantity + quantityToAdd, max ?? Number.MAX_SAFE_INTEGER) }
                   : item
               ),
             };
@@ -54,7 +63,9 @@ export const useCartStore = create<CartStore>()(
       },
 
       updateQuantity: (cartId: string, quantity: number) => {
-        if (quantity <= 0) {
+        if (!Number.isFinite(quantity)) return;
+        const normalizedQuantity = Math.floor(quantity);
+        if (normalizedQuantity <= 0) {
           get().removeItem(cartId);
           return;
         }
@@ -64,7 +75,10 @@ export const useCartStore = create<CartStore>()(
               ...item,
               cartId: `${item.id}#${item.size || ""}#${item.color || ""}`,
             };
-            return itemWithId.cartId === cartId ? { ...itemWithId, quantity } : itemWithId;
+            const max = availableStock(itemWithId, itemWithId.size, itemWithId.color);
+            return itemWithId.cartId === cartId
+              ? { ...itemWithId, quantity: Math.min(normalizedQuantity, max ?? Number.MAX_SAFE_INTEGER) }
+              : itemWithId;
           }),
         }));
       },
@@ -87,22 +101,25 @@ export const useCartStore = create<CartStore>()(
   )
 );
 
+const subscribeToHydration = () => () => undefined;
+
+function useHydrated() {
+  return useSyncExternalStore(subscribeToHydration, () => true, () => false);
+}
+
 export function useClientCartCount(): number {
   const count = useCartStore((s) => s.itemCount());
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
-  return mounted ? count : 0;
+  return useHydrated() ? count : 0;
 }
 
 export function useClientCart(): CartStore & { isReady: boolean } {
   const store = useCartStore();
-  const [mounted, setMounted] = useState(false);
-  useEffect(() => setMounted(true), []);
+  const isReady = useHydrated();
   return {
     ...store,
-    items: mounted ? store.items : [],
-    itemCount: () => (mounted ? store.itemCount() : 0),
-    total: () => (mounted ? store.total() : 0),
-    isReady: mounted,
+    items: isReady ? store.items : [],
+    itemCount: () => (isReady ? store.itemCount() : 0),
+    total: () => (isReady ? store.total() : 0),
+    isReady,
   };
 }
