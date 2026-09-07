@@ -180,6 +180,7 @@ function InsumosContent() {
   const cartCount = useClientCartCount();
   const router = useRouter();
   const searchParams = useSearchParams();
+  const selectedBrand = searchParams.get("brand")?.trim() ?? "";
 
   useEffect(() => {
     const searchAnchor = searchAnchorRef.current;
@@ -195,9 +196,7 @@ function InsumosContent() {
   }, []);
 
   useEffect(() => {
-    const q = searchParams.get("q");
-    if (!q) return;
-
+    const q = searchParams.get("q") || searchParams.get("brand") || "";
     const frameId = window.requestAnimationFrame(() => setSearch(q));
     return () => window.cancelAnimationFrame(frameId);
   }, [searchParams]);
@@ -254,15 +253,30 @@ function InsumosContent() {
 
   const filteredProducts = useMemo(() => {
     if (!search.trim()) return [];
-    const q = search.toLowerCase();
+    const q = search.trim().toLowerCase();
+    if (selectedBrand) {
+      const brand = selectedBrand.toLowerCase();
+      return allProducts.filter((product) =>
+        product.brand?.trim().toLowerCase() === brand ||
+        (!product.brand && product.name.toLowerCase().includes(brand))
+      );
+    }
     return allProducts.filter(
-      (p) =>
-        p.name.toLowerCase().includes(q) ||
-        p.description.toLowerCase().includes(q) ||
-        p.category.toLowerCase().includes(q) ||
-        categoryLabels[p.category].toLowerCase().includes(q)
+      (product) =>
+        product.name.toLowerCase().includes(q) ||
+        product.description.toLowerCase().includes(q) ||
+        product.brand?.toLowerCase().includes(q) ||
+        product.category.toLowerCase().includes(q) ||
+        categoryLabels[product.category].toLowerCase().includes(q)
     );
-  }, [search, allProducts]);
+  }, [search, selectedBrand, allProducts]);
+
+  function handleSearchChange(value: string) {
+    setSearch(value);
+    if (selectedBrand) {
+      router.replace(value ? `/insumos?q=${encodeURIComponent(value)}` : "/insumos", { scroll: false });
+    }
+  }
 
   function handleCategoryClick(cat: Product["category"]) {
     const nextCategory = activeCategory === cat ? null : cat;
@@ -305,8 +319,8 @@ function InsumosContent() {
           >
             <CatalogSearchField
               search={search}
-              onSearchChange={setSearch}
-              onClear={() => setSearch("")}
+              onSearchChange={handleSearchChange}
+              onClear={clearFilters}
               placeholder={searchPlaceholder}
             />
           </motion.div>
@@ -317,12 +331,13 @@ function InsumosContent() {
               <ProductResultsSection
                 filteredProducts={filteredProducts}
                 onClear={clearFilters}
+                title={selectedBrand ? `Productos de ${selectedBrand}` : undefined}
               />
             )}
           </AnimatePresence>
 
           <AnimatePresence>
-            {search.trim() && (
+            {search.trim() && !selectedBrand && (
               <BrandResultsSection
                 filteredBrands={filteredBrands}
                 title="Marcas relacionadas"
@@ -358,8 +373,8 @@ function InsumosContent() {
             <div className="rounded-2xl border border-white/80 bg-white/90 p-1.5 shadow-[0_10px_30px_rgba(26,58,107,0.14)] backdrop-blur-xl">
               <CatalogSearchField
                 search={search}
-                onSearchChange={setSearch}
-                onClear={() => setSearch("")}
+                onSearchChange={handleSearchChange}
+                onClear={clearFilters}
                 placeholder={searchPlaceholder}
                 compact
               />

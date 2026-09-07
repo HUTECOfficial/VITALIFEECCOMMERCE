@@ -34,6 +34,18 @@ export const nursingServiceImageById = {
   "curacion-heridas": storageImage("Curacion de heridas.png"),
 } as const;
 
+export const homepageCategoryBrandImageById = {
+  quirurgico: storageImage("Ambiderm.png"),
+  diagnostico: storageImage("Amsa.png"),
+  guantes: storageImage("Nipro.png"),
+  curacion: storageImage("Pisa.png"),
+  "sondas-cateteres": storageImage("Atramat.png"),
+  "terapia-iv": storageImage("Edigar.png"),
+  rehabilitacion: storageImage("BD.png"),
+  respiratorio: storageImage("Vizcarra.png"),
+  "atencion-paciente": storageImage("Protec.png"),
+} satisfies Partial<Record<ProductCategory, string>>;
+
 export const homepageBrandLogos = [
   { id: "3m", name: "3M", src: storageImage("3m.png") },
   { id: "ambiderm", name: "Ambiderm", src: storageImage("Ambiderm.png") },

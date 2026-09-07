@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import FadeInWhenVisible from "@/components/animations/FadeInWhenVisible";
 import IntrinsicImage from "@/components/ui/IntrinsicImage";
-import { categoryImageById, homepageBrandLogos } from "@/data/visualAssets";
+import { homepageBrandLogos, homepageCategoryBrandImageById } from "@/data/visualAssets";
 import { categoryLabels } from "@/data/products";
 import { useSiteContent } from "@/hooks/useSiteContent";
 import { formatPrice } from "@/lib/utils";
@@ -654,28 +654,43 @@ function TopMarcasSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-5 gap-4 sm:gap-6">
-          {homepageBrandLogos.map((brand, i) => (
-            <motion.figure
-              key={brand.id}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.05 }}
-              whileHover={{ scale: 1.05 }}
-              className="group m-0"
-            >
-              <IntrinsicImage
-                src={brand.src}
-                alt={`Logo ${brand.name}`}
-                sizes="(max-width: 768px) 45vw, (max-width: 1280px) 22vw, 180px"
-                fallbackAspectRatio={8 / 5}
-                wrapperClassName="rounded-2xl shadow-sm transition-all duration-300 group-hover:shadow-lg group-hover:shadow-[#2eb8d4]/20"
-                className="transition-transform duration-500 group-hover:scale-[1.02]"
-              />
-              <figcaption className="pt-3 text-center text-sm font-black text-[#1a3a6b]">{brand.name}</figcaption>
-            </motion.figure>
-          ))}
+        <div
+          className="overflow-hidden"
+          style={{ maskImage: "linear-gradient(to right, transparent, black 5%, black 95%, transparent)", WebkitMaskImage: "linear-gradient(to right, transparent, black 5%, black 95%, transparent)" }}
+          aria-label="Marcas disponibles"
+        >
+          <motion.div
+            className="flex w-max"
+            animate={{ x: ["0%", "-50%"] }}
+            transition={{ duration: 36, repeat: Infinity, ease: "linear" }}
+          >
+            {[0, 1].map((copy) => (
+              <div key={copy} className="flex shrink-0 gap-5 pr-5 sm:gap-6 sm:pr-6" aria-hidden={copy === 1}>
+                {homepageBrandLogos.map((brand) => (
+                  <motion.div
+                    key={`${copy}-${brand.id}`}
+                    whileHover={{ scale: 1.05 }}
+                    className="group w-[150px] shrink-0 sm:w-[180px]"
+                  >
+                    <Link
+                      href={`/insumos?brand=${encodeURIComponent(brand.name)}`}
+                      aria-label={`Ver productos de ${brand.name}`}
+                      tabIndex={copy === 1 ? -1 : undefined}
+                    >
+                      <IntrinsicImage
+                        src={brand.src}
+                        alt={`Logo ${brand.name}`}
+                        sizes="(max-width: 640px) 150px, 180px"
+                        fallbackAspectRatio={8 / 5}
+                        wrapperClassName="rounded-2xl shadow-sm transition-all duration-300 group-hover:shadow-lg group-hover:shadow-[#2eb8d4]/20"
+                        className="transition-transform duration-500 group-hover:scale-[1.02]"
+                      />
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+            ))}
+          </motion.div>
         </div>
       </div>
     </section>
@@ -687,15 +702,15 @@ function TopMarcasSection() {
 // ─────────────────────────────────────────────
 function CategoriasSection() {
   const categorias = [
-    { name: "Equipo Quirúrgico", img: categoryImageById.quirurgico, href: "/insumos?cat=quirurgico" },
-    { name: "Diagnóstico", img: categoryImageById.diagnostico, href: "/insumos?cat=diagnostico" },
-    { name: "Guantes", img: categoryImageById.guantes, href: "/insumos?cat=guantes" },
-    { name: "Material de Curación", img: categoryImageById.curacion, href: "/insumos?cat=curacion" },
-    { name: "Sondas y Catéteres", img: categoryImageById["sondas-cateteres"], href: "/insumos?cat=sondas-cateteres" },
-    { name: "Vías IV", img: categoryImageById["terapia-iv"], href: "/insumos?cat=terapia-iv" },
-    { name: "Rehabilitación", img: categoryImageById.rehabilitacion, href: "/insumos?cat=rehabilitacion" },
-    { name: "Ventilación", img: categoryImageById.respiratorio, href: "/insumos?cat=respiratorio" },
-    { name: "Misceláneos", img: categoryImageById["atencion-paciente"], href: "/insumos?cat=atencion-paciente" },
+    { name: "Equipo Quirúrgico", brand: "Ambiderm", img: homepageCategoryBrandImageById.quirurgico, href: "/insumos?brand=Ambiderm" },
+    { name: "Diagnóstico", brand: "AMSA", img: homepageCategoryBrandImageById.diagnostico, href: "/insumos?brand=AMSA" },
+    { name: "Guantes", brand: "Nipro", img: homepageCategoryBrandImageById.guantes, href: "/insumos?brand=Nipro" },
+    { name: "Material de Curación", brand: "PiSA", img: homepageCategoryBrandImageById.curacion, href: "/insumos?brand=PISA" },
+    { name: "Sondas y Catéteres", brand: "Atramat", img: homepageCategoryBrandImageById["sondas-cateteres"], href: "/insumos?brand=Atramat" },
+    { name: "Vías IV", brand: "Edigar", img: homepageCategoryBrandImageById["terapia-iv"], href: "/insumos?brand=Edigar" },
+    { name: "Rehabilitación", brand: "BD", img: homepageCategoryBrandImageById.rehabilitacion, href: "/insumos?brand=BD" },
+    { name: "Ventilación", brand: "Vizcarra", img: homepageCategoryBrandImageById.respiratorio, href: "/insumos?brand=Vizcarra" },
+    { name: "Misceláneos", brand: "Protec", img: homepageCategoryBrandImageById["atencion-paciente"], href: "/insumos?brand=Protec" },
   ];
 
   return (
@@ -727,17 +742,11 @@ function CategoriasSection() {
                 <Link href={cat.href} className="absolute inset-0 z-20" aria-label={"Navegar a " + cat.name} />
                 <Image
                   src={cat.img}
-                  alt={cat.name}
+                  alt={`${cat.brand} · ${cat.name}`}
                   fill
                   className="object-cover transition-transform duration-700 group-hover:scale-110"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#1a3a6b]/80 via-[#1a3a6b]/10 to-transparent opacity-70 group-hover:opacity-100 transition-opacity" />
-                <div className="absolute bottom-0 left-0 right-0 p-5 flex items-end justify-center z-10 translate-y-2 group-hover:translate-y-0 transition-transform">
-                  <h3 className={`w-full px-8 text-center text-white font-black leading-tight drop-shadow-md ${isLarge ? 'text-2xl sm:text-3xl' : 'text-xl'}`}>{cat.name}</h3>
-                  <div className="absolute right-5 bottom-5 w-8 h-8 rounded-full bg-[#ff4757] text-white flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all transform scale-50 group-hover:scale-100 shrink-0">
-                    <ChevronRight className="w-4 h-4" />
-                  </div>
-                </div>
+
               </motion.div>
             );
           })}
