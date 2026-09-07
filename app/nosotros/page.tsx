@@ -50,48 +50,102 @@ export default async function NosotrosPage() {
   return (
     <div className="overflow-hidden">
       {/* Hero */}
-      <section className="relative pt-10 pb-20 hero-gradient">
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center max-w-3xl mx-auto">
+      <section className="relative flex min-h-[650px] items-center overflow-hidden">
+        <Image
+          src={String(content.hero.image)}
+          alt=""
+          fill
+          priority
+          sizes="100vw"
+          className="object-cover object-[68%_center] sm:object-center"
+        />
+        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(4,22,48,0.98)_0%,rgba(5,35,68,0.92)_38%,rgba(7,48,83,0.58)_62%,rgba(7,48,83,0.12)_100%)]" />
+        <div className="absolute inset-x-0 bottom-0 h-36 bg-gradient-to-t from-[#f5fbfd] to-transparent" />
+        <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-24 sm:px-6 sm:py-32 lg:px-8">
+          <div className="max-w-3xl">
             <FadeInWhenVisible>
-              <span className="text-[#2eb8d4] text-sm font-semibold uppercase tracking-widest">
+              <span className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-xs font-bold uppercase tracking-[0.2em] text-[#7be3ee] shadow-lg backdrop-blur-md">
+                <Heart className="h-4 w-4" />
                 {String(content.hero.eyebrow)}
               </span>
-              <h1 className="text-4xl sm:text-5xl font-bold text-[#1a3a6b] mt-3 mb-6">
+              <h1 className="mt-6 max-w-2xl text-4xl font-black leading-[1.05] text-white sm:text-5xl lg:text-7xl">
                 {String(content.hero.title)}
               </h1>
-              <p className="text-gray-600 text-lg leading-relaxed">
+              <p className="mt-7 max-w-2xl text-base leading-relaxed text-white/75 sm:text-xl">
                 {String(content.hero.description)}
               </p>
+              <div className="mt-9 grid max-w-2xl gap-3 sm:grid-cols-3">
+                {[
+                  { icon: Shield, label: "Insumos certificados" },
+                  { icon: Heart, label: "Cuidado humano" },
+                  { icon: Users, label: "Equipo profesional" },
+                ].map((item) => (
+                  <div key={item.label} className="flex items-center gap-3 rounded-2xl border border-white/15 bg-white/10 px-4 py-3 text-sm font-semibold text-white backdrop-blur-md">
+                    <item.icon className="h-5 w-5 shrink-0 text-[#69deeb]" />
+                    {item.label}
+                  </div>
+                ))}
+              </div>
             </FadeInWhenVisible>
           </div>
         </div>
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-10">
+      <section className="relative bg-[#f5fbfd] pb-24 pt-8 sm:pb-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <FadeInWhenVisible>
+            <div className="mb-10 grid items-end gap-6 lg:grid-cols-[0.8fr_1.2fr]">
+              <div>
+                <span className="text-xs font-bold uppercase tracking-[0.2em] text-[#20a9c2]">Nuestro propósito</span>
+                <h2 className="mt-3 text-3xl font-black leading-tight text-[#123664] sm:text-4xl">
+                  Salud, confianza y acompañamiento en un mismo lugar.
+                </h2>
+              </div>
+              <p className="max-w-2xl text-base leading-relaxed text-slate-600 lg:justify-self-end lg:text-lg">
+                Integramos productos médicos confiables con atención profesional para acompañar a pacientes, familias y especialistas en cada etapa del cuidado.
+              </p>
+            </div>
+          </FadeInWhenVisible>
+          <div className="grid gap-6 lg:grid-cols-2">
             <FadeInWhenVisible direction="left">
-              <div className="white-card p-8 h-full">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#1a3a6b] to-[#2251a3] flex items-center justify-center mb-5 shadow-lg">
-                  <Target className="w-7 h-7 text-white" />
+              <div className="group relative h-full min-h-[330px] overflow-hidden rounded-[2rem] bg-gradient-to-br from-[#102f5b] via-[#174878] to-[#177f9d] p-8 shadow-2xl shadow-[#123664]/15 sm:p-10">
+                <div className="absolute -right-16 -top-16 h-64 w-64 rounded-full bg-[#35c5d7]/20 blur-2xl transition-transform duration-700 group-hover:scale-125" />
+                <div className="absolute bottom-0 right-5 text-[9rem] font-black leading-none text-white/[0.05]">01</div>
+                <div className="relative z-10 flex h-full flex-col">
+                  <div className="flex items-center justify-between">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-white/15 shadow-lg backdrop-blur-sm">
+                      <Target className="h-8 w-8 text-[#71e0ea]" />
+                    </div>
+                    <span className="rounded-full border border-white/15 px-4 py-2 text-xs font-bold uppercase tracking-widest text-white/65">Lo que hacemos</span>
+                  </div>
+                  <div className="mt-auto pt-12">
+                    <h3 className="text-3xl font-black text-white">{String(content.mission.title)}</h3>
+                    <p className="mt-4 max-w-xl text-base leading-relaxed text-white/75 sm:text-lg">
+                      {String(content.mission.description)}
+                    </p>
+                  </div>
                 </div>
-                <h2 className="text-2xl font-bold text-[#1a3a6b] mb-4">{String(content.mission.title)}</h2>
-                <p className="text-gray-600 leading-relaxed">
-                  {String(content.mission.description)}
-                </p>
               </div>
             </FadeInWhenVisible>
             <FadeInWhenVisible direction="right">
-              <div className="white-card p-8 h-full">
-                <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#2eb8d4] to-[#1a8fa8] flex items-center justify-center mb-5 shadow-lg">
-                  <Lightbulb className="w-7 h-7 text-white" />
+              <div className="group relative h-full min-h-[330px] overflow-hidden rounded-[2rem] border border-[#2eb8d4]/20 bg-white p-8 shadow-2xl shadow-[#2eb8d4]/10 sm:p-10">
+                <div className="absolute -bottom-20 -right-16 h-72 w-72 rounded-full bg-[#72e5ef]/20 blur-2xl transition-transform duration-700 group-hover:scale-125" />
+                <div className="absolute bottom-0 right-5 text-[9rem] font-black leading-none text-[#123664]/[0.04]">02</div>
+                <div className="relative z-10 flex h-full flex-col">
+                  <div className="flex items-center justify-between">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-gradient-to-br from-[#2eb8d4] to-[#1687a5] shadow-lg shadow-[#2eb8d4]/25">
+                      <Lightbulb className="h-8 w-8 text-white" />
+                    </div>
+                    <span className="rounded-full bg-[#e8f8fb] px-4 py-2 text-xs font-bold uppercase tracking-widest text-[#1687a5]">Hacia dónde vamos</span>
+                  </div>
+                  <div className="mt-auto pt-12">
+                    <h3 className="text-3xl font-black text-[#123664]">{String(content.vision.title)}</h3>
+                    <p className="mt-4 max-w-xl text-base leading-relaxed text-slate-600 sm:text-lg">
+                      {String(content.vision.description)}
+                    </p>
+                  </div>
                 </div>
-                <h2 className="text-2xl font-bold text-[#1a3a6b] mb-4">{String(content.vision.title)}</h2>
-                <p className="text-gray-600 leading-relaxed">
-                  {String(content.vision.description)}
-                </p>
               </div>
             </FadeInWhenVisible>
           </div>

@@ -7,6 +7,7 @@ function storageImage(fileName: string) {
 }
 
 export const homeHeroImage = storageImage("Principal.png");
+export const nosotrosHeroImage = "https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/content/nosotros-equipo-vital-life.webp";
 
 export const categoryImageById: Record<ProductCategory, string> = {
   guantes: storageImage("Guantes principal.png"),

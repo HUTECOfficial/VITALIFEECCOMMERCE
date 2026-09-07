@@ -1,5 +1,5 @@
 import { nursingServices } from "@/data/nursingServices";
-import { homeHeroImage, nursingServiceImageById } from "@/data/visualAssets";
+import { homeHeroImage, nosotrosHeroImage, nursingServiceImageById } from "@/data/visualAssets";
 
 export const siteContentPages = ["homepage", "insumos", "nosotros", "enfermeria", "contacto"] as const;
 
@@ -168,6 +168,7 @@ export const siteContentDefinitions: Record<SiteContentPage, SiteContentPageDefi
           eyebrow: text("Etiqueta", "Sobre Nosotros"),
           title: text("Título", "Somos un equipo profesional comprometido con tu salud"),
           description: textarea("Descripción", "En Vital Life, somos más que una empresa de insumos médicos. Somos un grupo de profesionales apasionados por el cuidado humano, con sede en León, Guanajuato."),
+          image: image("Imagen de fondo", nosotrosHeroImage),
         },
       },
       mission: {
