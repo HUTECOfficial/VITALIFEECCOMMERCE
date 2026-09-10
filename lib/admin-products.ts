@@ -74,7 +74,7 @@ export async function getAdminDashboardData(): Promise<AdminDashboardData> {
   const supabase = createServerClient();
   const { data: rawProducts, error: productsError } = await supabase
     .from("products")
-    .select("id,name,slug,category,price,description,image,in_stock,stock_quantity,featured,sizes,quote_only,brand,presentation,product_variants(color,size,stock_quantity)")
+    .select("id,name,slug,category,price,description,image,in_stock,stock_quantity,featured,sizes,quote_only,brand,presentation,product_variants(color,size,stock_quantity,image)")
     .order("name", { ascending: true });
 
   if (productsError) throw new Error("No se pudo cargar el catálogo. Aplica la migración 003_product_stock_quantity.sql.");

@@ -12,7 +12,7 @@ import { categoryLabels } from "@/data/products";
 import { cn } from "@/lib/utils";
 import { StockIndicator } from "@/components/ui/StockIndicator";
 import { getProductNameParts } from "@/lib/product-name";
-import { getVariantStock } from "@/lib/product-variants";
+import { getVariantImage, getVariantStock } from "@/lib/product-variants";
 import { QuoteWhatsAppLink } from "@/components/ui/QuoteWhatsAppLink";
 
 interface ProductCardProps {
@@ -28,6 +28,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   const presentation = product.presentation || productName.presentation;
   const hasUnselectedVariant = Boolean((product.sizes?.length && !selectedSize) || (product.colors?.length && !selectedColor));
   const selectedVariantStock = hasUnselectedVariant ? undefined : getVariantStock(product, selectedSize, selectedColor);
+  const selectedVariantImage = getVariantImage(product, selectedSize, selectedColor);
   const unavailable = !hasUnselectedVariant && (selectedVariantStock === 0 || (Boolean(product.variants?.length) && selectedVariantStock === undefined));
 
   const handleAddToCart = (e: React.MouseEvent) => {
@@ -46,7 +47,7 @@ export default function ProductCard({ product }: ProductCardProps) {
     >
       <Link href={`/productos/${product.slug}`} className="block">
         <IntrinsicImage
-          src={product.image}
+          src={selectedVariantImage || product.image}
           alt={product.name}
           sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           fixedAspectRatio={16 / 9}

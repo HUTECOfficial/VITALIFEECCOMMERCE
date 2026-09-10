@@ -43,6 +43,8 @@ export function parseProductInput(value: unknown): Omit<Product, "id"> | { error
       const variant = value as Record<string, unknown>;
       const color = typeof variant.color === "string" ? variant.color.trim() : "";
       const size = typeof variant.size === "string" ? variant.size.trim() : "";
+      if (variant.image !== undefined && typeof variant.image !== "string") return { error: "La imagen de una variante no es válida." };
+      const image = typeof variant.image === "string" ? variant.image.trim() : undefined;
       const stockQuantity = Math.floor(Number(variant.stockQuantity));
       const key = `${color}\u0000${size}`;
       if (!Number.isFinite(stockQuantity) || stockQuantity < 0) return { error: "El stock de cada variante debe ser un entero mayor o igual a cero." };
@@ -51,7 +53,7 @@ export function parseProductInput(value: unknown): Omit<Product, "id"> | { error
         return { error: "Cada variante debe corresponder a un color y una talla/medida del producto." };
       }
       seen.add(key);
-      variants.push({ color, size, stockQuantity });
+      variants.push({ color, size, stockQuantity, image: image || undefined });
     }
     if (!variants.length) return { error: "Agrega al menos una variante de inventario." };
   } else {
@@ -92,6 +94,7 @@ export async function replaceProductVariants(
       color: variant.color,
       size: variant.size,
       stock_quantity: variant.stockQuantity,
+      image: variant.image?.trim() || null,
     }))
   );
   if (insertError) throw insertError;

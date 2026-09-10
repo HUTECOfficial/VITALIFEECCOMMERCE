@@ -39,6 +39,8 @@ export interface ProductVariant {
   color: string;
   size: string;
   stockQuantity: number;
+  /** Optional image shown when this exact color / size combination is selected. */
+  image?: string;
 }
 
 export interface Product {

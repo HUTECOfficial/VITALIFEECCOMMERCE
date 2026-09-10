@@ -50,7 +50,7 @@ export async function getProducts(): Promise<Product[]> {
     const supabase = createServerClient();
     const { data, error } = await supabase
       .from("products")
-      .select("*, product_variants(color,size,stock_quantity)")
+      .select("*, product_variants(color,size,stock_quantity,image)")
       .order("created_at", { ascending: false });
     if (error || !data || data.length === 0) {
       return localProducts;
@@ -66,7 +66,7 @@ export async function getProductBySlug(slug: string): Promise<Product | null> {
     const supabase = createServerClient();
     const { data, error } = await supabase
       .from("products")
-      .select("*, product_variants(color,size,stock_quantity)")
+      .select("*, product_variants(color,size,stock_quantity,image)")
       .eq("slug", slug)
       .single();
     if (error || !data) {
@@ -83,7 +83,7 @@ export async function getFeaturedProducts(): Promise<Product[]> {
     const supabase = createServerClient();
     const { data, error } = await supabase
       .from("products")
-      .select("*, product_variants(color,size,stock_quantity)")
+      .select("*, product_variants(color,size,stock_quantity,image)")
       .eq("featured", true);
     if (error || !data || data.length === 0) {
       return localProducts.filter((p) => p.featured);

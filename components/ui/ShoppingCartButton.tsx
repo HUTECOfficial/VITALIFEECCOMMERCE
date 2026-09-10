@@ -10,7 +10,7 @@ import { StockIndicator } from "@/components/ui/StockIndicator";
 import { getVariantStock } from "@/lib/product-variants";
 import { QuoteWhatsAppLink } from "@/components/ui/QuoteWhatsAppLink";
 
-export function ShoppingCartButton({ product, showStock = true, showQuantity = false }: { product: Product; showStock?: boolean; showQuantity?: boolean }) {
+export function ShoppingCartButton({ product, showStock = true, showQuantity = false, onVariantChange }: { product: Product; showStock?: boolean; showQuantity?: boolean; onVariantChange?: (selection: { size: string | null; color: string | null }) => void }) {
   const addItem = useCartStore((s) => s.addItem);
   const [addedQuantity, setAddedQuantity] = useState<number | null>(null);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
@@ -39,11 +39,13 @@ export function ShoppingCartButton({ product, showStock = true, showQuantity = f
   const selectSize = (size: string) => {
     setSelectedSize(size);
     setQuantityInput("1");
+    onVariantChange?.({ size, color: selectedColor });
   };
 
   const selectColor = (color: string) => {
     setSelectedColor(color);
     setQuantityInput("1");
+    onVariantChange?.({ size: selectedSize, color });
   };
 
   const changeQuantity = (value: string) => {

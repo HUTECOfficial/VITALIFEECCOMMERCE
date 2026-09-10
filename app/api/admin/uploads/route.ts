@@ -14,7 +14,7 @@ export async function POST(request: NextRequest) {
 
   const requestedScope = request.nextUrl.searchParams.get("scope");
   const scope = requestedScope ?? "catalog";
-  if (scope !== "catalog" && scope !== "content") {
+  if (scope !== "catalog" && scope !== "content" && scope !== "variants") {
     return NextResponse.json({ error: "El destino de carga no es válido." }, { status: 400 });
   }
 

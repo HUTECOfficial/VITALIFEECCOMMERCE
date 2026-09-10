@@ -59,7 +59,7 @@ export async function GET() {
       .from("products")
       // Select all fields until the stock migration has reached every
       // environment; the response is still mapped to the public shape above.
-      .select("*, product_variants(color,size,stock_quantity)")
+      .select("*, product_variants(color,size,stock_quantity,image)")
       .order("name", { ascending: true });
 
     if (error || !data || data.length === 0) {

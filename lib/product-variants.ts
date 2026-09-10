@@ -39,13 +39,14 @@ export function readInventoryVariants(value: unknown): ProductVariant[] | undefi
 
   const variants = value.flatMap((item) => {
     if (!item || typeof item !== "object") return [];
-    const row = item as { color?: unknown; size?: unknown; stock_quantity?: unknown; stockQuantity?: unknown };
+    const row = item as { color?: unknown; size?: unknown; stock_quantity?: unknown; stockQuantity?: unknown; image?: unknown };
     const stockQuantity = Number(row.stock_quantity ?? row.stockQuantity);
     if (!Number.isFinite(stockQuantity)) return [];
     return [{
       color: typeof row.color === "string" ? row.color : "",
       size: typeof row.size === "string" ? row.size : "",
       stockQuantity: Math.max(0, Math.floor(stockQuantity)),
+      image: typeof row.image === "string" && row.image.trim() ? row.image : undefined,
     }];
   });
 
@@ -55,4 +56,8 @@ export function readInventoryVariants(value: unknown): ProductVariant[] | undefi
 export function getVariantStock(product: Product, size?: string | null, color?: string | null): number | undefined {
   if (!product.variants?.length) return product.stockQuantity;
   return product.variants.find((variant) => variant.size === (size ?? "") && variant.color === (color ?? ""))?.stockQuantity;
+}
+
+export function getVariantImage(product: Product, size?: string | null, color?: string | null): string | undefined {
+  return product.variants?.find((variant) => variant.size === (size ?? "") && variant.color === (color ?? ""))?.image;
 }
