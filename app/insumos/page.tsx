@@ -104,6 +104,67 @@ const catCfg: Record<Product["category"], CatConfig> = {
 
 const FEATURED: Product["category"] = "guantes";
 const REST = catalogCategoryOrder.filter((category) => category !== FEATURED);
+const SEARCH_RESULTS_PAGE_SIZE = 24;
+const SEARCH_SUGGESTIONS_LIMIT = 5;
+const SEARCH_TOKEN_ALIASES: Record<string, string> = {
+  litro: "l", litros: "l", lt: "l", lts: "l",
+  mililitro: "ml", mililitros: "ml", mls: "ml",
+  pieza: "pz", piezas: "pz", pza: "pz", pzas: "pz", pzs: "pz", pcs: "pz",
+  centimetro: "cm", centimetros: "cm", cms: "cm",
+  milimetro: "mm", milimetros: "mm", mms: "mm",
+  gramo: "g", gramos: "g", gr: "g", grs: "g",
+  kilogramo: "kg", kilogramos: "kg", kgs: "kg",
+  unidad: "ud", unidades: "ud", uds: "ud",
+};
+
+interface ProductSearchEntry {
+  product: Product;
+  name: string;
+  brand: string;
+  searchable: string;
+}
+
+function normalizeSearchText(value: string) {
+  return value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLocaleLowerCase("es-MX")
+    .replace(/([a-z])(\d)/g, "$1 $2")
+    .replace(/(\d)([a-z])/g, "$1 $2")
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim()
+    .split(" ")
+    .map((token) => SEARCH_TOKEN_ALIASES[token] ?? token)
+    .join(" ");
+}
+
+function createProductSearchEntry(product: Product): ProductSearchEntry {
+  const name = normalizeSearchText(product.name);
+  const brand = normalizeSearchText(product.brand ?? "");
+  const variantValues = product.variants?.flatMap((variant) => [variant.color, variant.size]) ?? [];
+  const searchable = normalizeSearchText([
+    product.name,
+    product.brand,
+    product.description,
+    product.category,
+    categoryLabels[product.category],
+    product.presentation,
+    ...(product.colors ?? []),
+    ...(product.sizes ?? []),
+    ...variantValues,
+  ].filter(Boolean).join(" "));
+
+  return { product, name, brand, searchable };
+}
+
+function getProductSearchScore(entry: ProductSearchEntry, query: string) {
+  if (entry.name === query) return 0;
+  if (entry.name.startsWith(query)) return 1;
+  if (entry.brand === query) return 2;
+  if (entry.name.includes(query)) return 3;
+  if (entry.brand.startsWith(query)) return 4;
+  return 5;
+}
 
 /* ─────────────────────────────────────────────────────── */
 export default function InsumosPage() {
@@ -152,6 +213,40 @@ function CatalogSearchField({
   );
 }
 
+function InstantSearchResults({ products, total }: { products: Product[]; total: number }) {
+  return (
+    <div className="absolute inset-x-0 top-full z-50 mt-2 overflow-hidden rounded-2xl border border-[#1a3a6b]/10 bg-white text-left shadow-[0_18px_50px_rgba(26,58,107,0.2)]">
+      {products.length > 0 ? (
+        <>
+          <div className="divide-y divide-[#1a3a6b]/8">
+            {products.map((product) => (
+              <Link
+                key={product.id}
+                href={`/productos/${product.slug}`}
+                className="flex items-center justify-between gap-4 px-4 py-2.5 transition-colors hover:bg-[#edf8fc] focus:bg-[#edf8fc] focus:outline-none"
+              >
+                <div className="min-w-0">
+                  <p className="truncate text-sm font-black text-[#1a3a6b]">{product.name}</p>
+                  <p className="mt-0.5 truncate text-[11px] font-bold uppercase tracking-wide text-[#2eb8d4]">
+                    {[product.brand, categoryLabels[product.category]].filter(Boolean).join(" · ")}
+                  </p>
+                </div>
+                <ArrowRight className="h-4 w-4 shrink-0 text-[#1a3a6b]/35" />
+              </Link>
+            ))}
+          </div>
+          <div className="flex items-center justify-between bg-[#f7fbfe] px-4 py-2.5 text-xs text-[#1a3a6b]/60">
+            <span>{total} coincidencia{total === 1 ? "" : "s"}</span>
+            {total > products.length && <span className="font-bold text-[#1a3a6b]">Todos aparecen abajo</span>}
+          </div>
+        </>
+      ) : (
+        <div className="px-4 py-5 text-center text-sm font-semibold text-[#1a3a6b]/55">No encontramos productos con ese término.</div>
+      )}
+    </div>
+  );
+}
+
 function InsumosContent() {
   const content = useSiteContent("insumos");
   const hero = content.hero;
@@ -175,8 +270,10 @@ function InsumosContent() {
   // Keep a complete local catalog ready for the first search. The Supabase
   // catalog replaces it in the background once it has been downloaded.
   const [allProducts, setAllProducts] = useState<Product[]>(localProducts);
+  const [visibleSearchResults, setVisibleSearchResults] = useState(SEARCH_RESULTS_PAGE_SIZE);
   const brandsRef = useRef<HTMLDivElement>(null);
   const searchAnchorRef = useRef<HTMLDivElement>(null);
+  const searchUrlTimerRef = useRef<number | null>(null);
   const cartCount = useClientCartCount();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -193,6 +290,10 @@ function InsumosContent() {
 
     observer.observe(searchAnchor);
     return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => () => {
+    if (searchUrlTimerRef.current) window.clearTimeout(searchUrlTimerRef.current);
   }, []);
 
   useEffect(() => {
@@ -231,51 +332,55 @@ function InsumosContent() {
     return allProducts.filter((product) => product.category === activeCategory);
   }, [activeCategory, allProducts]);
 
+  const normalizedSearch = useMemo(() => normalizeSearchText(search), [search]);
+  const searchTerms = useMemo(() => normalizedSearch.split(" ").filter(Boolean), [normalizedSearch]);
+  const productSearchIndex = useMemo(() => allProducts.map(createProductSearchEntry), [allProducts]);
+  const normalizedSelectedBrand = normalizeSearchText(selectedBrand);
+  const isBrandFilter = Boolean(normalizedSelectedBrand && normalizedSearch === normalizedSelectedBrand);
+
   const filteredBrands = useMemo(() => {
     let result = brands;
     if (activeCategory) result = result.filter((brand) => brandCategoryToProductCategories[brand.category].includes(activeCategory));
-    if (search.trim()) {
-      const q = search.toLowerCase();
-      result = result.filter(
-        (b) =>
-          b.name.toLowerCase().includes(q) ||
-          b.description.toLowerCase().includes(q) ||
-          b.category.toLowerCase().includes(q) ||
-          b.families.some(
-            (f) =>
-              f.name.toLowerCase().includes(q) ||
-              f.items.some((i) => i.toLowerCase().includes(q))
-          )
-      );
+    if (searchTerms.length) {
+      result = result.filter((brand) => {
+        const searchable = normalizeSearchText([
+          brand.name,
+          brand.description,
+          brand.category,
+          ...brand.families.flatMap((family) => [family.name, ...family.items]),
+        ].join(" "));
+        return searchTerms.every((term) => searchable.includes(term));
+      });
     }
     return result;
-  }, [search, activeCategory]);
+  }, [searchTerms, activeCategory]);
 
   const filteredProducts = useMemo(() => {
-    if (!search.trim()) return [];
-    const q = search.trim().toLowerCase();
-    if (selectedBrand) {
-      const brand = selectedBrand.toLowerCase();
-      return allProducts.filter((product) =>
-        product.brand?.trim().toLowerCase() === brand ||
-        (!product.brand && product.name.toLowerCase().includes(brand))
-      );
-    }
-    return allProducts.filter(
-      (product) =>
-        product.name.toLowerCase().includes(q) ||
-        product.description.toLowerCase().includes(q) ||
-        product.brand?.toLowerCase().includes(q) ||
-        product.category.toLowerCase().includes(q) ||
-        categoryLabels[product.category].toLowerCase().includes(q)
-    );
-  }, [search, selectedBrand, allProducts]);
+    if (!searchTerms.length) return [];
+
+    return productSearchIndex
+      .filter((entry) => {
+        if (isBrandFilter) {
+          return entry.brand === normalizedSelectedBrand || (!entry.brand && entry.name.includes(normalizedSelectedBrand));
+        }
+        return searchTerms.every((term) => entry.searchable.includes(term));
+      })
+      .sort((left, right) => {
+        const scoreDifference = getProductSearchScore(left, normalizedSearch) - getProductSearchScore(right, normalizedSearch);
+        return scoreDifference || left.name.localeCompare(right.name, "es-MX");
+      })
+      .map((entry) => entry.product);
+  }, [isBrandFilter, normalizedSearch, normalizedSelectedBrand, productSearchIndex, searchTerms]);
 
   function handleSearchChange(value: string) {
     setSearch(value);
-    if (selectedBrand) {
-      router.replace(value ? `/insumos?q=${encodeURIComponent(value)}` : "/insumos", { scroll: false });
-    }
+    setActiveCategory(null);
+    setVisibleSearchResults(SEARCH_RESULTS_PAGE_SIZE);
+    if (searchUrlTimerRef.current) window.clearTimeout(searchUrlTimerRef.current);
+    searchUrlTimerRef.current = window.setTimeout(() => {
+      const query = value.trim();
+      window.history.replaceState(null, "", query ? `/insumos?q=${encodeURIComponent(query)}` : "/insumos");
+    }, 250);
   }
 
   function handleCategoryClick(cat: Product["category"]) {
@@ -289,9 +394,11 @@ function InsumosContent() {
   }
 
   function clearFilters() {
+    if (searchUrlTimerRef.current) window.clearTimeout(searchUrlTimerRef.current);
     setActiveCategory(null);
     setSearch("");
-    router.replace("/insumos", { scroll: false });
+    setVisibleSearchResults(SEARCH_RESULTS_PAGE_SIZE);
+    window.history.replaceState(null, "", "/insumos");
   }
 
   return (
@@ -315,7 +422,7 @@ function InsumosContent() {
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ delay: 0.1 }}
-            className="max-w-lg mx-auto mb-8"
+            className="relative z-30 max-w-lg mx-auto mb-8"
           >
             <CatalogSearchField
               search={search}
@@ -323,28 +430,13 @@ function InsumosContent() {
               onClear={clearFilters}
               placeholder={searchPlaceholder}
             />
+            {normalizedSearch && !searchPinned && (
+              <InstantSearchResults
+                products={filteredProducts.slice(0, SEARCH_SUGGESTIONS_LIMIT)}
+                total={filteredProducts.length}
+              />
+            )}
           </motion.div>
-
-          {/* Los resultados aparecen inmediatamente debajo de la lupa. */}
-          <AnimatePresence>
-            {search.trim() && (
-              <ProductResultsSection
-                filteredProducts={filteredProducts}
-                onClear={clearFilters}
-                title={selectedBrand ? `Productos de ${selectedBrand}` : undefined}
-              />
-            )}
-          </AnimatePresence>
-
-          <AnimatePresence>
-            {search.trim() && !selectedBrand && (
-              <BrandResultsSection
-                filteredBrands={filteredBrands}
-                title="Marcas relacionadas"
-                onClear={clearFilters}
-              />
-            )}
-          </AnimatePresence>
 
           <motion.p initial={{ opacity: 0, y: -10 }} animate={{ opacity: 1, y: 0 }}
             className="text-[#2eb8d4] font-bold text-sm uppercase tracking-[0.2em] mb-3">
@@ -370,7 +462,7 @@ function InsumosContent() {
             transition={{ duration: 0.2, ease: "easeOut" }}
             className="fixed left-1/2 top-[88px] z-40 w-[calc(100%-2rem)] max-w-lg -translate-x-1/2 sm:top-[104px]"
           >
-            <div className="rounded-2xl border border-white/80 bg-white/90 p-1.5 shadow-[0_10px_30px_rgba(26,58,107,0.14)] backdrop-blur-xl">
+            <div className="relative rounded-2xl border border-white/80 bg-white/90 p-1.5 shadow-[0_10px_30px_rgba(26,58,107,0.14)] backdrop-blur-xl">
               <CatalogSearchField
                 search={search}
                 onSearchChange={handleSearchChange}
@@ -378,23 +470,53 @@ function InsumosContent() {
                 placeholder={searchPlaceholder}
                 compact
               />
+              {normalizedSearch && (
+                <InstantSearchResults
+                  products={filteredProducts.slice(0, SEARCH_SUGGESTIONS_LIMIT)}
+                  total={filteredProducts.length}
+                />
+              )}
             </div>
           </motion.div>
         )}
       </AnimatePresence>
 
-      {/* Las categorías aparecen después del encabezado y la búsqueda. */}
-      <CategoryGrid
-        activeCategory={activeCategory}
-        onCategoryClick={handleCategoryClick}
-      />
+      {/* Los resultados aparecen inmediatamente debajo de la lupa. */}
+      {normalizedSearch && (
+        <>
+          <ProductResultsSection
+            filteredProducts={filteredProducts.slice(0, visibleSearchResults)}
+            totalProducts={filteredProducts.length}
+            onClear={clearFilters}
+            onLoadMore={visibleSearchResults < filteredProducts.length
+              ? () => setVisibleSearchResults((current) => current + SEARCH_RESULTS_PAGE_SIZE)
+              : undefined}
+            title={isBrandFilter ? `Productos de ${selectedBrand}` : undefined}
+          />
+          {!isBrandFilter && (
+            <BrandResultsSection
+              filteredBrands={filteredBrands}
+              title="Marcas relacionadas"
+              onClear={clearFilters}
+            />
+          )}
+        </>
+      )}
 
-      {!search.trim() && (
+      {/* Las categorías aparecen después del encabezado y la búsqueda. */}
+      {!normalizedSearch && (
+        <CategoryGrid
+          activeCategory={activeCategory}
+          onCategoryClick={handleCategoryClick}
+        />
+      )}
+
+      {!normalizedSearch && (
         <>
           {/* ══ PRODUCT + BRAND RESULTS (category selection) ═════════════════ */}
           <div ref={brandsRef} />
           <AnimatePresence>
-            {!search.trim() && activeCategory && (
+            {activeCategory && (
               <>
                 <ProductResultsSection
                   filteredProducts={categoryProducts}
@@ -652,7 +774,9 @@ function CompactCard({ cat, config, active, onClick, delay }: CardProps) {
 
 interface ProductResultsSectionProps {
   filteredProducts: Product[];
+  totalProducts?: number;
   onClear?: () => void;
+  onLoadMore?: () => void;
   title?: string;
 }
 
@@ -662,22 +786,17 @@ interface BrandResultsSectionProps {
   onClear?: () => void;
 }
 
-function ProductResultsSection({ filteredProducts, onClear, title }: ProductResultsSectionProps) {
+function ProductResultsSection({ filteredProducts, totalProducts, onClear, onLoadMore, title }: ProductResultsSectionProps) {
   const heading = title || "Productos encontrados";
+  const total = totalProducts ?? filteredProducts.length;
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 24 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -10 }}
-      transition={{ duration: 0.35 }}
-      className="bg-white py-12 px-4 sm:px-6 border-t border-gray-100 text-left"
-    >
+    <section className="bg-white py-12 px-4 sm:px-6 border-t border-gray-100 text-left">
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center justify-between mb-8">
           <div>
             <h2 className="text-2xl font-black text-[#1a3a6b]">{heading}</h2>
             <p className="text-[#1a3a6b]/55 text-sm mt-1">
-              {filteredProducts.length} producto{filteredProducts.length !== 1 ? "s" : ""} encontrado{filteredProducts.length !== 1 ? "s" : ""}
+              {total} producto{total !== 1 ? "s" : ""} encontrado{total !== 1 ? "s" : ""}
             </p>
           </div>
           {onClear && (
@@ -697,12 +816,9 @@ function ProductResultsSection({ filteredProducts, onClear, title }: ProductResu
           </div>
         ) : (
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-            {filteredProducts.map((product, i) => (
-              <motion.article
+            {filteredProducts.map((product) => (
+              <article
                 key={product.id}
-                initial={{ opacity: 0, y: 14 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.05 }}
                 className="flex h-full flex-col overflow-hidden rounded-2xl border border-[#1a3a6b]/10 bg-white shadow-sm transition-all hover:-translate-y-0.5 hover:shadow-lg"
               >
                 <Link href={`/productos/${product.slug}`} className="block">
@@ -732,25 +848,30 @@ function ProductResultsSection({ filteredProducts, onClear, title }: ProductResu
                   </Link>
                 </div>
                 </div>
-              </motion.article>
+              </article>
             ))}
           </div>
         )}
+        {onLoadMore && (
+          <div className="mt-8 text-center">
+            <button
+              type="button"
+              onClick={onLoadMore}
+              className="rounded-xl bg-[#1a3a6b] px-6 py-3 text-sm font-black text-white transition-colors hover:bg-[#2eb8d4]"
+            >
+              Mostrar más productos
+            </button>
+          </div>
+        )}
       </div>
-    </motion.section>
+    </section>
   );
 }
 
 
 function BrandResultsSection({ filteredBrands, title, onClear }: BrandResultsSectionProps) {
   return (
-    <motion.section
-      initial={{ opacity: 0, y: 24 }}
-      animate={{ opacity: 1, y: 0 }}
-      exit={{ opacity: 0, y: -10 }}
-      transition={{ duration: 0.35 }}
-      className="bg-white py-12 px-4 sm:px-6 border-t border-gray-100 text-left"
-    >
+    <section className="bg-white py-12 px-4 sm:px-6 border-t border-gray-100 text-left">
       <div className="max-w-6xl mx-auto">
         <div className="flex items-center justify-between mb-8">
           <div>
@@ -776,12 +897,9 @@ function BrandResultsSection({ filteredBrands, title, onClear }: BrandResultsSec
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {filteredBrands.map((brand, i) => (
-              <motion.div
+            {filteredBrands.map((brand) => (
+              <div
                 key={brand.id}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: i * 0.04 }}
                 className="rounded-2xl bg-white border border-gray-100 p-5 hover:-translate-y-1 transition-all duration-200 hover:shadow-lg hover:border-[#2eb8d4]/30"
               >
                 <div className={`w-11 h-11 rounded-xl bg-gradient-to-br ${brand.gradient} flex items-center justify-center mb-4 shadow-sm`}>
@@ -806,11 +924,11 @@ function BrandResultsSection({ filteredBrands, title, onClear }: BrandResultsSec
                     </Link>
                   </div>
                 </div>
-              </motion.div>
+              </div>
             ))}
           </div>
         )}
       </div>
-    </motion.section>
+    </section>
   );
 }
