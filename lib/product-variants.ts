@@ -59,5 +59,20 @@ export function getVariantStock(product: Product, size?: string | null, color?: 
 }
 
 export function getVariantImage(product: Product, size?: string | null, color?: string | null): string | undefined {
-  return product.variants?.find((variant) => variant.size === (size ?? "") && variant.color === (color ?? ""))?.image;
+  const variants = product.variants ?? [];
+  const selectedSize = size ?? "";
+  const selectedColor = color ?? "";
+  const exactImage = variants.find(
+    (variant) => variant.size === selectedSize && variant.color === selectedColor && variant.image
+  )?.image;
+  if (exactImage) return exactImage;
+
+  if (selectedColor) {
+    const colorImage = variants.find((variant) => variant.color === selectedColor && variant.image)?.image;
+    if (colorImage) return colorImage;
+  }
+  if (selectedSize) {
+    return variants.find((variant) => variant.size === selectedSize && variant.image)?.image;
+  }
+  return undefined;
 }

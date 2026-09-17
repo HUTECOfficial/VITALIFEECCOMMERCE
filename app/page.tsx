@@ -388,19 +388,19 @@ function PromocionesSection({
 // ─────────────────────────────────────────────
 function SectoresSection() {
   return (
-    <section className="py-24 lg:py-32 relative overflow-hidden">
-      <div className="ambient-blob w-[400px] h-[400px] bottom-[-100px] right-[-100px] bg-[rgba(46,184,212,0.10)]" />
+    <section className="relative overflow-hidden bg-gradient-to-br from-[#071a3d] via-[#123f73] to-[#167d99] py-24 lg:py-32">
+      <div className="ambient-blob w-[400px] h-[400px] bottom-[-100px] right-[-100px] bg-[rgba(99,223,232,0.18)]" />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <FadeInWhenVisible>
           <div className="text-center mb-16">
-            <span className="inline-flex items-center gap-2 glass-card px-4 py-1.5 text-xs font-bold text-[#2eb8d4] uppercase tracking-widest mb-4">
+            <span className="mb-4 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[#86edf2] backdrop-blur-sm">
               <span className="w-1.5 h-1.5 bg-[#2eb8d4] rounded-full" />
               Nuestros Servicios
             </span>
-            <h2 className="text-4xl sm:text-5xl font-black text-[#1a3a6b] mt-4">
+            <h2 className="mt-4 text-4xl font-black text-white sm:text-5xl">
               Soluciones integrales
               <br />
-              <span className="shimmer-text">para cada necesidad</span>
+              <span className="text-[#86edf2]">para cada necesidad</span>
             </h2>
           </div>
         </FadeInWhenVisible>
@@ -757,7 +757,7 @@ function CategoriasSection() {
                   src={cat.img}
                   alt={`${cat.brand} · ${cat.name}`}
                   fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  className="object-cover transition-transform duration-700 group-hover:scale-[1.03]"
                 />
 
               </motion.div>

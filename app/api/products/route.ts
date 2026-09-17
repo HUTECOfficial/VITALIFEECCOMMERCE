@@ -3,6 +3,7 @@ import { createServerClient } from "@/lib/supabase/server";
 import { products as localProducts } from "@/data/products";
 import type { Product } from "@/types";
 import { readInventoryVariants, readProductVariants } from "@/lib/product-variants";
+import { normalizeProductName, standardizeProductDescription } from "@/lib/product-copy";
 
 const cacheHeaders = {
   // Product images and stock are managed in Supabase. Do not let the browser
@@ -35,11 +36,11 @@ interface ProductRow {
 function mapRow(row: ProductRow): Product {
   return {
     id: row.id,
-    name: row.name,
+    name: normalizeProductName(row.name),
     slug: row.slug,
     category: row.category,
     price: row.price ?? 0,
-    description: row.description ?? "",
+    description: standardizeProductDescription(row.description, row.category, row.quote_only ?? false),
     image: row.image ?? "",
     inStock: row.in_stock ?? false,
     stockQuantity: row.stock_quantity ?? localStockBySlug.get(row.slug),

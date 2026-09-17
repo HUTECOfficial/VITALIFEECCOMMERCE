@@ -239,19 +239,21 @@ function buildProducts() {
   return products;
 }
 
-async function removeStaleInventoryProducts(products) {
-  const inventory = JSON.parse(fs.readFileSync('productos_extraidos.json', 'utf8'));
+async function findStaleInventorySlugs(products) {
   const activeSlugs = new Set(products.map((product) => product.slug));
-  const inventoryCodeSuffixes = inventory.map((record) => `-${slugify(String(record['Clave de artículo ']).trim())}`);
-  const { data, error } = await supabase.from('products').select('slug');
+  const { data, error } = await supabase.from('products').select('slug,quote_only');
   if (error || !data) {
     console.warn('No se pudieron revisar productos obsoletos; se conservaron sin cambios.');
-    return;
+    return [];
   }
 
-  const staleSlugs = data
-    .map((product) => product.slug)
-    .filter((slug) => !activeSlugs.has(slug) && inventoryCodeSuffixes.some((suffix) => slug.endsWith(suffix)));
+  return data
+    .filter((product) => product.quote_only === true && !activeSlugs.has(product.slug))
+    .map((product) => product.slug);
+}
+
+async function removeStaleInventoryProducts(products) {
+  const staleSlugs = await findStaleInventorySlugs(products);
 
   for (let index = 0; index < staleSlugs.length; index += 100) {
     const batch = staleSlugs.slice(index, index + 100);
@@ -265,6 +267,13 @@ async function removeStaleInventoryProducts(products) {
 async function main() {
   const products = buildProducts();
   console.log(`Preparados ${products.length} productos para insertar.`);
+
+  if (process.argv.includes('--dry-run')) {
+    const staleSlugs = await findStaleInventorySlugs(products);
+    console.log(`Vista previa: ${staleSlugs.length} productos anteriores de cotización se eliminarían.`);
+    console.log(staleSlugs.slice(0, 20));
+    return;
+  }
 
   const { error: catErr } = await supabase.from('categories').upsert([
     { name: 'Guantes', slug: 'guantes', description: 'Guantes estériles y no estériles.', image: '/guantes.png', sort_order: 10 },

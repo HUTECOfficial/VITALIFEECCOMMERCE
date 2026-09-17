@@ -150,7 +150,11 @@ export default function AdminDashboard({ products: initialProducts, metricsByPro
 
   async function uploadImage(file: File, variant?: Pick<ProductVariant, "color" | "size">) {
     if (!form) return;
-    const target = variant ? `variant:${variant.color}\u0000${variant.size}` : "product";
+    const target = variant
+      ? variant.color
+        ? `color:${variant.color}`
+        : `variant:${variant.color}\u0000${variant.size}`
+      : "product";
     setUploadingTarget(target);
     setError("");
     try {
@@ -165,9 +169,12 @@ export default function AdminDashboard({ products: initialProducts, metricsByPro
         if (!variant) return { ...current, image: result.url };
         return {
           ...current,
-          variants: current.variants.map((item) => (
-            item.color === variant.color && item.size === variant.size ? { ...item, image: result.url } : item
-          )),
+          variants: current.variants.map((item) => {
+            const matches = variant.color
+              ? item.color === variant.color
+              : item.color === variant.color && item.size === variant.size;
+            return matches ? { ...item, image: result.url } : item;
+          }),
         };
       });
     } catch (reason) {
@@ -272,20 +279,26 @@ function VariantImageManager({ variants, productImage, onUpload, uploadingTarget
   if (!mount) return null;
 
   const hasOptions = variants.some((variant) => variant.color || variant.size);
+  const hasColors = variants.some((variant) => variant.color);
+  const imageRows = hasColors
+    ? [...new Map(variants.filter((variant) => variant.color).map((variant) => [variant.color, variant])).values()]
+    : variants;
 
   return createPortal(
     <div className="rounded-2xl border border-[#1a3a6b]/10 bg-[#f8fcff] p-4">
       <div className="mb-3">
         <p className="font-black text-[#1a3a6b]">{hasOptions ? "Imágenes por variante" : "Foto del producto"}</p>
-        <p className="text-xs text-[#1a3a6b]/60">{hasOptions ? "Carga la foto de cada combinación. Se guarda directamente en Supabase Storage." : "Este producto no tiene variantes; la imagen se guarda como foto principal en Supabase Storage."}</p>
+        <p className="text-xs text-[#1a3a6b]/60">{hasColors ? "Carga una foto por color. La misma imagen se aplicará a todas las tallas de ese color." : hasOptions ? "Carga la foto de cada variante. Se guarda directamente en Supabase Storage." : "Este producto no tiene variantes; la imagen se guarda como foto principal en Supabase Storage."}</p>
       </div>
       <div className="space-y-3">
-        {variants.map((variant) => {
+        {imageRows.map((variant) => {
           const isBaseProduct = !variant.color && !variant.size;
-          const target = isBaseProduct ? "product" : `variant:${variant.color}\u0000${variant.size}`;
+          const target = isBaseProduct ? "product" : variant.color ? `color:${variant.color}` : `variant:${variant.color}\u0000${variant.size}`;
           const uploading = uploadingTarget === target;
           const image = isBaseProduct ? productImage : variant.image;
-          const label = [variant.color && `Color: ${variant.color}`, variant.size && `Talla: ${variant.size}`].filter(Boolean).join(" · ") || "Foto principal";
+          const label = hasColors
+            ? `Color: ${variant.color}`
+            : [variant.size && `Talla / medida: ${variant.size}`].filter(Boolean).join(" · ") || "Foto principal";
           return (
             <div key={`${variant.color}-${variant.size}`} className="flex items-center gap-3 rounded-xl bg-white p-3">
               {image ? <Image src={image} alt="" width={48} height={48} className="h-12 w-12 shrink-0 rounded-lg border border-slate-100 object-contain" /> : <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[#e8f4fd] text-[10px] font-black text-[#1a3a6b]">Sin foto</div>}

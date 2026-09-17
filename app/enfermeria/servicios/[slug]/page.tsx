@@ -107,7 +107,7 @@ export default async function NursingServicePage({ params }: ServicePageProps) {
               ))}
             </div>
           </div>
-          <aside className="rounded-[2rem] bg-[#1a3a6b] p-8 text-white">
+          <aside className="rounded-[2rem] bg-gradient-to-br from-[#071a3d] via-[#1a3a6b] to-[#167d99] p-8 text-white shadow-xl shadow-[#1a3a6b]/15">
             <ShieldCheck className="h-10 w-10 text-[#63d5e8]" />
             <h2 className="mt-5 text-2xl font-black">¿Para quién es ideal?</h2>
             <p className="mt-4 leading-relaxed text-white/75">{service.idealFor}</p>

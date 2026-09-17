@@ -2,6 +2,7 @@ import inventory from "@/productos_extraidos.json";
 import productNameOverrides from "@/data/product-name-overrides.json";
 import { categoryImageById } from "@/data/visualAssets";
 import type { Product } from "@/types";
+import { normalizeProductName, standardizeProductDescription } from "@/lib/product-copy";
 
 type InventoryRecord = {
   "Clave de artículo ": string;
@@ -14,7 +15,7 @@ const namesByArticleCode = productNameOverrides as Record<string, string>;
 
 function getDisplayName(record: InventoryRecord) {
   const articleCode = String(record["Clave de artículo "]).trim();
-  return namesByArticleCode[articleCode] ?? record["Descripción del producto  "];
+  return normalizeProductName(namesByArticleCode[articleCode] ?? record["Descripción del producto  "]);
 }
 
 function getBrandKey(record: InventoryRecord) {
@@ -143,7 +144,7 @@ const groupedProducts: Product[] = [...variantsByBase.entries()]
   .filter(([, group]) => group.length > 1)
   .map(([, group]) => {
     const first = group[0];
-    const name = getVariant(first["Descripción del producto  "])?.baseName ?? first["Descripción del producto  "];
+    const name = normalizeProductName(getVariant(first["Descripción del producto  "])?.baseName ?? first["Descripción del producto  "]);
     const category = getCategory(name);
     return {
       id: `inventory-${first["Clave de artículo "]}`,
@@ -151,7 +152,7 @@ const groupedProducts: Product[] = [...variantsByBase.entries()]
       slug: `${slugify(name)}-${slugify(first["Clave de artículo "])}`,
       category,
       price: 0,
-      description: "Disponible bajo cotización. Elige las opciones disponibles.",
+      description: standardizeProductDescription("", category, true),
       image: getImage(category),
       inStock: group.some((record) => record["existencia real"] > 0),
       stockQuantity: group.reduce((total, record) => total + Math.max(0, record["existencia real"]), 0),
@@ -166,13 +167,14 @@ const individualProducts: Product[] = records
   .map((record) => {
     const sourceName = record["Descripción del producto  "];
     const category = getCategory(sourceName);
+    const name = getDisplayName(record);
     return {
       id: `inventory-${record["Clave de artículo "]}`,
-      name: getDisplayName(record),
+      name,
       slug: `${slugify(sourceName)}-${slugify(record["Clave de artículo "])}`,
       category,
       price: 0,
-      description: `Clave de artículo: ${record["Clave de artículo "]}. Disponible bajo cotización.`,
+      description: standardizeProductDescription("", category, true),
       image: getImage(category),
       inStock: record["existencia real"] > 0,
       stockQuantity: Math.max(0, record["existencia real"]),

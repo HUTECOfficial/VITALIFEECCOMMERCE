@@ -47,13 +47,13 @@ export function ProductImageZoom({ src, images = [], alt }: ProductImageZoomProp
       }}
       aria-label={`Ampliar imagen ${activeImageIndex + 1} de ${alt}`}
       aria-pressed={isZoomed}
-      className="group relative h-80 w-full overflow-hidden rounded-3xl bg-white text-left shadow-lg outline-none focus-visible:ring-4 focus-visible:ring-[#2eb8d4]/50 md:h-96"
+      className="group relative aspect-[8/5] w-full overflow-hidden rounded-3xl bg-transparent text-left outline-none focus-visible:ring-4 focus-visible:ring-[#2eb8d4]/50"
     >
       <Image
         src={activeImage}
         alt={alt}
         fill
-        className={`object-contain p-4 ${isZoomed ? "scale-[1.85]" : "scale-100"} transition-transform duration-200 ease-out`}
+        className={`object-contain mix-blend-multiply ${isZoomed ? "scale-[1.85]" : "scale-100"} transition-transform duration-200 ease-out`}
         style={{ transformOrigin }}
         sizes="(max-width: 768px) 100vw, 50vw"
         priority
@@ -75,7 +75,7 @@ export function ProductImageZoom({ src, images = [], alt }: ProductImageZoomProp
               setIsZoomed(false);
               setTransformOrigin("50% 50%");
             }}
-            className={`relative h-16 w-16 overflow-hidden rounded-xl border-2 bg-white transition-all ${
+            className={`relative h-16 w-16 overflow-hidden rounded-xl border-2 bg-transparent transition-all ${
               activeImageIndex === index
                 ? "border-[#2eb8d4] ring-2 ring-[#2eb8d4]/20"
                 : "border-[#1a3a6b]/10 hover:border-[#2eb8d4]/60"
@@ -83,7 +83,7 @@ export function ProductImageZoom({ src, images = [], alt }: ProductImageZoomProp
             aria-label={`Ver foto ${index + 1} de ${alt}`}
             aria-pressed={activeImageIndex === index}
           >
-            <Image src={image} alt="" fill className="object-contain p-1" sizes="64px" />
+            <Image src={image} alt="" fill className="object-contain mix-blend-multiply" sizes="64px" />
           </button>
         ))}
       </div>

@@ -24,8 +24,12 @@ export default function ProductCard({ product }: ProductCardProps) {
   const [added, setAdded] = useState(false);
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
-  const productName = getProductNameParts(product.name);
-  const presentation = product.presentation || productName.presentation;
+  const productName = getProductNameParts(product.name, product.brand);
+  const brand = product.brand || productName.brand;
+  const compactDetails = [...productName.details];
+  if (product.presentation && !compactDetails.some((detail) => detail.value.toLocaleLowerCase("es-MX") === product.presentation?.toLocaleLowerCase("es-MX"))) {
+    compactDetails.unshift({ label: "Presentación", value: product.presentation });
+  }
   const hasUnselectedVariant = Boolean((product.sizes?.length && !selectedSize) || (product.colors?.length && !selectedColor));
   const selectedVariantStock = hasUnselectedVariant ? undefined : getVariantStock(product, selectedSize, selectedColor);
   const selectedVariantImage = getVariantImage(product, selectedSize, selectedColor);
@@ -82,14 +86,18 @@ export default function ProductCard({ product }: ProductCardProps) {
             {productName.title}
           </h3>
         </Link>
-        {product.brand && (
-          <p className="mt-1 text-[10px] font-black uppercase tracking-wide text-[#1a3a6b]/50">{product.brand}</p>
+        {brand && (
+          <p className="mt-1 text-[10px] font-black uppercase tracking-wide text-[#1a3a6b]/50">{brand}</p>
         )}
-        {presentation && (
-          <p className="mt-1 mb-2 text-[11px] font-bold text-[#1a3a6b]/60">
-            <span className="mr-1 uppercase tracking-wide text-[#2eb8d4]">Presentación</span>
-            {presentation}
-          </p>
+        {compactDetails.length > 0 && (
+          <dl className="mb-2 mt-2 flex flex-wrap gap-1.5">
+            {compactDetails.slice(0, 2).map((detail, index) => (
+              <div key={`${detail.label}-${detail.value}-${index}`} className="rounded-lg bg-[#e8f4fd] px-2 py-1 text-[10px] leading-tight text-[#1a3a6b]">
+                <dt className="inline font-black uppercase tracking-wide text-[#2eb8d4]">{detail.label}: </dt>
+                <dd className="inline font-bold">{detail.value}</dd>
+              </div>
+            ))}
+          </dl>
         )}
         <p className="text-gray-500 text-xs leading-relaxed mb-3 line-clamp-2">
           {product.description}

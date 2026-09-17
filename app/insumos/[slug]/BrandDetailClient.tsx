@@ -11,7 +11,7 @@ import { formatPrice } from "@/lib/utils";
 import { categoryLabels } from "@/data/products";
 import { ShoppingCartButton } from "@/components/ui/ShoppingCartButton";
 import { StockIndicator } from "@/components/ui/StockIndicator";
-import { getProductNameParts } from "@/lib/product-name";
+import { ProductCatalogSummary } from "@/components/ui/ProductCatalogSummary";
 import { brandCategoryToProductCategories } from "@/data/catalogCategories";
 
 interface Props {
@@ -240,12 +240,7 @@ export default function BrandDetailClient({ brand, total }: Props) {
                       <Image src={product.image} alt={product.name} fill className="object-contain p-3" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
                     </Link>
                     <p className="text-[11px] uppercase tracking-wide font-bold text-[#2eb8d4] mb-1">{categoryLabels[product.category]}</p>
-                    <Link href={`/productos/${product.slug}`}>
-                      <h3 className="font-black text-[#1a3a6b] text-base leading-tight hover:text-[#2eb8d4] transition-colors">{getProductNameParts(product.name).title}</h3>
-                    </Link>
-                    {(product.presentation || getProductNameParts(product.name).presentation) && (
-                      <p className="mt-1 mb-2 text-[11px] font-bold text-[#1a3a6b]/60"><span className="mr-1 uppercase tracking-wide text-[#2eb8d4]">Presentación</span>{product.presentation || getProductNameParts(product.name).presentation}</p>
-                    )}
+                    <ProductCatalogSummary product={product} />
                     <p className="text-xs text-[#1a3a6b]/60 line-clamp-2 min-h-9 mb-3">{product.description}</p>
                     <div className="flex items-center justify-between mb-3">
                       {!product.quoteOnly && <span className="text-[#1a3a6b] font-black text-lg">{formatPrice(product.price)}</span>}

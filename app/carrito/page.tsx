@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Trash2, Plus, Minus, ShoppingCart, ArrowRight } from "lucide-react";
+import { Trash2, Plus, Minus, ShoppingCart, ArrowRight, Truck } from "lucide-react";
 import { useClientCart } from "@/store/cartStore";
 import { formatPrice } from "@/lib/utils";
 import { STRIPE_MINIMUM_ORDER_MXN, calculateCheckoutTotals } from "@/lib/checkout";
@@ -244,6 +244,15 @@ export default function CarritoPage() {
                 <h2 className="font-bold text-[#1a3a6b] text-lg mb-5">
                   Resumen del pedido
                 </h2>
+                <div className="mb-5 flex items-start gap-3 rounded-2xl bg-gradient-to-r from-[#e8f4fd] to-[#d8f3f8] p-3.5 text-[#1a3a6b]">
+                  <span className="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-white shadow-sm">
+                    <Truck className="h-5 w-5 text-[#2eb8d4]" />
+                  </span>
+                  <div>
+                    <p className="text-sm font-black">Envíos a toda la República Mexicana</p>
+                    <p className="mt-0.5 text-xs text-[#1a3a6b]/65">El costo y el tiempo de entrega se confirman según tu código postal.</p>
+                  </div>
+                </div>
                 <div className="space-y-3 mb-5">
                   <div className="flex justify-between text-sm text-gray-600">
                     <span>Subtotal</span>

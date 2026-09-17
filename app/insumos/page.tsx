@@ -22,7 +22,7 @@ import { useClientCartCount } from "@/store/cartStore";
 import { ShoppingCartButton } from "@/components/ui/ShoppingCartButton";
 import { StockIndicator } from "@/components/ui/StockIndicator";
 import IntrinsicImage from "@/components/ui/IntrinsicImage";
-import { getProductNameParts } from "@/lib/product-name";
+import { ProductCatalogSummary } from "@/components/ui/ProductCatalogSummary";
 import { categoryImageById } from "@/data/visualAssets";
 import { useSiteContent } from "@/hooks/useSiteContent";
 
@@ -450,12 +450,7 @@ function InsumosContent() {
                     </Link>
                     <div className="flex flex-1 flex-col p-4">
                     <p className="text-[11px] uppercase tracking-wide font-bold text-[#2eb8d4] mb-1">{categoryLabels[product.category]}</p>
-                    <Link href={`/productos/${product.slug}`}>
-                      <h3 className="font-black text-[#1a3a6b] text-base leading-tight hover:text-[#2eb8d4] transition-colors">{getProductNameParts(product.name).title}</h3>
-                    </Link>
-                    {(product.presentation || getProductNameParts(product.name).presentation) && (
-                      <p className="mt-1 mb-2 text-[11px] font-bold text-[#1a3a6b]/60"><span className="mr-1 uppercase tracking-wide text-[#2eb8d4]">Presentación</span>{product.presentation || getProductNameParts(product.name).presentation}</p>
-                    )}
+                    <ProductCatalogSummary product={product} showBrand />
                     <p className="text-xs text-[#1a3a6b]/60 line-clamp-2 min-h-9 mb-3">{product.description}</p>
                     <div className="flex items-center justify-between mb-3">
                       {!product.quoteOnly && <span className="text-[#1a3a6b] font-black text-lg">{formatPrice(product.price)}</span>}
@@ -597,21 +592,25 @@ function RegularCard({ cat, config, active, onClick, delay }: CardProps) {
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay }}
       onClick={onClick}
-      className={`relative rounded-2xl overflow-hidden bg-white cursor-pointer group border-2 transition-all duration-300 hover:shadow-lg ${
+      className={`relative rounded-2xl overflow-hidden bg-white cursor-pointer group border-2 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg ${
         active ? "border-[#2eb8d4] shadow-lg shadow-[#2eb8d4]/25" : "border-transparent hover:border-[#2eb8d4]/40"
       }`}
       style={{ minHeight: 155 }}>
-      {/* Product image — right side peek */}
-      <div className="absolute right-0 top-0 bottom-0 w-32 pointer-events-none">
-        <Image src={config.img} alt={categoryLabels[cat]} fill className="object-cover" />
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/65 to-transparent" />
-      </div>
+      <Image
+        src={config.img}
+        alt={categoryLabels[cat]}
+        fill
+        sizes="(max-width: 768px) 100vw, 25vw"
+        className="object-cover transition-transform duration-500 group-hover:scale-105"
+      />
+      <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-white/10" />
+      <div className="absolute inset-0 bg-gradient-to-t from-[#dceeff]/45 via-transparent to-transparent" />
       <div className="relative z-10 p-4">
         <div className={`w-10 h-10 rounded-xl ${config.iconBg} flex items-center justify-center mb-3`}>
           <Icon className={`w-5 h-5 ${config.iconColor}`} />
         </div>
         <h3 className="font-black text-[#1a3a6b] text-base leading-tight mb-1">{categoryLabels[cat]}</h3>
-        <p className="text-[#1a3a6b]/55 text-xs leading-relaxed mb-3 max-w-[62%]">{config.desc}</p>
+        <p className="text-[#1a3a6b]/65 text-xs leading-relaxed mb-3 max-w-[66%]">{config.desc}</p>
         <span className="inline-flex items-center text-[#2eb8d4] text-xs font-bold gap-1 group-hover:gap-2 transition-all duration-200">
           Ver productos →
         </span>
@@ -626,24 +625,27 @@ function CompactCard({ cat, config, active, onClick, delay }: CardProps) {
   return (
     <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay }}
       onClick={onClick}
-      className={`relative rounded-2xl overflow-hidden bg-white cursor-pointer group border-2 transition-all duration-300 hover:shadow-md ${
-        active ? "border-[#2eb8d4] shadow-md shadow-[#2eb8d4]/25" : "border-transparent hover:border-[#2eb8d4]/40"
+      className={`relative rounded-2xl overflow-hidden bg-gradient-to-br from-[#1a3a6b] via-[#174f82] to-[#2eb8d4] cursor-pointer group border-2 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg ${
+        active ? "border-[#7ee8f2] shadow-lg shadow-[#2eb8d4]/35" : "border-white/15 hover:border-white/50"
       }`}>
-      {/* Small image peek */}
-      <div className="absolute bottom-0 right-0 w-16 h-16 pointer-events-none opacity-60">
-        <Image src={config.img} alt={categoryLabels[cat]} fill className="object-cover rounded-tl-xl" />
-        <div className="absolute inset-0 bg-gradient-to-br from-white/90 to-transparent" />
-      </div>
+      <Image
+        src={config.img}
+        alt={categoryLabels[cat]}
+        fill
+        sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw"
+        className="object-cover transition-transform duration-500 group-hover:scale-105"
+      />
+      <div className="absolute inset-0 bg-gradient-to-br from-[#071a3d]/92 via-[#174f82]/78 to-[#2eb8d4]/40" />
       <div className="relative z-10 p-4">
-        <div className={`w-9 h-9 rounded-xl ${config.iconBg} flex items-center justify-center mb-2`}>
-          <Icon className={`w-4 h-4 ${config.iconColor}`} />
+        <div className="mb-2 flex h-9 w-9 items-center justify-center rounded-xl border border-white/20 bg-white/15 backdrop-blur-sm">
+          <Icon className="h-4 w-4 text-white" />
         </div>
-        <h3 className="font-black text-[#1a3a6b] text-sm leading-tight">{categoryLabels[cat]}</h3>
-        <span className="block text-[#2eb8d4] text-[10px] font-bold mt-2 group-hover:translate-x-0.5 transition-transform">
-          Ver →
+        <h3 className="font-black text-white text-sm leading-tight">{categoryLabels[cat]}</h3>
+        <span className="mt-2 block text-[10px] font-bold text-white/75 transition-transform group-hover:translate-x-0.5 group-hover:text-white">
+          Ver productos →
         </span>
       </div>
-      {active && <div className="absolute top-2 right-2 w-2 h-2 rounded-full bg-[#2eb8d4] animate-pulse" />}
+      {active && <div className="absolute top-2 right-2 h-2 w-2 animate-pulse rounded-full bg-white shadow-[0_0_10px_white]" />}
     </motion.div>
   );
 }
@@ -714,12 +716,7 @@ function ProductResultsSection({ filteredProducts, onClear, title }: ProductResu
                 </Link>
                 <div className="flex flex-1 flex-col p-4">
                 <p className="text-[11px] uppercase tracking-wide font-bold text-[#2eb8d4] mb-1">{categoryLabels[product.category]}</p>
-                <Link href={`/productos/${product.slug}`}>
-                  <h3 className="font-black text-[#1a3a6b] text-base leading-tight hover:text-[#2eb8d4] transition-colors">{getProductNameParts(product.name).title}</h3>
-                </Link>
-                {(product.presentation || getProductNameParts(product.name).presentation) && (
-                  <p className="mt-1 mb-2 text-[11px] font-bold text-[#1a3a6b]/60"><span className="mr-1 uppercase tracking-wide text-[#2eb8d4]">Presentación</span>{product.presentation || getProductNameParts(product.name).presentation}</p>
-                )}
+                <ProductCatalogSummary product={product} showBrand />
                 <p className="text-xs text-[#1a3a6b]/60 line-clamp-2 min-h-9 mb-3">{product.description}</p>
                 <div className="flex items-center justify-between mb-3">
                   {!product.quoteOnly && <span className="text-[#1a3a6b] font-black text-lg">{formatPrice(product.price)}</span>}

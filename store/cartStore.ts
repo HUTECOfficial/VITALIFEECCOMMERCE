@@ -4,6 +4,7 @@ import { useSyncExternalStore } from "react";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 import { CartItem, Product } from "@/types";
+import { getVariantImage } from "@/lib/product-variants";
 
 function availableStock(product: Product, size?: string, color?: string) {
   const variant = product.variants?.find(
@@ -47,7 +48,16 @@ export const useCartStore = create<CartStore>()(
               ),
             };
           }
-          return { items: [...items, { ...product, quantity: quantityToAdd, size, color, cartId }] };
+          return {
+            items: [...items, {
+              ...product,
+              image: getVariantImage(product, size, color) ?? product.image,
+              quantity: quantityToAdd,
+              size,
+              color,
+              cartId,
+            }],
+          };
         });
       },
 

@@ -1,6 +1,7 @@
 import { createServerClient } from "@/lib/supabase/server";
 import type { Product } from "@/types";
 import { productVariantsToStorage, readInventoryVariants, readProductVariants } from "@/lib/product-variants";
+import { normalizeProductName, standardizeProductDescription } from "@/lib/product-copy";
 
 export type ProductMetrics = {
   unitsSold: number;
@@ -35,11 +36,11 @@ type ProductRow = {
 function mapProduct(row: ProductRow): Product {
   return {
     id: row.id,
-    name: row.name,
+    name: normalizeProductName(row.name),
     slug: row.slug,
     category: row.category,
     price: Number(row.price ?? 0),
-    description: row.description ?? "",
+    description: standardizeProductDescription(row.description, row.category, row.quote_only ?? false),
     image: row.image ?? "",
     inStock: row.in_stock ?? false,
     stockQuantity: row.stock_quantity ?? 0,

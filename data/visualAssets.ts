@@ -36,15 +36,15 @@ export const nursingServiceImageById = {
 } as const;
 
 export const homepageCategoryBrandImageById = {
-  quirurgico: storageImage("Ambiderm.png"),
-  diagnostico: storageImage("Amsa.png"),
-  guantes: storageImage("Nipro.png"),
-  curacion: storageImage("Pisa.png"),
-  "sondas-cateteres": storageImage("Atramat.png"),
-  "terapia-iv": storageImage("Edigar.png"),
-  rehabilitacion: storageImage("BD.png"),
-  respiratorio: storageImage("Vizcarra.png"),
-  "atencion-paciente": storageImage("Protec.png"),
+  quirurgico: "/category-brands/Ambiderm.png",
+  diagnostico: "/category-brands/Amsa.png",
+  guantes: "/category-brands/Nipro.png",
+  curacion: "/category-brands/Pisa.png",
+  "sondas-cateteres": "/category-brands/Atramat.png",
+  "terapia-iv": "/category-brands/Edigar.png",
+  rehabilitacion: "/category-brands/BD.png",
+  respiratorio: "/category-brands/Vizcarra.png",
+  "atencion-paciente": "/category-brands/Protec.png",
 } satisfies Partial<Record<ProductCategory, string>>;
 
 export const homepageBrandLogos = [
