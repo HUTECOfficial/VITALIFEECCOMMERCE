@@ -20,6 +20,7 @@ for (const rows of Object.values(workbook)) {
   const stockIndex = headers.findIndex((header) => header.includes("existencia real"));
   const statusIndex = headers.findIndex((header) => header.includes("estatus"));
   const nameIndex = headers.findIndex((header) => header.includes("descripción del producto"));
+  const codeIndex = headers.findIndex((header) => header.includes("clave de artículo") || header.includes("clave del artículo") || header === "código");
 
   if (nameIndex < 0) continue;
 
@@ -27,9 +28,11 @@ for (const rows of Object.values(workbook)) {
     const name = String(row[nameIndex] ?? "").replace(/\s+/g, " ").trim();
     if (!name) continue;
 
-    const key = name.toLocaleUpperCase("es-MX");
+    const articleCode = codeIndex >= 0 ? String(row[codeIndex] ?? "").trim() : "";
+    const key = articleCode || name.toLocaleUpperCase("es-MX");
     const current = products.get(key) ?? {
       name,
+      articleCode,
       stockQuantity: 0,
       warehouse: String(row[warehouseIndex] ?? "").trim(),
       active: false,
@@ -45,7 +48,7 @@ const records = [...products.values()]
   .sort((a, b) => a.name.localeCompare(b.name, "es-MX"))
   .map((product, index) => ({
     "Descripción del almacén  ": product.warehouse || "Almacén Medicamentos",
-    "Clave de artículo ": `CAT${String(index + 1).padStart(4, "0")}`,
+    "Clave de artículo ": product.articleCode || `CAT${String(index + 1).padStart(4, "0")}`,
     "existencia real": product.stockQuantity,
     "Existencias ": product.stockQuantity,
     "Estatus ": product.active ? "Activo" : "Inactivo",

@@ -144,8 +144,15 @@ function getImage(name, category) {
   return placeholders[category] || '/diagnostico.png';
 }
 
+function isManagedImage(image) {
+  return typeof image === 'string' && image.includes('/storage/v1/object/public/VITALIFE/');
+}
+
 function getProductImage(slug, name, category) {
-  return productImageOverrides[slug] || getImage(name, category);
+  if (productImageOverrides[slug]) return productImageOverrides[slug];
+  const normalizedName = normalize(name);
+  const matches = Object.entries(productImageOverrides).filter(([key]) => key === normalizedName || key.startsWith(`${normalizedName}-`));
+  return matches.length === 1 ? matches[0][1] : getImage(name, category);
 }
 
 function buildProducts() {
@@ -239,16 +246,39 @@ function buildProducts() {
   return products;
 }
 
+async function preserveManagedProductImages(products) {
+  const { data, error } = await supabase.from('products').select('name,slug,image');
+  if (error || !data) {
+    console.warn('No se pudieron consultar las imágenes administradas; se conservaron los valores del catálogo local.');
+    return products;
+  }
+
+  const bySlug = new Map(data.map((product) => [product.slug, product]));
+  const byName = new Map();
+  for (const product of data) {
+    const key = normalize(product.name);
+    const matches = byName.get(key) || [];
+    matches.push(product);
+    byName.set(key, matches);
+  }
+
+  return products.map((product) => {
+    const nameMatches = byName.get(normalize(product.name)) || [];
+    const existing = bySlug.get(product.slug) || (nameMatches.length === 1 ? nameMatches[0] : null);
+    return existing && isManagedImage(existing.image) ? { ...product, image: existing.image } : product;
+  });
+}
+
 async function findStaleInventorySlugs(products) {
   const activeSlugs = new Set(products.map((product) => product.slug));
-  const { data, error } = await supabase.from('products').select('slug,quote_only');
+  const { data, error } = await supabase.from('products').select('slug,quote_only,image');
   if (error || !data) {
     console.warn('No se pudieron revisar productos obsoletos; se conservaron sin cambios.');
     return [];
   }
 
   return data
-    .filter((product) => product.quote_only === true && !activeSlugs.has(product.slug))
+    .filter((product) => product.quote_only === true && !activeSlugs.has(product.slug) && !isManagedImage(product.image))
     .map((product) => product.slug);
 }
 
@@ -265,7 +295,8 @@ async function removeStaleInventoryProducts(products) {
 }
 
 async function main() {
-  const products = buildProducts();
+  let products = buildProducts();
+  products = await preserveManagedProductImages(products);
   console.log(`Preparados ${products.length} productos para insertar.`);
 
   if (process.argv.includes('--dry-run')) {

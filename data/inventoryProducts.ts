@@ -1,5 +1,6 @@
 import inventory from "@/productos_extraidos.json";
 import productNameOverrides from "@/data/product-name-overrides.json";
+import productImageOverrides from "@/data/product-image-overrides.json";
 import { categoryImageById } from "@/data/visualAssets";
 import type { Product } from "@/types";
 import { normalizeProductName, standardizeProductDescription } from "@/lib/product-copy";
@@ -12,6 +13,7 @@ type InventoryRecord = {
 };
 
 const namesByArticleCode = productNameOverrides as Record<string, string>;
+const imagesBySlug = productImageOverrides as Record<string, string>;
 
 function getDisplayName(record: InventoryRecord) {
   const articleCode = String(record["Clave de artículo "]).trim();
@@ -118,8 +120,11 @@ function getCategory(name: string): Product["category"] {
   return "medicamentos";
 }
 
-function getImage(category: Product["category"]) {
-  return categoryImageById[category];
+function getImage(slug: string, name: string, category: Product["category"]) {
+  if (imagesBySlug[slug]) return imagesBySlug[slug];
+  const normalizedName = slugify(name);
+  const matches = Object.entries(imagesBySlug).filter(([key]) => key === normalizedName || key.startsWith(`${normalizedName}-`));
+  return matches.length === 1 ? matches[0][1] : categoryImageById[category];
 }
 
 const records = inventory as InventoryRecord[];
@@ -146,14 +151,15 @@ const groupedProducts: Product[] = [...variantsByBase.entries()]
     const first = group[0];
     const name = normalizeProductName(getVariant(first["Descripción del producto  "])?.baseName ?? first["Descripción del producto  "]);
     const category = getCategory(name);
+    const slug = `${slugify(name)}-${slugify(first["Clave de artículo "])}`;
     return {
       id: `inventory-${first["Clave de artículo "]}`,
       name,
-      slug: `${slugify(name)}-${slugify(first["Clave de artículo "])}`,
+      slug,
       category,
       price: 0,
       description: standardizeProductDescription("", category, true),
-      image: getImage(category),
+      image: getImage(slug, name, category),
       inStock: group.some((record) => record["existencia real"] > 0),
       stockQuantity: group.reduce((total, record) => total + Math.max(0, record["existencia real"]), 0),
       sizes: [...new Set(group.flatMap((record) => getVariant(record["Descripción del producto  "])?.sizes ?? []))],
@@ -168,14 +174,15 @@ const individualProducts: Product[] = records
     const sourceName = record["Descripción del producto  "];
     const category = getCategory(sourceName);
     const name = getDisplayName(record);
+    const slug = `${slugify(sourceName)}-${slugify(record["Clave de artículo "])}`;
     return {
       id: `inventory-${record["Clave de artículo "]}`,
       name,
-      slug: `${slugify(sourceName)}-${slugify(record["Clave de artículo "])}`,
+      slug,
       category,
       price: 0,
       description: standardizeProductDescription("", category, true),
-      image: getImage(category),
+      image: getImage(slug, name, category),
       inStock: record["existencia real"] > 0,
       stockQuantity: Math.max(0, record["existencia real"]),
       quoteOnly: true,
