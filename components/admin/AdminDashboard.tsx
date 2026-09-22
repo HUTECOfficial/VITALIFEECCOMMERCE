@@ -52,6 +52,8 @@ const blankForm: ProductForm = {
 };
 
 function toForm(product: Product): ProductForm {
+  const sizes = product.sizes?.join(", ") ?? "";
+  const colors = product.colors?.join(", ") ?? "";
   return {
     id: product.id,
     name: product.name,
@@ -61,9 +63,16 @@ function toForm(product: Product): ProductForm {
     description: product.description,
     image: product.image,
     stockQuantity: String(product.stockQuantity ?? 0),
-    sizes: product.sizes?.join(", ") ?? "",
-    colors: product.colors?.join(", ") ?? "",
-    variants: product.variants?.length ? product.variants : [{ color: "", size: "", stockQuantity: product.stockQuantity ?? 0 }],
+    sizes,
+    colors,
+    // Older catalog records can have declared sizes/colors but only the
+    // original no-options inventory row. Reconcile it as soon as the editor
+    // opens so a photo-only edit is not rejected by the API.
+    variants: buildVariants(
+      parseOptions(sizes),
+      parseOptions(colors),
+      product.variants?.length ? product.variants : [{ color: "", size: "", stockQuantity: product.stockQuantity ?? 0 }]
+    ),
     featured: product.featured ?? false,
     quoteOnly: product.quoteOnly ?? false,
     brand: product.brand ?? "",
@@ -79,10 +88,22 @@ function buildVariants(sizes: string[], colors: string[], current: ProductVarian
   const availableSizes = sizes.length ? sizes : [""];
   const availableColors = colors.length ? colors : [""];
   const variantByKey = new Map(current.map((variant) => [`${variant.color}\u0000${variant.size}`, variant]));
-  return availableColors.flatMap((color) => availableSizes.map((size) => {
+  const validKeys = new Set(availableColors.flatMap((color) => availableSizes.map((size) => `${color}\u0000${size}`)));
+  const stockWithoutDestination = current
+    .filter((variant) => !validKeys.has(`${variant.color}\u0000${variant.size}`))
+    .reduce((total, variant) => total + variant.stockQuantity, 0);
+  const variants = availableColors.flatMap((color) => availableSizes.map((size) => {
     const existing = variantByKey.get(`${color}\u0000${size}`);
     return { color, size, stockQuantity: existing?.stockQuantity ?? 0, image: existing?.image };
   }));
+
+  // Do not silently lose inventory when converting a legacy no-options row
+  // into sizes/colors (or when the available options are adjusted). The first
+  // available variant receives it and can then be redistributed in the form.
+  if (stockWithoutDestination && variants[0]) {
+    variants[0] = { ...variants[0], stockQuantity: variants[0].stockQuantity + stockWithoutDestination };
+  }
+  return variants;
 }
 
 function MetricCard({ icon: Icon, label, value, tone = "navy" }: { icon: typeof Boxes; label: string; value: string; tone?: "navy" | "teal" | "green" }) {

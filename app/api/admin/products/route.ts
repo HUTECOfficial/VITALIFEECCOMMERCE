@@ -49,13 +49,32 @@ export function parseProductInput(value: unknown): Omit<Product, "id"> | { error
       const key = `${color}\u0000${size}`;
       if (!Number.isFinite(stockQuantity) || stockQuantity < 0) return { error: "El stock de cada variante debe ser un entero mayor o igual a cero." };
       if (seen.has(key)) return { error: "No puede haber variantes de inventario repetidas." };
-      if ((colors.length ? !colors.includes(color) : Boolean(color)) || (sizes.length ? !sizes.includes(size) : Boolean(size))) {
-        return { error: "Cada variante debe corresponder a un color y una talla/medida del producto." };
-      }
       seen.add(key);
       variants.push({ color, size, stockQuantity, image: image || undefined });
     }
     if (!variants.length) return { error: "Agrega al menos una variante de inventario." };
+
+    const usesOptions = Boolean(colors.length || sizes.length);
+    const isLegacyDefaultVariant = variants.length === 1 && !variants[0].color && !variants[0].size;
+    if (usesOptions && isLegacyDefaultVariant) {
+      // Catalog entries created before variant inventory may still contain one
+      // no-options row while their saved sizes/colors are already populated.
+      // Convert that row on save instead of rejecting a photo-only edit.
+      const availableColors = colors.length ? colors : [""];
+      const availableSizes = sizes.length ? sizes : [""];
+      const legacyVariant = variants[0];
+      variants = availableColors.flatMap((color, colorIndex) => availableSizes.map((size, sizeIndex) => ({
+        color,
+        size,
+        stockQuantity: colorIndex === 0 && sizeIndex === 0 ? legacyVariant.stockQuantity : 0,
+        image: colorIndex === 0 && sizeIndex === 0 ? legacyVariant.image : undefined,
+      })));
+    } else if (variants.some((variant) => (
+      (colors.length ? !colors.includes(variant.color) : Boolean(variant.color))
+      || (sizes.length ? !sizes.includes(variant.size) : Boolean(variant.size))
+    ))) {
+      return { error: "Cada variante debe corresponder a un color y una talla/medida del producto." };
+    }
   } else {
     variants = [{ color: "", size: "", stockQuantity: suppliedStockQuantity }];
   }
