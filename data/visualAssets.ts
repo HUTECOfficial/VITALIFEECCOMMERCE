@@ -58,4 +58,6 @@ export const homepageBrandLogos = [
   { id: "nipro", name: "Nipro", src: storageImage("Nipro.png") },
   { id: "protec", name: "Protec", src: storageImage("Protec.png") },
   { id: "vizcarra", name: "Vizcarra", src: storageImage("Vizcarra.png") },
+  { id: "le-roy", name: "Le Roy", src: "/brands/le-roy.png" },
+  { id: "ideal", name: "Ideal · Laboratorios Le Roy", src: "/brands/le-roy.png" },
 ] as const;

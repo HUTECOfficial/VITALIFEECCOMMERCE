@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { FormEvent, useState } from "react";
+import { FormEvent, useState, type ReactNode } from "react";
 import { ImageUp, Save } from "lucide-react";
 import {
   siteContentDefinitions,
@@ -14,7 +14,7 @@ import {
 
 type Feedback = { tone: "success" | "error"; message: string };
 
-export default function SiteContentEditor({ initialContent }: { initialContent: AllSiteContent }) {
+export default function SiteContentEditor({ initialContent, featuredProductsEditor }: { initialContent: AllSiteContent; featuredProductsEditor?: ReactNode }) {
   const [activePage, setActivePage] = useState<SiteContentPage>(siteContentPages[0]);
   const [content, setContent] = useState(initialContent);
   const [saving, setSaving] = useState<string | null>(null);
@@ -140,6 +140,7 @@ export default function SiteContentEditor({ initialContent }: { initialContent: 
                   />
                 ))}
               </div>
+              {activePage === "homepage" && section === "featuredProductsHeader" && featuredProductsEditor}
               <div className="mt-5 flex flex-col gap-3 border-t border-[#1a3a6b]/10 pt-4 sm:flex-row sm:items-center sm:justify-between">
                 <div className="min-h-5 text-sm font-semibold" aria-live="polite">
                   {sectionFeedback && <p role={sectionFeedback.tone === "error" ? "alert" : "status"} className={sectionFeedback.tone === "error" ? "text-rose-700" : "text-emerald-700"}>{sectionFeedback.message}</p>}

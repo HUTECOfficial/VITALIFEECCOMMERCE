@@ -1,8 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { FormEvent, useEffect, useMemo, useState } from "react";
-import { createPortal } from "react-dom";
+import { FormEvent, useMemo, useState } from "react";
 import { useRouter } from "next/navigation";
 import {
   BarChart3, Boxes, DollarSign, ImageUp, LogOut, Pencil, Plus,
@@ -136,6 +135,7 @@ export default function AdminDashboard({ products: initialProducts, metricsByPro
     if (!term) return products;
     return products.filter((product) => product.name.toLowerCase().includes(term) || product.slug.toLowerCase().includes(term));
   }, [products, query]);
+  const featuredProducts = products.filter((product) => product.featured).sort((a, b) => a.name.localeCompare(b.name, "es-MX"));
   const best = ranked[0];
   const variantStockTotal = form?.variants.reduce((total, variant) => total + variant.stockQuantity, 0) ?? 0;
 
@@ -172,9 +172,7 @@ export default function AdminDashboard({ products: initialProducts, metricsByPro
   async function uploadImage(file: File, variant?: Pick<ProductVariant, "color" | "size">) {
     if (!form) return;
     const target = variant
-      ? variant.color
-        ? `color:${variant.color}`
-        : `variant:${variant.color}\u0000${variant.size}`
+      ? `variant:${variant.color}\u0000${variant.size}`
       : "product";
     setUploadingTarget(target);
     setError("");
@@ -190,12 +188,11 @@ export default function AdminDashboard({ products: initialProducts, metricsByPro
         if (!variant) return { ...current, image: result.url };
         return {
           ...current,
-          variants: current.variants.map((item) => {
-            const matches = variant.color
-              ? item.color === variant.color
-              : item.color === variant.color && item.size === variant.size;
-            return matches ? { ...item, image: result.url } : item;
-          }),
+          variants: current.variants.map((item) =>
+            item.color === variant.color && item.size === variant.size
+              ? { ...item, image: result.url }
+              : item
+          ),
         };
       });
     } catch (reason) {
@@ -246,7 +243,29 @@ export default function AdminDashboard({ products: initialProducts, metricsByPro
         </header>
 
         {error && <div className="mb-5 rounded-xl border border-rose-200 bg-rose-50 px-4 py-3 text-sm font-semibold text-rose-700">{error}</div>}
-        <SiteContentEditor initialContent={initialContent} />
+        <SiteContentEditor
+          initialContent={initialContent}
+          featuredProductsEditor={
+            <div className="mt-5 border-t border-[#1a3a6b]/10 pt-4">
+              <h4 className="font-black text-[#1a3a6b]">Imágenes de productos destacados</h4>
+              <p className="mt-1 text-xs text-[#1a3a6b]/60">Cambia la foto principal del producto y guarda el producto para publicarla en inicio y catálogo. Se muestran los primeros cuatro destacados por nombre.</p>
+              <div className="mt-3 grid gap-3 sm:grid-cols-2">
+                {featuredProducts.map((product) => (
+                  <div key={product.id} className="rounded-xl border border-[#1a3a6b]/10 bg-white p-3">
+                    <div className="relative mb-2 h-24 overflow-hidden rounded-lg bg-[#f7fbfe]">
+                      {product.image ? <Image src={product.image} alt={product.name} fill sizes="240px" unoptimized className="object-contain p-2" /> : <span className="flex h-full items-center justify-center text-xs text-slate-500">Sin foto</span>}
+                    </div>
+                    <p className="text-sm font-bold text-[#1a3a6b]">{product.name}</p>
+                    <button type="button" onClick={() => { setError(""); setForm(toForm(product)); }} className="mt-3 inline-flex min-h-11 items-center gap-2 rounded-lg bg-[#e8f4fd] px-3 py-2 text-xs font-bold text-[#1a3a6b] hover:bg-[#d7ecf9]">
+                      <ImageUp className="h-4 w-4" /> Cambiar imagen
+                    </button>
+                  </div>
+                ))}
+              </div>
+              {!featuredProducts.length && <p className="mt-3 text-sm text-[#1a3a6b]/60">Marca un producto como destacado desde el catálogo para editar aquí su imagen.</p>}
+            </div>
+          }
+        />
 
         <div className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4"><MetricCard icon={Boxes} label="Productos activos" value={String(products.length)} /><MetricCard icon={BarChart3} label="Unidades vendidas" value={String(totalUnitsSold)} tone="teal" /><MetricCard icon={DollarSign} label="Ingresos cobrados" value={formatPrice(totalRevenue)} tone="green" /><MetricCard icon={TrendingUp} label="Más vendido" value={best ? best.product.name : "Sin ventas"} /></div>
 
@@ -261,8 +280,7 @@ export default function AdminDashboard({ products: initialProducts, metricsByPro
         </article>
       </div>
 
-      {form && <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#071a3d]/45 p-4 backdrop-blur-sm"><form onSubmit={save} className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl bg-white p-6 shadow-2xl"><div className="mb-5 flex items-center justify-between"><div><p className="text-xs font-black uppercase tracking-[0.18em] text-[#2eb8d4]">Catálogo</p><h2 className="text-2xl font-black text-[#1a3a6b]">{form.id ? "Editar producto" : "Nuevo producto"}</h2></div><button type="button" onClick={() => setForm(null)} className="rounded-full bg-slate-100 p-2 text-[#1a3a6b]" aria-label="Cerrar"><X className="h-5 w-5" /></button></div><div className="grid gap-4 sm:grid-cols-2"><Field label="Nombre" value={form.name} onChange={(value) => setForm({ ...form, name: value })} required /><Field label="Slug (URL)" value={form.slug} onChange={(value) => setForm({ ...form, slug: value })} /><Field label="Marca (opcional)" value={form.brand} onChange={(value) => setForm({ ...form, brand: value })} /><label className="block text-sm font-bold text-[#1a3a6b]">Presentación (opcional)<select value={form.presentation} onChange={(event) => setForm({ ...form, presentation: event.target.value })} className="mt-1.5 w-full rounded-xl border border-slate-200 px-3 py-2.5 font-normal outline-none focus:border-[#2eb8d4]"><option value="">Sin especificar</option>{presentationOptions.map((option) => <option key={option} value={option}>{option}</option>)}</select></label><label className="block text-sm font-bold text-[#1a3a6b]">Categoría<select value={form.category} onChange={(event) => setForm({ ...form, category: event.target.value as Product["category"] })} className="mt-1.5 w-full rounded-xl border border-slate-200 px-3 py-2.5 font-normal outline-none focus:border-[#2eb8d4]">{Object.entries(categoryLabels).map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select></label><Field label="Precio (MXN)" type="number" min="0" step="0.01" value={form.price} onChange={(value) => setForm({ ...form, price: value })} required /><div className="rounded-xl border border-[#2eb8d4]/25 bg-[#f5fafd] px-3 py-2.5"><p className="text-sm font-bold text-[#1a3a6b]">Existencia total</p><p className="text-xs text-[#1a3a6b]/60">{variantStockTotal} unidades, calculadas por variante.</p></div><Field label="URL de imagen" value={form.image} onChange={(value) => setForm({ ...form, image: value })} /><label className="sm:col-span-2 block text-sm font-bold text-[#1a3a6b]">Foto del producto<span className="mt-1 flex items-center gap-2 rounded-xl border border-dashed border-[#2eb8d4]/50 bg-[#f5fafd] px-3 py-3 text-sm font-medium text-[#1a3a6b]"><ImageUp className="h-5 w-5 text-[#2eb8d4]" /><input type="file" accept="image/jpeg,image/png,image/webp" onChange={(event) => { const file = event.target.files?.[0]; if (file) uploadImage(file); event.currentTarget.value = ""; }} disabled={uploading} className="w-full text-xs file:mr-3 file:rounded-lg file:border-0 file:bg-[#1a3a6b] file:px-3 file:py-1.5 file:text-xs file:font-bold file:text-white hover:file:bg-[#2eb8d4]" />{uploading && <span className="shrink-0 text-xs text-[#2eb8d4]">Subiendo…</span>}</span></label>{form.image && <div className="sm:col-span-2 flex items-center gap-4 rounded-xl border border-slate-100 bg-slate-50 p-3"><Image src={form.image} alt="Vista previa" width={72} height={72} className="h-16 w-16 rounded-lg bg-white object-contain" /><p className="min-w-0 truncate text-xs text-[#1a3a6b]/60">Vista previa de la imagen guardada.</p></div>}<label className="sm:col-span-2 block text-sm font-bold text-[#1a3a6b]">Descripción<textarea value={form.description} onChange={(event) => setForm({ ...form, description: event.target.value })} rows={3} className="mt-1.5 w-full rounded-xl border border-slate-200 px-3 py-2.5 font-normal outline-none focus:border-[#2eb8d4]" /></label><Field label="Tallas / medidas (separadas por coma)" value={form.sizes} onChange={(value) => changeOptions("sizes", value)} /><Field label="Colores (separados por coma)" value={form.colors} onChange={(value) => changeOptions("colors", value)} /><div className="sm:col-span-2 rounded-2xl border border-[#1a3a6b]/10 bg-[#f8fcff] p-4"><div className="mb-3"><p className="font-black text-[#1a3a6b]">Inventario por variante</p><p className="text-xs text-[#1a3a6b]/60">Define la cantidad para cada combinación de color y talla/medida.</p></div><div className="space-y-2">{form.variants.map((variant, index) => <label key={`${variant.color}-${variant.size}`} className="flex items-center gap-3 rounded-xl bg-white px-3 py-2 text-sm"><span className="min-w-0 flex-1 font-bold text-[#1a3a6b]">{[variant.color && `Color: ${variant.color}`, variant.size && `Talla: ${variant.size}`].filter(Boolean).join(" · ") || "Producto sin opciones"}</span><input aria-label={`Existencia ${variant.color} ${variant.size}`} type="number" min="0" step="1" value={variant.stockQuantity} onChange={(event) => changeVariantStock(index, event.target.value)} className="w-24 rounded-lg border border-slate-200 px-2 py-1.5 text-right outline-none focus:border-[#2eb8d4]" /><span className="text-xs font-semibold text-[#1a3a6b]/60">u.</span></label>)}</div></div><div className="sm:col-span-2 flex flex-wrap gap-4 pt-1"><label className="flex items-center gap-2 text-sm font-bold text-[#1a3a6b]"><input type="checkbox" checked={form.quoteOnly} onChange={(event) => setForm({ ...form, quoteOnly: event.target.checked })} />Solo cotización</label><label className="flex items-center gap-2 text-sm font-bold text-[#1a3a6b]"><input type="checkbox" checked={form.featured} onChange={(event) => setForm({ ...form, featured: event.target.checked })} />Producto destacado</label></div></div><div className="mt-6 flex justify-end gap-3"><button type="button" onClick={() => setForm(null)} className="rounded-xl px-4 py-3 font-bold text-[#1a3a6b] hover:bg-slate-100">Cancelar</button><button disabled={saving || uploading} className="rounded-xl bg-[#1a3a6b] px-5 py-3 font-bold text-white hover:bg-[#2eb8d4] disabled:opacity-60">{saving ? "Guardando…" : "Guardar producto"}</button></div></form></div>}
-      {form && <VariantImageManager variants={form.variants} productImage={form.image} onUpload={uploadImage} uploadingTarget={uploadingTarget} disabled={uploading} />}
+      {form && <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#071a3d]/45 p-4 backdrop-blur-sm"><form onSubmit={save} className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-3xl bg-white p-6 shadow-2xl"><div className="mb-5 flex items-center justify-between"><div><p className="text-xs font-black uppercase tracking-[0.18em] text-[#2eb8d4]">Catálogo</p><h2 className="text-2xl font-black text-[#1a3a6b]">{form.id ? "Editar producto" : "Nuevo producto"}</h2></div><button type="button" onClick={() => setForm(null)} disabled={uploading || saving} className="rounded-full bg-slate-100 p-2 text-[#1a3a6b] disabled:opacity-50" aria-label="Cerrar"><X className="h-5 w-5" /></button></div>{error && <p role="alert" className="mb-4 rounded-xl bg-rose-50 p-3 text-sm font-semibold text-rose-700">{error}</p>}<div className="grid gap-4 sm:grid-cols-2"><Field label="Nombre" value={form.name} onChange={(value) => setForm({ ...form, name: value })} required /><Field label="Slug (URL)" value={form.slug} onChange={(value) => setForm({ ...form, slug: value })} /><Field label="Marca (opcional)" value={form.brand} onChange={(value) => setForm({ ...form, brand: value })} /><label className="block text-sm font-bold text-[#1a3a6b]">Presentación (opcional)<select value={form.presentation} onChange={(event) => setForm({ ...form, presentation: event.target.value })} className="mt-1.5 w-full rounded-xl border border-slate-200 px-3 py-2.5 font-normal outline-none focus:border-[#2eb8d4]"><option value="">Sin especificar</option>{presentationOptions.map((option) => <option key={option} value={option}>{option}</option>)}</select></label><label className="block text-sm font-bold text-[#1a3a6b]">Categoría<select value={form.category} onChange={(event) => setForm({ ...form, category: event.target.value as Product["category"] })} className="mt-1.5 w-full rounded-xl border border-slate-200 px-3 py-2.5 font-normal outline-none focus:border-[#2eb8d4]">{Object.entries(categoryLabels).map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select></label><Field label="Precio (MXN)" type="number" min="0" step="0.01" value={form.price} onChange={(value) => setForm({ ...form, price: value })} required /><div className="rounded-xl border border-[#2eb8d4]/25 bg-[#f5fafd] px-3 py-2.5"><p className="text-sm font-bold text-[#1a3a6b]">Existencia total</p><p className="text-xs text-[#1a3a6b]/60">{variantStockTotal} unidades, calculadas por variante.</p></div><Field label="URL de imagen" value={form.image} onChange={(value) => setForm({ ...form, image: value })} /><div className="sm:col-span-2"><VariantImageManager variants={form.variants} productImage={form.image} onUpload={uploadImage} uploadingTarget={uploadingTarget} disabled={uploading || saving} /></div>{form.image && <div className="sm:col-span-2 flex items-center gap-4 rounded-xl border border-slate-100 bg-slate-50 p-3"><Image src={form.image} alt="Vista previa" width={72} height={72} className="h-16 w-16 rounded-lg bg-white object-contain" /><p className="min-w-0 truncate text-xs text-[#1a3a6b]/60">Vista previa de la imagen guardada.</p></div>}<label className="sm:col-span-2 block text-sm font-bold text-[#1a3a6b]">Descripción<textarea value={form.description} onChange={(event) => setForm({ ...form, description: event.target.value })} rows={3} className="mt-1.5 w-full rounded-xl border border-slate-200 px-3 py-2.5 font-normal outline-none focus:border-[#2eb8d4]" /></label><Field label="Tallas / medidas (separadas por coma)" value={form.sizes} onChange={(value) => changeOptions("sizes", value)} /><Field label="Colores (separados por coma)" value={form.colors} onChange={(value) => changeOptions("colors", value)} /><div className="sm:col-span-2 rounded-2xl border border-[#1a3a6b]/10 bg-[#f8fcff] p-4"><div className="mb-3"><p className="font-black text-[#1a3a6b]">Inventario por variante</p><p className="text-xs text-[#1a3a6b]/60">Define la cantidad para cada combinación de color y talla/medida.</p></div><div className="space-y-2">{form.variants.map((variant, index) => <label key={`${variant.color}-${variant.size}`} className="flex items-center gap-3 rounded-xl bg-white px-3 py-2 text-sm"><span className="min-w-0 flex-1 font-bold text-[#1a3a6b]">{[variant.color && `Color: ${variant.color}`, variant.size && `Talla: ${variant.size}`].filter(Boolean).join(" · ") || "Producto sin opciones"}</span><input aria-label={`Existencia ${variant.color} ${variant.size}`} type="number" min="0" step="1" value={variant.stockQuantity} onChange={(event) => changeVariantStock(index, event.target.value)} className="w-24 rounded-lg border border-slate-200 px-2 py-1.5 text-right outline-none focus:border-[#2eb8d4]" /><span className="text-xs font-semibold text-[#1a3a6b]/60">u.</span></label>)}</div></div><div className="sm:col-span-2 flex flex-wrap gap-4 pt-1"><label className="flex items-center gap-2 text-sm font-bold text-[#1a3a6b]"><input type="checkbox" checked={form.quoteOnly} onChange={(event) => setForm({ ...form, quoteOnly: event.target.checked })} />Solo cotización</label><label className="flex items-center gap-2 text-sm font-bold text-[#1a3a6b]"><input type="checkbox" checked={form.featured} onChange={(event) => setForm({ ...form, featured: event.target.checked })} />Producto destacado</label></div></div><div className="mt-6 flex justify-end gap-3"><button type="button" onClick={() => setForm(null)} className="rounded-xl px-4 py-3 font-bold text-[#1a3a6b] hover:bg-slate-100">Cancelar</button><button disabled={saving || uploading} className="rounded-xl bg-[#1a3a6b] px-5 py-3 font-bold text-white hover:bg-[#2eb8d4] disabled:opacity-60">{saving ? "Guardando…" : "Guardar producto"}</button></div></form></div>}
     </section>
   );
 }
@@ -282,44 +300,25 @@ function VariantImageManager({ variants, productImage, onUpload, uploadingTarget
   uploadingTarget: string | null;
   disabled: boolean;
 }) {
-  const [mount, setMount] = useState<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    const productForm = document.querySelector<HTMLFormElement>(".fixed.z-\\[100\\] form");
-    if (!productForm) return;
-
-    const target = document.createElement("div");
-    target.className = "mx-6 mb-1 sm:mx-0";
-    productForm.insertBefore(target, productForm.lastElementChild);
-    queueMicrotask(() => setMount(target));
-    return () => {
-      target.remove();
-    };
-  }, []);
-
-  if (!mount) return null;
-
   const hasOptions = variants.some((variant) => variant.color || variant.size);
-  const hasColors = variants.some((variant) => variant.color);
-  const imageRows = hasColors
-    ? [...new Map(variants.filter((variant) => variant.color).map((variant) => [variant.color, variant])).values()]
-    : variants;
+  const imageRows = [{ color: "", size: "", stockQuantity: 0 }, ...variants.filter((variant) => variant.color || variant.size)];
 
-  return createPortal(
+  return (
     <div className="rounded-2xl border border-[#1a3a6b]/10 bg-[#f8fcff] p-4">
       <div className="mb-3">
-        <p className="font-black text-[#1a3a6b]">{hasOptions ? "Imágenes por variante" : "Foto del producto"}</p>
-        <p className="text-xs text-[#1a3a6b]/60">{hasColors ? "Carga una foto por color. La misma imagen se aplicará a todas las tallas de ese color." : hasOptions ? "Carga la foto de cada variante. Se guarda directamente en Supabase Storage." : "Este producto no tiene variantes; la imagen se guarda como foto principal en Supabase Storage."}</p>
+        <p className="font-black text-[#1a3a6b]">Foto principal del producto</p>
+        <p className="text-xs text-[#1a3a6b]/60">La foto principal aparece en destacados y en el catálogo. {hasOptions && "Las fotos de variantes se muestran al seleccionar su color y talla/medida."} Guarda el producto para publicar los cambios.</p>
       </div>
       <div className="space-y-3">
         {imageRows.map((variant) => {
           const isBaseProduct = !variant.color && !variant.size;
-          const target = isBaseProduct ? "product" : variant.color ? `color:${variant.color}` : `variant:${variant.color}\u0000${variant.size}`;
+          const target = isBaseProduct ? "product" : `variant:${variant.color}\u0000${variant.size}`;
           const uploading = uploadingTarget === target;
           const image = isBaseProduct ? productImage : variant.image;
-          const label = hasColors
-            ? `Color: ${variant.color}`
-            : [variant.size && `Talla / medida: ${variant.size}`].filter(Boolean).join(" · ") || "Foto principal";
+          const label = [
+            variant.color && `Color: ${variant.color}`,
+            variant.size && `Talla / medida: ${variant.size}`,
+          ].filter(Boolean).join(" · ") || "Foto principal";
           return (
             <div key={`${variant.color}-${variant.size}`} className="flex items-center gap-3 rounded-xl bg-white p-3">
               {image ? <Image src={image} alt="" width={48} height={48} className="h-12 w-12 shrink-0 rounded-lg border border-slate-100 object-contain" /> : <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-lg bg-[#e8f4fd] text-[10px] font-black text-[#1a3a6b]">Sin foto</div>}
@@ -330,6 +329,7 @@ function VariantImageManager({ variants, productImage, onUpload, uploadingTarget
                   type="file"
                   accept="image/jpeg,image/png,image/webp"
                   disabled={disabled}
+                  aria-label={`Cambiar imagen: ${label}`}
                   className="sr-only"
                   onChange={(event) => {
                     const file = event.target.files?.[0];
@@ -342,7 +342,6 @@ function VariantImageManager({ variants, productImage, onUpload, uploadingTarget
           );
         })}
       </div>
-    </div>,
-    mount
+    </div>
   );
 }

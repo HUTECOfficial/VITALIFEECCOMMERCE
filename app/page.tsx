@@ -1,12 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { motion } from "framer-motion";
+import { useEffect, useRef, useState } from "react";
+import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import Link from "next/link";
 import {
   Shield, Clock, Award, Users, Activity, ChevronRight, CheckCircle2,
-  ShieldCheck, HeartPulse, Building2, ShoppingBag, ArrowRight, Sparkles, Timer, BadgePercent
+  ShieldCheck, HeartPulse, Building2, ShoppingBag, ArrowRight, Timer, BadgePercent,
+  ChevronLeft, Pause, Play
 } from "lucide-react";
 import FadeInWhenVisible from "@/components/animations/FadeInWhenVisible";
 import IntrinsicImage from "@/components/ui/IntrinsicImage";
@@ -198,186 +199,166 @@ function PromocionesSection({
   featuredPromotion: SiteContentSection;
   promotions: SiteContentSection[];
 }) {
-  const featuredEnabled = Boolean(featuredPromotion.enabled);
-  const promoColors = [
-    { gradient: "from-[#ff5263] to-[#d92f4f]", glow: "bg-[#ff5263]", soft: "from-[#ff5263]/20 to-[#ff8e55]/5" },
-    { gradient: "from-[#2ed0d7] to-[#148ba9]", glow: "bg-[#2ed0d7]", soft: "from-[#2ed0d7]/20 to-[#7ce7d4]/5" },
-    { gradient: "from-[#4877df] to-[#173c78]", glow: "bg-[#4877df]", soft: "from-[#4877df]/20 to-[#2eb8d4]/5" },
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const [hovered, setHovered] = useState(false);
+  const [focused, setFocused] = useState(false);
+  const [inView, setInView] = useState(false);
+  const [imageSizes, setImageSizes] = useState<Record<string, { width: number; height: number }>>({});
+  const sectionRef = useRef<HTMLElement>(null);
+  const reducedMotion = useReducedMotion();
+  const slides = [
+    ...(featuredPromotion.enabled ? [{
+      id: "featured",
+      title: String(featuredPromotion.title),
+      highlightedTitle: String(featuredPromotion.highlightedTitle),
+      subtitle: String(featuredPromotion.description),
+      eyebrow: String(featuredPromotion.eyebrow),
+      badge: String(featuredPromotion.badge),
+      link: String(featuredPromotion.link),
+      image: String(featuredPromotion.image),
+      buttonLabel: String(featuredPromotion.buttonLabel),
+      oldPrice: undefined,
+      newPrice: undefined,
+    }] : []),
+    ...promotions.map((promotion, index) => ({
+      id: `promotion-${index}`,
+      enabled: Boolean(promotion.enabled),
+      title: String(promotion.title),
+      highlightedTitle: "",
+      subtitle: String(promotion.subtitle),
+      eyebrow: "Promoción activa",
+      badge: String(promotion.badge),
+      link: String(promotion.link),
+      image: String(promotion.image),
+      buttonLabel: "Comprar ahora",
+      oldPrice: Number(promotion.oldPrice),
+      newPrice: Number(promotion.newPrice),
+    })).filter((promotion) => promotion.enabled),
   ];
-  const promos = promotions.map((promotion, index) => ({
-    enabled: Boolean(promotion.enabled),
-    title: String(promotion.title),
-    subtitle: String(promotion.subtitle),
-    oldPrice: Number(promotion.oldPrice),
-    newPrice: Number(promotion.newPrice),
-    badge: String(promotion.badge),
-    link: String(promotion.link),
-    image: String(promotion.image),
-    color: promoColors[index],
-  })).filter((promotion) => promotion.enabled);
+  const count = slides.length;
+  const index = activeIndex % Math.max(count, 1);
+  const slide = slides[index];
+  const imageSize = imageSizes[slide?.image ?? ""] ?? { width: 640, height: 640 };
+  const autoPlay = !paused && !hovered && !focused && !reducedMotion && inView;
 
-  if (!featuredEnabled && promos.length === 0) return null;
+  useEffect(() => {
+    if (!sectionRef.current || count === 0) return;
+    const observer = new IntersectionObserver(([entry]) => setInView(entry.isIntersecting), { threshold: 0.25 });
+    observer.observe(sectionRef.current);
+    return () => observer.disconnect();
+  }, [count]);
+
+  useEffect(() => {
+    if (!autoPlay || count < 2) return;
+    const timer = window.setInterval(() => {
+      if (document.visibilityState === "visible") setActiveIndex((current) => (current + 1) % count);
+    }, 8000);
+    return () => window.clearInterval(timer);
+  }, [autoPlay, count]);
+
+  function move(direction: number) {
+    setActiveIndex((current) => (current + direction + count) % count);
+  }
+
+  if (!slide) return null;
 
   return (
-    <section className="relative overflow-hidden bg-[#071a34] py-24 text-white lg:py-32">
+    <section
+      ref={sectionRef}
+      className="relative overflow-hidden bg-[#f4fafc] py-10 text-[#1a3a6b] sm:py-12"
+      aria-labelledby="offers-title"
+      aria-roledescription="carrusel"
+      onFocusCapture={(event) => setFocused(event.target.matches(":focus-visible"))}
+      onBlurCapture={(event) => { if (!event.currentTarget.contains(event.relatedTarget)) setFocused(false); }}
+    >
       {/* Decorative blobs */}
-      <div className="ambient-blob left-[-140px] top-[-160px] h-[460px] w-[460px] bg-[rgba(46,184,212,0.16)]" />
-      <div className="ambient-blob bottom-[-180px] right-[-100px] h-[480px] w-[480px] bg-[rgba(255,82,99,0.13)]" />
-      <div className="absolute inset-0 opacity-30 [background-image:linear-gradient(rgba(255,255,255,0.035)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.035)_1px,transparent_1px)] [background-size:54px_54px]" />
-      <div className="absolute left-1/2 top-0 h-px w-2/3 -translate-x-1/2 bg-gradient-to-r from-transparent via-[#5de2eb]/60 to-transparent" />
-
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <FadeInWhenVisible>
-          <div className="mb-12 grid items-end gap-8 lg:grid-cols-[1.2fr_0.8fr] lg:mb-16">
-            <div>
-              <span className="inline-flex items-center gap-2 rounded-full border border-[#5de2eb]/25 bg-[#5de2eb]/10 px-4 py-2 text-xs font-black uppercase tracking-[0.2em] text-[#71e5ed]">
-                <Sparkles className="h-4 w-4" /> Ofertas Vital Life
-              </span>
-              <h2 className="mt-5 max-w-3xl text-4xl font-black leading-[0.98] sm:text-5xl lg:text-7xl">
-                Más cuidado para ti. <span className="bg-gradient-to-r from-[#67e2ea] to-[#86f0c3] bg-clip-text text-transparent">Menos en el precio.</span>
-              </h2>
-            </div>
-            <div className="max-w-md lg:justify-self-end">
-              <p className="text-base leading-relaxed text-white/60 sm:text-lg">
-                Productos esenciales seleccionados con descuentos especiales para cuidar tu salud y tu presupuesto.
-              </p>
-              <div className="mt-5 inline-flex items-center gap-3 rounded-2xl border border-white/10 bg-white/[0.06] px-4 py-3 text-sm font-semibold text-white/80 backdrop-blur-sm">
-                <Timer className="h-5 w-5 text-[#ff6675]" /> Disponibles hasta agotar existencias
-              </div>
-            </div>
+      <div className="pointer-events-none absolute -right-20 -top-24 h-64 w-64 rounded-full bg-[#2eb8d4]/5 blur-3xl" />
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mb-5 flex flex-wrap items-end justify-between gap-4">
+          <div>
+            <span className="inline-flex items-center gap-2 text-[11px] font-black uppercase tracking-[0.16em] text-[#168ba4]">
+              Ofertas Vital Life
+            </span>
+            <h2 id="offers-title" className="mt-2 text-2xl font-black sm:text-3xl">Más cuidado. <span className="text-[#168ba4]">Mejor precio.</span></h2>
           </div>
-        </FadeInWhenVisible>
+          <Link href="/insumos" className="inline-flex min-h-11 items-center gap-2 text-sm font-bold hover:text-[#168ba4]">Ver catálogo <ArrowRight className="h-4 w-4" /></Link>
+        </div>
 
-        {featuredEnabled && (
-          <FadeInWhenVisible>
-            <Link
-              href={String(featuredPromotion.link)}
-              className="group relative isolate mb-16 block overflow-hidden rounded-[2.5rem] border border-white/15 bg-[linear-gradient(125deg,#123a70_0%,#176994_54%,#2eb8d4_130%)] shadow-[0_35px_90px_-35px_rgba(46,184,212,0.55)] transition-all duration-500 hover:-translate-y-1 hover:border-white/25 focus:outline-none focus-visible:ring-4 focus-visible:ring-[#65e2eb]/50"
+        <div className="relative overflow-hidden rounded-3xl border border-[#1a3a6b]/10 bg-white shadow-sm" aria-live={autoPlay ? "off" : "polite"}>
+          {/* Discount ribbon */}
+          <div className="absolute inset-y-0 left-0 w-1 bg-gradient-to-b from-[#2eb8d4] to-[#9fe4d4]" />
+          <AnimatePresence mode="wait" initial={false}>
+            <motion.div
+              key={slide.id}
+              initial={{ opacity: 0, x: reducedMotion ? 0 : 8 }}
+              animate={{ opacity: 1, x: 0 }}
+              exit={{ opacity: 0, x: reducedMotion ? 0 : -8 }}
+              transition={{ duration: reducedMotion ? 0 : 0.65, ease: "easeInOut" }}
+              className="grid items-center gap-4 p-6 sm:min-h-[270px] sm:grid-cols-[1.2fr_0.8fr] sm:gap-8 sm:px-10 sm:py-6"
+              role="group"
+              aria-roledescription="diapositiva"
+              aria-label={`${index + 1} de ${count}`}
             >
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_78%_45%,rgba(122,238,227,0.38),transparent_27%),radial-gradient(circle_at_10%_0%,rgba(255,255,255,0.13),transparent_35%)]" />
-              <div className="absolute -right-20 -top-24 h-96 w-96 rounded-full border border-white/10 bg-white/[0.04] transition-transform duration-700 group-hover:scale-110" />
-              <div className="absolute -bottom-48 right-1/4 h-96 w-96 rounded-full border border-white/10" />
-              <div className="absolute left-0 top-0 h-full w-1.5 bg-gradient-to-b from-[#ff6675] via-[#ffb65c] to-[#74e5cb]" />
-
-              <div className="relative z-10 grid min-h-[430px] items-center gap-10 px-7 py-10 sm:px-10 lg:grid-cols-[1.05fr_0.95fr] lg:px-16 lg:py-12">
-                <div className="max-w-xl">
-                  <span className="mb-5 inline-flex items-center gap-2 rounded-full border border-white/20 bg-white/10 px-4 py-2 text-[11px] font-black uppercase tracking-[0.18em] text-white backdrop-blur-sm">
-                    <span className="h-2 w-2 animate-pulse rounded-full bg-[#ff6b78] shadow-[0_0_14px_rgba(255,107,120,0.9)]" />
-                    {String(featuredPromotion.eyebrow)}
-                  </span>
-                  <h3 className="max-w-xl text-4xl font-black leading-[1.02] text-white sm:text-5xl lg:text-6xl">
-                    {String(featuredPromotion.title)} <span className="text-[#9ff4df]">{String(featuredPromotion.highlightedTitle)}</span>
-                  </h3>
-                  <p className="mt-5 max-w-lg text-base leading-relaxed text-white/70 sm:text-lg">
-                    {String(featuredPromotion.description)}
-                  </p>
-                  <span className="mt-7 inline-flex items-center gap-3 rounded-2xl bg-white px-5 py-3.5 text-sm font-black uppercase tracking-wide text-[#123a70] shadow-xl shadow-[#071a34]/20 transition-all group-hover:bg-[#eaffff] group-hover:shadow-2xl">
-                    {String(featuredPromotion.buttonLabel)} <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
-                  </span>
-                </div>
-
-                <div className="relative mx-auto w-full max-w-[470px]">
-                  <div className="absolute inset-8 rounded-full bg-[#77e5df]/30 blur-3xl" />
-                  <IntrinsicImage
-                    src={String(featuredPromotion.image)}
-                    alt={String(featuredPromotion.title)}
-                    sizes="(max-width: 1024px) 80vw, 470px"
-                    fixedAspectRatio={16 / 9}
-                    className="object-contain mix-blend-multiply drop-shadow-[0_28px_28px_rgba(5,27,60,0.4)] transition-transform duration-700 group-hover:scale-105 group-hover:-rotate-1"
-                  />
-                  <span className="absolute -right-1 -top-5 z-20 flex h-20 w-20 rotate-6 items-center justify-center rounded-[1.75rem] border-4 border-white/30 bg-[#ff5263] text-xl font-black text-white shadow-2xl shadow-[#ff5263]/35 sm:-right-4 sm:h-24 sm:w-24 sm:text-2xl">
-                    {String(featuredPromotion.badge)}
-                  </span>
-                </div>
+              <div className="order-2 sm:order-1">
+                <span className="inline-flex items-center gap-2 text-[11px] font-bold uppercase tracking-wider text-[#168ba4]"><BadgePercent className="h-4 w-4" /> {slide.eyebrow}</span>
+                <h3 className="mt-2 max-w-xl text-xl font-black leading-tight sm:text-2xl">{slide.title} <span className="text-[#168ba4]">{slide.highlightedTitle}</span></h3>
+                <p className="mt-2 max-w-lg text-sm leading-relaxed text-[#1a3a6b]/70">{slide.subtitle}</p>
+                {slide.newPrice !== undefined && (
+                  <div className="mt-3 flex items-baseline gap-3">
+                    <span className="text-2xl font-black text-[#168ba4]">{formatPrice(slide.newPrice)}</span>
+                    {slide.oldPrice !== undefined && slide.oldPrice > slide.newPrice && <span className="text-sm text-[#1a3a6b]/50 line-through">{formatPrice(slide.oldPrice)}</span>}
+                  </div>
+                )}
+                <Link href={slide.link} onPointerEnter={(event) => { if (event.pointerType === "mouse") setHovered(true); }} onPointerLeave={() => setHovered(false)} className="mt-4 inline-flex min-h-11 items-center gap-2 rounded-xl bg-[#1a3a6b] px-5 py-2.5 text-sm font-bold text-white transition-colors hover:bg-[#168ba4]"><ShoppingBag className="h-4 w-4" /> {slide.buttonLabel}</Link>
               </div>
-            </Link>
-          </FadeInWhenVisible>
-        )}
-
-        {promos.length > 0 && (
-          <>
-            <FadeInWhenVisible>
-              <div className="mb-9 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
-                <div>
-                  <span className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-[0.2em] text-[#ff7180]">
-                    <BadgePercent className="h-4 w-4" /> Promociones activas
-                  </span>
-                  <h3 className="mt-2 text-3xl font-black text-white sm:text-4xl">Elige tu oferta favorita</h3>
-                </div>
-                <p className="max-w-md text-sm leading-relaxed text-white/50 sm:text-right">Precios especiales en productos seleccionados. Compra en línea de forma rápida y segura.</p>
-              </div>
-            </FadeInWhenVisible>
-
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-              {promos.map((promo, i) => (
-                <FadeInWhenVisible key={promo.title} delay={i * 0.12}>
-                  <motion.div
-                    whileHover={{ y: -10 }}
-                    transition={{ type: "spring", stiffness: 280, damping: 20 }}
-                    className="group relative h-full overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.065] p-5 shadow-[0_24px_55px_-25px_rgba(0,0,0,0.65)] backdrop-blur-sm sm:p-6"
-                  >
-                    {/* Discount ribbon */}
-                    <div className={`absolute inset-x-0 top-0 h-1 bg-gradient-to-r ${promo.color.gradient}`} />
-                    <div className="absolute right-4 top-4 z-20">
-                      <div className={`rounded-full bg-gradient-to-br ${promo.color.gradient} px-4 py-2 text-xs font-black text-white shadow-lg`}>
-                        {promo.badge} OFF
-                      </div>
-                    </div>
-
-                    {/* Decorative circle */}
-                    <div className={`absolute -right-20 -top-20 h-56 w-56 rounded-full bg-gradient-to-br ${promo.color.soft} blur-2xl transition-transform duration-700 group-hover:scale-125`} />
-
-                    <div className="relative z-10 flex h-full flex-col">
-                      <Link
-                        href={promo.link}
-                        className="relative mb-6 block overflow-hidden rounded-[1.5rem]"
-                        aria-label={`Ver ${promo.title}`}
-                      >
-                        <IntrinsicImage
-                          src={promo.image}
-                          alt={promo.title}
-                          sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                          fixedAspectRatio={16 / 9}
-                          className="object-contain transition-transform duration-500 group-hover:scale-105"
-                        />
-                      </Link>
-
-                      <div className="mb-2 flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.18em] text-white/40">
-                        <span className={`h-2 w-2 rounded-full ${promo.color.glow}`} /> Insumos médicos
-                      </div>
-                      <h3 className="text-2xl font-black text-white transition-colors group-hover:text-[#79e4eb]">{promo.title}</h3>
-                      <p className="mt-1 text-sm text-white/50">{promo.subtitle}</p>
-
-                      <div className="my-6 flex items-end gap-3">
-                        <span className="text-4xl font-black tracking-tight text-white">{formatPrice(promo.newPrice)}</span>
-                        <span className="mb-1 text-base font-medium text-white/35 line-through">{formatPrice(promo.oldPrice)}</span>
-                      </div>
-
-                      <Link
-                        href={promo.link}
-                        className={`mt-auto flex w-full items-center justify-center gap-2 rounded-2xl bg-gradient-to-r ${promo.color.gradient} py-3.5 text-sm font-black text-white shadow-lg transition-all duration-300 hover:brightness-110 hover:shadow-xl`}
-                      >
-                        <ShoppingBag className="h-4 w-4" /> Comprar ahora
-                      </Link>
-                    </div>
-                  </motion.div>
-                </FadeInWhenVisible>
-              ))}
-            </div>
-
-            <FadeInWhenVisible delay={0.3}>
-              <div className="mt-12 text-center">
+              <div className="relative order-1 mx-auto w-full max-w-xs sm:order-2">
+                {/* Decorative circle */}
+                <div className="absolute inset-4 rounded-full bg-[#e8f7fa]/50" />
                 <Link
-                  href="/insumos"
-                  className="inline-flex items-center gap-2 rounded-2xl border border-white/15 bg-white/[0.06] px-8 py-4 font-bold text-white backdrop-blur-sm transition-all duration-300 hover:border-[#63dfe8]/40 hover:bg-[#63dfe8]/10 hover:text-[#86edf2]"
+                  href={slide.link}
+                  aria-label={`Ver oferta: ${slide.title}`}
+                  onPointerEnter={(event) => { if (event.pointerType === "mouse") setHovered(true); }}
+                  onPointerLeave={() => setHovered(false)}
+                  className="relative flex min-h-40 items-center justify-center p-2 sm:min-h-52"
                 >
-                  Ver catálogo completo
-                  <ArrowRight className="h-4 w-4" />
+                  <Image
+                    src={slide.image}
+                    alt={slide.title}
+                    width={imageSize.width}
+                    height={imageSize.height}
+                    sizes="(max-width: 640px) 280px, 320px"
+                    className="h-auto max-h-48 w-auto max-w-full object-contain mix-blend-multiply sm:max-h-52"
+                    onLoad={(event) => {
+                      const { naturalWidth: width, naturalHeight: height } = event.currentTarget;
+                      if (!width || !height) return;
+                      setImageSizes((current) => current[slide.image]?.width === width && current[slide.image]?.height === height
+                        ? current
+                        : { ...current, [slide.image]: { width, height } });
+                    }}
+                  />
                 </Link>
+                {slide.badge && <span className="absolute right-0 top-0 rounded-full bg-[#fff0f2] px-3 py-1.5 text-sm font-black text-[#cf324b]">{slide.badge}</span>}
               </div>
-            </FadeInWhenVisible>
-          </>
-        )}
+            </motion.div>
+          </AnimatePresence>
+        </div>
+
+        <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
+          <p className="inline-flex items-center gap-2 text-xs text-[#1a3a6b]/65"><Timer className="h-4 w-4 text-[#168ba4]" /> Hasta agotar existencias</p>
+          {count > 1 && (
+            <div className="flex items-center gap-1">
+              <button type="button" onClick={() => move(-1)} aria-label="Oferta anterior" className="flex h-11 w-11 items-center justify-center rounded-full hover:bg-[#e0f0f5]"><ChevronLeft className="h-4 w-4" /></button>
+              {slides.map((item, itemIndex) => (
+                <button key={item.id} type="button" onClick={() => setActiveIndex(itemIndex)} aria-label={`Ver oferta ${itemIndex + 1}: ${item.title}`} aria-current={index === itemIndex ? "true" : undefined} className="flex h-11 w-8 items-center justify-center">
+                  <span className={`h-2 rounded-full transition-all motion-reduce:transition-none ${index === itemIndex ? "w-5 bg-[#168ba4]" : "w-2 bg-[#1a3a6b]/20"}`} />
+                </button>
+              ))}
+              <button type="button" onClick={() => move(1)} aria-label="Oferta siguiente" className="flex h-11 w-11 items-center justify-center rounded-full hover:bg-[#e0f0f5]"><ChevronRight className="h-4 w-4" /></button>
+              {!reducedMotion && <button type="button" onClick={() => setPaused((current) => !current)} aria-label={paused ? "Reanudar carrusel" : "Pausar carrusel"} aria-pressed={paused} className="ml-1 flex h-11 w-11 items-center justify-center rounded-full border border-[#1a3a6b]/10 bg-white hover:bg-[#e0f0f5]">{paused ? <Play className="h-4 w-4" /> : <Pause className="h-4 w-4" />}</button>}
+            </div>
+          )}
+        </div>
       </div>
     </section>
   );

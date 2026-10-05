@@ -8,6 +8,7 @@ export type ProductNameDetail = {
     | "Medidas"
     | "Talla / calibre"
     | "Color"
+    | "Tipo"
     | "Condición"
     | "Envase"
     | "Vía de administración";
@@ -121,7 +122,7 @@ function addDetail(details: ProductNameDetail[], label: ProductNameDetail["label
     value = value.replace(/^(caja|bolsa|paquete|frasco|bote|tubo|rollo)\s+/i, (word) => `${sentenceCase(word.trim())} con `);
   } else if (label === "Contenido del empaque") {
     value = value.replace(/^(?:C\s*\/|CON)\s*/i, "");
-  } else if (label === "Color" || label === "Condición" || label === "Talla / calibre" || label === "Envase") {
+  } else if (label === "Color" || label === "Tipo" || label === "Condición" || label === "Talla / calibre" || label === "Envase") {
     value = sentenceCase(value);
   } else if (label === "Vía de administración") {
     value = value.toLocaleUpperCase("es-MX");
@@ -139,6 +140,20 @@ function addDetail(details: ProductNameDetail[], label: ProductNameDetail["label
   details.push({ label, value });
 }
 
+function addType(details: ProductNameDetail[], rawValue: string) {
+  const value = sentenceCase(formatValue(rawValue));
+  if (!value) return;
+
+  const existing = details.find((detail) => detail.label === "Tipo");
+  if (!existing) {
+    details.push({ label: "Tipo", value });
+    return;
+  }
+
+  const existingValues = existing.value.split(" · ").map((item) => item.toLocaleLowerCase("es-MX"));
+  if (!existingValues.includes(value.toLocaleLowerCase("es-MX"))) existing.value = `${existing.value} · ${value}`;
+}
+
 function cleanTitle(value: string) {
   return value
     .replace(/\s+/g, " ")
@@ -147,6 +162,13 @@ function cleanTitle(value: string) {
     .replace(/\s+(?:X|×)\s*$/i, "")
     .replace(/\s+\b(?:DE|DEL|CON)\b$/i, "")
     .trim();
+}
+
+function getCoreProductTitle(value: string) {
+  const title = cleanTitle(value);
+  if (/^AGUJAS?\b/i.test(title)) return "Aguja";
+  if (/^VENDAS?\b/i.test(title)) return "Venda";
+  return title;
 }
 
 /**
@@ -168,6 +190,13 @@ export function getProductNameParts(name: string, explicitBrand?: string): Produ
     }
   }
 
+  // A number of legacy inventory labels repeat the brand in the middle and
+  // at the end. Keep it as structured brand data instead of part of the title.
+  if (brand) {
+    const brandAnywherePattern = new RegExp(`(?:\\s|^)${escapeRegExp(brand)}(?=\\s|$)`, "gi");
+    working = working.replace(brandAnywherePattern, " ");
+  }
+
   const extract = (
     pattern: RegExp,
     label: ProductNameDetail["label"],
@@ -179,6 +208,27 @@ export function getProductNameParts(name: string, explicitBrand?: string): Produ
     });
   };
 
+  const extractType = (pattern: RegExp, value: string) => {
+    working = working.replace(pattern, () => {
+      addType(details, value);
+      return " ";
+    });
+  };
+
+  // Keep the family name as the title and make the clinical/commercial
+  // subtype a structured attribute. This makes like-for-like products easy
+  // to scan, while measures and colors remain available as variants.
+  extractType(/\bDESECH(?:\.|ABLE)?\b/gi, "Desechable");
+  extractType(/\bHIP(?:ODERMICA)?-?(?=\s|\d|$)/gi, "Hipodérmica");
+  extractType(/\bPARA\s+PLUMA\b/gi, "Para pluma");
+  extractType(/\bULTRA-?FINE\b/gi, "Ultra-Fine");
+  extractType(/\bELASTOMEDIC\b/gi, "Elastomedic");
+  extractType(/\bEL[ÁA]STICA\b/gi, "Elástica");
+  extractType(/\bVENDALASTIC\b/gi, "Vendalastic");
+  extractType(/\bVENA\s+VEND(?:A)?\s+DE\s+ZINC\b/gi, "Venda de zinc");
+  extractType(/\bDE\s+GASA\b/gi, "Gasa");
+  extractType(/\bIDEAL\b/gi, "Ideal");
+
   extract(
     /\b(?:CAJA|BOLSA|PAQUETE|PAQ\.?|FRASCO|FCO\.?|BOTE|TUBO|ROLLO)\s+(?:C\s*\/|CON)\s*\d+(?:\s*(?:TABLETAS?|TAB(?:S)?|COMPRIMIDOS?|CAPS?(?:ULAS)?|AMP(?:S|ULAS?|OLLAS?)?|FAMP|FRASCOS?|FCOS?|TUBOS?|BOLSAS?|PZS?|PCS?|PIEZAS?|ROLLOS?|JERINGAS?|JGAS?))?/gi,
     "Presentación"
@@ -188,7 +238,7 @@ export function getProductNameParts(name: string, explicitBrand?: string): Produ
     "Concentración"
   );
   extract(
-    /\b\d+(?:[.,]\d+)?\s*(?:MM|CM|M|PULGADAS?|PULG\.?)\s*[X×*]\s*\d+(?:[.,]\d+)?\s*(?:MM|CM|M|PULGADAS?|PULG\.?)\b/gi,
+    /\b\d+(?:[.,]\d+)?\s*(?:(?:MM|CM|M|PULGADAS?|PULG\.?)\s*)?[X×*]\s*\d+(?:[.,]\d+)?\s*(?:MM|CM|M|PULGADAS?|PULG\.?)\b/gi,
     "Medidas"
   );
   extract(/\b\d+(?:[.,]\d+)?\s*[X×*]\s*\d+(?:[.,]\d+)?\b/gi, "Medidas");
@@ -220,7 +270,7 @@ export function getProductNameParts(name: string, explicitBrand?: string): Produ
   extract(/\bPLAST\b/gi, "Envase", () => "Plástico");
   extract(/\b(?:IV|IM|ORAL)\b/gi, "Vía de administración");
 
-  const title = cleanTitle(working) || cleanTitle(name);
+  const title = getCoreProductTitle(working) || getCoreProductTitle(name);
   const presentation = details.length
     ? details.map((detail) => `${detail.label}: ${detail.value}`).join(" · ")
     : null;

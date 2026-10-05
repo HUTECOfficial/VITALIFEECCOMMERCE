@@ -22,6 +22,8 @@ export interface BrandFamily {
 export interface Brand {
   id: string;
   name: string;
+  /** Official brand artwork when it is available. */
+  logo?: string;
   description: string;
   category: BrandCategory;
   gradient: string;
@@ -48,6 +50,7 @@ export const brands: Brand[] = [
   {
     id: "3m",
     name: "3M",
+    logo: "https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/nuevas%20imagenes/3m.png",
     description: "Apósitos, cintas quirúrgicas y soluciones antisépticas de alta tecnología para el cuidado de la piel.",
     category: "Apósitos y Cintas",
     gradient: "from-[#1a3a6b] to-[#2251a3]",
@@ -146,6 +149,7 @@ export const brands: Brand[] = [
   {
     id: "ambiderm",
     name: "AMBIDERM",
+    logo: "/category-brands/Ambiderm.png",
     description: "Insumos desechables de uso médico: guantes, jeringas, electrodos y material de curación.",
     category: "Guantes",
     gradient: "from-[#2eb8d4] to-[#1a8fa8]",
@@ -229,6 +233,7 @@ export const brands: Brand[] = [
   {
     id: "bd",
     name: "BD",
+    logo: "/category-brands/BD.png",
     description: "Líderes globales en agujas hipodérmicas, jeringas Plastipak, tubos Vacutainer y cepillos quirúrgicos.",
     category: "Agujas y Jeringas",
     gradient: "from-[#1a5a8b] to-[#2284c0]",
@@ -292,6 +297,7 @@ export const brands: Brand[] = [
   {
     id: "b-braun",
     name: "B. BRAUN",
+    logo: "https://qczoqkhgphlhomcscnsk.supabase.co/storage/v1/object/public/VITALIFE/nuevas%20imagenes/Braund.png",
     description: "Catéteres Introcan Certo, bioconectores Caresite, agujas Spinocan y soluciones para vías IV.",
     category: "Vías IV",
     gradient: "from-[#0d5c3a] to-[#1a8f5a]",
@@ -344,6 +350,7 @@ export const brands: Brand[] = [
   {
     id: "covidien",
     name: "COVIDIEN",
+    logo: "/brands/covidien.png",
     description: "Amplia gama de catéteres torácicos, sondas, electrodos y kits quirúrgicos Kendall.",
     category: "Sondas y Catéteres",
     gradient: "from-[#2a1a6b] to-[#4a22b3]",
@@ -505,6 +512,7 @@ export const brands: Brand[] = [
   {
     id: "pisa",
     name: "PISA",
+    logo: "/category-brands/Pisa.png",
     description: "Soluciones intravenosas, Flebotek, soluciones de irrigación y medicamentos inyectables.",
     category: "Soluciones IV",
     gradient: "from-[#1a6b3a] to-[#2eb87a]",
@@ -570,6 +578,7 @@ export const brands: Brand[] = [
   {
     id: "bsn-medical",
     name: "BSN MEDICAL",
+    logo: "/brands/bsn-medical.png",
     description: "Vendas enyesadas Gypsona, Coban, Leukoplast y fibra de vidrio Delta-Lite.",
     category: "Rehabilitación",
     gradient: "from-[#6b3a1a] to-[#a85a2e]",
@@ -743,7 +752,8 @@ export const brands: Brand[] = [
   {
     id: "le-roy",
     name: "LE ROY",
-    description: "Compresas estériles, cubrebocas, gasas y esponjas para material de curación.",
+    logo: "/brands/le-roy.png",
+    description: "Compresas, cubrebocas, gasas, esponjas y vendas para material de curación.",
     category: "Material de Curación",
     gradient: "from-[#6b1a3a] to-[#a82260]",
     families: [
@@ -811,8 +821,37 @@ export const brands: Brand[] = [
     ],
   },
   {
+    id: "ideal",
+    name: "IDEAL",
+    // Ideal is a Le Roy line. Its visual identity must remain Le Roy's logo.
+    logo: "/brands/le-roy.png",
+    description: "Línea de vendas elásticas de Laboratorios Le Roy en distintas medidas.",
+    category: "Material de Curación",
+    gradient: "from-[#6b1a3a] to-[#a82260]",
+    families: [
+      {
+        name: "Venda Elástica",
+        description: "Un mismo producto con la medida como variante seleccionable.",
+        items: [
+          "5 cm x 5 m",
+          "7.5 cm x 5 m",
+          "10 cm x 5 m",
+          "15 cm x 5 m",
+          "20 cm x 5 m",
+          "30 cm x 5 m",
+        ],
+      },
+      {
+        name: "Venda Elastomedic",
+        description: "Venda elástica de alta calidad en presentación de 5 m.",
+        items: ["10 cm x 5 m", "15 cm x 5 m"],
+      },
+    ],
+  },
+  {
     id: "conmed",
     name: "CONMED",
+    logo: "/brands/conmed.png",
     description: "Grapadoras de piel, cauterios, trompetas de succión y manipuladores quirúrgicos.",
     category: "Equipo Quirúrgico",
     gradient: "from-[#1a4a6b] to-[#1a8fa8]",
@@ -838,28 +877,6 @@ export const brands: Brand[] = [
           "Manguera de insuflación con filtro",
           "Trompeta para succión e irrigación F0RA",
           "Manipulador uterino desechable",
-        ],
-      },
-    ],
-  },
-  {
-    id: "ideal",
-    name: "IDEAL",
-    description: "Vendas Elastomedic y elásticas de baja compresión en diversas anchuras.",
-    category: "Rehabilitación",
-    gradient: "from-[#6b5a1a] to-[#a88a2e]",
-    families: [
-      {
-        name: "Venda Elastomedic",
-        description: "Venda elástica de alta calidad 10 cm y 15 cm x 5 m.",
-        items: ["Venda Elastomedic 10 cm x 5 m", "Venda Elastomedic 15 cm x 5 m"],
-      },
-      {
-        name: "Venda Elástica Baja Compresión",
-        description: "Vendas del 5 cm al 30 cm en presentación de 5 m.",
-        items: [
-          "5 cm x 5 m", "7.5 cm x 5 m", "10 cm x 5 m",
-          "15 cm x 5 m", "20 cm x 5 m", "30 cm x 5 m",
         ],
       },
     ],
@@ -907,6 +924,7 @@ export const brands: Brand[] = [
   {
     id: "accu-chek",
     name: "ACCU-CHEK",
+    logo: "/brands/accu-chek.jpg",
     description: "Glucómetros, lancetas Softclix y tiras reactivas para monitoreo de glucosa.",
     category: "Diagnóstico",
     gradient: "from-[#6b1a1a] to-[#b82222]",
@@ -926,6 +944,7 @@ export const brands: Brand[] = [
   {
     id: "edigar",
     name: "EDIGAR",
+    logo: "/category-brands/Edigar.png",
     description: "Cabestrillos, collarines ortopédicos, riñones adulto y cepillos quirúrgicos.",
     category: "Rehabilitación",
     gradient: "from-[#3a3a1a] to-[#6b6b2e]",
@@ -952,6 +971,7 @@ export const brands: Brand[] = [
   {
     id: "applied-medical",
     name: "APPLIED MEDICAL",
+    logo: "/brands/applied-medical.png",
     description: "Kits de trócar, agujas de Veress y trompetas de succión laparoscópica.",
     category: "Equipo Quirúrgico",
     gradient: "from-[#1a3a6b] to-[#2251a3]",

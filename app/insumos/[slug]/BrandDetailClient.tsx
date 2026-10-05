@@ -64,10 +64,24 @@ export default function BrandDetailClient({ brand, total }: Props) {
               transition={{ type: "spring", stiffness: 200, damping: 20 }}
               className={`flex-shrink-0 w-28 h-28 rounded-3xl bg-gradient-to-br ${brand.gradient} flex items-center justify-center shadow-2xl relative overflow-hidden`}
             >
-              <div className="absolute inset-0 bg-white/10" />
-              <span className="relative z-10 text-white font-black text-2xl text-center leading-tight px-2">
-                {brand.name.split(" ")[0].slice(0, 4)}
-              </span>
+              {brand.logo ? (
+                <div className="absolute inset-0 bg-white p-3">
+                  <Image
+                    src={brand.logo}
+                    alt={`Logo ${brand.name}`}
+                    fill
+                    sizes="112px"
+                    className="object-contain p-3"
+                  />
+                </div>
+              ) : (
+                <>
+                  <div className="absolute inset-0 bg-white/10" />
+                  <span className="relative z-10 text-white font-black text-2xl text-center leading-tight px-2">
+                    {brand.name.split(" ")[0].slice(0, 4)}
+                  </span>
+                </>
+              )}
             </motion.div>
 
             <div className="flex-1 min-w-0">

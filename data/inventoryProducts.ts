@@ -65,6 +65,17 @@ const colorLabels: Record<string, string> = {
 
 function getVariant(name: string) {
   const normalized = name.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
+  const vendalasticSize = normalized.match(/^VENDA ELASTICA (10|15) CM ANCHO 5 CM LONGITUD M VENDALASTIC$/)?.[1];
+  const idealSize = normalized.match(/^VENDA ELASTICA(?: IDEAL)? (5|7\.5|30)CMX5M(?: \d+)? (?:IDEAL|LEROY)$/)?.[1];
+  const elasticBandageSize = vendalasticSize ?? idealSize;
+  if (elasticBandageSize) {
+    return {
+      baseName: "VENDA ELASTICA IDEAL",
+      sizes: [`${elasticBandageSize} cm`],
+      colors: [],
+    };
+  }
+
   let baseName = normalized;
   const sizes: string[] = [];
   const colors: string[] = [];
@@ -111,8 +122,8 @@ function getCategory(name: string): Product["category"] {
   if (/FERULA|ZAPATO POST|COLLARIN|CABESTRILLO|CINTA KINESIOLOGICA|INMOVILIZADOR|GYPSONA|MEDIAS ANTIEMBOLICAS|CORREA PARA CLAVICULA/.test(product)) return "rehabilitacion";
   if (/OXIMETRO|BAUMANOMETRO|TENSIOMETRO|ESTETOSCOPIO|GLUCOMETRO|TIRAS (REACTIVAS|CONTOUR|ACCU)|LANCETA|TERMOMETRO|ELECTRODO|GEL ULTRASON|ALCOHOLIMETRO|ROLLO DE PAPEL PARA ELECTRO/.test(product)) return "diagnostico";
   if (/MASCARILLA (RCP|P\/OXIGENO|LARINGEA|YUWELL)|TUBO (DE )?SUCCION|CATETER P\/SUCCION|SISTEMA DE SUCCION|TUBO ENDOTRAQUEAL|SONDA ENDOT|CANULA (GUEDEL|CPAP)|CIRCUITO BAIN|SONDA NASAL P\/OXIGENO|PUNTA NASAL|CATETER PARA OXIGENO|CANULA YANKAWER/.test(product)) return "respiratorio";
-  if (/SONDA|DRENAJE|PENROSE|BOLSA RECOLECTORA DE ORINA|BOLSA P\/COLOSTOMIA|FIJADOR P\/SONDA|BOLSA KENGUARD|JALEA LUBRICANTE|LUBRI-6/.test(product)) return "sondas-cateteres";
-  if (/FLEBOTEK|VENOCLISIS|BOMBA DE INFUSION|GIRATEK|TEGO|PUNZOCAT|INSYTE|SURFLASH|CATETER 7FR|CONECTOR|LLAVE 3 VIAS|SOLUCION (CS|HT|DX|FP|HESTAR|KRIT)|SOL HESTAR|AGUA (P\/IRRIGA|INY|DESTILADA)|CLORURO\/POTASIO|SULFATO MAGNESIO|GLUCONATO DE CALCIO|BICARNAT|BICARBONATO SOD|MANITOL|MARIPOSA/.test(product)) return "terapia-iv";
+  if (/SONDA|DRENAJE|PENROSE|ACTIVELIFE|BOLSA RECOLECTORA DE ORINA|BOLSA (?:P\/|PARA )?COLOSTOMIA|FIJADOR P\/SONDA|BOLSA KENGUARD|JALEA LUBRICANTE|LUBRI-6/.test(product)) return "sondas-cateteres";
+  if (/FLEBOTEK|VENOCLISIS|BOMBA DE INFUSION|GIRATEK|TEGO|PUNZOCAT|INSYTE|SURFLASH|CATETER 7FR|CONECTOR|LLAVE 3 VIAS|SOLUCION (CS|HT|DX|FP|HESTAR|KRIT)|SOLUCION (DE )?(CLORURO DE SODIO|GLUCOSA|HARTMANN)|SOL HESTAR|AGUA (P\/IRRIGA|INY|DESTILADA)|CLORURO\/POTASIO|SULFATO MAGNESIO|GLUCONATO DE CALCIO|BICARNAT|BICARBONATO SOD|MANITOL|MARIPOSA/.test(product)) return "terapia-iv";
   if (/BISTURI|HOJA P\/BISTURI|MANGO DE BISTURI|SUTURA|VICRYL|NYLON|SEDA|MONOCRYL|MALLA PROLENE|ELECTROCAUTERIO|CAMPANA P\/CIRCUNCISION|PINZA UMBILICAL|TIJERA UMBILICAL|PORTA AGUJA|EQUIPO (DE|PARA) CIRUGIA|MALLA.*MESH|COMPRESA LAPAROTOMIA|TUBO P\/LIGADURA/.test(product)) return "quirurgico";
   if (/JERINGA|AGUJA|PERISAFE|ESPICAT/.test(product)) return "jeringas";
   if (/GASA|VENDA|APOSITO|TEGADERM|MICROPORE|LEUKOPLAST|TRANSPORE|CURITAS|ALGODON|GUATA|COMPRESA|JELONET|COBAN|MALLA TUBULAR|CUTIMED|DUODERM|ESPARADRAPO|TORUNDA|APLICADOR ESTERIL/.test(product)) return "curacion";
@@ -149,9 +160,27 @@ const groupedProducts: Product[] = [...variantsByBase.entries()]
   .filter(([, group]) => group.length > 1)
   .map(([, group]) => {
     const first = group[0];
-    const name = normalizeProductName(getVariant(first["Descripción del producto  "])?.baseName ?? first["Descripción del producto  "]);
+    const baseName = getVariant(first["Descripción del producto  "])?.baseName ?? first["Descripción del producto  "];
+    const isIdealBandage = baseName === "VENDA ELASTICA IDEAL";
+    const name = isIdealBandage ? "Venda elástica Ideal" : normalizeProductName(baseName);
     const category = getCategory(name);
     const slug = `${slugify(name)}-${slugify(first["Clave de artículo "])}`;
+    const variants = group
+      .flatMap((record) => {
+        const sourceName = record["Descripción del producto  "];
+        const sourceSlug = `${slugify(sourceName)}-${slugify(record["Clave de artículo "])}`;
+        const variant = getVariant(sourceName);
+        const variantSizes = variant?.sizes.length ? variant.sizes : [""];
+        const variantColors = variant?.colors.length ? variant.colors : [""];
+        return variantColors.flatMap((color) => variantSizes.map((size) => ({
+          color,
+          size,
+          stockQuantity: Math.max(0, record["existencia real"]),
+          image: getImage(sourceSlug, sourceName, category),
+        })));
+      })
+      .sort((left, right) => Number.parseFloat(left.size) - Number.parseFloat(right.size));
+    const sizes = [...new Set(variants.map((variant) => variant.size).filter(Boolean))];
     return {
       id: `inventory-${first["Clave de artículo "]}`,
       name,
@@ -159,11 +188,14 @@ const groupedProducts: Product[] = [...variantsByBase.entries()]
       category,
       price: 0,
       description: standardizeProductDescription("", category, true),
-      image: getImage(slug, name, category),
+      image: variants.find((variant) => variant.stockQuantity > 0)?.image ?? getImage(slug, name, category),
       inStock: group.some((record) => record["existencia real"] > 0),
       stockQuantity: group.reduce((total, record) => total + Math.max(0, record["existencia real"]), 0),
-      sizes: [...new Set(group.flatMap((record) => getVariant(record["Descripción del producto  "])?.sizes ?? []))],
+      sizes,
       colors: [...new Set(group.flatMap((record) => getVariant(record["Descripción del producto  "])?.colors ?? []))],
+      variants,
+      brand: isIdealBandage ? "Le Roy" : undefined,
+      presentation: isIdealBandage ? "Rollo de 5 m" : undefined,
       quoteOnly: true,
     };
   });

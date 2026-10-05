@@ -28,7 +28,15 @@ const colorLabels = {
 };
 
 function getVariant(name) {
-  let baseName = name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase();
+  const normalized = name.normalize('NFD').replace(/[\u0300-\u036f]/g, '').toUpperCase();
+  const vendalasticSize = normalized.match(/^VENDA ELASTICA (10|15) CM ANCHO 5 CM LONGITUD M VENDALASTIC$/)?.[1];
+  const idealSize = normalized.match(/^VENDA ELASTICA(?: IDEAL)? (5|7\.5|30)CMX5M(?: \d+)? (?:IDEAL|LEROY)$/)?.[1];
+  const elasticBandageSize = vendalasticSize || idealSize;
+  if (elasticBandageSize) {
+    return { baseName: 'VENDA ELASTICA IDEAL', sizes: [`${elasticBandageSize} cm`], colors: [] };
+  }
+
+  let baseName = normalized;
   const sizes = [];
   const colors = [];
   for (const [term, label] of Object.entries(sizeLabels)) {
@@ -72,8 +80,8 @@ function getCategory(name) {
   if (/FERULA|ZAPATO POST|COLLARIN|CABESTRILLO|CINTA KINESIOLOGICA|INMOVILIZADOR|GYPSONA|MEDIAS ANTIEMBOLICAS|CORREA PARA CLAVICULA/.test(product)) return 'rehabilitacion';
   if (/OXIMETRO|BAUMANOMETRO|TENSIOMETRO|ESTETOSCOPIO|GLUCOMETRO|TIRAS (REACTIVAS|CONTOUR|ACCU)|LANCETA|TERMOMETRO|ELECTRODO|GEL ULTRASON|ALCOHOLIMETRO|ROLLO DE PAPEL PARA ELECTRO/.test(product)) return 'diagnostico';
   if (/MASCARILLA (RCP|P\/OXIGENO|LARINGEA|YUWELL)|TUBO (DE )?SUCCION|CATETER P\/SUCCION|SISTEMA DE SUCCION|TUBO ENDOTRAQUEAL|SONDA ENDOT|CANULA (GUEDEL|CPAP)|CIRCUITO BAIN|SONDA NASAL P\/OXIGENO|PUNTA NASAL|CATETER PARA OXIGENO|CANULA YANKAWER/.test(product)) return 'respiratorio';
-  if (/SONDA|DRENAJE|PENROSE|BOLSA RECOLECTORA DE ORINA|BOLSA P\/COLOSTOMIA|FIJADOR P\/SONDA|BOLSA KENGUARD|JALEA LUBRICANTE|LUBRI-6/.test(product)) return 'sondas-cateteres';
-  if (/FLEBOTEK|VENOCLISIS|BOMBA DE INFUSION|GIRATEK|TEGO|PUNZOCAT|INSYTE|SURFLASH|CATETER 7FR|CONECTOR|LLAVE 3 VIAS|SOLUCION (CS|HT|DX|FP|HESTAR|KRIT)|SOL HESTAR|AGUA (P\/IRRIGA|INY|DESTILADA)|CLORURO\/POTASIO|SULFATO MAGNESIO|GLUCONATO DE CALCIO|BICARNAT|BICARBONATO SOD|MANITOL|MARIPOSA/.test(product)) return 'terapia-iv';
+  if (/SONDA|DRENAJE|PENROSE|ACTIVELIFE|BOLSA RECOLECTORA DE ORINA|BOLSA (?:P\/|PARA )?COLOSTOMIA|FIJADOR P\/SONDA|BOLSA KENGUARD|JALEA LUBRICANTE|LUBRI-6/.test(product)) return 'sondas-cateteres';
+  if (/FLEBOTEK|VENOCLISIS|BOMBA DE INFUSION|GIRATEK|TEGO|PUNZOCAT|INSYTE|SURFLASH|CATETER 7FR|CONECTOR|LLAVE 3 VIAS|SOLUCION (CS|HT|DX|FP|HESTAR|KRIT)|SOLUCION (DE )?(CLORURO DE SODIO|GLUCOSA|HARTMANN)|SOL HESTAR|AGUA (P\/IRRIGA|INY|DESTILADA)|CLORURO\/POTASIO|SULFATO MAGNESIO|GLUCONATO DE CALCIO|BICARNAT|BICARBONATO SOD|MANITOL|MARIPOSA/.test(product)) return 'terapia-iv';
   if (/BISTURI|HOJA P\/BISTURI|MANGO DE BISTURI|SUTURA|VICRYL|NYLON|SEDA|MONOCRYL|MALLA PROLENE|ELECTROCAUTERIO|CAMPANA P\/CIRCUNCISION|PINZA UMBILICAL|TIJERA UMBILICAL|PORTA AGUJA|EQUIPO (DE|PARA) CIRUGIA|MALLA.*MESH|COMPRESA LAPAROTOMIA|TUBO P\/LIGADURA/.test(product)) return 'quirurgico';
   if (/JERINGA|AGUJA|PERISAFE|ESPICAT/.test(product)) return 'jeringas';
   if (/GASA|VENDA|APOSITO|TEGADERM|MICROPORE|LEUKOPLAST|TRANSPORE|CURITAS|ALGODON|GUATA|COMPRESA|JELONET|COBAN|MALLA TUBULAR|CUTIMED|DUODERM|ESPARADRAPO|TORUNDA|APLICADOR ESTERIL/.test(product)) return 'curacion';
@@ -202,21 +210,42 @@ function buildProducts() {
     if (group.length > 1) {
       const first = group[0];
       const baseName = getVariant(first['Descripción del producto  '])?.baseName || first['Descripción del producto  '];
-      const category = getCategory(baseName);
+      const isIdealBandage = baseName === 'VENDA ELASTICA IDEAL';
+      const displayName = isIdealBandage ? 'Venda elástica Ideal' : baseName;
+      const category = getCategory(displayName);
       const clave = String(first['Clave de artículo ']).trim();
+      const variants = isIdealBandage
+        ? group.flatMap((record) => {
+            const sourceName = record['Descripción del producto  '];
+            const sourceClave = String(record['Clave de artículo ']).trim();
+            const sourceSlug = `${slugify(sourceName)}-${slugify(sourceClave)}`;
+            return (getVariant(sourceName)?.sizes || []).map((size) => ({
+              color: '',
+              size,
+              stockQuantity: Math.max(0, Number(record['existencia real']) || 0),
+              image: getProductImage(sourceSlug, sourceName, category),
+            }));
+          }).sort((left, right) => Number.parseFloat(left.size) - Number.parseFloat(right.size))
+        : undefined;
+      const sizes = isIdealBandage
+        ? variants.map((variant) => variant.size)
+        : [...new Set(group.flatMap((r) => getVariant(r['Descripción del producto  '])?.sizes || []))];
       products.push({
         id: `inventory-${clave}`,
-        name: baseName,
-        slug: `${slugify(baseName)}-${slugify(clave)}`,
+        name: displayName,
+        slug: `${slugify(displayName)}-${slugify(clave)}`,
         category,
         price: 0,
         description: 'Disponible bajo cotización. Elige las opciones disponibles.',
-        image: getProductImage(`${slugify(baseName)}-${slugify(clave)}`, baseName, category),
+        image: variants?.find((variant) => variant.stockQuantity > 0)?.image || getProductImage(`${slugify(displayName)}-${slugify(clave)}`, displayName, category),
         inStock: group.some((r) => Number(r['existencia real']) > 0),
         stockQuantity: group.reduce((total, record) => total + Math.max(0, Number(record['existencia real']) || 0), 0),
         featured: false,
-        sizes: [...new Set(group.flatMap((r) => getVariant(r['Descripción del producto  '])?.sizes || []))],
+        sizes,
         colors: [...new Set(group.flatMap((r) => getVariant(r['Descripción del producto  '])?.colors || []))],
+        variants,
+        brand: isIdealBandage ? 'Le Roy' : undefined,
+        presentation: isIdealBandage ? 'Rollo de 5 m' : undefined,
         quote_only: true,
       });
     } else {
@@ -271,6 +300,12 @@ async function preserveManagedProductImages(products) {
 
 async function findStaleInventorySlugs(products) {
   const activeSlugs = new Set(products.map((product) => product.slug));
+  const supersededVariantSlugs = new Set([
+    'venda-elastica-10-cm-ancho-5-cm-longitud-m-vendalastic-cat0273',
+    'venda-elastica-15-cm-ancho-5-cm-longitud-m-vendalastic-cat0274',
+    'venda-elastica-30cmx5m-10794-ideal-cat0276',
+    'venda-elastica-ideal-7-5cmx5m-10789-ideal-cat0277',
+  ]);
   const { data, error } = await supabase.from('products').select('slug,quote_only,image');
   if (error || !data) {
     console.warn('No se pudieron revisar productos obsoletos; se conservaron sin cambios.');
@@ -278,8 +313,34 @@ async function findStaleInventorySlugs(products) {
   }
 
   return data
-    .filter((product) => product.quote_only === true && !activeSlugs.has(product.slug) && !isManagedImage(product.image))
+    .filter((product) => product.quote_only === true && !activeSlugs.has(product.slug) && (!isManagedImage(product.image) || supersededVariantSlugs.has(product.slug)))
     .map((product) => product.slug);
+}
+
+async function syncExplicitProductVariants(products) {
+  for (const product of products.filter((candidate) => candidate.variants?.length)) {
+    const { data, error } = await supabase
+      .from('products')
+      .update({ brand: product.brand || null, presentation: product.presentation || null })
+      .eq('slug', product.slug)
+      .select('id')
+      .single();
+    if (error) throw error;
+
+    const { error: deleteError } = await supabase.from('product_variants').delete().eq('product_id', data.id);
+    if (deleteError) throw deleteError;
+
+    const { error: insertError } = await supabase.from('product_variants').insert(
+      product.variants.map((variant) => ({
+        product_id: data.id,
+        color: variant.color,
+        size: variant.size,
+        stock_quantity: variant.stockQuantity,
+        image: variant.image || null,
+      }))
+    );
+    if (insertError) throw insertError;
+  }
 }
 
 async function removeStaleInventoryProducts(products) {
@@ -359,6 +420,7 @@ async function main() {
     console.log(`Insertado lote ${i / batchSize + 1} (${batch.length} productos)`);
   }
 
+  await syncExplicitProductVariants(products);
   await removeStaleInventoryProducts(products);
 
   console.log('Seed completado.');

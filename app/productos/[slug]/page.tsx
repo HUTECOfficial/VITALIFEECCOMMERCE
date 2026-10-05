@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import Link from "next/link";
 import { ArrowLeft } from "lucide-react";
 import { getProductBySlug } from "@/lib/data";
+import { getProductNameParts } from "@/lib/product-name";
 import { ProductDetailClient } from "@/components/ui/ProductDetailClient";
 import { productGalleryImages } from "@/data/productGallery";
 
@@ -14,8 +15,9 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const product = await getProductBySlug(slug);
   if (!product) return { title: "Producto no encontrado | Vital Life" };
+  const productName = getProductNameParts(product.name, product.brand);
   return {
-    title: `${product.name} | Vital Life`,
+    title: `${productName.title} | Vital Life`,
     description: product.description,
   };
 }

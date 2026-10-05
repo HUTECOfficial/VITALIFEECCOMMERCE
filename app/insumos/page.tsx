@@ -178,12 +178,14 @@ export default function InsumosPage() {
 function CatalogSearchField({
   search,
   onSearchChange,
+  onSubmit,
   onClear,
   placeholder,
   compact = false,
 }: {
   search: string;
   onSearchChange: (value: string) => void;
+  onSubmit: () => void;
   onClear: () => void;
   placeholder: string;
   compact?: boolean;
@@ -197,6 +199,12 @@ function CatalogSearchField({
         placeholder={placeholder}
         value={search}
         onChange={(event) => onSearchChange(event.target.value)}
+        onKeyDown={(event) => {
+          if (event.key !== "Enter") return;
+          event.preventDefault();
+          onSubmit();
+          event.currentTarget.blur();
+        }}
         className={`min-w-0 flex-1 bg-transparent text-[#1a3a6b] outline-none placeholder-[#1a3a6b]/40 ${compact ? "text-sm" : "text-base"} font-medium`}
       />
       {search && (
@@ -265,6 +273,7 @@ function InsumosContent() {
     ? Math.min(24, Math.max(1, Math.trunc(productLimitValue)))
     : 12;
   const [search, setSearch] = useState("");
+  const [showSearchSuggestions, setShowSearchSuggestions] = useState(false);
   const [searchPinned, setSearchPinned] = useState(false);
   const [activeCategory, setActiveCategory] = useState<Product["category"] | null>(null);
   // Keep a complete local catalog ready for the first search. The Supabase
@@ -273,7 +282,7 @@ function InsumosContent() {
   const [visibleSearchResults, setVisibleSearchResults] = useState(SEARCH_RESULTS_PAGE_SIZE);
   const brandsRef = useRef<HTMLDivElement>(null);
   const searchAnchorRef = useRef<HTMLDivElement>(null);
-  const searchUrlTimerRef = useRef<number | null>(null);
+  const searchResultsRef = useRef<HTMLDivElement>(null);
   const cartCount = useClientCartCount();
   const router = useRouter();
   const searchParams = useSearchParams();
@@ -290,10 +299,6 @@ function InsumosContent() {
 
     observer.observe(searchAnchor);
     return () => observer.disconnect();
-  }, []);
-
-  useEffect(() => () => {
-    if (searchUrlTimerRef.current) window.clearTimeout(searchUrlTimerRef.current);
   }, []);
 
   useEffect(() => {
@@ -374,13 +379,20 @@ function InsumosContent() {
 
   function handleSearchChange(value: string) {
     setSearch(value);
+    setShowSearchSuggestions(Boolean(value.trim()));
     setActiveCategory(null);
     setVisibleSearchResults(SEARCH_RESULTS_PAGE_SIZE);
-    if (searchUrlTimerRef.current) window.clearTimeout(searchUrlTimerRef.current);
-    searchUrlTimerRef.current = window.setTimeout(() => {
-      const query = value.trim();
-      window.history.replaceState(null, "", query ? `/insumos?q=${encodeURIComponent(query)}` : "/insumos");
-    }, 250);
+  }
+
+  function handleSearchSubmit() {
+    const query = search.trim();
+    setSearch(query);
+    setShowSearchSuggestions(false);
+    setVisibleSearchResults(SEARCH_RESULTS_PAGE_SIZE);
+    window.history.replaceState(null, "", query ? `/insumos?q=${encodeURIComponent(query)}` : "/insumos");
+    if (query) {
+      window.requestAnimationFrame(() => searchResultsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }));
+    }
   }
 
   function handleCategoryClick(cat: Product["category"]) {
@@ -394,9 +406,9 @@ function InsumosContent() {
   }
 
   function clearFilters() {
-    if (searchUrlTimerRef.current) window.clearTimeout(searchUrlTimerRef.current);
     setActiveCategory(null);
     setSearch("");
+    setShowSearchSuggestions(false);
     setVisibleSearchResults(SEARCH_RESULTS_PAGE_SIZE);
     window.history.replaceState(null, "", "/insumos");
   }
@@ -427,10 +439,11 @@ function InsumosContent() {
             <CatalogSearchField
               search={search}
               onSearchChange={handleSearchChange}
+              onSubmit={handleSearchSubmit}
               onClear={clearFilters}
               placeholder={searchPlaceholder}
             />
-            {normalizedSearch && !searchPinned && (
+            {normalizedSearch && showSearchSuggestions && !searchPinned && (
               <InstantSearchResults
                 products={filteredProducts.slice(0, SEARCH_SUGGESTIONS_LIMIT)}
                 total={filteredProducts.length}
@@ -466,11 +479,12 @@ function InsumosContent() {
               <CatalogSearchField
                 search={search}
                 onSearchChange={handleSearchChange}
+                onSubmit={handleSearchSubmit}
                 onClear={clearFilters}
                 placeholder={searchPlaceholder}
                 compact
               />
-              {normalizedSearch && (
+              {normalizedSearch && showSearchSuggestions && (
                 <InstantSearchResults
                   products={filteredProducts.slice(0, SEARCH_SUGGESTIONS_LIMIT)}
                   total={filteredProducts.length}
@@ -483,7 +497,7 @@ function InsumosContent() {
 
       {/* Los resultados aparecen inmediatamente debajo de la lupa. */}
       {normalizedSearch && (
-        <>
+        <div ref={searchResultsRef} className="scroll-mt-32">
           <ProductResultsSection
             filteredProducts={filteredProducts.slice(0, visibleSearchResults)}
             totalProducts={filteredProducts.length}
@@ -500,7 +514,7 @@ function InsumosContent() {
               onClear={clearFilters}
             />
           )}
-        </>
+        </div>
       )}
 
       {/* Las categorías aparecen después del encabezado y la búsqueda. */}
@@ -902,9 +916,21 @@ function BrandResultsSection({ filteredBrands, title, onClear }: BrandResultsSec
                 key={brand.id}
                 className="rounded-2xl bg-white border border-gray-100 p-5 hover:-translate-y-1 transition-all duration-200 hover:shadow-lg hover:border-[#2eb8d4]/30"
               >
-                <div className={`w-11 h-11 rounded-xl bg-gradient-to-br ${brand.gradient} flex items-center justify-center mb-4 shadow-sm`}>
-                  <span className="text-white font-black text-xs">{brand.name.slice(0, 2)}</span>
-                </div>
+                {brand.logo ? (
+                  <div className="relative w-[116px] h-11 rounded-xl bg-white border border-gray-100 mb-4 shadow-sm overflow-hidden">
+                    <Image
+                      src={brand.logo}
+                      alt={`Logo ${brand.name}`}
+                      fill
+                      sizes="116px"
+                      className="object-contain p-1.5"
+                    />
+                  </div>
+                ) : (
+                  <div className={`w-11 h-11 rounded-xl bg-gradient-to-br ${brand.gradient} flex items-center justify-center mb-4 shadow-sm`}>
+                    <span className="text-white font-black text-xs">{brand.name.slice(0, 2)}</span>
+                  </div>
+                )}
                 <h3 className="font-black text-[#1a3a6b] text-lg">{brand.name}</h3>
                 <p className="text-[#1a3a6b]/55 text-sm mt-1 mb-5 leading-relaxed line-clamp-2">{brand.description}</p>
                 <div className="flex items-center justify-between pt-3 border-t border-gray-50">
