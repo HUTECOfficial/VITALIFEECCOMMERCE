@@ -5,7 +5,7 @@ export const INSUMOS_WHATSAPP_NUMBER = "524778500011";
 export function getQuoteWhatsAppUrl(items: CartItem[]) {
   const lines = items.map((item, index) => {
     const options = [
-      item.size && `Talla/medida: ${item.size}`,
+      item.size && `Presentación/talla/medida: ${item.size}`,
       item.color && `Color: ${item.color}`,
     ].filter(Boolean);
 

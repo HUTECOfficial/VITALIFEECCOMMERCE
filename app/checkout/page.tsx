@@ -324,7 +324,7 @@ export default function CheckoutPage() {
                       <div key={item.cartId} className="border-b border-gray-200 pb-3 last:border-0 last:pb-0">
                         <div className="flex justify-between text-sm">
                           <div className="flex-1 min-w-0 mr-3">
-                            <p className="text-gray-700 font-medium">{item.name} {[item.color && `Color: ${item.color}`, item.size && `Talla: ${item.size}`].filter(Boolean).length ? `(${[item.color && `Color: ${item.color}`, item.size && `Talla: ${item.size}`].filter(Boolean).join(" · ")})` : ""}</p>
+                            <p className="text-gray-700 font-medium">{item.name} {[item.color && `Color: ${item.color}`, item.size && `Presentación: ${item.size}`].filter(Boolean).length ? `(${[item.color && `Color: ${item.color}`, item.size && `Presentación: ${item.size}`].filter(Boolean).join(" · ")})` : ""}</p>
                             <div className="flex flex-wrap items-center gap-2 mt-1 text-xs text-gray-500">
                               <span>Cant: {item.quantity}</span>
                               <span>·</span>

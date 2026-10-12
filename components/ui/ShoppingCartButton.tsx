@@ -7,7 +7,7 @@ import { useCartStore } from "@/store/cartStore";
 import { Product } from "@/types";
 import { cn } from "@/lib/utils";
 import { StockIndicator } from "@/components/ui/StockIndicator";
-import { getVariantStock } from "@/lib/product-variants";
+import { getProductOptionLabel, getVariantStock } from "@/lib/product-variants";
 import { QuoteWhatsAppLink } from "@/components/ui/QuoteWhatsAppLink";
 
 export function ShoppingCartButton({ product, showStock = true, showQuantity = false, onVariantChange }: { product: Product; showStock?: boolean; showQuantity?: boolean; onVariantChange?: (selection: { size: string | null; color: string | null }) => void }) {
@@ -16,6 +16,7 @@ export function ShoppingCartButton({ product, showStock = true, showQuantity = f
   const [selectedSize, setSelectedSize] = useState<string | null>(null);
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
   const [quantityInput, setQuantityInput] = useState("1");
+  const optionLabel = getProductOptionLabel(product);
 
   useEffect(() => {
     if (addedQuantity === null) return;
@@ -69,7 +70,7 @@ export function ShoppingCartButton({ product, showStock = true, showQuantity = f
     return (
       <div className="space-y-2">
         {product.colors?.length ? <OptionSelector label="Color" options={product.colors} selected={selectedColor} onSelect={selectColor} /> : null}
-        {product.sizes?.length ? <OptionSelector label="Talla / medida" options={product.sizes} selected={selectedSize} onSelect={selectSize} /> : null}
+        {product.sizes?.length ? <OptionSelector label={optionLabel} options={product.sizes} selected={selectedSize} onSelect={selectSize} /> : null}
         <QuoteWhatsAppLink
           product={product}
           size={selectedSize}
@@ -85,7 +86,7 @@ export function ShoppingCartButton({ product, showStock = true, showQuantity = f
   return (
     <div className="space-y-2">
       {product.colors?.length ? <OptionSelector label="Color" options={product.colors} selected={selectedColor} onSelect={selectColor} /> : null}
-      {product.sizes?.length ? <OptionSelector label="Talla / medida" options={product.sizes} selected={selectedSize} onSelect={selectSize} /> : null}
+      {product.sizes?.length ? <OptionSelector label={optionLabel} options={product.sizes} selected={selectedSize} onSelect={selectSize} /> : null}
       {showStock && !hasUnselectedVariant && <StockIndicator quantity={unavailable ? 0 : selectedVariantStock} inStock={product.inStock} compact />}
       {showQuantity && (
         <div className="flex items-center justify-between gap-4 rounded-xl border border-[#1a3a6b]/10 bg-white/70 p-2 pl-3">

@@ -12,7 +12,7 @@ import { categoryLabels } from "@/data/products";
 import { cn } from "@/lib/utils";
 import { StockIndicator } from "@/components/ui/StockIndicator";
 import { getProductNameParts } from "@/lib/product-name";
-import { getVariantImage, getVariantStock } from "@/lib/product-variants";
+import { getProductOptionLabel, getVariantImage, getVariantStock } from "@/lib/product-variants";
 import { QuoteWhatsAppLink } from "@/components/ui/QuoteWhatsAppLink";
 
 interface ProductCardProps {
@@ -26,6 +26,7 @@ export default function ProductCard({ product }: ProductCardProps) {
   const [selectedColor, setSelectedColor] = useState<string | null>(null);
   const productName = getProductNameParts(product.name, product.brand);
   const brand = product.brand || productName.brand;
+  const optionLabel = getProductOptionLabel(product);
   const compactDetails = [...productName.details];
   if (product.presentation && !compactDetails.some((detail) => detail.value.toLocaleLowerCase("es-MX") === product.presentation?.toLocaleLowerCase("es-MX"))) {
     compactDetails.unshift({ label: "Presentación", value: product.presentation });
@@ -117,7 +118,7 @@ export default function ProductCard({ product }: ProductCardProps) {
         )}
         {product.sizes?.length && (
           <div className="mb-3">
-            <p className="mb-1 text-[10px] font-black uppercase tracking-wide text-[#1a3a6b]/60">Talla / medida</p>
+            <p className="mb-1 text-[10px] font-black uppercase tracking-wide text-[#1a3a6b]/60">{optionLabel}</p>
             <div className="flex flex-wrap gap-1.5">
             {product.sizes.map((size) => (
               <button

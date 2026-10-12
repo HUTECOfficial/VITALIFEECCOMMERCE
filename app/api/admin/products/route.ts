@@ -4,6 +4,7 @@ import { createServerClient } from "@/lib/supabase/server";
 import { productToRow } from "@/lib/admin-products";
 import { productCategories, type Product, type ProductVariant } from "@/types";
 import { readProductVariants } from "@/lib/product-variants";
+import { isCatalogProductVisibleSlug } from "@/data/catalog-reconciliation";
 
 function slugify(value: string) {
   return value
@@ -73,7 +74,7 @@ export function parseProductInput(value: unknown): Omit<Product, "id"> | { error
       (colors.length ? !colors.includes(variant.color) : Boolean(variant.color))
       || (sizes.length ? !sizes.includes(variant.size) : Boolean(variant.size))
     ))) {
-      return { error: "Cada variante debe corresponder a un color y una talla/medida del producto." };
+      return { error: "Cada variante debe corresponder a un color y una presentación, talla o medida del producto." };
     }
   } else {
     variants = [{ color: "", size: "", stockQuantity: suppliedStockQuantity }];
@@ -134,7 +135,7 @@ export async function GET(request: NextRequest) {
   const supabase = createServerClient();
   const { data, error } = await supabase.from("products").select("*").order("name", { ascending: true });
   if (error) return NextResponse.json({ error: "No se pudo cargar el catálogo" }, { status: 500 });
-  return NextResponse.json(data);
+  return NextResponse.json(data.filter((product) => isCatalogProductVisibleSlug(product.slug)));
 }
 
 export async function POST(request: NextRequest) {

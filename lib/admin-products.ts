@@ -2,6 +2,7 @@ import { createServerClient } from "@/lib/supabase/server";
 import type { Product } from "@/types";
 import { productVariantsToStorage, readInventoryVariants, readProductVariants } from "@/lib/product-variants";
 import { normalizeProductName, standardizeProductDescription } from "@/lib/product-copy";
+import { isCatalogProductVisibleSlug } from "@/data/catalog-reconciliation";
 
 export type ProductMetrics = {
   unitsSold: number;
@@ -34,6 +35,7 @@ type ProductRow = {
 };
 
 function mapProduct(row: ProductRow): Product {
+  const productOptions = readProductVariants(row.sizes);
   return {
     id: row.id,
     name: normalizeProductName(row.name),
@@ -45,8 +47,8 @@ function mapProduct(row: ProductRow): Product {
     inStock: row.in_stock ?? false,
     stockQuantity: row.stock_quantity ?? 0,
     featured: row.featured ?? false,
-    ...readProductVariants(row.sizes),
-    variants: readInventoryVariants(row.product_variants),
+    ...productOptions,
+    variants: readInventoryVariants(row.product_variants, productOptions),
     quoteOnly: row.quote_only ?? false,
     brand: row.brand ?? undefined,
     presentation: row.presentation ?? undefined,
@@ -80,7 +82,9 @@ export async function getAdminDashboardData(): Promise<AdminDashboardData> {
 
   if (productsError) throw new Error("No se pudo cargar el catálogo. Aplica la migración 003_product_stock_quantity.sql.");
 
-  const products = ((rawProducts ?? []) as ProductRow[]).map(mapProduct);
+  const products = ((rawProducts ?? []) as ProductRow[])
+    .filter((product) => isCatalogProductVisibleSlug(product.slug))
+    .map(mapProduct);
   const metricsByProductId: Record<string, ProductMetrics> = Object.fromEntries(
     products.map((product) => [product.id, { unitsSold: 0, revenue: 0 }])
   );

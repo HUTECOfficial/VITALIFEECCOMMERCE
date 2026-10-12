@@ -259,6 +259,7 @@ function InsumosContent() {
   const content = useSiteContent("insumos");
   const hero = content.hero;
   const quickShop = content.quickShop;
+  const categoryImages = content.categoryImages;
   const heroEyebrow = String(hero.eyebrow);
   const heroTitle = String(hero.title);
   const heroDescription = String(hero.description);
@@ -522,6 +523,7 @@ function InsumosContent() {
         <CategoryGrid
           activeCategory={activeCategory}
           onCategoryClick={handleCategoryClick}
+          categoryImages={categoryImages}
         />
       )}
 
@@ -637,9 +639,12 @@ function InsumosContent() {
 interface CategoryGridProps {
   activeCategory: Product["category"] | null;
   onCategoryClick: (category: Product["category"]) => void;
+  categoryImages: Record<string, string | boolean | number>;
 }
 
-function CategoryGrid({ activeCategory, onCategoryClick }: CategoryGridProps) {
+function CategoryGrid({ activeCategory, onCategoryClick, categoryImages }: CategoryGridProps) {
+  const imageFor = (category: Product["category"]) => String(categoryImages[category] || catCfg[category].img);
+
   return (
     <section className="bg-[#eef7fd] py-8 px-4 sm:px-6">
       <div className="max-w-6xl mx-auto space-y-4">
@@ -654,7 +659,7 @@ function CategoryGrid({ activeCategory, onCategoryClick }: CategoryGridProps) {
             }`}
             style={{ minHeight: 420 }}
           >
-            <Image src={catCfg[FEATURED].img} alt={FEATURED} fill className="object-cover group-hover:scale-105 transition-transform duration-500" />
+            <Image src={imageFor(FEATURED)} alt={categoryLabels[FEATURED]} fill sizes="(max-width: 768px) 100vw, 25vw" className="object-cover group-hover:scale-105 transition-transform duration-500" />
             <div className="absolute inset-0 bg-gradient-to-t from-[#1a3a6b]/90 via-[#1a3a6b]/35 to-transparent" />
             <div className="absolute top-4 left-4">
               <span className="inline-flex items-center gap-1.5 bg-yellow-400 text-[#1a3a6b] text-xs font-black px-3 py-1.5 rounded-full shadow-lg">
@@ -689,7 +694,7 @@ function CategoryGrid({ activeCategory, onCategoryClick }: CategoryGridProps) {
             <RegularCard
               key={cat}
               cat={cat}
-              config={catCfg[cat]}
+              config={{ ...catCfg[cat], img: imageFor(cat) }}
               active={activeCategory === cat}
               onClick={() => onCategoryClick(cat)}
               delay={0.05 + i * 0.04}
@@ -702,7 +707,7 @@ function CategoryGrid({ activeCategory, onCategoryClick }: CategoryGridProps) {
             <CompactCard
               key={cat}
               cat={cat}
-              config={catCfg[cat]}
+              config={{ ...catCfg[cat], img: imageFor(cat) }}
               active={activeCategory === cat}
               onClick={() => onCategoryClick(cat)}
               delay={0.12 + i * 0.04}

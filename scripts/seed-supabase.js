@@ -10,6 +10,8 @@ const supabase = createClient(
 const imageMap = JSON.parse(fs.readFileSync('image-upload-map.json', 'utf8'));
 const productNameOverrides = require('../data/product-name-overrides.json');
 const productImageOverrides = require('../data/product-image-overrides.json');
+const workbookCatalog = require('../data/workbook-catalog.json');
+const { reconcileCatalog } = require('./reconcile-catalog-products.js');
 
 const sizeLabels = {
   CHICA: 'Chico', CHICO: 'Chico',
@@ -272,11 +274,42 @@ function buildProducts() {
     });
   }
 
+  for (const [index, row] of workbookCatalog.entries()) {
+    const sizes = [...new Set((row.options || []).filter(Boolean))];
+    const colors = [...new Set((row.colors || []).filter(Boolean))];
+    const availableSizes = sizes.length ? sizes : [''];
+    const availableColors = colors.length ? colors : [''];
+    const slug = `catalogo-${slugify(row.brand)}-${slugify(row.name)}`;
+
+    products.push({
+      id: `workbook-${index + 1}`,
+      name: row.name,
+      slug,
+      category: row.category,
+      price: 0,
+      description: 'Disponible bajo cotización. Elige la presentación disponible para solicitar información.',
+      image: getProductImage(slug, row.name, row.category),
+      inStock: false,
+      stockQuantity: 0,
+      featured: false,
+      sizes,
+      colors,
+      variants: availableColors.flatMap((color) => availableSizes.map((size) => ({
+        color,
+        size,
+        stockQuantity: 0,
+      }))),
+      brand: row.brand,
+      presentation: row.presentation || (sizes.length ? 'Varias presentaciones' : undefined),
+      quote_only: true,
+    });
+  }
+
   return products;
 }
 
 async function preserveManagedProductImages(products) {
-  const { data, error } = await supabase.from('products').select('name,slug,image');
+  const { data, error } = await supabase.from('products').select('name,slug,image,brand,presentation');
   if (error || !data) {
     console.warn('No se pudieron consultar las imágenes administradas; se conservaron los valores del catálogo local.');
     return products;
@@ -294,65 +327,48 @@ async function preserveManagedProductImages(products) {
   return products.map((product) => {
     const nameMatches = byName.get(normalize(product.name)) || [];
     const existing = bySlug.get(product.slug) || (nameMatches.length === 1 ? nameMatches[0] : null);
-    return existing && isManagedImage(existing.image) ? { ...product, image: existing.image } : product;
+    if (!existing) return product;
+    return {
+      ...product,
+      image: isManagedImage(existing.image) ? existing.image : product.image,
+      brand: product.brand || existing.brand || undefined,
+      presentation: product.presentation || existing.presentation || undefined,
+    };
   });
-}
-
-async function findStaleInventorySlugs(products) {
-  const activeSlugs = new Set(products.map((product) => product.slug));
-  const supersededVariantSlugs = new Set([
-    'venda-elastica-10-cm-ancho-5-cm-longitud-m-vendalastic-cat0273',
-    'venda-elastica-15-cm-ancho-5-cm-longitud-m-vendalastic-cat0274',
-    'venda-elastica-30cmx5m-10794-ideal-cat0276',
-    'venda-elastica-ideal-7-5cmx5m-10789-ideal-cat0277',
-  ]);
-  const { data, error } = await supabase.from('products').select('slug,quote_only,image');
-  if (error || !data) {
-    console.warn('No se pudieron revisar productos obsoletos; se conservaron sin cambios.');
-    return [];
-  }
-
-  return data
-    .filter((product) => product.quote_only === true && !activeSlugs.has(product.slug) && (!isManagedImage(product.image) || supersededVariantSlugs.has(product.slug)))
-    .map((product) => product.slug);
 }
 
 async function syncExplicitProductVariants(products) {
   for (const product of products.filter((candidate) => candidate.variants?.length)) {
-    const { data, error } = await supabase
-      .from('products')
-      .update({ brand: product.brand || null, presentation: product.presentation || null })
-      .eq('slug', product.slug)
-      .select('id')
-      .single();
+    const metadata = {};
+    if (product.brand) metadata.brand = product.brand;
+    if (product.presentation) metadata.presentation = product.presentation;
+    const query = supabase.from('products');
+    const { data, error } = await (Object.keys(metadata).length
+      ? query.update(metadata).eq('slug', product.slug).select('id').single()
+      : query.select('id').eq('slug', product.slug).single());
     if (error) throw error;
 
-    const { error: deleteError } = await supabase.from('product_variants').delete().eq('product_id', data.id);
-    if (deleteError) throw deleteError;
+    const { data: existingVariants, error: existingError } = await supabase
+      .from('product_variants')
+      .select('color,size,image')
+      .eq('product_id', data.id);
+    if (existingError) throw existingError;
+    const existingByKey = new Map(
+      (existingVariants || []).map((variant) => [`${variant.color}\u0000${variant.size}`, variant])
+    );
 
-    const { error: insertError } = await supabase.from('product_variants').insert(
+    const { error: insertError } = await supabase.from('product_variants').upsert(
       product.variants.map((variant) => ({
         product_id: data.id,
         color: variant.color,
         size: variant.size,
         stock_quantity: variant.stockQuantity,
-        image: variant.image || null,
-      }))
+        image: existingByKey.get(`${variant.color}\u0000${variant.size}`)?.image || variant.image || null,
+      })),
+      { onConflict: 'product_id,color,size' }
     );
     if (insertError) throw insertError;
   }
-}
-
-async function removeStaleInventoryProducts(products) {
-  const staleSlugs = await findStaleInventorySlugs(products);
-
-  for (let index = 0; index < staleSlugs.length; index += 100) {
-    const batch = staleSlugs.slice(index, index + 100);
-    const { error: deleteError } = await supabase.from('products').delete().in('slug', batch);
-    if (deleteError) throw deleteError;
-  }
-
-  if (staleSlugs.length) console.log(`Eliminados ${staleSlugs.length} registros de inventario sustituidos por variantes agrupadas.`);
 }
 
 async function main() {
@@ -361,9 +377,7 @@ async function main() {
   console.log(`Preparados ${products.length} productos para insertar.`);
 
   if (process.argv.includes('--dry-run')) {
-    const staleSlugs = await findStaleInventorySlugs(products);
-    console.log(`Vista previa: ${staleSlugs.length} productos anteriores de cotización se eliminarían.`);
-    console.log(staleSlugs.slice(0, 20));
+    console.log('Vista previa completada. No se eliminará ningún producto existente.');
     return;
   }
 
@@ -403,6 +417,8 @@ async function main() {
       featured: p.featured,
       sizes: p.colors?.length ? { sizes: p.sizes || [], colors: p.colors } : p.sizes || null,
       quote_only: p.quote_only,
+      brand: p.brand || null,
+      presentation: p.presentation || null,
     }));
 
     let { error } = await supabase.from('products').upsert(batch, { onConflict: 'slug' });
@@ -421,9 +437,10 @@ async function main() {
   }
 
   await syncExplicitProductVariants(products);
-  await removeStaleInventoryProducts(products);
 
-  console.log('Seed completado.');
+  await reconcileCatalog();
+
+  console.log('Seed completado y catálogo conciliado sin eliminar productos existentes.');
 }
 
 main().catch((err) => {

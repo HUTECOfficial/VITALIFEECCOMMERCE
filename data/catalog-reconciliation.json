@@ -1,0 +1,345 @@
+[
+  {
+    "catalogSlug": "catalogo-pisa-solucion-cloruro-de-sodio-0-9",
+    "canonicalSlug": "solucion-cloruro-de-sodio-0-9-50-ml-l1sol001",
+    "name": "Solución cloruro de sodio 0.9%",
+    "brand": "Pisa",
+    "presentation": "Varias presentaciones",
+    "options": ["50 ml", "100 ml", "250 ml", "500 ml", "1000 ml"],
+    "sources": [
+      { "slug": "solucion-cloruro-de-sodio-0-9-50-ml-l1sol001", "option": "50 ml" },
+      { "slug": "solucion-cloruro-de-sodio-0-9-100-ml-l1sol002", "option": "100 ml" },
+      { "slug": "solucion-cloruro-de-sodio-0-9-250-ml-l1sol003", "option": "250 ml" },
+      { "slug": "solucion-cloruro-de-sodio-0-9-500-ml-l1sol004", "option": "500 ml" },
+      { "slug": "solucion-cloruro-de-sodio-0-9-1000-ml-l1sol005", "option": "1000 ml" }
+    ]
+  },
+  {
+    "catalogSlug": "catalogo-pisa-solucion-hartmann-ht",
+    "canonicalSlug": "solucion-hartmann-250-ml-l1sol006",
+    "name": "Solución Hartmann",
+    "brand": "Pisa",
+    "presentation": "Varias presentaciones",
+    "options": ["250 ml", "500 ml", "1000 ml"],
+    "sources": [
+      { "slug": "solucion-hartmann-250-ml-l1sol006", "option": "250 ml" },
+      { "slug": "solucion-hartmann-500-ml-l1sol007", "option": "500 ml" },
+      { "slug": "hartman-1000-ml-flex-c-12-pisa-cat0124", "option": "1000 ml" }
+    ]
+  },
+  {
+    "catalogSlug": "catalogo-pisa-solucion-glucosa-al-5",
+    "canonicalSlug": "dextrosa-5-250-ml-flexo-pisac-cat0076",
+    "name": "Solución glucosa al 5%",
+    "brand": "Pisa",
+    "presentation": "Varias presentaciones",
+    "options": ["250 ml", "500 ml", "1000 ml"],
+    "sources": [
+      { "slug": "dextrosa-5-250-ml-flexo-pisac-cat0076", "option": "250 ml" },
+      { "slug": "solucion-glucosa-al-5-500-ml-l1sol008", "option": "500 ml" },
+      { "slug": "solucion-glucosa-al-5-1000-ml-l1sol009", "option": "1000 ml" }
+    ]
+  },
+  {
+    "catalogSlug": "catalogo-pisa-solucion-glucosa-al-10",
+    "canonicalSlug": "solucion-glucosa-al-10-250-ml-l1sol010",
+    "name": "Solución glucosa al 10%",
+    "brand": "Pisa",
+    "presentation": "Varias presentaciones",
+    "options": ["250 ml", "500 ml"],
+    "sources": [
+      { "slug": "solucion-glucosa-al-10-250-ml-l1sol010", "option": "250 ml" },
+      { "slug": "solucion-glucosa-al-10-500-ml-l1sol011", "option": "500 ml" }
+    ]
+  },
+  {
+    "catalogSlug": "catalogo-pisa-solucion-glucosa-al-50-50-ml",
+    "canonicalSlug": "solucion-dextrosa-50-50-ml-pisa-cat0226",
+    "name": "Solución glucosa al 50%",
+    "brand": "Pisa",
+    "presentation": "Frasco de 50 ml",
+    "options": ["50 ml"],
+    "sources": [
+      { "slug": "solucion-dextrosa-50-50-ml-pisa-cat0226", "option": "50 ml" }
+    ]
+  },
+  {
+    "catalogSlug": "catalogo-pisa-solucion-de-cloruro-de-sodio-0-9-y-glucosa-5-mixta",
+    "canonicalSlug": "solucion-de-cloruro-de-sodio-0-9-y-glucosa-5-mixta-250-ml-l1sol012",
+    "name": "Solución de cloruro de sodio 0.9% y glucosa 5% mixta",
+    "brand": "Pisa",
+    "presentation": "Varias presentaciones",
+    "options": ["250 ml", "500 ml", "1000 ml"],
+    "sources": [
+      { "slug": "solucion-de-cloruro-de-sodio-0-9-y-glucosa-5-mixta-250-ml-l1sol012", "option": "250 ml" },
+      { "slug": "solucion-de-cloruro-de-sodio-0-9-y-glucosa-5-mixta-500-ml-l1sol013", "option": "500 ml" },
+      { "slug": "solucion-de-cloruro-de-sodio-0-9-y-glucosa-5-mixta-1000-ml-l1sol014", "option": "1000 ml" }
+    ]
+  },
+  {
+    "catalogSlug": "catalogo-pisa-agua-inyectable",
+    "canonicalSlug": "agua-inyectable-500-ml-l1sol015",
+    "name": "Agua inyectable",
+    "brand": "Pisa",
+    "presentation": "Varias presentaciones",
+    "options": ["500 ml", "1000 ml"],
+    "sources": [
+      { "slug": "agua-inyectable-500-ml-l1sol015", "option": "500 ml" },
+      { "slug": "agua-inyectable-1000-ml-l1sol016", "option": "1000 ml" }
+    ]
+  },
+  {
+    "catalogSlug": "catalogo-pisa-metronidazol-inyectable-otrozol-500-mg",
+    "canonicalSlug": "metronidazol-inyectable-otrozol-500-mg-con-100-ml-l1sol017",
+    "name": "Metronidazol inyectable Otrozol 500 mg",
+    "brand": "Pisa",
+    "presentation": "Frasco de 100 ml",
+    "options": ["100 ml"],
+    "sources": [
+      { "slug": "metronidazol-inyectable-otrozol-500-mg-con-100-ml-l1sol017", "option": "100 ml" }
+    ]
+  },
+  {
+    "catalogSlug": "catalogo-pisa-osmorol-20-flex-solucion-20-manitol-20-g",
+    "canonicalSlug": "manitol-osmorol-20-g-100-ml-frasco-de-250-ml-l1sol018",
+    "name": "Osmorol 20 Flex, manitol 20 g/100 ml",
+    "brand": "Pisa",
+    "presentation": "Frasco de 250 ml",
+    "options": ["250 ml"],
+    "sources": [
+      { "slug": "manitol-osmorol-20-g-100-ml-frasco-de-250-ml-l1sol018", "option": "250 ml" }
+    ]
+  },
+  {
+    "catalogSlug": "catalogo-vendalastic-venda-elastica",
+    "canonicalSlug": "venda-elastica-ideal-cat0273",
+    "name": "Venda elástica Vendalastic",
+    "brand": "Vendalastic",
+    "presentation": "Paquete con 12 piezas",
+    "options": ["5 cm × 5 m", "7 cm × 5 m", "10 cm × 5 m", "15 cm × 5 m", "20 cm × 5 m", "30 cm × 5 m"],
+    "variantSources": [
+      { "slug": "venda-elastica-ideal-cat0273", "fromOption": "10 cm", "option": "10 cm × 5 m" },
+      { "slug": "venda-elastica-ideal-cat0273", "fromOption": "15 cm", "option": "15 cm × 5 m" }
+    ]
+  },
+  {
+    "catalogSlug": "catalogo-ideal-venda-elastica",
+    "canonicalSlug": "catalogo-ideal-venda-elastica",
+    "name": "Venda elástica Ideal",
+    "brand": "Ideal",
+    "presentation": "Paquete con 24 piezas",
+    "options": ["5 cm × 5 m", "7.5 cm × 5 m", "10 cm × 5 m", "15 cm × 5 m", "20 cm × 5 m", "30 cm × 5 m"],
+    "variantSources": [
+      { "slug": "venda-elastica-ideal-cat0273", "fromOption": "5 cm", "option": "5 cm × 5 m" },
+      { "slug": "venda-elastica-ideal-cat0273", "fromOption": "7.5 cm", "option": "7.5 cm × 5 m" },
+      { "slug": "venda-elastica-ideal-cat0273", "fromOption": "30 cm", "option": "30 cm × 5 m" }
+    ]
+  },
+  {
+    "catalogSlug": "catalogo-ambiderm-guante-nitrilo-no-esteril-ambidiestros-texturizado-sin-polvo",
+    "canonicalSlug": "guante-nitrilo-c-100-no-esteril-ambiderm-cat0106",
+    "name": "Guante de nitrilo no estéril, texturizado y sin polvo",
+    "brand": "Ambiderm",
+    "presentation": "Caja con 100 piezas",
+    "options": ["Chico", "Mediano", "Grande"],
+    "preserveColors": true,
+    "inventoryCodes": ["CAT0106", "CAT0107", "CAT0108", "CAT0109"]
+  },
+  {
+    "catalogSlug": "catalogo-ambiderm-guante-de-latex-para-exploracion-no-esteril-bajo-en-polvo-ambidiestros-plus",
+    "canonicalSlug": "guante-plus-no-est-c-100-ambiderm-cat0114",
+    "name": "Guante de látex para exploración Plus",
+    "brand": "Ambiderm",
+    "presentation": "Caja con 100 piezas",
+    "options": ["Chico", "Mediano", "Grande"],
+    "inventoryCodes": ["CAT0113", "CAT0114", "CAT0115", "CAT0117"]
+  },
+  {
+    "catalogSlug": "catalogo-ambiderm-guante-de-latex-para-cirugia-esteril-elite",
+    "canonicalSlug": "guante-elite-talla-7-ambiderm-cat0100",
+    "name": "Guante de látex para cirugía estéril Elite",
+    "brand": "Ambiderm",
+    "presentation": "Par",
+    "options": ["6", "7", "7.5", "8", "8.5"],
+    "inventoryCodes": ["CAT0100"]
+  },
+  {
+    "catalogSlug": "catalogo-protec-guante-para-cirugia-de-latex-natural-esteril",
+    "canonicalSlug": "guante-est-p-cirujano-c-50-protec-cat0101",
+    "name": "Guante para cirugía de látex natural estéril",
+    "brand": "Protec",
+    "presentation": "Caja con 50 pares",
+    "options": ["6", "7", "7.5", "8"],
+    "inventoryCodes": ["CAT0101", "CAT0102"]
+  },
+  {
+    "catalogSlug": "catalogo-protexis-guante-para-cirugia-sin-polvo-esteril",
+    "canonicalSlug": "guante-latex-c-50-protexis-cat0097",
+    "name": "Guante para cirugía sin polvo estéril",
+    "brand": "Protexis",
+    "presentation": "Caja con 50 pares",
+    "options": ["6", "7", "7.5", "8"],
+    "inventoryCodes": ["CAT0097", "CAT0098", "CAT0099", "CAT0104", "CAT0105"]
+  },
+  {
+    "catalogSlug": "catalogo-ambiderm-cubrebocas-plisado-de-tres-pliegos-no-esteril-adulto",
+    "canonicalSlug": "cubreboca-3-pliegos-azul-c-50-ambiderm-cat0073",
+    "name": "Cubrebocas plisado de tres pliegos para adulto",
+    "brand": "Ambiderm",
+    "presentation": "Caja con 50 piezas",
+    "options": [],
+    "sources": [
+      { "slug": "cubreboca-3-pliegos-azul-c-50-ambiderm-cat0073", "option": "" },
+      { "slug": "cubrebocas-azul-c-50-ambiderm-cat0075", "option": "" }
+    ]
+  },
+  {
+    "catalogSlug": "catalogo-az-alcohol-etilico-desnaturalizado-70-antiseptico-germicida",
+    "canonicalSlug": "alcohol-desnaturalizali-70-pza-lto-az-cat0015",
+    "name": "Alcohol etílico desnaturalizado 70°",
+    "brand": "AZ",
+    "presentation": "Frasco",
+    "options": ["250 ml", "500 ml", "1000 ml"],
+    "sources": [
+      { "slug": "alcohol-desnaturalizali-70-pza-lto-az-cat0015", "option": "1000 ml" }
+    ]
+  },
+  {
+    "catalogSlug": "catalogo-ac-agua-oxigenada-al-3",
+    "canonicalSlug": "agua-oxigenada-ac-al-3-material-de-curacion-250-ml-alcoholera-del-centro-s-a-de-c-v-cat0007",
+    "name": "Agua oxigenada al 3%",
+    "brand": "AC",
+    "presentation": "Frasco",
+    "options": ["250 ml", "500 ml", "1000 ml"],
+    "sources": [
+      { "slug": "agua-oxigenada-ac-al-3-material-de-curacion-250-ml-alcoholera-del-centro-s-a-de-c-v-cat0007", "option": "250 ml" },
+      { "slug": "agua-oxigenada-1000-ml-ac-cat0006", "option": "1000 ml" }
+    ]
+  },
+  {
+    "catalogSlug": "catalogo-pisa-exsept-solucion-antiseptica-y-desinfectante",
+    "canonicalSlug": "exsept-sol-antiseptica-50-c-500ml-cat0090",
+    "name": "Exsept solución antiséptica y desinfectante",
+    "brand": "Pisa",
+    "presentation": "Frasco de 500 ml",
+    "options": ["500 ml"],
+    "sources": [
+      { "slug": "exsept-sol-antiseptica-50-c-500ml-cat0090", "option": "500 ml" }
+    ]
+  },
+  {
+    "catalogSlug": "catalogo-nipro-jeringa-22x32-mm-negra",
+    "canonicalSlug": "jeringa-5-ml-luer-lock-22g-x-32-mm-c-100-nipro-cat0136",
+    "name": "Jeringa 22 × 32 mm negra",
+    "brand": "Nipro",
+    "presentation": "Caja con 100 piezas",
+    "options": ["3 ml", "5 ml", "10 ml"],
+    "sources": [
+      { "slug": "jeringa-5-ml-luer-lock-22g-x-32-mm-c-100-nipro-cat0136", "option": "5 ml" }
+    ]
+  },
+  {
+    "catalogSlug": "catalogo-ambiderm-electrodo-ecg-autoadherible-monitoreo-55mm-2-1-diametro",
+    "canonicalSlug": "electrodo-ecg-adulto-c-50-ambiderm-cat0085",
+    "name": "Electrodo ECG autoadherible para monitoreo adulto",
+    "brand": "Ambiderm",
+    "presentation": "Bolsa con 50 piezas",
+    "options": [],
+    "sources": [
+      { "slug": "electrodo-ecg-adulto-c-50-ambiderm-cat0085", "option": "" }
+    ]
+  },
+  {
+    "catalogSlug": "catalogo-hergom-lancetas-acero-inoxidable-fino-calibre-28-g",
+    "canonicalSlug": "lancetas-estandar-28g-c-100-hergom-cat0145",
+    "name": "Lancetas de acero inoxidable calibre 28 G",
+    "brand": "Hergom",
+    "presentation": "Caja con 100 piezas",
+    "options": [],
+    "sources": [
+      { "slug": "lancetas-estandar-28g-c-100-hergom-cat0145", "option": "" },
+      { "slug": "lancetas-acero-inoxidable-0-35-mm-hergom-cat0144", "option": "" }
+    ]
+  },
+  {
+    "catalogSlug": "catalogo-accu-chek-lancetas-softclix",
+    "canonicalSlug": "lancetas-100-sofclix-accu-chek-cat0143",
+    "name": "Lancetas Softclix",
+    "brand": "Accu-Chek",
+    "presentation": "Caja con 100 piezas",
+    "options": [],
+    "sources": [
+      { "slug": "lancetas-100-sofclix-accu-chek-cat0143", "option": "" }
+    ]
+  },
+  {
+    "catalogSlug": "catalogo-obs-placa-para-electrocirugia-electrocauterio-con-cable",
+    "canonicalSlug": "placa-electrocauterio-c-cable-adulto-obs-gbs-cat0195",
+    "name": "Placa para electrocirugía con cable, adulto",
+    "brand": "OBS",
+    "presentation": "Pieza",
+    "options": [],
+    "sources": [
+      { "slug": "placa-electrocauterio-c-cable-adulto-obs-gbs-cat0195", "option": "" }
+    ]
+  },
+  {
+    "catalogSlug": "catalogo-ambiderm-jeringa-21g-x-32-mm-verde",
+    "canonicalSlug": "jeringa-5ml-21x32-c-100-ambiderm-cat0137",
+    "name": "Jeringa 21 G × 32 mm verde",
+    "brand": "Ambiderm",
+    "presentation": "Caja con 100 piezas",
+    "options": ["3 ml", "5 ml", "10 ml"],
+    "sources": [
+      { "slug": "jeringa-5ml-21x32-c-100-ambiderm-cat0137", "option": "5 ml" },
+      { "slug": "jeringa-10ml-21x32-c-100-ambiderm-cat0135", "option": "10 ml" }
+    ]
+  },
+  {
+    "catalogSlug": "catalogo-ambiderm-hoja-p-bisturi-surgical-blades-esteril-hojas-de-acero-al-carbon",
+    "canonicalSlug": "hoja-p-bisturi-10-esteril-acero-al-carbon-caja-c-100-piezas-ambiderm-cat0130",
+    "name": "Hoja para bisturí estéril de acero al carbón",
+    "brand": "Ambiderm",
+    "presentation": "Caja con 100 piezas",
+    "options": ["10", "11", "12", "15", "20", "21", "22", "23", "24"],
+    "sources": [
+      { "slug": "hoja-p-bisturi-10-esteril-acero-al-carbon-caja-c-100-piezas-ambiderm-cat0130", "option": "10" },
+      { "slug": "hoja-p-bisturi-22-esteril-acero-al-carbon-caja-c-100-piezas-ambiderm-cat0131", "option": "22" },
+      { "slug": "hoja-de-bisturi-acero-al-carbon-23-ambiderm-cat0128", "option": "23" }
+    ]
+  },
+  {
+    "catalogSlug": "catalogo-nipro-aguja-20x32-amarilla",
+    "canonicalSlug": "aguja-nipro-20x32-c-100-amarilla-nipro-cat0012",
+    "name": "Aguja 20 × 32 mm amarilla",
+    "brand": "Nipro",
+    "presentation": "Caja con 100 piezas",
+    "options": [],
+    "sources": [
+      { "slug": "aguja-nipro-20x32-c-100-amarilla-nipro-cat0012", "option": "" }
+    ]
+  },
+  {
+    "catalogSlug": "catalogo-nipro-aguja-22x32-negra",
+    "canonicalSlug": "aguja-22x32-c-100-negra-nipro-cat0008",
+    "name": "Aguja 22 × 32 mm negra",
+    "brand": "Nipro",
+    "presentation": "Caja con 100 piezas",
+    "options": [],
+    "sources": [
+      { "slug": "aguja-22x32-c-100-negra-nipro-cat0008", "option": "" },
+      { "slug": "aguja-hip-22x32-c-100-nipro-cat0011", "option": "" }
+    ]
+  },
+  {
+    "catalogSlug": "catalogo-dl-agujas-hipodermicas-20g-x38-mm-amarilla",
+    "canonicalSlug": "aguja-hip-20-x38-mm-amarilla-c-100-dl-cat0009",
+    "name": "Aguja hipodérmica 20 G × 38 mm amarilla",
+    "brand": "DL",
+    "presentation": "Caja con 100 piezas",
+    "options": [],
+    "sources": [
+      { "slug": "aguja-hip-20-x38-mm-amarilla-c-100-dl-cat0009", "option": "" }
+    ]
+  }
+]

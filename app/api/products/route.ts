@@ -4,6 +4,7 @@ import { products as localProducts } from "@/data/products";
 import type { Product } from "@/types";
 import { readInventoryVariants, readProductVariants } from "@/lib/product-variants";
 import { normalizeProductName, standardizeProductDescription } from "@/lib/product-copy";
+import { isCatalogProductVisibleSlug } from "@/data/catalog-reconciliation";
 
 const cacheHeaders = {
   // Product images and stock are managed in Supabase. Do not let the browser
@@ -34,6 +35,7 @@ interface ProductRow {
 }
 
 function mapRow(row: ProductRow): Product {
+  const productOptions = readProductVariants(row.sizes);
   return {
     id: row.id,
     name: normalizeProductName(row.name),
@@ -45,8 +47,8 @@ function mapRow(row: ProductRow): Product {
     inStock: row.in_stock ?? false,
     stockQuantity: row.stock_quantity ?? localStockBySlug.get(row.slug),
     featured: row.featured ?? false,
-    ...readProductVariants(row.sizes),
-    variants: readInventoryVariants(row.product_variants),
+    ...productOptions,
+    variants: readInventoryVariants(row.product_variants, productOptions),
     quoteOnly: row.quote_only ?? false,
     brand: row.brand ?? undefined,
     presentation: row.presentation ?? undefined,
@@ -67,7 +69,10 @@ export async function GET() {
       return NextResponse.json(localProducts, { headers: cacheHeaders });
     }
 
-    return NextResponse.json(data.map(mapRow), { headers: cacheHeaders });
+    return NextResponse.json(
+      (data as ProductRow[]).filter((row) => isCatalogProductVisibleSlug(row.slug)).map(mapRow),
+      { headers: cacheHeaders }
+    );
   } catch {
     return NextResponse.json(localProducts, { headers: cacheHeaders });
   }

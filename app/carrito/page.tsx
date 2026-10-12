@@ -205,7 +205,7 @@ export default function CarritoPage() {
                         </Link>
                         {item.size && (
                           <p className="text-[10px] bg-[#1a3a6b] text-white px-1.5 py-0.5 rounded inline-block mt-0.5">
-                            Talla: {item.size}
+                            Presentación / talla / medida: {item.size}
                           </p>
                         )}
                         {item.color && (

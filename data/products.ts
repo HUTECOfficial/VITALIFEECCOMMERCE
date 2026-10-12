@@ -1,6 +1,8 @@
 import { Product } from "@/types";
 import { inventoryProducts } from "@/data/inventoryProducts";
+import { workbookProducts } from "@/data/workbookProducts";
 import { categoryImageById } from "@/data/visualAssets";
+import { reconcileLocalCatalogProducts } from "@/data/catalog-reconciliation";
 
 const featuredProducts: Product[] = [
   {
@@ -141,7 +143,11 @@ const featuredProducts: Product[] = [
   },
 ];
 
-export const products: Product[] = [...featuredProducts, ...inventoryProducts];
+export const products: Product[] = reconcileLocalCatalogProducts([
+  ...featuredProducts,
+  ...inventoryProducts,
+  ...workbookProducts,
+]);
 
 export const categoryLabels: Record<Product["category"], string> = {
   guantes: "Guantes",

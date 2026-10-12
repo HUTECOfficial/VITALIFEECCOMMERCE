@@ -3,6 +3,7 @@ import { products as localProducts } from "@/data/products";
 import { Product } from "@/types";
 import { readInventoryVariants, readProductVariants } from "@/lib/product-variants";
 import { normalizeProductName, standardizeProductDescription } from "@/lib/product-copy";
+import { getCanonicalCatalogSlug, isCatalogProductVisibleSlug } from "@/data/catalog-reconciliation";
 
 const localStockBySlug = new Map(
   localProducts.map((product) => [product.slug, product.stockQuantity])
@@ -27,6 +28,7 @@ type ProductRow = {
 };
 
 function mapRowToProduct(row: ProductRow): Product {
+  const productOptions = readProductVariants(row.sizes);
   return {
     id: row.id,
     name: normalizeProductName(row.name),
@@ -38,8 +40,8 @@ function mapRowToProduct(row: ProductRow): Product {
     inStock: row.in_stock ?? false,
     stockQuantity: row.stock_quantity ?? localStockBySlug.get(row.slug),
     featured: row.featured ?? false,
-    ...readProductVariants(row.sizes),
-    variants: readInventoryVariants(row.product_variants),
+    ...productOptions,
+    variants: readInventoryVariants(row.product_variants, productOptions),
     quoteOnly: row.quote_only ?? false,
     brand: row.brand ?? undefined,
     presentation: row.presentation ?? undefined,
@@ -56,26 +58,29 @@ export async function getProducts(): Promise<Product[]> {
     if (error || !data || data.length === 0) {
       return localProducts;
     }
-    return (data as ProductRow[]).map(mapRowToProduct);
+    return (data as ProductRow[])
+      .filter((row) => isCatalogProductVisibleSlug(row.slug))
+      .map(mapRowToProduct);
   } catch {
     return localProducts;
   }
 }
 
 export async function getProductBySlug(slug: string): Promise<Product | null> {
+  const canonicalSlug = getCanonicalCatalogSlug(slug);
   try {
     const supabase = createServerClient();
     const { data, error } = await supabase
       .from("products")
       .select("*, product_variants(color,size,stock_quantity,image)")
-      .eq("slug", slug)
+      .eq("slug", canonicalSlug)
       .single();
     if (error || !data) {
-      return localProducts.find((p) => p.slug === slug) ?? null;
+      return localProducts.find((p) => p.slug === canonicalSlug) ?? null;
     }
     return mapRowToProduct(data as ProductRow);
   } catch {
-    return localProducts.find((p) => p.slug === slug) ?? null;
+    return localProducts.find((p) => p.slug === canonicalSlug) ?? null;
   }
 }
 
@@ -89,7 +94,9 @@ export async function getFeaturedProducts(): Promise<Product[]> {
     if (error || !data || data.length === 0) {
       return localProducts.filter((p) => p.featured);
     }
-    return (data as ProductRow[]).map(mapRowToProduct);
+    return (data as ProductRow[])
+      .filter((row) => isCatalogProductVisibleSlug(row.slug))
+      .map(mapRowToProduct);
   } catch {
     return localProducts.filter((p) => p.featured);
   }

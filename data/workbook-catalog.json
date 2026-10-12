@@ -1,0 +1,855 @@
+[
+  {
+    "name": "Solución cloruro de sodio 0.9%",
+    "category": "terapia-iv",
+    "brand": "Pisa",
+    "options": [
+      "50 ml",
+      "100 ml",
+      "250 ml",
+      "500 ml",
+      "1000 ml"
+    ]
+  },
+  {
+    "name": "Solución hartmann HT",
+    "category": "terapia-iv",
+    "brand": "Pisa",
+    "options": [
+      "250 ml",
+      "500 ml",
+      "1000 ml"
+    ]
+  },
+  {
+    "name": "Solución glucosa al 5%",
+    "category": "terapia-iv",
+    "brand": "Pisa",
+    "options": [
+      "250 ml",
+      "500 ml",
+      "1000 ml"
+    ]
+  },
+  {
+    "name": "Solución glucosa al 10%",
+    "category": "terapia-iv",
+    "brand": "Pisa",
+    "options": [
+      "250 ml",
+      "500 ml"
+    ]
+  },
+  {
+    "name": "Solución glucosa al 50% 50 ml",
+    "category": "terapia-iv",
+    "brand": "Pisa",
+    "options": [
+      "50 ml"
+    ]
+  },
+  {
+    "name": "Solución de cloruro de sodio (0.9%) y glucosa (5%) mixta",
+    "category": "terapia-iv",
+    "brand": "Pisa",
+    "options": [
+      "250 ml",
+      "500 ml",
+      "1000 ml"
+    ]
+  },
+  {
+    "name": "Agua inyectable",
+    "category": "terapia-iv",
+    "brand": "Pisa",
+    "options": [
+      "500 ml",
+      "1000 ml"
+    ]
+  },
+  {
+    "name": "Metronidazol inyectable otrozol 500 mg",
+    "category": "terapia-iv",
+    "brand": "Pisa",
+    "options": [
+      "100 ml"
+    ]
+  },
+  {
+    "name": "Osmorol 20 flex solución 20% manitol 20 g",
+    "category": "terapia-iv",
+    "brand": "Pisa",
+    "options": [
+      "100 ml"
+    ]
+  },
+  {
+    "name": "Venda elastica",
+    "category": "curacion",
+    "brand": "Vendalastic",
+    "presentation": "Paquete con 12 piezas",
+    "options": [
+      "5 cm X 5 m",
+      "7 cm X 5 m",
+      "10 cm X 5 m",
+      "15 cm X 5 m",
+      "20 cm X 5 m",
+      "30 cm X 5 m"
+    ]
+  },
+  {
+    "name": "Venda elastica",
+    "category": "curacion",
+    "brand": "Galia",
+    "presentation": "Paquete con 12 piezas",
+    "options": [
+      "5 cm X 5 m",
+      "7.5 cm X 5 m",
+      "10 cm X 5 m",
+      "15 cm X 5 m",
+      "20 cm X 5 m",
+      "30 cm X 5 m"
+    ]
+  },
+  {
+    "name": "Venda elastica",
+    "category": "curacion",
+    "brand": "Ideal",
+    "presentation": "Paquete con 24 piezas",
+    "options": [
+      "5 cm X 5 m",
+      "7.5 cm X 5 m",
+      "10 cm X 5 m",
+      "15 cm X 5 m",
+      "20 cm X 5 m",
+      "30 cm X 5 m"
+    ]
+  },
+  {
+    "name": "Venda elastica",
+    "category": "curacion",
+    "brand": "Protec",
+    "presentation": "Paquete con 12 piezas",
+    "options": [
+      "5 cm X 5 m",
+      "7 cm X 5 m",
+      "10 cm X 5 m",
+      "15 cm X 5 m",
+      "20 cm X 5 m",
+      "25 cm X 5 m",
+      "30 cm X 5 m"
+    ]
+  },
+  {
+    "name": "Guante nitrilo no esteril ambidiestros texturizado sin polvo",
+    "category": "guantes",
+    "brand": "Ambiderm",
+    "options": [
+      "Chico",
+      "Mediano",
+      "Grande"
+    ]
+  },
+  {
+    "name": "Guante de látex para exploración no esteril bajo en polvo ambidiestros plus",
+    "category": "guantes",
+    "brand": "Ambiderm",
+    "options": [
+      "Chico",
+      "Mediano",
+      "Grande"
+    ]
+  },
+  {
+    "name": "Guante de látex para cirugia esteril elite",
+    "category": "guantes",
+    "brand": "Ambiderm",
+    "options": [
+      "No. 6",
+      "7",
+      "7 1/2",
+      "8",
+      "8 1/2"
+    ]
+  },
+  {
+    "name": "Guantes de látex para cirugía surgical",
+    "category": "guantes",
+    "brand": "Ambiderm",
+    "options": [
+      "No. 6",
+      "7",
+      "7 1/2",
+      "8",
+      "8 1/2"
+    ]
+  },
+  {
+    "name": "Guante de látex para exploración esteril",
+    "category": "guantes",
+    "brand": "Ambiderm",
+    "options": [
+      "Chico",
+      "Mediano",
+      "Grande"
+    ]
+  },
+  {
+    "name": "Guantes de látex para exploración no esteril Confort",
+    "category": "guantes",
+    "brand": "Ambiderm",
+    "options": [
+      "Chico",
+      "Mediano",
+      "Grande"
+    ]
+  },
+  {
+    "name": "Guante para cirugía de látex natural esteril",
+    "category": "guantes",
+    "brand": "Protec",
+    "options": [
+      "No. 6",
+      "7",
+      "7 1/2",
+      "8"
+    ]
+  },
+  {
+    "name": "Guante para cirugía sin polvo esteril",
+    "category": "guantes",
+    "brand": "Protexis",
+    "options": [
+      "No. 6",
+      "7",
+      "7 1/2",
+      "8"
+    ]
+  },
+  {
+    "name": "Cubrebocas plisado de tres pliegos no esteril adulto",
+    "category": "proteccion-desechables",
+    "brand": "Ambiderm",
+    "presentation": "Caja con 50 piezas",
+    "colors": [
+      "Azul",
+      "Blanco",
+      "Rosa",
+      "Negro",
+      "Surtido De Colores"
+    ]
+  },
+  {
+    "name": "Cubrebocas plisado de tres pliegos infantil c/elastico",
+    "category": "proteccion-desechables",
+    "brand": "Ambiderm",
+    "presentation": "Caja con 50 piezas",
+    "colors": [
+      "Azul"
+    ]
+  },
+  {
+    "name": "Mascarilla KN95 5 piezas",
+    "category": "proteccion-desechables",
+    "brand": "Daylead",
+    "presentation": "Paquete con 5 piezas",
+    "colors": [
+      "Blanco"
+    ]
+  },
+  {
+    "name": "Alcohol etilico desnaturalizado 70º antiseptico germicida",
+    "category": "antisepticos",
+    "brand": "AZ",
+    "presentation": "Frasco",
+    "options": [
+      "1000 ml",
+      "500 ml",
+      "250 ml"
+    ]
+  },
+  {
+    "name": "Alcohol etilico sin desnaturalizar 96º",
+    "category": "antisepticos",
+    "brand": "AZ",
+    "presentation": "Frasco",
+    "options": [
+      "500 ml"
+    ]
+  },
+  {
+    "name": "Alcohol 96 º etilico sin desnaturalizar",
+    "category": "antisepticos",
+    "brand": "NH",
+    "presentation": "Frasco",
+    "options": [
+      "1000 ml",
+      "500 ml"
+    ]
+  },
+  {
+    "name": "Alcohol etilico desnaturalizado 0.7/100 ml",
+    "category": "antisepticos",
+    "brand": "Protec",
+    "presentation": "Frasco",
+    "options": [
+      "1000 ml",
+      "500 ml"
+    ]
+  },
+  {
+    "name": "Dermodine espuma antiseptico",
+    "category": "antisepticos",
+    "brand": "Degasa",
+    "presentation": "Frasco-galon",
+    "options": [
+      "118 ml",
+      "950 ml",
+      "3.5 L"
+    ]
+  },
+  {
+    "name": "Dermo Cleen-CB jabón antiseptico solución",
+    "category": "antisepticos",
+    "brand": "Degasa",
+    "presentation": "Frasco-galon",
+    "options": [
+      "950 ml",
+      "4 L"
+    ]
+  },
+  {
+    "name": "Cloruro de benzalconio concentrado Dermocleen s/ fragancia",
+    "category": "antisepticos",
+    "brand": "Degasa",
+    "presentation": "Galon",
+    "options": [
+      "4 L"
+    ]
+  },
+  {
+    "name": "Agua oxigenada al 3%",
+    "category": "antisepticos",
+    "brand": "AC",
+    "presentation": "Frasco",
+    "options": [
+      "250 ml",
+      "500 ml",
+      "1000 ml"
+    ]
+  },
+  {
+    "name": "Microdacyn solución (uso tópico)",
+    "category": "antisepticos",
+    "brand": "Sanfer",
+    "presentation": "Spray o atomizador",
+    "options": [
+      "120 ml",
+      "240 ml"
+    ]
+  },
+  {
+    "name": "Dermo qrit solucion desinfectamente para instrumental QX",
+    "category": "antisepticos",
+    "brand": "Degasa",
+    "presentation": "Frasco",
+    "options": [
+      "500 ml"
+    ]
+  },
+  {
+    "name": "Solucion antiseptica de gluconato de clorhexidina al 1 %",
+    "category": "antisepticos",
+    "brand": "Protec",
+    "presentation": "Frasco",
+    "options": [
+      "500 ml"
+    ]
+  },
+  {
+    "name": "Exsept solucion antiseptica y desinfectante",
+    "category": "antisepticos",
+    "brand": "Pisa",
+    "presentation": "Frasco",
+    "options": [
+      "500 ml"
+    ]
+  },
+  {
+    "name": "Gel antibacterial olor lima-limon",
+    "category": "antisepticos",
+    "brand": "Protec",
+    "presentation": "Frasco",
+    "options": [
+      "1 L"
+    ]
+  },
+  {
+    "name": "Solvin yodopovidona",
+    "category": "antisepticos",
+    "brand": "Solar",
+    "presentation": "Frasco",
+    "options": [
+      "120 ml"
+    ]
+  },
+  {
+    "name": "Alcohol etilico 96 º",
+    "category": "antisepticos",
+    "brand": "NH",
+    "presentation": "Garrafa",
+    "options": [
+      "20 L"
+    ]
+  },
+  {
+    "name": "Agua destilada",
+    "category": "antisepticos",
+    "brand": "Tecnología",
+    "presentation": "Garrafa",
+    "options": [
+      "20 L"
+    ]
+  },
+  {
+    "name": "Formol",
+    "category": "antisepticos",
+    "brand": "Eira",
+    "presentation": "Frasco",
+    "options": [
+      "1000 ml"
+    ]
+  },
+  {
+    "name": "Jeringa 21x32 mm verde",
+    "category": "jeringas",
+    "brand": "Nipro",
+    "presentation": "Caja/100 piezas",
+    "options": [
+      "3 ml",
+      "5 ml",
+      "10 ml"
+    ]
+  },
+  {
+    "name": "Jeringa 22x32 mm negra",
+    "category": "jeringas",
+    "brand": "Nipro",
+    "presentation": "Caja con 100 piezas",
+    "options": [
+      "3 ml",
+      "5 ml",
+      "10 ml"
+    ]
+  },
+  {
+    "name": "Jeringa asepto cristal",
+    "category": "jeringas",
+    "brand": "Edigar",
+    "presentation": "Pieza",
+    "options": [
+      "120 ml",
+      "90 ml",
+      "60 ml",
+      "30 ml"
+    ]
+  },
+  {
+    "name": "Jeringa asepto desechable",
+    "category": "jeringas",
+    "brand": "AMA",
+    "presentation": "Pieza",
+    "options": [
+      "100 ml"
+    ]
+  },
+  {
+    "name": "Jeringa pera azul",
+    "category": "jeringas",
+    "brand": "Edigar",
+    "presentation": "Pieza",
+    "options": [
+      "No. 1",
+      "No. 2",
+      "No. 3",
+      "No. 4",
+      "No. 5",
+      "No. 6"
+    ]
+  },
+  {
+    "name": "Jeringa pera café",
+    "category": "jeringas",
+    "brand": "Edigar",
+    "presentation": "Pieza",
+    "options": [
+      "No. 1",
+      "No. 2",
+      "No. 3",
+      "No. 4",
+      "No. 5",
+      "No. 6"
+    ]
+  },
+  {
+    "name": "Jeringa 23x25 para tuberculina",
+    "category": "jeringas",
+    "brand": "Nipro",
+    "presentation": "Caja con 100 piezas",
+    "options": [
+      "1 ml"
+    ]
+  },
+  {
+    "name": "Baumanometro digital BP-202H",
+    "category": "diagnostico",
+    "brand": "Neutek",
+    "presentation": "Pieza"
+  },
+  {
+    "name": "Baumanometro MD1000",
+    "category": "diagnostico",
+    "brand": "Aneroide",
+    "presentation": "Pieza"
+  },
+  {
+    "name": "Electrodo ECG autoadherible monitoreo 55mm/2.1 diametro",
+    "category": "diagnostico",
+    "brand": "Ambiderm",
+    "presentation": "Bolsa con 50 piezas"
+  },
+  {
+    "name": "Jeringa 25x16 para tuberculina",
+    "category": "jeringas",
+    "brand": "Nipro",
+    "presentation": "Caja con 100 piezas",
+    "options": [
+      "1 ml"
+    ]
+  },
+  {
+    "name": "Jeringa sin aguja",
+    "category": "jeringas",
+    "brand": "Nipro",
+    "presentation": "Caja con 50 piezas",
+    "options": [
+      "5 ml",
+      "10 ml",
+      "20 ml"
+    ]
+  },
+  {
+    "name": "Jeringa 20x32 mm amarilla",
+    "category": "jeringas",
+    "brand": "Nipro",
+    "presentation": "Caja con 100 piezas",
+    "options": [
+      "3 ml",
+      "5 ml",
+      "10 ml"
+    ]
+  },
+  {
+    "name": "Jeringa 23x25 mm azul",
+    "category": "jeringas",
+    "brand": "Nipro",
+    "presentation": "Caja con 100 piezas",
+    "options": [
+      "3 ml",
+      "5 ml",
+      "10 ml"
+    ]
+  },
+  {
+    "name": "Jeringa insulina 27x13",
+    "category": "jeringas",
+    "brand": "Terumo",
+    "presentation": "Caja con 100 piezas",
+    "options": [
+      "1 ml"
+    ]
+  },
+  {
+    "name": "Kit bauma/estetos duplex 2600",
+    "category": "diagnostico",
+    "brand": "Home Care",
+    "presentation": "Kit",
+    "colors": [
+      "Verde",
+      "Morado",
+      "Negro",
+      "Rojo",
+      "Rosa",
+      "Gris"
+    ]
+  },
+  {
+    "name": "Lancetas acero inoxidable fino calibre 28 g",
+    "category": "diagnostico",
+    "brand": "Hergom",
+    "presentation": "Caja con 100 piezas"
+  },
+  {
+    "name": "Lancetas Softclix",
+    "category": "diagnostico",
+    "brand": "Accu-Chek",
+    "presentation": "Caja con 100 piezas"
+  },
+  {
+    "name": "Placa para electrocirugia electrocauterio con cable",
+    "category": "diagnostico",
+    "brand": "OBS",
+    "presentation": "Pieza"
+  },
+  {
+    "name": "Termometro economico",
+    "category": "diagnostico",
+    "brand": "Buzzle",
+    "presentation": "Pieza"
+  },
+  {
+    "name": "Jeringa (27gx13mm) insulina",
+    "category": "jeringas",
+    "brand": "Ambiderm",
+    "presentation": "Caja con 100 piezas"
+  },
+  {
+    "name": "Jeringa 20g x 32 mm amarillo",
+    "category": "jeringas",
+    "brand": "Ambiderm",
+    "presentation": "Caja con 100 piezas",
+    "options": [
+      "3 ml",
+      "5 ml",
+      "10 ml"
+    ]
+  },
+  {
+    "name": "Jeringa 21g x 32 mm verde",
+    "category": "jeringas",
+    "brand": "Ambiderm",
+    "presentation": "Caja con 100 piezas",
+    "options": [
+      "3 ml",
+      "5 ml",
+      "10 ml"
+    ]
+  },
+  {
+    "name": "Jeringa 22g x 32 mm negra",
+    "category": "jeringas",
+    "brand": "Ambiderm",
+    "presentation": "Caja con 100 piezas",
+    "options": [
+      "3 ml",
+      "5 ml",
+      "10 ml"
+    ]
+  },
+  {
+    "name": "Hoja p/bisturi surgical blades esteril hojas de acero al carbón",
+    "category": "quirurgico",
+    "brand": "Ambiderm",
+    "presentation": "Caja con 100 piezas",
+    "options": [
+      "No. 10",
+      "11",
+      "12",
+      "15",
+      "20",
+      "21",
+      "22",
+      "23",
+      "24"
+    ]
+  },
+  {
+    "name": "Hoja p/bisturi surgical blades esteril hojas de acero inoxidable",
+    "category": "quirurgico",
+    "brand": "Ambiderm",
+    "presentation": "Caja con 100 piezas",
+    "options": [
+      "No. 10",
+      "11",
+      "12",
+      "15",
+      "20",
+      "21",
+      "22",
+      "23",
+      "24"
+    ]
+  },
+  {
+    "name": "Jeringa Plastipak 22x32 negra",
+    "category": "jeringas",
+    "brand": "BD",
+    "presentation": "Caja con 100 piezas",
+    "options": [
+      "3 ml",
+      "5 ml"
+    ]
+  },
+  {
+    "name": "Jeringa Plastipak 21gx1 1/2\" verde",
+    "category": "jeringas",
+    "brand": "BD",
+    "presentation": "Caja con 100 piezas",
+    "options": [
+      "5 ml",
+      "10 ml"
+    ]
+  },
+  {
+    "name": "Jeringa 30g x 13 mm insulina",
+    "category": "jeringas",
+    "brand": "DL",
+    "presentation": "Caja con 100 piezas",
+    "options": [
+      "1 ml"
+    ]
+  },
+  {
+    "name": "Jeringa 21x32 mm verde",
+    "category": "jeringas",
+    "brand": "DL",
+    "presentation": "Caja con 100 piezas",
+    "options": [
+      "3 ml",
+      "5 ml",
+      "10 ml"
+    ]
+  },
+  {
+    "name": "Jeringa sin aguja azul",
+    "category": "jeringas",
+    "brand": "DL",
+    "presentation": "Varias presentaciones",
+    "options": [
+      "3 ml · Caja con 100 piezas",
+      "5 ml · Caja con 100 piezas",
+      "10 ml · Caja con 100 piezas",
+      "20 ml · Caja con 50 piezas"
+    ]
+  },
+  {
+    "name": "Aguja 18x25 rosa",
+    "category": "jeringas",
+    "brand": "Nipro",
+    "presentation": "Caja con 100"
+  },
+  {
+    "name": "Aguja 18x32 rosa",
+    "category": "jeringas",
+    "brand": "Nipro",
+    "presentation": "Caja con 100"
+  },
+  {
+    "name": "Aguja 18x38 rosa",
+    "category": "jeringas",
+    "brand": "Nipro",
+    "presentation": "Caja con 100"
+  },
+  {
+    "name": "Aguja 20x25 amarilla",
+    "category": "jeringas",
+    "brand": "Nipro",
+    "presentation": "Caja con 100"
+  },
+  {
+    "name": "Aguja 20x32 amarilla",
+    "category": "jeringas",
+    "brand": "Nipro",
+    "presentation": "Caja con 100"
+  },
+  {
+    "name": "Aguja 21x32 verde",
+    "category": "jeringas",
+    "brand": "Nipro",
+    "presentation": "Caja con 100"
+  },
+  {
+    "name": "Aguja 22x32 negra",
+    "category": "jeringas",
+    "brand": "Nipro",
+    "presentation": "Caja con 100"
+  },
+  {
+    "name": "Aguja 23x25 azul",
+    "category": "jeringas",
+    "brand": "Nipro",
+    "presentation": "Caja con 100"
+  },
+  {
+    "name": "Aguja 25x16 naranja",
+    "category": "jeringas",
+    "brand": "Nipro",
+    "presentation": "Caja con 100"
+  },
+  {
+    "name": "Aguja nipro 25x38 naranja",
+    "category": "jeringas",
+    "brand": "Nipro",
+    "presentation": "Caja con 100"
+  },
+  {
+    "name": "Aguja 30x13 amarilla",
+    "category": "jeringas",
+    "brand": "Nipro",
+    "presentation": "Caja con 100"
+  },
+  {
+    "name": "Aguja Plastipak 21x30 verde",
+    "category": "jeringas",
+    "brand": "BD",
+    "presentation": "Caja con 100"
+  },
+  {
+    "name": "Aguja Plastipak 23x25 azul",
+    "category": "jeringas",
+    "brand": "BD",
+    "presentation": "Caja con 100"
+  },
+  {
+    "name": "Aguja Plastipak 27x13 gris",
+    "category": "jeringas",
+    "brand": "BD",
+    "presentation": "Caja con 100"
+  },
+  {
+    "name": "Agujas hipodermicas 21g x32mm verde",
+    "category": "jeringas",
+    "brand": "DL",
+    "presentation": "Caja con 100"
+  },
+  {
+    "name": "Agujas hipodermicas 27g x13 mm negra",
+    "category": "jeringas",
+    "brand": "DL",
+    "presentation": "Caja con 100"
+  },
+  {
+    "name": "Agujas hipodermicas 20g x38 mm amarilla",
+    "category": "jeringas",
+    "brand": "DL",
+    "presentation": "Caja con 100"
+  },
+  {
+    "name": "Aguja Whitacre 25x4 11/16",
+    "category": "jeringas",
+    "brand": "BD",
+    "presentation": "Pieza"
+  },
+  {
+    "name": "Aguja Whitacre 27gx4 11/6 Ultratec",
+    "category": "jeringas",
+    "brand": "Ultratec",
+    "presentation": "Pieza"
+  },
+  {
+    "name": "Aguja Whitacre 27x4 11/16",
+    "category": "jeringas",
+    "brand": "BD",
+    "presentation": "Pieza"
+  }
+]

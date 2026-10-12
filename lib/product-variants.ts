@@ -34,7 +34,10 @@ export function productVariantsToStorage(product: Product) {
   return product.sizes ?? null;
 }
 
-export function readInventoryVariants(value: unknown): ProductVariant[] | undefined {
+export function readInventoryVariants(
+  value: unknown,
+  options?: Pick<Product, "sizes" | "colors">
+): ProductVariant[] | undefined {
   if (!Array.isArray(value)) return undefined;
 
   const variants = value.flatMap((item) => {
@@ -42,12 +45,18 @@ export function readInventoryVariants(value: unknown): ProductVariant[] | undefi
     const row = item as { color?: unknown; size?: unknown; stock_quantity?: unknown; stockQuantity?: unknown; image?: unknown };
     const stockQuantity = Number(row.stock_quantity ?? row.stockQuantity);
     if (!Number.isFinite(stockQuantity)) return [];
-    return [{
+    const result = {
       color: typeof row.color === "string" ? row.color : "",
       size: typeof row.size === "string" ? row.size : "",
       stockQuantity: Math.max(0, Math.floor(stockQuantity)),
       image: typeof row.image === "string" && row.image.trim() ? row.image : undefined,
-    }];
+    };
+    if (options) {
+      const validSize = options.sizes?.length ? options.sizes.includes(result.size) : !result.size;
+      const validColor = options.colors?.length ? options.colors.includes(result.color) : !result.color;
+      if (!validSize || !validColor) return [];
+    }
+    return [result];
   });
 
   return variants.length ? variants : undefined;
@@ -75,4 +84,11 @@ export function getVariantImage(product: Product, size?: string | null, color?: 
     return variants.find((variant) => variant.size === selectedSize && variant.image)?.image;
   }
   return undefined;
+}
+
+export function getProductOptionLabel(product: Product): string {
+  if (product.category === "guantes") return "Talla";
+  if (product.category === "curacion") return "Medida / presentación";
+  if (product.category === "quirurgico" && product.sizes?.every((value) => /^(?:no\.\s*)?\d+/i.test(value))) return "Número";
+  return "Presentación";
 }

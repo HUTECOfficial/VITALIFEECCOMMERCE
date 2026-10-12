@@ -164,7 +164,7 @@ export async function POST(request: NextRequest) {
           price_data: {
             currency: "mxn",
             product_data: {
-              name: item.name + ([item.color && `Color: ${item.color}`, item.size && `Talla: ${item.size}`].filter(Boolean).length ? ` (${[item.color && `Color: ${item.color}`, item.size && `Talla: ${item.size}`].filter(Boolean).join(" · ")})` : ""),
+              name: item.name + ([item.color && `Color: ${item.color}`, item.size && `Presentación: ${item.size}`].filter(Boolean).length ? ` (${[item.color && `Color: ${item.color}`, item.size && `Presentación: ${item.size}`].filter(Boolean).join(" · ")})` : ""),
             },
             unit_amount: Math.round(item.price * 100),
           },

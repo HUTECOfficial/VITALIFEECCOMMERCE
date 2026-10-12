@@ -4,6 +4,7 @@ import productImageOverrides from "@/data/product-image-overrides.json";
 import { categoryImageById } from "@/data/visualAssets";
 import type { Product } from "@/types";
 import { normalizeProductName, standardizeProductDescription } from "@/lib/product-copy";
+import { getProductNameParts } from "@/lib/product-name";
 
 type InventoryRecord = {
   "Clave de artículo ": string;
@@ -163,6 +164,7 @@ const groupedProducts: Product[] = [...variantsByBase.entries()]
     const baseName = getVariant(first["Descripción del producto  "])?.baseName ?? first["Descripción del producto  "];
     const isIdealBandage = baseName === "VENDA ELASTICA IDEAL";
     const name = isIdealBandage ? "Venda elástica Ideal" : normalizeProductName(baseName);
+    const productName = getProductNameParts(first["Descripción del producto  "]);
     const category = getCategory(name);
     const slug = `${slugify(name)}-${slugify(first["Clave de artículo "])}`;
     const variants = group
@@ -194,8 +196,8 @@ const groupedProducts: Product[] = [...variantsByBase.entries()]
       sizes,
       colors: [...new Set(group.flatMap((record) => getVariant(record["Descripción del producto  "])?.colors ?? []))],
       variants,
-      brand: isIdealBandage ? "Le Roy" : undefined,
-      presentation: isIdealBandage ? "Rollo de 5 m" : undefined,
+      brand: isIdealBandage ? "Le Roy" : productName.brand ?? undefined,
+      presentation: isIdealBandage ? "Rollo de 5 m" : productName.presentation ?? undefined,
       quoteOnly: true,
     };
   });
@@ -204,6 +206,7 @@ const individualProducts: Product[] = records
   .filter((record) => !groupedNames.has(record["Descripción del producto  "]))
   .map((record) => {
     const sourceName = record["Descripción del producto  "];
+    const productName = getProductNameParts(sourceName);
     const category = getCategory(sourceName);
     const name = getDisplayName(record);
     const slug = `${slugify(sourceName)}-${slugify(record["Clave de artículo "])}`;
@@ -218,6 +221,8 @@ const individualProducts: Product[] = records
       inStock: record["existencia real"] > 0,
       stockQuantity: Math.max(0, record["existencia real"]),
       quoteOnly: true,
+      brand: productName.brand ?? undefined,
+      presentation: productName.presentation ?? undefined,
     };
   });
 

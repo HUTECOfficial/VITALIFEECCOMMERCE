@@ -1,5 +1,5 @@
 import { nursingServices } from "@/data/nursingServices";
-import { homeHeroImage, nosotrosHeroImage, nursingServiceImageById } from "@/data/visualAssets";
+import { categoryImageById, homeHeroImage, nosotrosHeroImage, nursingServiceImageById } from "@/data/visualAssets";
 
 export const siteContentPages = ["homepage", "insumos", "nosotros", "enfermeria", "contacto"] as const;
 
@@ -144,6 +144,25 @@ export const siteContentDefinitions: Record<SiteContentPage, SiteContentPageDefi
           title: text("Título", "Insumos Médicos"),
           description: textarea("Descripción", "Distribuidores autorizados de las mejores marcas médicas en México. Todos los productos disponibles para compra directa con carrito."),
           searchPlaceholder: text("Texto del buscador", "Buscar marca, producto o categoría..."),
+        },
+      },
+      categoryImages: {
+        label: "Imágenes de categorías",
+        fields: {
+          guantes: image("Guantes (destacada)", categoryImageById.guantes),
+          curacion: image("Curación, apósitos y vendajes", categoryImageById.curacion),
+          antisepticos: image("Antisépticos y control de infecciones", categoryImageById.antisepticos),
+          jeringas: image("Agujas, jeringas y punción", categoryImageById.jeringas),
+          "terapia-iv": image("Terapia intravenosa y soluciones", categoryImageById["terapia-iv"]),
+          "sondas-cateteres": image("Sondas, catéteres y drenajes", categoryImageById["sondas-cateteres"]),
+          respiratorio: image("Terapia respiratoria y ventilación", categoryImageById.respiratorio),
+          diagnostico: image("Diagnóstico y monitoreo", categoryImageById.diagnostico),
+          quirurgico: image("Equipo e instrumental quirúrgico", categoryImageById.quirurgico),
+          rehabilitacion: image("Rehabilitación y ortopedia", categoryImageById.rehabilitacion),
+          medicamentos: image("Medicamentos", categoryImageById.medicamentos),
+          "proteccion-desechables": image("Protección y desechables", categoryImageById["proteccion-desechables"]),
+          residuos: image("Gestión de residuos", categoryImageById.residuos),
+          "atencion-paciente": image("Atención al paciente", categoryImageById["atencion-paciente"]),
         },
       },
       quickShop: {
