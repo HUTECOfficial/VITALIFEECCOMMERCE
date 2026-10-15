@@ -1,5 +1,4 @@
 import reconciliationData from "@/data/catalog-reconciliation.json";
-import inventoryData from "@/productos_extraidos.json";
 import type { Product, ProductVariant } from "@/types";
 
 type Source = {
@@ -27,56 +26,15 @@ type ReconciliationGroup = {
   hiddenSlugs?: string[];
 };
 
-type InventoryRecord = {
-  "Clave de artículo ": string;
-  "Descripción del producto  ": string;
-};
-
-function slugify(value: string) {
-  return value
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "")
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/(^-|-$)/g, "");
-}
-
-function inventorySlug(record: InventoryRecord) {
-  return `${slugify(record["Descripción del producto  "])}-${slugify(record["Clave de artículo "])}`;
-}
-
 const groups = reconciliationData as ReconciliationGroup[];
-const canonicalSlugs = new Set(groups.map((group) => group.canonicalSlug));
-const inventoryByCode = new Map(
-  (inventoryData as InventoryRecord[]).map((record) => [String(record["Clave de artículo "]).trim(), record])
-);
-const aliasEntries: Array<[string, string]> = [];
-
-for (const group of groups) {
-  const candidates = [
-    group.catalogSlug,
-    ...(group.sources?.map((source) => source.slug) ?? []),
-    ...(group.variantSources?.map((source) => source.slug) ?? []),
-    ...(group.hiddenSlugs ?? []),
-    ...(group.inventoryCodes?.flatMap((code) => {
-      const record = inventoryByCode.get(code);
-      return record ? [inventorySlug(record)] : [];
-    }) ?? []),
-  ];
-  for (const slug of candidates) {
-    if (slug !== group.canonicalSlug && !canonicalSlugs.has(slug)) aliasEntries.push([slug, group.canonicalSlug]);
-  }
-}
-
-const canonicalByHiddenSlug = new Map(aliasEntries);
-const hiddenSlugs = new Set(canonicalByHiddenSlug.keys());
 
 export function getCanonicalCatalogSlug(slug: string) {
-  return canonicalByHiddenSlug.get(slug) ?? slug;
+  return slug;
 }
 
 export function isCatalogProductVisibleSlug(slug: string) {
-  return !hiddenSlugs.has(slug);
+  void slug;
+  return true;
 }
 
 function variantKey(variant: Pick<ProductVariant, "color" | "size">) {

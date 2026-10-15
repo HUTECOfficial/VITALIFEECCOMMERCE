@@ -660,21 +660,21 @@ function CategoryGrid({ activeCategory, onCategoryClick, categoryImages }: Categ
             style={{ minHeight: 420 }}
           >
             <Image src={imageFor(FEATURED)} alt={categoryLabels[FEATURED]} fill sizes="(max-width: 768px) 100vw, 25vw" className="object-cover group-hover:scale-105 transition-transform duration-500" />
-            <div className="absolute inset-0 bg-gradient-to-t from-[#1a3a6b]/90 via-[#1a3a6b]/35 to-transparent" />
+            <div className="absolute inset-x-0 bottom-0 h-3/5 bg-gradient-to-t from-[#1a3a6b]/90 via-[#1a3a6b]/50 to-transparent" />
             <div className="absolute top-4 left-4">
               <span className="inline-flex items-center gap-1.5 bg-yellow-400 text-[#1a3a6b] text-xs font-black px-3 py-1.5 rounded-full shadow-lg">
                 <Award className="w-3.5 h-3.5" /> Destacado
               </span>
             </div>
-            <div className="absolute bottom-0 left-0 right-0 p-6">
-              <div className="flex items-center gap-3 mb-2">
+            <div className="absolute bottom-0 left-0 right-0 p-6 text-center">
+              <div className="flex items-center justify-center gap-3 mb-2">
                 <div className="w-10 h-10 rounded-xl bg-white/20 backdrop-blur-sm flex items-center justify-center border border-white/30">
                   <Hand className="w-5 h-5 text-white" />
                 </div>
                 <h3 className="text-3xl font-black text-white">Guantes</h3>
               </div>
               <p className="text-white/80 text-sm mb-4 leading-relaxed">Guantes estériles y no estériles de la más alta calidad.</p>
-              <div className="flex flex-wrap gap-2 mb-5">
+              <div className="flex flex-wrap justify-center gap-2 mb-5">
                 {getBrandsByCategory("Guantes").map((brand) => (
                   <span key={brand.id} className="bg-white/20 backdrop-blur-sm text-white text-xs font-bold px-2.5 py-1 rounded-lg border border-white/30 uppercase tracking-wide">
                     {brand.name}
@@ -733,10 +733,10 @@ function RegularCard({ cat, config, active, onClick, delay }: CardProps) {
   return (
     <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay }}
       onClick={onClick}
-      className={`relative rounded-2xl overflow-hidden bg-white cursor-pointer group border-2 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg ${
+      className={`relative flex flex-col rounded-2xl overflow-hidden bg-white cursor-pointer group border-2 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg ${
         active ? "border-[#2eb8d4] shadow-lg shadow-[#2eb8d4]/25" : "border-transparent hover:border-[#2eb8d4]/40"
       }`}
-      style={{ minHeight: 155 }}>
+      style={{ minHeight: 210 }}>
       <Image
         src={config.img}
         alt={categoryLabels[cat]}
@@ -744,14 +744,13 @@ function RegularCard({ cat, config, active, onClick, delay }: CardProps) {
         sizes="(max-width: 768px) 100vw, 25vw"
         className="object-cover transition-transform duration-500 group-hover:scale-105"
       />
-      <div className="absolute inset-0 bg-gradient-to-r from-white/95 via-white/80 to-white/10" />
-      <div className="absolute inset-0 bg-gradient-to-t from-[#dceeff]/45 via-transparent to-transparent" />
-      <div className="relative z-10 p-4">
-        <div className={`w-10 h-10 rounded-xl ${config.iconBg} flex items-center justify-center mb-3`}>
-          <Icon className={`w-5 h-5 ${config.iconColor}`} />
+      <div className="absolute inset-x-0 bottom-0 h-[65%] bg-gradient-to-t from-white/95 via-white/75 to-transparent" />
+      <div className="relative z-10 flex flex-1 flex-col items-center justify-end p-4 text-center">
+        <div className={`w-9 h-9 rounded-xl ${config.iconBg} flex items-center justify-center mb-2 shadow-sm`}>
+          <Icon className={`w-[18px] h-[18px] ${config.iconColor}`} />
         </div>
         <h3 className="font-black text-[#1a3a6b] text-base leading-tight mb-1">{categoryLabels[cat]}</h3>
-        <p className="text-[#1a3a6b]/65 text-xs leading-relaxed mb-3 max-w-[66%]">{config.desc}</p>
+        <p className="text-[#1a3a6b]/70 text-xs leading-relaxed mb-2 line-clamp-2">{config.desc}</p>
         <span className="inline-flex items-center text-[#2eb8d4] text-xs font-bold gap-1 group-hover:gap-2 transition-all duration-200">
           Ver productos →
         </span>
@@ -766,9 +765,10 @@ function CompactCard({ cat, config, active, onClick, delay }: CardProps) {
   return (
     <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay }}
       onClick={onClick}
-      className={`relative rounded-2xl overflow-hidden bg-gradient-to-br from-[#1a3a6b] via-[#174f82] to-[#2eb8d4] cursor-pointer group border-2 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg ${
+      className={`relative flex flex-col rounded-2xl overflow-hidden bg-gradient-to-br from-[#1a3a6b] via-[#174f82] to-[#2eb8d4] cursor-pointer group border-2 transition-all duration-300 hover:-translate-y-0.5 hover:shadow-lg ${
         active ? "border-[#7ee8f2] shadow-lg shadow-[#2eb8d4]/35" : "border-white/15 hover:border-white/50"
-      }`}>
+      }`}
+      style={{ minHeight: 160 }}>
       <Image
         src={config.img}
         alt={categoryLabels[cat]}
@@ -776,8 +776,8 @@ function CompactCard({ cat, config, active, onClick, delay }: CardProps) {
         sizes="(max-width: 640px) 50vw, (max-width: 1024px) 33vw, 16vw"
         className="object-cover transition-transform duration-500 group-hover:scale-105"
       />
-      <div className="absolute inset-0 bg-gradient-to-br from-[#071a3d]/92 via-[#174f82]/78 to-[#2eb8d4]/40" />
-      <div className="relative z-10 p-4">
+      <div className="absolute inset-x-0 bottom-0 h-3/4 bg-gradient-to-t from-[#071a3d]/90 via-[#174f82]/60 to-transparent" />
+      <div className="relative z-10 flex flex-1 flex-col items-center justify-end p-4 text-center">
         <div className="mb-2 flex h-9 w-9 items-center justify-center rounded-xl border border-white/20 bg-white/15 backdrop-blur-sm">
           <Icon className="h-4 w-4 text-white" />
         </div>
