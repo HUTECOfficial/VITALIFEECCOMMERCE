@@ -33,38 +33,6 @@ export function generateLogoImage(width: number, height: number) {
   );
 }
 
-export function generateFaviconImage(width: number, height: number) {
-  const dataUrl = getLogoDataUrl();
-
-  return new ImageResponse(
-    (
-      <div
-        style={{
-          width: "100%",
-          height: "100%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          overflow: "hidden",
-          background: "#ffffff",
-        }}
-      >
-        <img
-          src={dataUrl}
-          alt="Vital Life"
-          style={{
-            width: "240%",
-            height: "240%",
-            flexShrink: 0,
-            objectFit: "contain",
-          }}
-        />
-      </div>
-    ),
-    { width, height }
-  );
-}
-
 function getLogoDataUrl() {
   const logo = readFileSync(join(process.cwd(), "public", "vitalife-logo.png"));
   return `data:image/png;base64,${logo.toString("base64")}`;
