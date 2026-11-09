@@ -34,7 +34,7 @@ function mapRowToProduct(row: ProductRow): Product {
     name: normalizeProductName(row.name),
     slug: row.slug,
     category: row.category,
-    price: row.price ?? 0,
+    price: Number(row.price ?? 0),
     description: standardizeProductDescription(row.description, row.category, row.quote_only ?? false),
     image: row.image ?? "",
     inStock: row.in_stock ?? false,

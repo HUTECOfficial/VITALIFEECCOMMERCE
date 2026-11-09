@@ -130,6 +130,15 @@ export function productResponse(row: Record<string, unknown>, product: Omit<Prod
   };
 }
 
+export function productSaveErrorMessage(error: { code?: string; message?: string }, fallback: string) {
+  if (error.code === "23505") return "Ya existe un producto con ese slug.";
+  // 22P02: la columna price sigue siendo entera y no acepta centavos.
+  if (error.code === "22P02" && error.message?.includes("integer")) {
+    return "El precio tiene centavos y la base de datos aún no los acepta. Aplica la migración 013_product_price_decimals.sql en Supabase o usa un precio sin centavos.";
+  }
+  return fallback;
+}
+
 export async function GET(request: NextRequest) {
   if (!isAdminRequest(request)) return NextResponse.json({ error: "No autorizado" }, { status: 401 });
   const supabase = createServerClient();
@@ -146,8 +155,8 @@ export async function POST(request: NextRequest) {
   const supabase = createServerClient();
   const { data, error } = await supabase.from("products").insert(productToRow({ ...product, id: "" })).select().single();
   if (error) {
-    const message = error.code === "23505" ? "Ya existe un producto con ese slug." : "No se pudo crear el producto.";
-    return NextResponse.json({ error: message }, { status: 400 });
+    console.error("Error creando producto:", error);
+    return NextResponse.json({ error: productSaveErrorMessage(error, "No se pudo crear el producto.") }, { status: 400 });
   }
   try {
     await replaceProductVariants(supabase, data.id, product.variants);

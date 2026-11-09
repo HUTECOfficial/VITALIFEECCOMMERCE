@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { isAdminRequest } from "@/lib/admin-auth";
 import { createServerClient } from "@/lib/supabase/server";
 import { productToRow } from "@/lib/admin-products";
-import { parseProductInput, productResponse, replaceProductVariants } from "@/app/api/admin/products/route";
+import { parseProductInput, productResponse, productSaveErrorMessage, replaceProductVariants } from "@/app/api/admin/products/route";
 
 type Context = { params: Promise<{ id: string }> };
 
@@ -14,8 +14,8 @@ export async function PATCH(request: NextRequest, { params }: Context) {
   const supabase = createServerClient();
   const { data, error } = await supabase.from("products").update(productToRow({ ...product, id })).eq("id", id).select().single();
   if (error) {
-    const message = error.code === "23505" ? "Ya existe un producto con ese slug." : "No se pudo actualizar el producto.";
-    return NextResponse.json({ error: message }, { status: 400 });
+    console.error("Error actualizando producto:", id, error);
+    return NextResponse.json({ error: productSaveErrorMessage(error, "No se pudo actualizar el producto.") }, { status: 400 });
   }
   try {
     await replaceProductVariants(supabase, id, product.variants);
