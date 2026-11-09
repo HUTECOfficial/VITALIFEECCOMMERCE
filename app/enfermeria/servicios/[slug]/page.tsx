@@ -21,8 +21,9 @@ export async function generateMetadata({ params }: ServicePageProps): Promise<Me
   const content = await getSiteContent("enfermeria");
   const section = content[service.section];
   return {
-    title: `${String(section.title)} | Vital Life`,
+    title: `${String(section.title)} en León, Guanajuato`,
     description: String(section.description),
+    alternates: { canonical: `/enfermeria/servicios/${slug}` },
   };
 }
 

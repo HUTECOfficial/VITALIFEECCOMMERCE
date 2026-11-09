@@ -6,6 +6,8 @@ import { getProductBySlug } from "@/lib/data";
 import { getProductNameParts } from "@/lib/product-name";
 import { ProductDetailClient } from "@/components/ui/ProductDetailClient";
 import { productGalleryImages } from "@/data/productGallery";
+import JsonLd from "@/components/seo/JsonLd";
+import { productDescription, productJsonLd } from "@/lib/seo";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -14,11 +16,21 @@ interface PageProps {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const product = await getProductBySlug(slug);
-  if (!product) return { title: "Producto no encontrado | Vital Life" };
+  if (!product) return { title: "Producto no encontrado", robots: { index: false } };
   const productName = getProductNameParts(product.name, product.brand);
+  const title = [productName.title, productName.brand].filter(Boolean).join(" ");
+  const description = productDescription(product);
+  const path = `/productos/${product.slug}`;
   return {
-    title: `${productName.title} | Vital Life`,
-    description: product.description,
+    title,
+    description,
+    alternates: { canonical: path },
+    openGraph: {
+      title: `${title} | Vital Life Insumos Médicos`,
+      description,
+      url: path,
+      images: product.image ? [{ url: product.image, alt: product.name }] : undefined,
+    },
   };
 }
 
@@ -28,6 +40,7 @@ export default async function ProductPage({ params }: PageProps) {
   if (!product) notFound();
   return (
     <div className="min-h-screen pt-24 pb-16 hero-gradient">
+      <JsonLd data={productJsonLd(product)} />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         <Link
           href="/insumos"

@@ -9,6 +9,7 @@ import { getSiteContent } from "@/lib/site-content";
 export const metadata: Metadata = {
   title: "Nosotros",
   description: "Conoce al equipo profesional de Vital Life Insumos Médicos en León, Guanajuato.",
+  alternates: { canonical: "/nosotros" },
 };
 
 const teamValues = [

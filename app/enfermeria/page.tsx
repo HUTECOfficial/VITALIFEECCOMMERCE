@@ -12,9 +12,10 @@ import { nursingServices } from "@/data/nursingServices";
 import { getSiteContent } from "@/lib/site-content";
 
 export const metadata: Metadata = {
-  title: "Enfermería y Fisioterapia",
+  title: "Enfermería a Domicilio y Fisioterapia en León",
   description:
-    "Servicios de enfermería domiciliaria y fisioterapia en León, Guanajuato. Atención personalizada a domicilio.",
+    "Servicios de enfermería domiciliaria y fisioterapia en León, Guanajuato: curación de heridas, cuidado personalizado, rehabilitación física y renta de equipo médico.",
+  alternates: { canonical: "/enfermeria" },
 };
 
 const serviceVisuals = [
