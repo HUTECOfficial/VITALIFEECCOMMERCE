@@ -1,7 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import { getStripe } from "@/lib/stripe";
 import { createServerClient } from "@/lib/supabase/server";
-import { calculateCheckoutTotals, STRIPE_MINIMUM_ORDER_MXN } from "@/lib/checkout";
+import { calculateCheckoutTotals, roundCurrency, STRIPE_MINIMUM_ORDER_MXN } from "@/lib/checkout";
+import { quoteShipping, ShippingError } from "@/lib/envia";
 
 interface CheckoutItem {
   productId?: string;
@@ -20,6 +21,7 @@ interface CheckoutPayload {
   city: string;
   cp: string;
   phone: string;
+  shippingOptionId: string;
   items: CheckoutItem[];
 }
 
@@ -106,23 +108,60 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    const { data: order, error: orderError } = await supabase
+    // El precio del envío se vuelve a cotizar aquí para no confiar en el que manda el navegador.
+    let shippingQuote;
+    try {
+      shippingQuote = await quoteShipping({ cp: body.cp, city: body.city, colonia: body.colonia });
+    } catch (err) {
+      if (err instanceof ShippingError) {
+        return NextResponse.json({ error: err.message }, { status: 400 });
+      }
+      throw err;
+    }
+    const shipping = shippingQuote.options.find((option) => option.id === body.shippingOptionId);
+    if (!shipping) {
+      return NextResponse.json(
+        { error: "La tarifa de envío seleccionada ya no está disponible. Elige otra opción de envío." },
+        { status: 409 }
+      );
+    }
+    const shippingLabel = `${shipping.serviceName} (${shipping.deliveryEstimate})`;
+    const orderTotal = roundCurrency(totals.total + shipping.price);
+
+    const orderFields = {
+      first_name: body.firstName,
+      last_name: body.lastName,
+      address: body.address,
+      colonia: body.colonia,
+      city: body.city,
+      cp: body.cp,
+      phone: body.phone,
+      subtotal: totals.subtotal,
+      iva: totals.iva,
+      total: orderTotal,
+      status: "pending",
+    };
+    let { data: order, error: orderError } = await supabase
       .from("orders")
       .insert({
-        first_name: body.firstName,
-        last_name: body.lastName,
-        address: body.address,
-        colonia: body.colonia,
-        city: body.city,
-        cp: body.cp,
-        phone: body.phone,
-        subtotal: totals.subtotal,
-        iva: totals.iva,
-        total: totals.total,
-        status: "pending",
+        ...orderFields,
+        state: shippingQuote.location.stateName,
+        shipping_carrier: shipping.carrier,
+        shipping_service: shipping.service,
+        shipping_description: shippingLabel,
+        shipping_cost: shipping.price,
       })
       .select("id")
       .single();
+    if (orderError?.code === "PGRST204") {
+      // Mantiene el checkout funcionando mientras no se aplique la migración 011_order_shipping.sql.
+      console.warn("Faltan columnas de envío en orders; guardando pedido sin ellas.", orderError.message);
+      ({ data: order, error: orderError } = await supabase
+        .from("orders")
+        .insert(orderFields)
+        .select("id")
+        .single());
+    }
 
     if (orderError || !order) {
       console.error("Error creando orden:", orderError);
@@ -180,11 +219,20 @@ export async function POST(request: NextRequest) {
               quantity: 1,
             }]
           : []),
+        {
+          price_data: {
+            currency: "mxn",
+            product_data: { name: `Envío: ${shippingLabel}` },
+            unit_amount: Math.round(shipping.price * 100),
+          },
+          quantity: 1,
+        },
       ],
       metadata: {
         order_id: order.id,
         customer_name: `${body.firstName} ${body.lastName}`,
         phone: body.phone,
+        shipping: shipping.id,
       },
       success_url: `${origin}/checkout/success?order=${order.id}`,
       cancel_url: `${origin}/checkout/cancelled?order=${order.id}`,
