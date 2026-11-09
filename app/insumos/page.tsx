@@ -10,7 +10,7 @@ import {
   Hand, Wind, Droplets, Bandage, TestTube, Stethoscope,
   Dumbbell, Package2, Scissors, Syringe, Pill, Trash2,
   Shield, ShieldCheck, Award, Truck, UserCheck, ShoppingCart, ArrowRight,
-  Search, X,
+  Search, X, ChevronLeft, ChevronRight,
 } from "lucide-react";
 import { brands, getBrandsByCategory, getTotalProducts } from "@/data/brands";
 import { categoryLabels, products as localProducts } from "@/data/products";
@@ -270,7 +270,7 @@ function InsumosContent() {
   const quickShopDescription = String(quickShop.description);
   const quickShopCartButtonLabel = String(quickShop.cartButtonLabel);
   const productLimitValue = Number(quickShop.productLimit);
-  const productLimit = Number.isFinite(productLimitValue)
+  const productsPerPage = Number.isFinite(productLimitValue)
     ? Math.min(24, Math.max(1, Math.trunc(productLimitValue)))
     : 12;
   const [search, setSearch] = useState("");
@@ -331,7 +331,16 @@ function InsumosContent() {
       .catch(() => undefined);
   }, []);
 
-  const quickProducts = useMemo(() => allProducts.filter((p) => p.inStock).slice(0, productLimit), [allProducts, productLimit]);
+  // Sin búsqueda se muestra el catálogo completo por páginas; primero lo que tiene existencia.
+  const catalogProducts = useMemo(
+    () => [...allProducts].sort((left, right) => Number(right.inStock) - Number(left.inStock)),
+    [allProducts]
+  );
+  const catalogPageCount = Math.max(1, Math.ceil(catalogProducts.length / productsPerPage));
+  const requestedCatalogPage = Number.parseInt(searchParams.get("page") ?? "", 10);
+  const catalogPage = Number.isFinite(requestedCatalogPage) ? Math.min(Math.max(requestedCatalogPage, 1), catalogPageCount) : 1;
+  const catalogPageStart = (catalogPage - 1) * productsPerPage;
+  const quickProducts = catalogProducts.slice(catalogPageStart, catalogPageStart + productsPerPage);
 
   const categoryProducts = useMemo(() => {
     if (!activeCategory) return [];
@@ -404,6 +413,12 @@ function InsumosContent() {
       () => brandsRef.current?.scrollIntoView({ behavior: "smooth", block: "start" }),
       120
     );
+  }
+
+  function goToCatalogPage(page: number) {
+    // La página queda en la URL para que "Atrás" desde un producto regrese al mismo punto.
+    window.history.replaceState(null, "", page > 1 ? `/insumos?page=${page}` : "/insumos");
+    document.getElementById("catalogo-productos")?.scrollIntoView({ behavior: "smooth", block: "start" });
   }
 
   function clearFilters() {
@@ -558,6 +573,11 @@ function InsumosContent() {
                   <p className="text-[#2eb8d4] font-bold text-xs uppercase tracking-[0.2em] mb-2">{quickShopEyebrow}</p>
                   <h2 className="text-2xl sm:text-3xl font-black text-[#1a3a6b]">{quickShopTitle}</h2>
                   <p className="text-[#1a3a6b]/60 text-sm mt-1">{quickShopDescription}</p>
+                  {catalogProducts.length > 0 && (
+                    <p className="text-[#1a3a6b]/50 text-xs font-semibold mt-2">
+                      Mostrando {catalogPageStart + 1}–{catalogPageStart + quickProducts.length} de {catalogProducts.length} productos
+                    </p>
+                  )}
                 </div>
                 <Link
                   href="/carrito"
@@ -601,6 +621,7 @@ function InsumosContent() {
                   </motion.article>
                 ))}
               </div>
+              <CatalogPagination page={catalogPage} pageCount={catalogPageCount} onPageChange={goToCatalogPage} />
             </div>
           </section>
             </>
@@ -788,6 +809,56 @@ function CompactCard({ cat, config, active, onClick, delay }: CardProps) {
       </div>
       {active && <div className="absolute top-2 right-2 h-2 w-2 animate-pulse rounded-full bg-white shadow-[0_0_10px_white]" />}
     </motion.div>
+  );
+}
+
+// Páginas visibles: primera, última y las vecinas de la actual; el resto se resume con "…".
+function getVisiblePages(page: number, pageCount: number): (number | "gap")[] {
+  const pages = new Set([1, pageCount, page - 1, page, page + 1].filter((value) => value >= 1 && value <= pageCount));
+  const sorted = [...pages].sort((a, b) => a - b);
+  return sorted.flatMap((value, index) => (index > 0 && value - sorted[index - 1] > 1 ? ["gap" as const, value] : [value]));
+}
+
+function CatalogPagination({ page, pageCount, onPageChange }: { page: number; pageCount: number; onPageChange: (page: number) => void }) {
+  if (pageCount <= 1) return null;
+  const buttonClass = "inline-flex h-10 min-w-10 items-center justify-center rounded-xl px-3 text-sm font-bold transition-colors";
+  return (
+    <nav aria-label="Páginas del catálogo" className="mt-8 flex flex-wrap items-center justify-center gap-1.5">
+      <button
+        type="button"
+        onClick={() => onPageChange(page - 1)}
+        disabled={page === 1}
+        className={`${buttonClass} gap-1 border border-[#1a3a6b]/15 text-[#1a3a6b] hover:bg-[#e8f4fd] disabled:pointer-events-none disabled:opacity-40`}
+      >
+        <ChevronLeft className="h-4 w-4" />
+        <span className="hidden sm:inline">Anterior</span>
+      </button>
+      {getVisiblePages(page, pageCount).map((value, index) =>
+        value === "gap" ? (
+          <span key={`gap-${index}`} className="px-1 text-sm text-[#1a3a6b]/40">…</span>
+        ) : (
+          <button
+            key={value}
+            type="button"
+            onClick={() => onPageChange(value)}
+            aria-current={value === page ? "page" : undefined}
+            aria-label={`Página ${value}`}
+            className={`${buttonClass} ${value === page ? "bg-[#1a3a6b] text-white" : "text-[#1a3a6b] hover:bg-[#e8f4fd]"}`}
+          >
+            {value}
+          </button>
+        )
+      )}
+      <button
+        type="button"
+        onClick={() => onPageChange(page + 1)}
+        disabled={page === pageCount}
+        className={`${buttonClass} gap-1 border border-[#1a3a6b]/15 text-[#1a3a6b] hover:bg-[#e8f4fd] disabled:pointer-events-none disabled:opacity-40`}
+      >
+        <span className="hidden sm:inline">Siguiente</span>
+        <ChevronRight className="h-4 w-4" />
+      </button>
+    </nav>
   );
 }
 

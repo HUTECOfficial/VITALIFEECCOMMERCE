@@ -173,7 +173,7 @@ export const siteContentDefinitions: Record<SiteContentPage, SiteContentPageDefi
           title: text("Título", "Agrega al carrito en un clic"),
           description: textarea("Descripción", "Experiencia optimizada para móvil y desktop."),
           cartButtonLabel: text("Texto del botón", "Ver carrito", 80),
-          productLimit: number("Cantidad de productos", 12, 1, 24),
+          productLimit: number("Productos por página", 12, 1, 24),
         },
       },
     },
